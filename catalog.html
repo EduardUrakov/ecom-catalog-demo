@@ -1,0 +1,4290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-brand="default">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catalog — Unified Product Card System</title>
+  <meta name="description"
+    content="Ready English catalogue for the 20-storefront commerce core: four departments, sixteen subsections and one unified product card that covers retail, marketplace, handmade, B2B wholesale and pre-order.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Catalog — Unified Product Card System">
+  <meta property="og:description"
+    content="Catalogue → departments → subsections → cards. One card component, five content modes, all storefront brands via tokens.">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234F7CFF'/%3E%3Cpath d='M9 22V11l7 5 7-5v11' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       TOKENS
+       Card styles never hardcode a colour — everything comes from
+       these variables, so one card serves all 20 storefront brands.
+       ============================================================ */
+    :root {
+      --bg: #FFFFFF;
+      --surface: #F7F7F8;
+      --raised: #FFFFFF;
+      --sunken: #EFEFF1;
+      --line: #DFDFE3;
+      --line-strong: #C2C2C9;
+      --text: #17171A;
+      --muted: #55555E;
+      --dim: #6E6E78;
+      --accent: #2E5BFF;
+      --accent-hover: #1E47E0;
+      --accent-press: #1638B4;
+      --accent-ink: #FFFFFF;
+      --accent-soft: #EAF0FF;
+      --ok: #0F7A3C;
+      --ok-soft: #E4F5EA;
+      --ok-solid: #0F7A3C;
+      --ok-ink: #FFFFFF;
+      --warn: #8A5A00;
+      --warn-soft: #FCF1DC;
+      --bad: #B02418;
+      --bad-soft: #FBE9E7;
+      --sale: #C4162D;
+      /* solid = залитые элементы (бейдж скидки, счётчик корзины).
+         Текст на них всегда белый, поэтому solid подбирается по теме,
+         а брендовые переопределения его не трогают. */
+      --sale-solid: #C4162D;
+      --sale-ink: #FFFFFF;
+      --star: #E8A200;
+
+      /* spacing scale — same as the demo, drop-in compatible */
+      --s-25: 2px;
+      --s-50: 4px;
+      --s-75: 8px;
+      --s-100: 12px;
+      --s-200: 16px;
+      --s-300: 24px;
+      --s-400: 32px;
+      --s-500: 40px;
+      --s-600: 48px;
+      --s-700: 64px;
+      --s-800: 80px;
+      --s-900: 96px;
+
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 14px;
+      --r-xl: 20px;
+      --r-pill: 999px;
+      --curve: cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow-1: 0 1px 2px rgba(16, 16, 20, .06), 0 0 0 1px rgba(16, 16, 20, .04);
+      --shadow-2: 0 6px 18px rgba(16, 16, 20, .10), 0 0 0 1px rgba(16, 16, 20, .05);
+      --shadow-3: 0 16px 40px rgba(16, 16, 20, .16), 0 0 0 1px rgba(16, 16, 20, .06);
+      --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Consolas", monospace;
+
+      /* card metrics — one place to retune the whole system */
+      --card-gap: var(--s-200);
+      --card-pad: var(--s-200);
+      --card-radius: var(--r-lg);
+      --media-ratio: 1 / 1;
+      --title-lines: 2;
+      /* слот наличия фиксируется по высоте: блоки «в наличии»,
+         «мало», «нет» и «предзаказ» разные по числу строк, без резерва
+         кнопка уезжает вверх-вниз и ряд перестаёт быть выровненным */
+      --avail-h: 58px;
+      --tap: 44px;
+    }
+
+    /* Dark theme: same component, different surface */
+    [data-theme="dark"] {
+      --bg: #141417;
+      --surface: #1B1B1F;
+      --raised: #222227;
+      --sunken: #0F0F11;
+      --line: #33333A;
+      --line-strong: #4A4A54;
+      --text: #F4F4F6;
+      --muted: #B7B7C0;
+      --dim: #9C9CA6;
+      --accent: #6E93FF;
+      --accent-hover: #8CABFF;
+      --accent-press: #4F7CFF;
+      --accent-ink: #0B0B0D;
+      --accent-soft: #1E2A4D;
+      --ok: #4ADE80;
+      --ok-soft: #143324;
+      --ok-solid: #1E7A45;
+      --ok-ink: #FFFFFF;
+      --warn: #F0B429;
+      --warn-soft: #33290D;
+      --bad: #FF8A7A;
+      --bad-soft: #3A1C18;
+      --sale: #FF8A7A;
+      --sale-solid: #B32438;
+      --sale-ink: #FFFFFF;
+      --star: #FFC94A;
+      --shadow-1: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .05);
+      --shadow-2: 0 8px 22px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06);
+      --shadow-3: 0 18px 46px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .08);
+    }
+
+    /* Storefront brand overrides — proof that the card is brand-agnostic.
+       Real storefronts ship one of these blocks, nothing else changes. */
+    [data-brand="nordika"] {
+      --accent: #0E6E5C;
+      --accent-hover: #0B5A4B;
+      --accent-press: #084238;
+      --accent-soft: #E2F1EE;
+      --sale: #A8452A;
+    }
+
+    [data-brand="kedr"] {
+      --accent: #3C4A56;
+      --accent-hover: #2B363F;
+      --accent-soft: #E8EBEE;
+      --sale: #8A2E2E;
+    }
+
+    [data-brand="volt"] {
+      --accent: #5B2AC7;
+      --accent-hover: #4821A3;
+      --accent-soft: #EFE9FC;
+      --sale: #C4162D;
+    }
+
+    [data-brand="baltic"] {
+      --accent: #1F4B7A;
+      --accent-hover: #163B61;
+      --accent-soft: #E6EEF6;
+      --sale: #A8452A;
+    }
+
+    [data-brand="leonardo"] {
+      --accent: #D22630;
+      --accent-hover: #AE1E27;
+      --accent-soft: #FBE7E8;
+      --sale: #D22630;
+    }
+
+    /* ============================================================
+       BASE
+       ============================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      transition: background 200ms var(--curve), color 200ms var(--curve)
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      margin: 0
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-weight: 700;
+      letter-spacing: -.02em;
+      text-wrap: balance
+    }
+
+    p {
+      text-wrap: pretty
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+      color: inherit
+    }
+
+    button {
+      cursor: pointer
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding: 0;
+      list-style: none
+    }
+
+    svg {
+      display: block
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: var(--r-sm)
+    }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: var(--s-100) var(--s-200);
+      border-radius: var(--r-md);
+      z-index: 99
+    }
+
+    .skip:focus {
+      left: var(--s-200);
+      top: var(--s-200)
+    }
+
+    .wrap {
+      width: min(100% - (var(--s-400) * 2), 1560px);
+      margin-inline: auto
+    }
+
+    @media (min-width:384px) {
+      .wrap {
+        width: min(100% - (var(--s-500) * 2), 1560px)
+      }
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--dim)
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-variant-numeric: tabular-nums
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0
+    }
+
+    /* ============================================================
+       HEADER
+       ============================================================ */
+    .head {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: var(--raised);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .head__row {
+      display: flex;
+      align-items: center;
+      gap: var(--s-200);
+      padding-block: var(--s-100);
+      flex-wrap: wrap
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--s-100);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      font-size: 17px;
+      margin-right: auto
+    }
+
+    .logo__mark {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--r-md);
+      background: var(--accent);
+      color: var(--accent-ink);
+      display: grid;
+      place-items: center;
+      flex: none
+    }
+
+    .logo small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--dim)
+    }
+
+    .search {
+      order: 3;
+      flex: 1 1 100%;
+      display: flex;
+      gap: var(--s-50)
+    }
+
+    @media (min-width:700px) {
+      .search {
+        order: 0;
+        flex: 1 1 auto;
+        max-width: 460px
+      }
+    }
+
+    .search input {
+      flex: 1;
+      min-width: 0;
+      padding: 0 var(--s-200);
+      height: var(--tap);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md)
+    }
+
+    .search input:focus {
+      border-color: var(--accent);
+      background: var(--raised);
+      outline: none
+    }
+
+    .search input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px
+    }
+
+    .ctrls {
+      display: flex;
+      align-items: center;
+      gap: var(--s-75);
+      flex-wrap: wrap;
+      margin-left: auto
+    }
+
+    /* narrow screens: icons only, the label stays on aria-label */
+    @media (max-width:560px) {
+      .ctrls .ctrl>span:not(.cart__count) {
+        display: none
+      }
+
+      /* исключение: «RU»/«EN» — это смысл кнопки, иконка языка читается хуже */
+      .ctrls .ctrl--lang>span#langLbl {
+        display: inline
+      }
+
+      .ctrls .ctrl {
+        padding: 0 var(--s-100)
+      }
+
+      .ctrls select#cur {
+        width: 90px
+      }
+
+      .ctrls .cart__count {
+        top: 0;
+        right: 0
+      }
+    }
+
+    .ctrl {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-75);
+      height: var(--tap);
+      padding: 0 var(--s-100);
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap
+    }
+
+    .ctrl:hover {
+      border-color: var(--line-strong)
+    }
+
+    .ctrl[aria-pressed="true"] {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    select.ctrl {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: var(--s-300);
+      background-image: linear-gradient(45deg, transparent 50%, var(--dim) 50%), linear-gradient(135deg, var(--dim) 50%, transparent 50%);
+      background-position: calc(100% - 15px) 19px, calc(100% - 10px) 19px;
+      background-size: 5px 5px;
+      background-repeat: no-repeat
+    }
+
+    .cart {
+      position: relative
+    }
+
+    .cart__count {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      min-width: 18px;
+      height: 18px;
+      padding-inline: 4px;
+      border-radius: var(--r-pill);
+      background: var(--sale-solid);
+      color: var(--sale-ink);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 18px;
+      text-align: center
+    }
+
+    /* ============================================================
+       CRUMBS + PAGE TITLE
+       ============================================================ */
+    .crumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-block: var(--s-200) var(--s-75);
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    .crumbs b {
+      color: var(--text);
+      font-weight: 600
+    }
+
+    .crumbs button {
+      background: none;
+      border: 0;
+      padding: 0;
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    .crumbs button:hover {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    .ph {
+      padding-block: var(--s-100) var(--s-300)
+    }
+
+    .ph h1 {
+      font-size: clamp(26px, 1.1rem + 2.6vw, 44px);
+      line-height: 1.12
+    }
+
+    .ph p {
+      margin-top: var(--s-100);
+      color: var(--muted);
+      max-width: 68ch
+    }
+
+    .ph__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-75) var(--s-200);
+      margin-top: var(--s-200);
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    /* ============================================================
+       DEPARTMENT TILES  (the "3–4 choices" step)
+       ============================================================ */
+    .deps {
+      display: grid;
+      gap: var(--card-gap);
+      grid-template-columns: 1fr;
+      padding-bottom: var(--s-400)
+    }
+
+    @media (min-width:560px) {
+      .deps {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1100px) {
+      .deps {
+        grid-template-columns: repeat(4, minmax(0, 1fr))
+      }
+    }
+
+    .dep {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      transition: transform 200ms var(--curve), box-shadow 200ms var(--curve), border-color 200ms var(--curve)
+    }
+
+    .dep:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-2);
+      border-color: var(--accent)
+    }
+
+    .dep[data-on="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft)
+    }
+
+    /* the tile is a real button; subsections are separate buttons —
+       never a button inside a button */
+    .dep__main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--s-100);
+      width: 100%;
+      text-align: left;
+      padding: var(--s-300);
+      background: none;
+      border: 0;
+      color: inherit
+    }
+
+    .dep__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-md);
+      background: var(--sunken);
+      color: var(--accent);
+      display: grid;
+      place-items: center
+    }
+
+    .dep[data-on="true"] .dep__icon {
+      background: var(--raised)
+    }
+
+    .dep__nm {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -.02em
+    }
+
+    .dep__sub {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px var(--s-200);
+      padding: var(--s-200) var(--s-300) var(--s-300);
+      margin-top: auto;
+      border-top: 1px dashed var(--line);
+      font-size: 12px;
+      color: var(--dim)
+    }
+
+    .dep__sub button {
+      background: none;
+      border: 0;
+      padding: 4px 0;
+      font-size: 12px;
+      color: var(--dim);
+      min-height: 28px
+    }
+
+    .dep__sub button:hover {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    .dep__sub button[disabled] {
+      opacity: .3;
+      text-decoration: none;
+      cursor: default
+    }
+
+    .dep__n {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dim)
+    }
+
+    /* ============================================================
+       TOOLBAR
+       ============================================================ */
+    .bar {
+      position: sticky;
+      top: 61px;
+      z-index: 20;
+      background: var(--bg);
+      padding-block: var(--s-100) var(--s-75);
+      border-bottom: 1px solid var(--line)
+    }
+
+    @media (min-width:700px) {
+      .bar {
+        top: 65px
+      }
+    }
+
+    .bar__top {
+      display: flex;
+      align-items: center;
+      gap: var(--s-100);
+      flex-wrap: wrap
+    }
+
+    .subs {
+      display: flex;
+      gap: var(--s-75);
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding-bottom: var(--s-75);
+      -webkit-overflow-scrolling: touch
+    }
+
+    .subs::-webkit-scrollbar {
+      height: 5px
+    }
+
+    .subs::-webkit-scrollbar-thumb {
+      background: var(--line-strong);
+      border-radius: var(--r-pill)
+    }
+
+    .pill {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 0 var(--s-200);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 150ms var(--curve), border-color 150ms var(--curve)
+    }
+
+    .pill:hover {
+      border-color: var(--line-strong)
+    }
+
+    .pill[aria-pressed="true"] {
+      background: var(--text);
+      border-color: var(--text);
+      color: var(--bg)
+    }
+
+    .pill span {
+      font-weight: 500;
+      opacity: .65;
+      font-size: 12px
+    }
+
+    .bar__right {
+      display: flex;
+      align-items: center;
+      gap: var(--s-75);
+      flex-wrap: wrap;
+      margin-left: auto
+    }
+
+    @media (max-width:699px) {
+      .bar__right {
+        width: 100%;
+        margin-left: 0
+      }
+
+      .bar__right select#sort {
+        flex: 1 1 150px
+      }
+    }
+
+    .count {
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 var(--s-100);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      font-size: 12px;
+      font-weight: 600
+    }
+
+    .toggle[aria-pressed="true"] {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent)
+    }
+
+    /* filter panel */
+    .panel {
+      display: none;
+      gap: var(--s-300);
+      flex-wrap: wrap;
+      padding: var(--s-200) 0 var(--s-100)
+    }
+
+    .panel[data-open="true"] {
+      display: flex
+    }
+
+    .fset {
+      flex: 1 1 220px;
+      min-width: 0
+    }
+
+    .fset h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: var(--s-100)
+    }
+
+    .checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-50) var(--s-100)
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      font-size: 13px;
+      cursor: pointer
+    }
+
+    .check input {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--accent)
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-50)
+    }
+
+    .active {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-50);
+      padding-bottom: var(--s-100)
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px var(--s-100);
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      border-radius: var(--r-pill);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent)
+    }
+
+    .tag button {
+      background: none;
+      border: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 14px;
+      color: var(--accent)
+    }
+
+    /* ============================================================
+       PRODUCT GRID
+       ============================================================ */
+    .grid {
+      display: grid;
+      gap: var(--card-gap);
+      grid-template-columns: 1fr;
+      padding-block: var(--s-300) var(--s-400);
+      align-items: start
+    }
+
+    @media (min-width:430px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:768px) {
+      .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1100px) {
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1500px) {
+      .grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:2400px) {
+      .grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr))
+      }
+    }
+
+    /* list view — same card, horizontal */
+    .grid[data-view="list"] {
+      grid-template-columns: 1fr
+    }
+
+    .grid[data-view="list"] .card__desc {
+      display: -webkit-box
+    }
+
+    @media (min-width:700px) {
+      .grid[data-view="list"] .card {
+        flex-direction: row
+      }
+
+      .grid[data-view="list"] .card__media {
+        width: clamp(180px, 20vw, 260px);
+        flex: none;
+        align-self: flex-start;
+        aspect-ratio: 4 / 3
+      }
+
+      .grid[data-view="list"] .card__body {
+        width: 100%;
+        max-width: 640px
+      }
+
+      .grid[data-view="list"] .card__title {
+        font-size: 17px;
+        -webkit-line-clamp: 2
+      }
+
+      .grid[data-view="list"] .card__actions {
+        flex-direction: row;
+        align-items: center
+      }
+
+      .grid[data-view="list"] .btn {
+        flex: 1 1 auto;
+        max-width: 220px
+      }
+    }
+
+    /* ============================================================
+       PRODUCT CARD — the unified component
+       Slots in fixed order: media / eyebrow / title / rating /
+       price / variants / availability / actions / meta
+       ============================================================ */
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      transition: box-shadow 200ms var(--curve), border-color 200ms var(--curve), transform 200ms var(--curve)
+    }
+
+    .card:hover {
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-2)
+    }
+
+    .card:focus-within {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-2)
+    }
+
+    /* — media — */
+    .card__media {
+      position: relative;
+      aspect-ratio: var(--media-ratio);
+      background: var(--sunken);
+      overflow: hidden;
+      flex: none
+    }
+
+    .card__art {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center
+    }
+
+    .card__art svg {
+      width: 62%;
+      height: 62%
+    }
+
+    .card__art--b {
+      opacity: 0
+    }
+
+    @media (hover:hover) {
+      .card:hover .card__art--a {
+        opacity: 0
+      }
+
+      .card:hover .card__art--b {
+        opacity: 1
+      }
+    }
+
+    .card__badges {
+      position: absolute;
+      inset: var(--s-100) auto auto var(--s-100);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--s-50);
+      z-index: 2
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px var(--s-75);
+      border-radius: var(--r-sm);
+      font-size: 11px;
+      line-height: 15px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      background: var(--raised);
+      color: var(--text);
+      box-shadow: var(--shadow-1)
+    }
+
+    .badge--sale {
+      background: var(--sale-solid);
+      color: var(--sale-ink)
+    }
+
+    .badge--new {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .badge--top {
+      background: var(--star);
+      color: #241A00
+    }
+
+    .badge--hand {
+      background: var(--ok-soft);
+      color: var(--ok)
+    }
+
+    .badge--b2b {
+      background: var(--warn-soft);
+      color: var(--warn)
+    }
+
+    .badge--pre {
+      background: var(--accent-soft);
+      color: var(--accent)
+    }
+
+    .fav {
+      position: absolute;
+      top: var(--s-75);
+      right: var(--s-75);
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--r-pill);
+      background: var(--raised);
+      color: var(--dim);
+      z-index: 3;
+      transition: color 150ms var(--curve), transform 150ms var(--curve)
+    }
+
+    .fav:hover {
+      color: var(--sale);
+      transform: scale(1.08)
+    }
+
+    .fav[aria-pressed="true"] {
+      color: var(--sale);
+      border-color: var(--sale)
+    }
+
+    .fav[aria-pressed="true"] svg {
+      fill: currentColor
+    }
+
+    .quick {
+      position: absolute;
+      left: var(--s-100);
+      right: var(--s-100);
+      bottom: var(--s-100);
+      padding: var(--s-75);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      background: color-mix(in srgb, var(--raised) 92%, transparent);
+      backdrop-filter: blur(6px);
+      font-size: 12px;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 180ms var(--curve), transform 180ms var(--curve);
+      z-index: 3
+    }
+
+    @media (hover:hover) {
+
+      .card:hover .quick,
+      .card:focus-within .quick {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .quick:focus-visible {
+      opacity: 1;
+      transform: none
+    }
+
+    /* — body — */
+    .card__body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-75);
+      padding: var(--card-pad);
+      flex: 1;
+      min-width: 0
+    }
+
+    .card__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--dim)
+    }
+
+    .card__brand {
+      font-weight: 700;
+      color: var(--muted)
+    }
+
+    .card__maker {
+      color: var(--ok);
+      font-weight: 600
+    }
+
+    .card__title {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: var(--title-lines);
+      line-clamp: var(--title-lines);
+      overflow: hidden
+    }
+
+    .card__title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px
+    }
+
+    .card__desc {
+      display: none;
+      font-size: 13px;
+      line-height: 19px;
+      color: var(--muted);
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden
+    }
+
+    /* rating */
+    .rate {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--dim);
+      min-height: 18px
+    }
+
+    .stars {
+      display: flex;
+      gap: 1px;
+      color: var(--star)
+    }
+
+    .stars svg {
+      width: 14px;
+      height: 14px
+    }
+
+    .stars .is-empty {
+      color: var(--line-strong)
+    }
+
+    .rate b {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .rate a:hover {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    /* price */
+    .price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: var(--s-50)
+    }
+
+    .price__main {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: var(--s-75)
+    }
+
+    .price__now {
+      font-family: var(--mono);
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      font-variant-numeric: tabular-nums
+    }
+
+    .card--b2b .price__now,
+    .card--pre .price__now {
+      font-size: 17px
+    }
+
+    .price__was {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--dim);
+      text-decoration: line-through
+    }
+
+    .price__off {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--sale)
+    }
+
+    .price__unit {
+      font-size: 12px;
+      color: var(--dim)
+    }
+
+    .price__tiers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px var(--s-100);
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--dim)
+    }
+
+    .price__tiers b {
+      color: var(--muted);
+      font-weight: 700
+    }
+
+    /* variants */
+    .vars {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: var(--s-50)
+    }
+
+    .vars__row {
+      display: flex;
+      align-items: center;
+      gap: var(--s-75);
+      flex-wrap: wrap
+    }
+
+    .vars__lb {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--dim);
+      flex: none
+    }
+
+    .sw {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid var(--dim);
+      padding: 0;
+      position: relative;
+      transition: transform 120ms var(--curve)
+    }
+
+    .sw:hover {
+      transform: scale(1.14)
+    }
+
+    .sw[aria-pressed="true"] {
+      box-shadow: 0 0 0 2px var(--raised), 0 0 0 4px var(--accent)
+    }
+
+    .sz {
+      min-width: 32px;
+      height: 26px;
+      padding: 0 6px;
+      border: 1px solid var(--line);
+      border-radius: var(--r-sm);
+      background: var(--surface);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted)
+    }
+
+    .sz:hover {
+      border-color: var(--line-strong)
+    }
+
+    .sz[aria-pressed="true"] {
+      border-color: var(--text);
+      background: var(--text);
+      color: var(--bg)
+    }
+
+    .sz[disabled] {
+      opacity: .4;
+      text-decoration: line-through;
+      cursor: not-allowed
+    }
+
+    .more {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent)
+    }
+
+    /* availability */
+    .avail {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 12px;
+      line-height: 17px;
+      min-height: var(--avail-h);
+      padding-top: var(--s-50)
+    }
+
+    .avail__row {
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex: none;
+      background: var(--dim)
+    }
+
+    .dot--ok {
+      background: var(--ok)
+    }
+
+    .dot--warn {
+      background: var(--warn)
+    }
+
+    .dot--bad {
+      background: var(--bad)
+    }
+
+    .avail--ok {
+      color: var(--ok);
+      font-weight: 700
+    }
+
+    .avail--warn {
+      color: var(--warn);
+      font-weight: 700
+    }
+
+    .avail--bad {
+      color: var(--bad);
+      font-weight: 700
+    }
+
+    .avail__eta {
+      color: var(--muted)
+    }
+
+    .avail__eta b {
+      color: var(--text);
+      font-weight: 700
+    }
+
+    .avail__ship {
+      color: var(--dim)
+    }
+
+    .bar100 {
+      height: 4px;
+      border-radius: var(--r-pill);
+      background: var(--sunken);
+      overflow: hidden;
+      margin-top: 2px
+    }
+
+    .bar100 i {
+      display: block;
+      height: 100%;
+      border-radius: var(--r-pill);
+      background: var(--warn)
+    }
+
+    /* actions */
+    /* actions = последний слот и прижат к низу: ничего ниже него нет,
+       поэтому CTA совпадает по линии в любом ряду при любой высоте
+       описания, наличия и мета-строки */
+    .card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-75);
+      margin-top: auto;
+      padding-top: var(--s-100)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s-75);
+      min-height: var(--tap);
+      width: 100%;
+      padding: 0 var(--s-200);
+      border-radius: var(--r-pill);
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 150ms var(--curve), color 150ms var(--curve), border-color 150ms var(--curve), transform 100ms var(--curve)
+    }
+
+    .btn--primary {
+      background: var(--text);
+      color: var(--bg)
+    }
+
+    .btn--primary:hover {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .btn--primary:active {
+      transform: scale(.985)
+    }
+
+    .btn--accent {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .btn--accent:hover {
+      background: var(--accent-hover)
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border-color: var(--line-strong);
+      color: var(--text);
+      min-height: 38px;
+      font-size: 13px
+    }
+
+    .btn--ghost:hover {
+      background: var(--surface);
+      border-color: var(--text)
+    }
+
+    .btn[disabled] {
+      background: var(--sunken);
+      color: var(--muted);
+      border-color: var(--line);
+      cursor: not-allowed
+    }
+
+    .btn--added {
+      background: var(--ok-solid) !important;
+      color: var(--ok-ink) !important;
+      border-color: var(--ok-solid) !important
+    }
+
+    /* meta footer */
+    .card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px var(--s-100);
+      padding-top: var(--s-100);
+      margin-top: var(--s-50);
+      border-top: 1px dashed var(--line);
+      font-size: 11px;
+      color: var(--dim)
+    }
+
+    .card__meta b {
+      font-weight: 700;
+      color: var(--muted)
+    }
+
+    /* — out of stock — */
+    .card--oos .card__art {
+      opacity: .42;
+      filter: saturate(.25)
+    }
+
+    .card--oos .card__title a {
+      color: var(--muted)
+    }
+
+    /* — skeleton — */
+    .sk {
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--card-radius);
+      overflow: hidden
+    }
+
+    .sk__l {
+      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
+      background-size: 300% 100%;
+      animation: sh 1.3s linear infinite;
+      border-radius: var(--r-sm)
+    }
+
+    @keyframes sh {
+      to {
+        background-position: -300% 0
+      }
+    }
+
+    .sk .sk__media {
+      aspect-ratio: var(--media-ratio)
+    }
+
+    .sk__pad {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s-75);
+      padding: var(--card-pad)
+    }
+
+    /* ============================================================
+       CARD SYSTEM SECTION (spec / states / sizes)
+       ============================================================ */
+    .sect {
+      background: var(--surface);
+      border-top: 1px solid var(--line);
+      padding-block: var(--s-700) var(--s-800)
+    }
+
+    .sect__h {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--s-300);
+      flex-wrap: wrap;
+      margin-bottom: var(--s-100)
+    }
+
+    .sect h2 {
+      font-size: clamp(22px, 1rem + 1.5vw, 34px)
+    }
+
+    .sect__lede {
+      color: var(--muted);
+      max-width: 76ch;
+      margin-bottom: var(--s-500)
+    }
+
+    .anatomy {
+      display: grid;
+      gap: var(--s-400);
+      grid-template-columns: 1fr;
+      margin-bottom: var(--s-700)
+    }
+
+    @media (min-width:900px) {
+      .anatomy {
+        grid-template-columns: minmax(280px, 360px) 1fr
+      }
+    }
+
+    .slots {
+      display: grid;
+      gap: var(--s-50)
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: var(--s-100);
+      align-items: start;
+      padding: var(--s-100);
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      text-align: left;
+      width: 100%;
+      transition: border-color 150ms var(--curve), background 150ms var(--curve)
+    }
+
+    .slot:hover,
+    .slot[data-on="true"] {
+      border-color: var(--accent);
+      background: var(--accent-soft)
+    }
+
+    .slot i {
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 11px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--r-sm);
+      background: var(--sunken);
+      color: var(--muted)
+    }
+
+    .slot[data-on="true"] i,
+    .slot:hover i {
+      background: var(--accent);
+      color: var(--accent-ink)
+    }
+
+    .slot b {
+      display: block;
+      font-size: 13px;
+      font-weight: 700
+    }
+
+    .slot span {
+      display: block;
+      font-size: 12px;
+      line-height: 17px;
+      color: var(--muted)
+    }
+
+    .slot em {
+      display: block;
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 10px;
+      color: var(--dim);
+      margin-top: 2px
+    }
+
+    .anatomy__stage {
+      display: grid;
+      place-items: center;
+      padding: var(--s-300);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      position: sticky;
+      top: var(--s-300)
+    }
+
+    .anatomy__stage .card {
+      max-width: 330px;
+      width: 100%
+    }
+
+    .hl {
+      outline: 2px solid var(--accent) !important;
+      outline-offset: 2px;
+      border-radius: var(--r-sm);
+      background: var(--accent-soft)
+    }
+
+    .states {
+      display: grid;
+      gap: var(--card-gap);
+      grid-template-columns: 1fr;
+      margin-bottom: var(--s-700)
+    }
+
+    @media (min-width:520px) {
+      .states {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1000px) {
+      .states {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+    }
+
+    @media (min-width:1500px) {
+      .states {
+        grid-template-columns: repeat(4, minmax(0, 1fr))
+      }
+    }
+
+    .states .card {
+      max-width: none
+    }
+
+    .state__cap {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dim);
+      margin-bottom: var(--s-100)
+    }
+
+    .sizes {
+      display: grid;
+      gap: var(--s-300);
+      align-items: start;
+      grid-template-columns: 1fr;
+      margin-bottom: var(--s-700)
+    }
+
+    @media (min-width:1000px) {
+      .sizes {
+        grid-template-columns: repeat(3, minmax(0, 1fr))
+      }
+    }
+
+    .sizebox {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: var(--s-300)
+    }
+
+    .sizebox h4 {
+      font-size: 14px;
+      margin-bottom: 4px
+    }
+
+    .sizebox p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: var(--s-200)
+    }
+
+    .sizebox code {
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--sunken);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--muted)
+    }
+
+    /* compact card modifier */
+    .card--compact {
+      --avail-h: 20px
+    }
+
+    .card--compact .card__body {
+      gap: 4px;
+      padding: var(--s-100)
+    }
+
+    .card--compact .card__title {
+      font-size: 12px;
+      line-height: 16px
+    }
+
+    .card--compact .price__now {
+      font-size: 15px;
+      line-height: 20px
+    }
+
+    .card--compact .avail__eta,
+    .card--compact .card__meta,
+    .card--compact .vars {
+      display: none
+    }
+
+    .card--compact .btn {
+      min-height: 36px;
+      font-size: 12px
+    }
+
+    /* feature card modifier */
+    .card--feature {
+      --title-lines: 3
+    }
+
+    .card--feature .card__body {
+      padding: var(--s-300);
+      gap: var(--s-100)
+    }
+
+    .card--feature .card__title {
+      font-size: clamp(18px, 1rem + .6vw, 24px);
+      line-height: 1.25
+    }
+
+    .card--feature .price__now {
+      font-size: 26px;
+      line-height: 32px
+    }
+
+    .card--feature .card__desc {
+      display: -webkit-box
+    }
+
+    .card--feature .card__actions {
+      flex-direction: row;
+      flex-wrap: wrap
+    }
+
+    .card--feature .btn {
+      width: auto;
+      flex: 1 1 160px
+    }
+
+    @media (min-width:760px) {
+      .card--feature {
+        flex-direction: row
+      }
+
+      .card--feature .card__media {
+        width: 46%;
+        flex: none;
+        aspect-ratio: 4 / 3
+      }
+    }
+
+    /* rules table */
+    .rules {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden
+    }
+
+    .rules th,
+    .rules td {
+      text-align: left;
+      padding: var(--s-100) var(--s-200);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top
+    }
+
+    .rules th {
+      background: var(--surface);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--dim)
+    }
+
+    .rules tr:last-child td {
+      border-bottom: 0
+    }
+
+    .rules td:first-child {
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    .tablescroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch
+    }
+
+    h3.grp {
+      font-size: 15px;
+      letter-spacing: -.01em;
+      margin: var(--s-600) 0 var(--s-200)
+    }
+
+    /* toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: var(--s-300);
+      transform: translate(-50%, 20px);
+      display: flex;
+      align-items: center;
+      gap: var(--s-100);
+      padding: var(--s-100) var(--s-300);
+      background: var(--text);
+      color: var(--bg);
+      border-radius: var(--r-pill);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms var(--curve), transform 200ms var(--curve);
+      z-index: 60;
+      max-width: calc(100% - var(--s-400))
+    }
+
+    .toast[data-on="true"] {
+      opacity: 1;
+      transform: translate(-50%, 0)
+    }
+
+    /* ============================================================
+       MEGA-MENU DROPDOWN
+       ============================================================ */
+    .dropdown {
+      position: relative
+    }
+
+    .mega {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      width: min(90vw, 760px);
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-3);
+      padding: var(--s-300);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 180ms var(--curve), transform 180ms var(--curve);
+      z-index: 50
+    }
+
+    .dropdown[data-open="true"] .mega {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0)
+    }
+
+    .mega__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--s-200) var(--s-400)
+    }
+
+    @media (min-width:600px) {
+      .mega__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr))
+      }
+    }
+
+    .mega__col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: var(--s-100);
+      padding-bottom: var(--s-75);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: var(--s-75);
+      cursor: pointer
+    }
+
+    .mega__col h4 svg {
+      flex: none;
+      color: var(--accent)
+    }
+
+    .mega__col ul {
+      margin-top: var(--s-100)
+    }
+
+    .mega__col li {
+      padding-block: 4px
+    }
+
+    .mega__col button {
+      background: none;
+      border: 0;
+      padding: 4px 0;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: left;
+      cursor: pointer;
+      min-height: 28px
+    }
+
+    .mega__col button:hover {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    .mega__col button[disabled] {
+      opacity: .35;
+      cursor: default;
+      text-decoration: none
+    }
+
+    @media (max-width:600px) {
+      .mega {
+        position: fixed;
+        top: 60px;
+        left: var(--s-200);
+        right: var(--s-200);
+        transform: none;
+        width: auto;
+        max-height: 70vh;
+        overflow-y: auto
+      }
+
+      .dropdown[data-open="true"] .mega {
+        transform: translateY(0)
+      }
+
+      .mega__grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ============================================================
+       CONFIG PANEL (catalog visibility)
+       ============================================================ */
+    .config-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      place-items: center;
+      padding: var(--s-200)
+    }
+
+    .config-panel[data-open="true"] {
+      display: grid
+    }
+
+    .config-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 14, .45);
+      backdrop-filter: blur(3px)
+    }
+
+    .config-box {
+      position: relative;
+      width: min(560px, 100%);
+      max-height: 80vh;
+      overflow: auto;
+      background: var(--raised);
+      border: 1px solid var(--line);
+      border-radius: var(--r-xl);
+      padding: var(--s-400);
+      box-shadow: var(--shadow-3)
+    }
+
+    .config-box h3 {
+      font-size: 20px;
+      margin-bottom: var(--s-100)
+    }
+
+    .config-box p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: var(--s-300)
+    }
+
+    .cfg-dept {
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      margin-bottom: var(--s-200);
+      overflow: hidden
+    }
+
+    .cfg-dept__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--s-100) var(--s-200);
+      background: var(--surface);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none
+    }
+
+    .cfg-dept__head svg {
+      transition: transform 150ms var(--curve);
+      color: var(--dim)
+    }
+
+    .cfg-dept__head[aria-expanded="true"] svg {
+      transform: rotate(90deg)
+    }
+
+    .cfg-dept__body {
+      display: none;
+      padding: var(--s-100) var(--s-200) var(--s-200);
+      border-top: 1px solid var(--line)
+    }
+
+    .cfg-dept__body[data-open="true"] {
+      display: block
+    }
+
+    .cfg-sub {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 6px;
+      font-size: 13px
+    }
+
+    .cfg-sub span {
+      color: var(--muted)
+    }
+
+    /* toggle switch */
+    .switch {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      flex: none
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0
+    }
+
+    .switch__track {
+      position: absolute;
+      inset: 0;
+      background: var(--line-strong);
+      border-radius: var(--r-pill);
+      cursor: pointer;
+      transition: background 150ms var(--curve)
+    }
+
+    .switch__track::before {
+      content: "";
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 3px;
+      top: 3px;
+      background: var(--bg);
+      border-radius: 50%;
+      transition: transform 150ms var(--curve)
+    }
+
+    .switch input:checked+.switch__track {
+      background: var(--accent)
+    }
+
+    .switch input:checked+.switch__track::before {
+      transform: translateX(18px)
+    }
+
+    .config-actions {
+      display: flex;
+      gap: var(--s-100);
+      margin-top: var(--s-300)
+    }
+
+    .config-actions .btn {
+      flex: 1
+    }
+
+    /* footer */
+    .foot {
+      border-top: 1px solid var(--line);
+      padding-block: var(--s-500) var(--s-700);
+      font-size: 13px;
+      color: var(--dim)
+    }
+
+    .foot__grid {
+      display: grid;
+      gap: var(--s-400);
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    @media (min-width:800px) {
+      .foot__grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr))
+      }
+    }
+
+    .foot h5 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--text);
+      margin-bottom: var(--s-100)
+    }
+
+    .foot li {
+      padding-block: 3px
+    }
+
+    .foot a:hover {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    .foot__bar {
+      margin-top: var(--s-500);
+      padding-top: var(--s-200);
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-100) var(--s-300);
+      font-size: 12px
+    }
+
+    .end {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s-200);
+      padding-block: var(--s-400);
+      color: var(--dim);
+      font-size: 13px
+    }
+
+    .end::before,
+    .end::after {
+      content: "";
+      height: 1px;
+      width: 48px;
+      background: var(--line)
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#catalog">Skip to catalogue</a>
+
+  <header class="head">
+    <div class="wrap head__row">
+      <a class="logo" href="index.html">
+        <span class="logo__mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linejoin="round" stroke-linecap="round">
+            <path d="M6 19V7l6 4 6-4v12" />
+          </svg>
+        </span>
+        <span>Nordika Home<small>Storefront demo</small></span>
+      </a>
+
+      <form class="search" role="search" id="searchForm">
+        <label class="sr" for="q">Search the catalogue</label>
+        <input id="q" type="search" placeholder="Search 32 products, e.g. “kettle”, “yarn”, “binocular”"
+          autocomplete="off">
+        <button class="ctrl" type="submit" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </form>
+
+      <div class="ctrls">
+        <!-- Dropdown catalog -->
+        <div class="dropdown" id="catalogDd">
+          <button class="ctrl" id="catalogBtn" aria-pressed="false" aria-haspopup="true" aria-expanded="false"
+            title="Browse catalogue">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            </svg>
+            <span id="catalogBtnLbl">Catalogue</span>
+          </button>
+          <div class="mega" id="mega" role="menu" aria-label="Catalogue departments"></div>
+        </div>
+        <button class="ctrl" id="brandBtn" aria-pressed="false" title="Switch storefront tokens">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 3a14 14 0 0 0 0 18M3.5 9h17M3.5 15h17" />
+          </svg>
+          <span id="brandLbl">House</span>
+        </button>
+        <button class="ctrl" id="configBtn" title="Catalog configuration" aria-label="Catalog configuration">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
+          </svg>
+        </button>
+        <button class="ctrl ctrl--lang" id="langBtn" aria-pressed="false" title="Switch language"
+          aria-label="Switch language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M4 5h9M8.5 5v2c0 3-2 5.5-4.5 7" stroke-linecap="round" />
+            <path d="M6 9c1.2 2.4 3 4 5.5 5" stroke-linecap="round" />
+            <path d="M13 20l4-10 4 10M14.6 16.4h4.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span id="langLbl">RU</span>
+        </button>
+        <label class="sr" for="cur">Currency</label>
+        <select class="ctrl" id="cur">
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AED">AED</option>
+          <option value="CNY">¥ CNY</option>
+          <option value="RUB">₽ RUB</option>
+        </select>
+        <button class="ctrl" id="theme" aria-pressed="false" title="Switch theme">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
+          </svg>
+          <span id="themeLbl">Dark</span>
+        </button>
+        <button class="ctrl cart" id="cartBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 4h2l2.4 11h10L20 7H6" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="9" cy="20" r="1.4" />
+            <circle cx="18" cy="20" r="1.4" />
+          </svg>
+          <span>Cart</span>
+          <span class="cart__count" id="cartN">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <nav class="crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+
+      <div class="ph">
+        <h1 id="pageTitle">Catalogue</h1>
+        <p id="pageLead">One commercial core, twenty storefronts, one product card. Pick a department, then a
+          subsection — the card below is the same component everywhere, only the tokens and the content mode change.</p>
+        <div class="ph__meta" id="pageMeta"></div>
+      </div>
+    </div>
+
+    <!-- DEPARTMENTS: the 3–4 choices users expect -->
+    <div class="wrap">
+      <div class="deps" id="deps" role="group" aria-label="Departments"></div>
+    </div>
+
+    <!-- CATALOGUE -->
+    <section id="catalog" aria-labelledby="pageTitle">
+      <div class="bar">
+        <div class="wrap">
+          <div class="bar__top">
+            <div class="subs" id="subs" role="group" aria-label="Subsections"></div>
+            <div class="bar__right">
+              <button class="toggle" id="filterBtn" aria-pressed="false" aria-controls="filters">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 5h18M6 12h12M10 19h4" stroke-linecap="round" />
+                </svg>
+                Filters
+              </button>
+              <label class="sr" for="sort">Sort by</label>
+              <select class="toggle" id="sort">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="rating">Top rated</option>
+                <option value="new">Newest</option>
+                <option value="reviews">Most reviewed</option>
+              </select>
+              <button class="toggle" id="viewBtn" aria-pressed="false" title="Switch grid / list">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span id="viewLbl">List</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="panel" id="filters" data-open="false">
+            <fieldset class="fset">
+              <h4>Availability</h4>
+              <div class="checks" id="fStock"></div>
+            </fieldset>
+            <fieldset class="fset">
+              <h4>Brand or maker</h4>
+              <div class="checks" id="fBrand"></div>
+            </fieldset>
+            <fieldset class="fset">
+              <h4>Content mode</h4>
+              <div class="checks" id="fMode"></div>
+            </fieldset>
+            <fieldset class="fset">
+              <h4>Price, USD</h4>
+              <div class="chips" id="fPrice"></div>
+            </fieldset>
+            <fieldset class="fset">
+              <h4>Rating</h4>
+              <div class="chips" id="fRate"></div>
+            </fieldset>
+          </div>
+
+          <div class="active" id="active"></div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)"></p>
+        <div class="grid" id="grid" data-view="grid"></div>
+        <div class="end" id="endMark"></div>
+      </div>
+    </section>
+
+    <!-- CARD SYSTEM -->
+    <section class="sect" id="card-system">
+      <div class="wrap">
+        <div class="sect__h">
+          <h2>Card system</h2>
+          <p class="count">One component · 11 slots · 5 content modes · 10 states · 3 sizes</p>
+        </div>
+        <p class="sect__lede">Everything below is the same HTML. A card either fills a slot or the slot is not rendered
+          —
+          there is no second card template. Hover a slot on the left to see where it lives.</p>
+
+        <div class="anatomy">
+          <div class="slots" id="slots"></div>
+          <div class="anatomy__stage" id="anatomyStage"></div>
+        </div>
+
+        <h3 class="grp">Content modes</h3>
+        <div class="tablescroll" tabindex="0" role="region" aria-label="Content modes table, scrollable"
+          style="margin-bottom:var(--s-600)">
+          <table class="rules" id="modesTable"></table>
+        </div>
+
+        <h3 class="grp">States</h3>
+        <div class="states" id="states"></div>
+
+        <h3 class="grp">Sizes</h3>
+        <div class="sizes" id="sizes"></div>
+
+        <h3 class="grp">Hard rules</h3>
+        <div class="tablescroll" tabindex="0" role="region" aria-label="Hard rules table, scrollable">
+          <table class="rules">
+            <tbody>
+              <tr>
+                <td>Media</td>
+                <td>Always 1:1 in grid, 4:3 in list. Second image swaps on hover only where a pointer exists
+                  (<code>@media (hover:hover)</code>) — never on touch. Text never overlaps the badge column.</td>
+              </tr>
+              <tr>
+                <td>Title</td>
+                <td>Clamped to 2 lines in standard, 3 in feature. Full title is in the <code>title</code> attribute and
+                  in the accessible name, so nothing is lost to the ellipsis.</td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td>Tabular figures, always the storefront currency of the moment. A strikethrough price renders only
+                  when it is a real previous price, never an invented anchor.</td>
+              </tr>
+              <tr>
+                <td>Availability</td>
+                <td>Three levels only: in stock, low stock with the exact count and a bar, out of stock with a notify
+                  form. Colour is never the only signal — the words carry it.</td>
+              </tr>
+              <tr>
+                <td>Variants</td>
+                <td>Max 5 swatches then <code>+N</code>. Sizes render as a chip row; unavailable combinations are struck
+                  through, not hidden, so the shopper knows the full range exists.</td>
+              </tr>
+              <tr>
+                <td>Tap targets</td>
+                <td>Primary button 44px, secondary 38px, favourite 36px. Card body is clickable, but the button stays a
+                  real button for keyboard and screen-reader users.</td>
+              </tr>
+              <tr>
+                <td>Equal height</td>
+                <td>Cards in one row share height. The CTA is the last slot and is pinned with
+                  <code>margin-top:auto</code>, so nothing sits below it — the button lands on one line in every row
+                  whatever the title length, stock state or metadata width happens to be. The availability slot keeps a
+                  reserved height (<code>--avail-h</code>) so the info band stays uniform too.
+                </td>
+              </tr>
+              <tr>
+                <td>Theming</td>
+                <td>No card rule uses a literal colour. Twenty storefronts ship twenty token blocks and zero CSS forks.
+                  Try the brand switcher in the toolbar above.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid" id="footGrid"></div>
+      <div class="foot__bar">
+        <span>Nordika Home — demo storefront of the 20-storefront ecosystem.</span>
+        <span>Prices, stock and delivery dates are illustrative.</span>
+        <a href="index.html">Back to the platform demo</a>
+        <a href="CATALOG.md">Card specification</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- CONFIG PANEL -->
+  <div class="config-panel" id="configPanel" role="dialog" aria-modal="true" aria-label="Catalog configuration">
+    <div class="config-box" id="configBox"></div>
+  </div>
+
+  <!-- BUILD:SCRIPT -->
+
+  <script>
+// ============================================================
+// RU LOCALE
+// Один словарь + один проход по DOM после каждого рендера.
+// Ключ — точная английская строка из разметки, значение — русская.
+// Составные строки (числа, даты, цены) обрабатываются шаблонами ниже.
+// ============================================================
+const RU_DICT = {
+  // --- шапка ---
+  'Skip to catalogue': 'Перейти к каталогу',
+  'Storefront demo': 'Демо-витрина',
+  'Search the catalogue': 'Поиск по каталогу',
+  'Currency': 'Валюта',
+  'Dark': 'Тёмная',
+  'Light': 'Светлая',
+  'Cart': 'Корзина',
+  'Catalogue': 'Каталог',
+  'Card system': 'Система карточки',
+  'Anatomy': 'Анатомия',
+  'Specification': 'Спецификация',
+  'Card specification': 'Спецификация карточки',
+  'Back to the platform demo': 'Вернуться в демо платформы',
+  '32 SKUs live': '32 SKU в каталоге',
+  '4 departments': '4 раздела',
+  '16 subsections': '16 подразделов',
+  '5 content modes': '5 режимов карточки',
+  'Retail · marketplace · handmade · wholesale · pre-order': 'Ритейл · маркетплейс · хендмейд · опт · предзаказ',
+
+  // --- тулбар ---
+  'Filters': 'Фильтры',
+  'Sort by': 'Сортировка',
+  'Featured': 'Рекомендуемые',
+  'Price: low to high': 'Цена: по возрастанию',
+  'Price: high to low': 'Цена: по убыванию',
+  'Top rated': 'По рейтингу',
+  'Newest': 'Новинки',
+  'Most reviewed': 'По числу отзывов',
+  'List': 'Списком',
+  'Grid': 'Сеткой',
+
+  // --- фильтры ---
+  'Availability': 'Наличие',
+  'In stock': 'В наличии',
+  'Low stock': 'Мало на складе',
+  'Out of stock': 'Нет в наличии',
+  'Pre-order': 'Предзаказ',
+  'Brand or maker': 'Бренд или мастер',
+  'Content mode': 'Режим карточки',
+  'Retail': 'Ритейл',
+  'Marketplace': 'Маркетплейс',
+  'Handmade': 'Хендмейд',
+  'B2B wholesale': 'Опт B2B',
+  'Price, USD': 'Цена, USD',
+  'Any price': 'Любая цена',
+  'Under $15': 'До $15',
+  'Over $90': 'От $90',
+  'Rating': 'Рейтинг',
+  'Any': 'Любой',
+  'Clear all': 'Сбросить всё',
+  'Reset filters': 'Сбросить фильтры',
+  'Nothing matches these filters': 'Ничего не найдено',
+  'Try clearing a filter or widening the price band.': 'Уберите фильтр или расширьте диапазон цен.',
+  'Remove filter': 'Убрать фильтр',
+
+  // --- карточка ---
+  'Best seller': 'Хит продаж',
+  'New': 'Новинка',
+  'Wholesale': 'Опт',
+  'Quick view': 'Быстрый просмотр',
+  'Save': 'Экономия',
+  'Add to cart': 'В корзину',
+  'Colour': 'Цвет',
+  'Size': 'Размер',
+  'SKU': 'Артикул',
+  'From': 'Склад',
+  'Origin': 'Страна',
+  'Sold by': 'Продавец',
+  'Made to order': 'На заказ',
+  'Notify me': 'Сообщить о поступлении',
+  'Request quote': 'Запросить цену',
+  'Reserve in pre-order': 'Забронировать',
+  'per unit · excl. VAT': 'за единицу · без НДС',
+  'Pre-order · batch open': 'Предзаказ · приём заявок',
+  'Ships in about': 'Отправка примерно через',
+  'Get it by': 'Доставка',
+  'Back in stock': 'Снова в наличии',
+  'Free delivery over': 'Бесплатная доставка от',
+  'Close quick view': 'Закрыть быстрый просмотр',
+  'Loading (skeleton)': 'Загрузка (скелетон)',
+  'Saved to wishlist': 'Сохранено в избранное',
+  'Removed from wishlist': 'Убрано из избранного',
+  'Save to wishlist': 'В избранное',
+  'Remove from wishlist': 'Убрать из избранного',
+  'We will email you': 'Сообщим на почту',
+  'Restock alert saved': 'Оповещение о поступлении сохранено',
+  'Cart is empty': 'Корзина пуста',
+  'House tokens': 'Базовые токены',
+  'Prices converted to': 'Цены пересчитаны в',
+  'Quote request opened for': 'Запрос цены открыт для',
+  'Catalogue': 'Каталог',
+  'Browse catalogue': 'Просмотр каталога',
+  'Catalog configuration': 'Конфигурация каталога',
+  'Catalog visibility reset to default': 'Видимость каталога сброшена по умолчанию',
+  'Catalog configuration': 'Конфигурация каталога',
+  'Enable or disable departments and subsections. Only visible items appear in the catalogue and dropdown. Settings are saved per storefront.':
+    'Включите или отключите разделы и подразделы. В каталоге и выпадающем меню отображаются только видимые элементы. Настройки сохраняются для каждой витрины отдельно.',
+  'Reset all': 'Сбросить всё',
+  'Done': 'Готово',
+  'Any price': 'Любая цена',
+};
+// END A
+
+Object.assign(RU_DICT, {
+  // --- система карточки: заголовки и анатомия ---
+  'One component · 11 slots · 5 content modes · 10 states · 3 sizes':
+    'Один компонент · 11 слотов · 5 режимов · 10 состояний · 3 размера',
+  'Everything below is the same HTML. A card either fills a slot or the slot is not rendered — there is no second card template. Hover a slot on the left to see where it lives.':
+    'Ниже — один и тот же HTML. Карточка либо заполняет слот, либо слот не выводится вовсе: второго шаблона нет. Наведите на слот слева, чтобы увидеть, где он живёт.',
+  'Media': 'Медиа',
+  '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.':
+    '1:1 в сетке, 4:3 в списке. При наведении подменяется вторым кадром. Никогда не растягивается и не получает полей.',
+  'Badges': 'Бейджи',
+  'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.':
+    'Скидка, хит продаж, новинка, хендмейд, опт, предзаказ. Не больше трёх одновременно.',
+  'Brand / maker': 'Бренд / мастер',
+  'Brand for retail, maker name for handmade. Both are links in production.':
+    'Бренд для ритейла, имя мастера для хендмейда. В продакшене оба — ссылки.',
+  'Title': 'Заголовок',
+  'Two lines, clamped. Full string stays in the accessible name.':
+    'Две строки с обрезкой. Полная строка остаётся в доступном имени.',
+  'Short description': 'Короткое описание',
+  'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.':
+    'Всегда в списке; в сетке — только для неритейловых режимов и акцентного размера. Две строки, никогда в пятиколоночной сетке.',
+  'Average plus the raw count. Count is always visible — a bare star is unverifiable.':
+    'Средний балл и сырое число оценок. Число видно всегда: голая звезда непроверяема.',
+  'Price': 'Цена',
+  'Now, previous, saving, unit price, tier table. Tabular figures.':
+    'Текущая, прежняя, экономия, цена за единицу, таблица тиров. Табличные цифры.',
+  'Variants': 'Варианты',
+  'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.':
+    'Сначала точки цветов, затем размеры. Не больше пяти точек, остальные счётчиком +N. Распроданные комбинации зачёркнуты, а не скрыты.',
+  'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.':
+    'В наличии / осталось N / нет в наличии / прогресс предзаказа — с датой доставки. Фиксированная высота.',
+  'Meta': 'Мета',
+  'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.':
+    'Артикул, продавец, склад, страна происхождения. Слой доверия для B2B и маркетплейса.',
+  'Actions': 'Действия',
+  'Last slot, pinned to the bottom. One primary verb per mode: add to cart, reserve, request quote, notify me.':
+    'Последний слот, прижат к низу. Один главный глагол на режим: в корзину, забронировать, запросить цену, сообщить о поступлении.',
+
+  // --- режимы контента ---
+  'Content modes': 'Режимы карточки',
+  'Mode': 'Режим',
+  'Who sells': 'Кто продаёт',
+  'What changes in the card': 'Что меняется в карточке',
+  'Example SKU': 'Пример SKU',
+  'Own stock, own brand': 'Свой склад, свой бренд',
+  'Add to cart · free-delivery threshold · tier table on bulk':
+    'В корзину · порог бесплатной доставки · таблица тиров на объём',
+  'Third-party seller': 'Сторонний продавец',
+  'Sold by + warehouse in meta, platform never promises credit':
+    'Продавец и склад в мете; условия оплаты — на стороне продавца',
+  'Maker, small batch': 'Мастер, малая партия',
+  'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock':
+    'Имя мастера в надзаголовке, бейдж «Хендмейд», срок изготовления, маленький остаток',
+  'Tender / supplier buyer': 'Тендер / закупщик',
+  'Unit price excl. VAT, tier table, MOQ, Request quote replaces Add to cart':
+    'Цена за единицу без НДС, таблица тиров, MOQ, «Запросить цену» вместо «В корзину»',
+  'Batch not produced yet': 'Партия ещё не произведена',
+  'Progress bar, pledged %, ships-in date, Reserve replaces Add to cart':
+    'Прогресс-бар, процент заявок, дата отправки, «Забронировать» вместо «В корзину»',
+
+  // --- состояния и размеры ---
+  'States': 'Состояния',
+  'Default': 'Обычное',
+  'On sale': 'Со скидкой',
+  'Sizes': 'Размеры',
+  'Compact': 'Компактная',
+  '5–6 column grids, cross-sell rails, cart upsell.':
+    'Сетки на 5–6 колонок, блоки кросс-продаж, допродажи в корзине.',
+  'Standard': 'Стандартная',
+  'The default everywhere: category grid, search results, brand pages. No modifier.':
+    'Базовая везде: сетка категории, результаты поиска, страницы бренда. Без модификатора.',
+  'Feature': 'Акцентная',
+  'Hero slot, department landing, first row of a subsection.':
+    'Hero-слот, посадка раздела, первый ряд подраздела.',
+
+  // --- жёсткие правила ---
+  'Hard rules': 'Жёсткие правила',
+  'Always 1:1 in grid, 4:3 in list. Second image swaps on hover only where a pointer exists (':
+    'В сетке всегда 1:1, в списке 4:3. Второй кадр подменяется по наведению только там, где есть указатель (',
+  ') — never on touch. Text never overlaps the badge column.':
+    ') — на тач-экранах никогда. Текст не заходит на колонку бейджей.',
+  'Clamped to 2 lines in standard, 3 in feature. Full title is in the ':
+    'Обрезка до 2 строк в стандартной, до 3 в акцентной. Полный заголовок лежит в атрибуте ',
+  'attribute and in the accessible name, so nothing is lost to the ellipsis.':
+    ' и в доступном имени, так что многоточие ничего не теряет.',
+  'Tabular figures, always the storefront currency of the moment. A strikethrough price renders only when it is a real previous price, never an invented anchor.':
+    'Табличные цифры, всегда текущая валюта витрины. Зачёркнутая цена выводится, только если это настоящая прежняя цена, а не выдуманный якорь.',
+  'Three levels only: in stock, low stock with the exact count and a bar, out of stock with a notify form. Colour is never the only signal — the words carry it.':
+    'Только три уровня: в наличии, мало с точным остатком и полосой, нет в наличии с формой оповещения. Цвет никогда не единственный сигнал — смысл несут слова.',
+  'Max 5 swatches then ': 'Не больше 5 чипов, дальше ',
+  '. Sizes render as a chip row; unavailable combinations are struck through, not hidden, so the shopper knows the full range exists.':
+    '. Размеры — ряд чипов; недоступные комбинации зачёркнуты, а не скрыты, чтобы покупатель видел весь диапазон.',
+  'Tap targets': 'Зоны нажатия',
+  'Primary button 44px, secondary 38px, favourite 36px. Card body is clickable, but the button stays a real button for keyboard and screen-reader users.':
+    'Главная кнопка 44px, вторичная 38px, избранное 36px. Тело карточки кликабельно, но кнопка остаётся настоящей кнопкой для клавиатуры и скринридеров.',
+  'Equal height': 'Одинаковая высота',
+  'Cards in one row share height. The CTA is the last slot and is pinned with':
+    'Карточки в одном ряду одной высоты. CTA — последний слот, он прижат через',
+  ', so nothing sits below it — the button lands on one line in every row whatever the title length, stock state or metadata width happens to be. The availability slot keeps a reserved height (':
+    ', поэтому ниже ничего нет: кнопка встаёт на одну линию в любом ряду, какими бы ни были длина заголовка, остаток или ширина метаданных. Слот наличия держит резервную высоту (',
+  ') so the info band stays uniform too.':
+    '), поэтому информационная полоса тоже ровная.',
+  'Theming': 'Темизация',
+  'No card rule uses a literal colour. Twenty storefronts ship twenty token blocks and zero CSS forks. Try the brand switcher in the toolbar above.':
+    'Ни одно правило карточки не использует цвет литералом. Двадцать витрин — двадцать блоков токенов и ноль форков CSS. Попробуйте переключатель бренда в тулбаре выше.',
+
+  // --- футер ---
+  'Nordika Home — demo storefront of the 20-storefront ecosystem.':
+    'Nordika Home — демо-витрина экосистемы из 20 магазинов.',
+  'Prices, stock and delivery dates are illustrative.':
+    'Цены, остатки и даты доставки — иллюстративные.',
+});
+// END B
+
+Object.assign(RU_DICT, {
+  // --- дерево каталога ---
+  'Electronics': 'Электроника',
+  'Home & Kitchen': 'Дом и кухня',
+  'Craft & Hobby': 'Рукоделие и хобби',
+  'Outdoor & Optics': 'Туризм и оптика',
+  'Audio, storage, power, smart home': 'Аудио, накопители, питание, умный дом',
+  'Cookware, appliances, lighting, textiles': 'Посуда, техника, свет, текстиль',
+  'Yarn, beading, art supplies, DIY kits': 'Пряжа, бисер, материалы, наборы',
+  'Optics, camping, tools, apparel': 'Оптика, кемпинг, инструменты, одежда',
+  '8 items · Audio, storage, power, smart home': '8 товаров · Аудио, накопители, питание, умный дом',
+  '8 items · Cookware, appliances, lighting, textiles': '8 товаров · Посуда, техника, свет, текстиль',
+  '8 items · Yarn, beading, art supplies, DIY kits': '8 товаров · Пряжа, бисер, материалы, наборы',
+  '8 items · Optics, camping, tools, apparel': '8 товаров · Оптика, кемпинг, инструменты, одежда',
+
+  'Audio': 'Аудио',
+  'Storage & Memory': 'Накопители и память',
+  'Power & Cables': 'Питание и кабели',
+  'Smart Home': 'Умный дом',
+  'Cookware & Prep': 'Посуда и подготовка',
+  'Small Appliances': 'Мелкая техника',
+  'Lighting': 'Освещение',
+  'Textiles': 'Текстиль',
+  'Yarn & Fibre': 'Пряжа и волокно',
+  'Beading & Embroidery': 'Бисер и вышивка',
+  'Art Supplies': 'Художественные материалы',
+  'DIY Kits': 'Наборы для творчества',
+  'Optics & Vision': 'Оптика и зрение',
+  'Camping & Hiking': 'Кемпинг и походы',
+  'Tools': 'Инструменты',
+  'Outdoor Apparel': 'Туристическая одежда',
+
+  // --- подписи дерева для скринридеров ---
+  'Departments': 'Разделы',
+  'Subsections': 'Подразделы',
+  'Electronics subsections': 'Подразделы: Электроника',
+  'Home & Kitchen subsections': 'Подразделы: Дом и кухня',
+  'Craft & Hobby subsections': 'Подразделы: Рукоделие и хобби',
+  'Outdoor & Optics subsections': 'Подразделы: Туризм и оптика',
+  'Breadcrumb': 'Хлебные крошки',
+  'Search': 'Поиск',
+  'Content modes table, scrollable': 'Таблица режимов, прокручивается',
+  'Hard rules table, scrollable': 'Таблица правил, прокручивается',
+  'Switch storefront tokens': 'Переключить токены витрины',
+  'Switch theme': 'Переключить тему',
+  'Switch grid / list': 'Переключить сетку или список',
+  'Switch language': 'Переключить язык',
+  'Search 32 products, e.g. “kettle”, “yarn”, “binocular”':
+    'Поиск по 32 товарам, например «чайник», «пряжа», «бинокль»',
+});
+// END C
+
+Object.assign(RU_DICT, {
+  // --- товары: электроника ---
+  'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime':
+    'Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч',
+  'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.':
+    'Адаптивное ANC с режимом прозрачности, драйверы с сертификатом hi-res и батарея на 40 часов. Складываются в жёсткий кейс.',
+  'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof':
+    'Портативная колонка SPK 2, 24 ч работы, защита IPX7',
+  '12 W stereo with passive bass radiators. Pairs two units for true stereo.':
+    'Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.',
+  'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink':
+    'SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором',
+  'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.':
+    'TLC без DRAM, с HMB, стабильные 5,2 ГБ/с под нагрузкой. В комплекте низкопрофильный алюминиевый радиатор.',
+  'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack':
+    'Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.',
+  'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.':
+    'Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.',
+  '7-Port USB Hub with 60 W Mains Adapter, Braided Cable':
+    'USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель',
+  'Individually switched ports, 2.4 A per port, over-current protection on the bus.':
+    'Каждый порт отключается отдельно, 2,4 А на порт, защита шины от перегрузки.',
+  '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4':
+    'Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4',
+  'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.':
+    'Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.',
+  'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter':
+    'Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter',
+  'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.':
+    'Замер энергии по каждой розетке, расписания и мост Matter для сторонних хабов.',
+  'Indoor Security Camera 2K, Privacy Shutter, Local SD':
+    'Камера для дома 2K, шторка приватности, локальная SD',
+  'No cloud subscription required. Physical lens shutter and on-device person detection.':
+    'Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.',
+});
+// END D1
+
+Object.assign(RU_DICT, {
+  // --- товары: дом и кухня ---
+  'Enamel Spice Kettle 300 ml, Cream, Induction Ready':
+    'Эмалированный чайник для специй 300 мл, кремовый, для индукции',
+  'Two-layer enamel over carbon steel, whistling spout, dishwasher safe.':
+    'Двухслойная эмаль по углеродистой стали, свисток, можно в посудомоечную машину.',
+  'Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade':
+    'Чугунная гриль-сковорода 28 см, с заводской закалкой, отельный класс',
+  'Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.':
+    'Литьё в песок, выдерживает до 260 °C в духовке. По 6 штук в коробке для HoReCa.',
+  'Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids':
+    'Вафельница, 4 панели, раскрытие 180°, чугунные решётки',
+  'Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.':
+    'Съёмные чугунные решётки с бельгийской ячейкой 9 мм и отдельной регулировкой прожарки.',
+  'Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces':
+    'Набор керамических мисок ручной работы, 3 шт.',
+  'Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.':
+    'Каменная керамика, вытянутая на круге, матовая глазурь для контакта с едой. Каждый набор обжигается малой партией.',
+  'Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable':
+    'LED-торшер Arc, шлифованная сталь, 1 600 лм с диммером',
+  'Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.':
+    'Консольная дуга 2,1 м, утяжелённое мраморное основание и плавный диммер-колесо.',
+  'Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K':
+    'Подвесной светильник 36 Вт, опаловый рассеиватель, 2 700–4 000 K',
+  'Surface-mounted driver, tool-free cable shortening, glare shield below 30°.':
+    'Драйвер на поверхности, укорочение троса без инструментов, защита от слепящего света ниже 30°.',
+  'Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces':
+    'Набор махровых полотенец 500 г/м², 70 × 140 см, 2 шт.',
+  'Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.':
+    'Длинноволокнистый чесаный хлопок, бордюр с вытянутой петлёй, прошёл стирку и не сыплется после первой.',
+  'Hand-Woven Wool Runner 80 x 240 cm, Natural Dye':
+    'Шерстяная дорожка ручного ткачества 80 × 240 см, натуральный краситель',
+  'Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.':
+    'Тканая на станке из некрашеной местной шерсти. Небольшая разница в ворсе — подпись, а не брак.',
+
+  // --- товары: рукоделие ---
+  'Merino Worsted Yarn, 100 g Skein, 24 Colours':
+    'Мериносовая пряжа Worsted, моток 100 г, 24 цвета',
+  'Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.':
+    'Меринос 19,5 мкм от одного источника, машинная стирка на шерстяном режиме. Красится малыми партиями.',
+  'Baby Alpaca Blend DK, 200 g Cone, Cloud Grey':
+    'Смесь с бэби-альпакой DK, конус 200 г, облачно-серый',
+  '22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.':
+    '22 % альпаки на акриловой основе: ореол без покалывания. Продаётся конусом для трикотажных студий.',
+  'Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish':
+    'Стеклянный бисер 11/0, туба 8 000 шт., матовый',
+  'Consistent Czech-made hole size, no more than 2 % deformed beads per tube.':
+    'Стабильный чешский размер отверстия, не больше 2 % деформированных бисерин в тубе.',
+  'Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box':
+    'Хлопковое мулине в 6 сложений, набор 24 мотка, студийная коробка',
+  '390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.':
+    '390 м в мотке, стойкая окраска, фасовка для вышивальных мастерских и школьных поставок.',
+  'Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment':
+    'Художественная гуашь, 12 × 20 мл, сверхтонкий пигмент',
+  'Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children’s classes.':
+    'Укрывистая, перерабатываемая, на медовой связке. Соответствует EN 71-3 для детских занятий.',
+  'Hand-Tied Sable Brush Set of 6, Birch Handles':
+    'Набор кистей из соболя ручной вязки, 6 шт., берёзовые ручки',
+  'Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.':
+    'Каждая кисть связана вручную из соболя класса «колонок»; двух одинаковых нет.',
+  'Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages':
+    'Набор для декупажа деревянной шкатулки, 3 слоя, инструкция на 4 языках',
+  'Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.':
+    'Заготовка из бука, салфетки, клей, кисть и лак в одной коробке.',
+  'Quilling Frame Loom, Improved Tension, Pre-Order':
+    'Станок для квиллинга, усиленное натяжение, предзаказ',
+  'Second production run after the first sold out in nine days. Closes when 300 units are pledged.':
+    'Второй тираж: первый разошёлся за девять дней. Партия закрывается на 300 заявках.',
+});
+// END D2
+
+Object.assign(RU_DICT, {
+  // --- товары: туризм и оптика ---
+  'Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled':
+    'Водозащищённый бинокль 10×42, призмы BaK-4, заполнен азотом',
+  'Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.':
+    'Призмы с фазовой коррекцией, поле 6,5°, корпус IPX7, вынос зрачка 22 мм.',
+  'Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot':
+    'Крышка для оптического прицела 22 мм, антиблик, оптовая партия',
+  'MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.':
+    'Закалённое стекло по MIL-spec с антибликовым покрытием. Партии по 20 штук для снабженцев.',
+  'Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon':
+    'Двухместная ультралёгкая палатка, 1 980 г, 3 сезона, силикон-нейлон',
+  'Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.':
+    'Два входа и два тамбура, тент 3 000 мм, дуги с цветовой маркировкой.',
+  'Titanium Trail Kettle 0.9 L, Folding Handle, 78 g':
+    'Титановый походный чайник 0,9 л, складная ручка, 78 г',
+  'Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.':
+    'Однослойный титан grade-1, зачернённое дно для быстрого закипания. Складывается плоско.',
+  'Precision Screwdriver Set, 32 Bits, Aluminium Case':
+    'Набор точных отвёрток, 32 биты, алюминиевый кейс',
+  'S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.':
+    'Биты из стали S2, шестигранная ручка, которая не катится, и держатель с фиксацией биты для электроники.',
+  'Forged Camping Mallet, Ash Handle, Leather Head':
+    'Кованый кемпинговый молоток, ясеневая ручка, кожаная голова',
+  'Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.':
+    'Кованая вручную голова, прошитая кожаная набойка для колышков. Изготовление за пять рабочих дней.',
+  'Insulated Trail Jacket, 10 000 mm Membrane, Unisex':
+    'Утеплённая трекинговая куртка, мембрана 10 000 мм, унисекс',
+  'Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.':
+    'Проклеенные швы, капюшон под шлем, два боковых кармана и внутренний сброс-карман.',
+  'Merino Hiking Socks, 3-Pack, Cushioned Zone':
+    'Трекинговые носки из мериноса, 3 пары, амортизирующая зона',
+  '18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.':
+    'Смесь с 18 % мериноса, усиленные пятка и мыс. Не держат запах при многодневном ношении.',
+});
+// END D3
+
+// ============================================================
+// ПЕРЕВОД: шаблоны для составных строк (числа, даты, цены)
+// Порядок важен: сначала узкие правила, потом общие.
+// ============================================================
+const RU_PAT = [
+  [/^Showing (\d+) of (\d+) items · prices in (\w+)$/, 'Показано $1 из $2 товаров · цены в $3'],
+  [/^(\d+) items · prices in (\w+)$/, '$1 товаров · цены в $2'],
+  [/^([\d.,\s]+) ratings$/, (m, n) => `${n.replace(/,/g, ' ')} оценок`],
+  [/^In stock · ([\d.,\s]+)$/, (m, n) => `В наличии · ${n.replace(/,/g, ' ')}`],
+  [/^Only (\d+) left$/, 'Осталось $1 шт.'],
+  [/^Back in stock (.+)$/, 'Снова в наличии $1'],
+  [/^Get it by (.+)$/, 'Доставка $1'],
+  [/^Free delivery over (.+)$/, 'Бесплатная доставка от $1'],
+  [/^Ships in about (.+)$/, 'Отправка примерно через $1'],
+  [/^(\d+) days$/, '$1 дн.'],
+  [/^Made to order (\d+) days$/, 'На заказ, $1 дн.'],
+  [/^· (\d+) of (\d+) pledged$/, '· $1 из $2 зарезервировано'],
+  [/^(\d+) of (\d+) pledged$/, '$1 из $2 зарезервировано'],
+  [/^Load (\d+) more \((\d+) left\)$/, 'Показать ещё $1 (осталось $2)'],
+  [/^Save (.+)$/, 'Экономия $1'],
+  [/^by (.+)$/, 'мастер: $1'],
+  [/^Add lot of (\d+)$/, 'Добавить партию $1'],
+  [/^(\d+) pcs$/, '$1 шт.'],
+  [/^([\d.]+) out of 5 stars$/, '$1 из 5 звёзд'],
+  [/^Colour (\d+) of (\d+)$/, 'Цвет $1 из $2'],
+  [/^Remove filter “(.+)”$/, 'Убрать фильтр «$1»'],
+  [/^Search: “(.+)”$/, 'Поиск: «$1»'],
+  [/^Search “(.+)”$/, 'Поиск «$1»'],
+  [/^“(.+)”$/, '«$1»'],
+  [/^Cart: (\d+) item\(s\)$/, 'Корзина: $1 шт.'],
+  [/^(\d+) item\(s\)$/, '$1 шт.'],
+  [/^Added (\d+) pcs$/, 'Добавлено $1 шт.'],
+  [/^Added$/, 'Добавлено'],
+  [/^Tokens switched to (\w+) — same card, new brand$/, 'Токены переключены на $1 — та же карточка, новый бренд'],
+  [/^Prices converted to (\w+)$/, 'Цены пересчитаны в $1'],
+  [/^Quote request opened for (.+)$/, 'Запрос цены открыт для $1'],
+  [/^(\S+) added — (.+)$/, '$1 добавлен — $2'],
+  [/^(\d+) items · (.+)$/, '$1 товаров · $2'],
+  [/^Catalog configuration$/, 'Конфигурация каталога'],
+  [/^Enable or disable departments and subsections./, 'Включите или отключите разделы и подразделы.'],
+  [/^Settings are saved per storefront./, 'Настройки сохраняются для каждой витрины отдельно.'],
+  [/^Reset all$/, 'Сбросить всё'],
+  [/^Done$/, 'Готово'],
+  [/^Catalog visibility reset to default$/, 'Видимость каталога сброшена по умолчанию'],
+];
+
+// ============================================================
+// ПЕРЕВОД: один проход по DOM
+// Узел запоминает свою английскую и русскую версии, поэтому
+// переключение туда-обратно ничего не теряет, а повторный
+// прогон не порождает мутаций (меняем только при отличии).
+// ============================================================
+const L10N = new Map();
+const ATTR_L10N = new Map();
+let langBusy = false;
+
+function ruCore(raw) {
+  const core = String(raw).trim().replace(/\s+/g, ' ');
+  if (!core) return null;
+  const hit = RU_DICT[core];
+  if (hit) return hit;
+  for (let i = 0; i < RU_PAT.length; i++) {
+    const re = RU_PAT[i][0];
+    if (re.test(core)) return core.replace(re, RU_PAT[i][1]);
+  }
+  return null;
+}
+
+function applyLang() {
+  const ru = S.lang === 'ru';
+  langBusy = true;
+
+  const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(n) {
+      const p = n.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      const t = p.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'PRE' || t === 'TEXTAREA') return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  const nodes = [];
+  for (let n = walk.nextNode(); n; n = walk.nextNode()) nodes.push(n);
+
+  for (const node of nodes) {
+    const cur = node.textContent;
+    let rec = L10N.get(node);
+    if (!rec) { rec = { en: cur, ru: null }; L10N.set(node, rec); }
+    else if (cur !== rec.en && cur !== rec.ru) { rec.en = cur; rec.ru = null; }
+    if (rec.ru === null) rec.ru = ruCore(rec.en) || rec.en;
+    const want = ru ? rec.ru : rec.en;
+    if (cur !== want) node.textContent = want;
+  }
+
+  const ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
+  for (const el of document.querySelectorAll('[placeholder],[aria-label],[title],[alt]')) {
+    let map = ATTR_L10N.get(el);
+    if (!map) { map = {}; ATTR_L10N.set(el, map); }
+    for (const a of ATTRS) {
+      const v = el.getAttribute(a);
+      if (!v) continue;
+      let rec = map[a];
+      if (!rec) { rec = { en: v, ru: null }; map[a] = rec; }
+      else if (v !== rec.en && v !== rec.ru) { rec.en = v; rec.ru = null; }
+      if (rec.ru === null) rec.ru = ruCore(rec.en) || rec.en;
+      const want = ru ? rec.ru : rec.en;
+      if (v !== want) el.setAttribute(a, want);
+    }
+  }
+
+  document.documentElement.lang = ru ? 'ru' : 'en';
+  langBusy = false;
+}
+
+// Всё, что рендерится после переключения (фильтры, грид, тост, модалка),
+// переводится на лету: следим за DOM и переводим один раз на кадр.
+let langQueued = false;
+function scheduleLang() {
+  if (langBusy || langQueued || S.lang !== 'ru') return;
+  langQueued = true;
+  requestAnimationFrame(() => { langQueued = false; if (!langBusy) applyLang(); });
+}
+
+new MutationObserver(scheduleLang).observe(document.body, {
+  childList: true, subtree: true, characterData: true,
+});
+// END E
+
+// ============================================================
+// CATALOGUE DATA
+// Taxonomy: 4 departments x 4 subsections, English, marketplace
+// convention (Amazon / Target / Leonardo / D-Retailer combined).
+// Base price is stored in RUB — the core keeps one price per SKU
+// and converts at display time.
+// ============================================================
+const DEPTS = [
+  {
+    id: 'electronics', name: 'Electronics', icon: 'chip',
+    blurb: 'Audio, storage, power, smart home',
+    subs: [
+      { id: 'audio', name: 'Audio', glyph: 'headphones' },
+      { id: 'storage', name: 'Storage & Memory', glyph: 'ssd' },
+      { id: 'power', name: 'Power & Cables', glyph: 'plug' },
+      { id: 'smart-home', name: 'Smart Home', glyph: 'hub' },
+    ]
+  },
+  {
+    id: 'home', name: 'Home & Kitchen', icon: 'home',
+    blurb: 'Cookware, appliances, lighting, textiles',
+    subs: [
+      { id: 'cookware', name: 'Cookware & Prep', glyph: 'kettle' },
+      { id: 'appliances', name: 'Small Appliances', glyph: 'mixer' },
+      { id: 'lighting', name: 'Lighting', glyph: 'lamp' },
+      { id: 'textiles', name: 'Textiles', glyph: 'towel' },
+    ]
+  },
+  {
+    id: 'craft', name: 'Craft & Hobby', icon: 'needle',
+    blurb: 'Yarn, beading, art supplies, DIY kits',
+    subs: [
+      { id: 'yarn', name: 'Yarn & Fibre', glyph: 'yarn' },
+      { id: 'beading', name: 'Beading & Embroidery', glyph: 'beads' },
+      { id: 'art-supplies', name: 'Art Supplies', glyph: 'palette' },
+      { id: 'diy-kits', name: 'DIY Kits', glyph: 'kit' },
+    ]
+  },
+  {
+    id: 'outdoor', name: 'Outdoor & Optics', icon: 'mountain',
+    blurb: 'Optics, camping, tools, apparel',
+    subs: [
+      { id: 'optics', name: 'Optics & Vision', glyph: 'binocular' },
+      { id: 'camping', name: 'Camping & Hiking', glyph: 'tent' },
+      { id: 'tools', name: 'Tools', glyph: 'tool' },
+      { id: 'apparel', name: 'Outdoor Apparel', glyph: 'jacket' },
+    ]
+  },
+];
+
+// mode: retail | marketplace | handmade | b2b | pre
+const P = [
+  // — Electronics / Audio —
+  { id: 'AUD-Q20', sku: 'AUD-Q20I', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'retail', title: 'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime', desc: 'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.', price: 9900, was: 12900, rating: 4.6, reviews: 2841, stock: 184, colors: ['#1B1B1F', '#C7CBD4', '#8A5A2B'], eta: 2, madeIn: 'Vietnam', wh: 'MSK-1', top: true, rel: '2026-04' },
+  { id: 'AUD-SPK', sku: 'AUD-SPK2', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'marketplace', title: 'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof', desc: '12 W stereo with passive bass radiators. Pairs two units for true stereo.', price: 4400, rating: 4.4, reviews: 1120, stock: 62, colors: ['#2E5BFF', '#1B1B1F', '#B02418'], eta: 3, madeIn: 'China', wh: 'SPB-2', seller: 'SoundLab' },
+  // — Storage —
+  { id: 'STO-NV1', sku: 'STO-NV1T', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'retail', title: 'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink', desc: 'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.', price: 8940, was: 10400, rating: 4.8, reviews: 3320, stock: 412, eta: 1, madeIn: 'South Korea', wh: 'MSK-1', top: true },
+  { id: 'STO-CAR', sku: 'STO-CAR64', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'b2b', title: 'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack', desc: 'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.', price: 990, rating: 4.3, reviews: 214, stock: 980, moq: 10, tiers: [[10, 990], [50, 910], [200, 840]], eta: 4, madeIn: 'China', wh: 'MSK-2' },
+  // — Power —
+  { id: 'POW-HUB', sku: 'POW-HUB7', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'retail', title: '7-Port USB Hub with 60 W Mains Adapter, Braided Cable', desc: 'Individually switched ports, 2.4 A per port, over-current protection on the bus.', price: 2360, rating: 4.2, reviews: 486, stock: 1180, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'POW-PD', sku: 'POW-PD65', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'pre', title: '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4', desc: 'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.', price: 3200, rating: 4.7, reviews: 98, stock: 0, pledged: 268, batch: 300, eta: 21, madeIn: 'China', wh: 'MSK-2', rel: '2026-09' },
+  // — Smart home —
+  { id: 'SMH-PLG', sku: 'SMH-PLG2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'retail', title: 'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter', desc: 'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.', price: 1890, was: 2400, rating: 4.5, reviews: 1440, stock: 320, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'SMH-CAM', sku: 'SMH-CAM2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'marketplace', title: 'Indoor Security Camera 2K, Privacy Shutter, Local SD', desc: 'No cloud subscription required. Physical lens shutter and on-device person detection.', price: 3750, rating: 4.1, reviews: 302, stock: 6, colors: ['#EFEFF1', '#1B1B1F'], eta: 3, madeIn: 'China', wh: 'MSK-2', seller: 'SafeNest' },
+
+  // — Home / Cookware —
+  { id: 'HOM-KTL', sku: 'HOM-KTL30', dept: 'home', sub: 'cookware', brand: 'Nordika', mode: 'retail', title: 'Enamel Spice Kettle 300 ml, Cream, Induction Ready', desc: 'Two-layer enamel over carbon steel, whistling spout, dishwasher safe.', price: 1745, was: 2250, rating: 4.6, reviews: 812, stock: 86, colors: ['#F0E6D8', '#1B1B1F', '#0E6E5C'], eta: 2, madeIn: 'Türkiye', wh: 'SPB-1', top: true },
+  { id: 'HOM-PAN', sku: 'HOM-PAN28', dept: 'home', sub: 'cookware', brand: 'Nordika', mode: 'b2b', title: 'Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade', desc: 'Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.', price: 4100, rating: 4.7, reviews: 156, stock: 240, moq: 6, tiers: [[6, 4100], [24, 3720], [60, 3390]], eta: 5, madeIn: 'Russia', wh: 'MSK-2' },
+  // — Appliances —
+  { id: 'HOM-WAF', sku: 'HOM-WAF4', dept: 'home', sub: 'appliances', brand: 'Aeromat', mode: 'retail', title: 'Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids', desc: 'Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.', price: 6340, rating: 4.4, reviews: 524, stock: 118, colors: ['#1B1B1F', '#C7CBD4'], eta: 2, madeIn: 'China', wh: 'SPB-1' },
+  { id: 'HOM-MIX', sku: 'HOM-MIX8', dept: 'home', sub: 'appliances', brand: 'Aeromat', mode: 'handmade', title: 'Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces', desc: 'Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.', price: 5200, rating: 4.9, reviews: 74, stock: 3, colors: ['#D9C7B0', '#8FA5A0', '#3C4A56'], eta: 6, madeIn: 'Russia', wh: 'SPB-1', maker: 'Kuznetsova Studio', rel: '2026-08' },
+  // — Lighting —
+  { id: 'LGT-ARC', sku: 'LGT-ARCL', dept: 'home', sub: 'lighting', brand: 'Nordika', mode: 'retail', title: 'Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable', desc: 'Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.', price: 12480, was: 15900, rating: 4.5, reviews: 288, stock: 34, colors: ['#C7CBD4', '#1B1B1F', '#8A5A2B'], eta: 4, madeIn: 'Poland', wh: 'SPB-1' },
+  { id: 'LGT-PND', sku: 'LGT-PND36', dept: 'home', sub: 'lighting', brand: 'Aeromat', mode: 'retail', title: 'Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K', desc: 'Surface-mounted driver, tool-free cable shortening, glare shield below 30°.', price: 5620, rating: 4.3, reviews: 141, stock: 0, colors: ['#EFEFF1', '#1B1B1F', '#E8A200'], eta: 0, madeIn: 'Germany', wh: 'MSK-1' },
+  // — Textiles —
+  { id: 'TEX-TWL', sku: 'TEX-TWL50', dept: 'home', sub: 'textiles', brand: 'Baltic Linen', mode: 'retail', title: 'Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces', desc: 'Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.', price: 2180, was: 2780, rating: 4.7, reviews: 1960, stock: 640, colors: ['#F0E6D8', '#8FA5A0', '#3C4A56', '#C4162D'], eta: 2, madeIn: 'Russia', wh: 'SPB-1', top: true },
+  { id: 'TEX-RUG', sku: 'TEX-RUG80', dept: 'home', sub: 'textiles', brand: 'Baltic Linen', mode: 'handmade', title: 'Hand-Woven Wool Runner 80 x 240 cm, Natural Dye', desc: 'Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.', price: 14900, rating: 5.0, reviews: 38, stock: 2, colors: ['#D9C7B0', '#A8452A', '#55555E'], eta: 9, madeIn: 'Russia', wh: 'SPB-1', maker: 'Anna P.', rel: '2026-07' },
+
+  // — Craft / Yarn —
+  { id: 'CRF-YRN', sku: 'CRF-YRNM', dept: 'craft', sub: 'yarn', brand: 'Leonardo', mode: 'retail', title: 'Merino Worsted Yarn, 100 g Skein, 24 Colours', desc: 'Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.', price: 890, rating: 4.8, reviews: 3120, stock: 2400, colors: ['#C4162D', '#0E6E5C', '#2E5BFF', '#E8A200', '#55555E'], colourTotal: 24, eta: 2, madeIn: 'Peru', wh: 'MSK-1', top: true },
+  { id: 'CRF-ALP', sku: 'CRF-ALPA', dept: 'craft', sub: 'yarn', brand: 'Leonardo', mode: 'marketplace', title: 'Baby Alpaca Blend DK, 200 g Cone, Cloud Grey', desc: '22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.', price: 2450, rating: 4.6, reviews: 412, stock: 148, colors: ['#C7CBD4', '#D9C7B0', '#8FA5A0'], eta: 5, madeIn: 'Peru', wh: 'MSK-2', seller: 'Fibra Andina' },
+  // — Beading —
+  { id: 'CRF-BDS', sku: 'CRF-BDS11', dept: 'craft', sub: 'beading', brand: 'Leonardo', mode: 'retail', title: 'Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish', desc: 'Consistent Czech-made hole size, no more than 2 % deformed beads per tube.', price: 640, was: 820, rating: 4.7, reviews: 2210, stock: 3100, colors: ['#1B1B1F', '#E8A200', '#2E5BFF', '#F0E6D8'], eta: 2, madeIn: 'Czechia', wh: 'MSK-1' },
+  { id: 'CRF-MUL', sku: 'CRF-MUL24', dept: 'craft', sub: 'beading', brand: 'Leonardo', mode: 'b2b', title: 'Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box', desc: '390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.', price: 3900, rating: 4.5, reviews: 122, stock: 410, moq: 5, tiers: [[5, 3900], [20, 3540], [100, 3180]], eta: 4, madeIn: 'Russia', wh: 'MSK-2' },
+  // — Art supplies —
+  { id: 'ART-GOU', sku: 'ART-GOU12', dept: 'craft', sub: 'art-supplies', brand: 'Leonardo', mode: 'retail', title: 'Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment', desc: 'Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children\u2019s classes.', price: 1680, rating: 4.8, reviews: 1470, stock: 520, eta: 2, madeIn: 'Germany', wh: 'MSK-1' },
+  { id: 'ART-BRS', sku: 'ART-BRS6', dept: 'craft', sub: 'art-supplies', brand: 'Leonardo', mode: 'handmade', title: 'Hand-Tied Sable Brush Set of 6, Birch Handles', desc: 'Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.', price: 4300, rating: 4.9, reviews: 96, stock: 4, colors: ['#8A5A2B', '#D9C7B0'], eta: 8, madeIn: 'Russia', wh: 'SPB-1', maker: 'Mosbrush Workshop', rel: '2026-06' },
+  // — DIY kits —
+  { id: 'KIT-DEC', sku: 'KIT-DEC1', dept: 'craft', sub: 'diy-kits', brand: 'Leonardo', mode: 'retail', title: 'Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages', desc: 'Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.', price: 1240, was: 1590, rating: 4.4, reviews: 688, stock: 760, eta: 2, madeIn: 'Russia', wh: 'MSK-1' },
+  { id: 'KIT-QUI', sku: 'KIT-QUI2', dept: 'craft', sub: 'diy-kits', brand: 'Leonardo', mode: 'pre', title: 'Quilling Frame Loom, Improved Tension, Pre-Order', desc: 'Second production run after the first sold out in nine days. Closes when 300 units are pledged.', price: 2750, rating: 4.6, reviews: 51, stock: 0, pledged: 121, batch: 300, eta: 18, madeIn: 'China', wh: 'MSK-2', rel: '2026-10' },
+
+  // — Outdoor / Optics —
+  { id: 'OPT-BIN', sku: 'OPT-B1042', dept: 'outdoor', sub: 'optics', brand: 'Kedr Optics', mode: 'retail', title: 'Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled', desc: 'Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.', price: 18900, was: 21900, rating: 4.7, reviews: 604, stock: 27, colors: ['#1B1B1F', '#55555E', '#0E6E5C'], eta: 3, madeIn: 'Japan', wh: 'MSK-1', top: true },
+  { id: 'OPT-SHP', sku: 'OPT-SHP22', dept: 'outdoor', sub: 'optics', brand: 'Kedr Optics', mode: 'b2b', title: 'Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot', desc: 'MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.', price: 1450, rating: 4.2, reviews: 88, stock: 1600, moq: 20, tiers: [[20, 1450], [100, 1290], [500, 1120]], eta: 6, madeIn: 'China', wh: 'MSK-2' },
+  // — Camping —
+  { id: 'CMP-TNT', sku: 'CMP-TNT2', dept: 'outdoor', sub: 'camping', brand: 'Kedr', mode: 'retail', title: 'Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon', desc: 'Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.', price: 13400, rating: 4.5, reviews: 342, stock: 41, colors: ['#0E6E5C', '#8A5A2B', '#1B1B1F'], eta: 4, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'CMP-KTL', sku: 'CMP-KTL9', dept: 'outdoor', sub: 'camping', brand: 'Kedr', mode: 'marketplace', title: 'Titanium Trail Kettle 0.9 L, Folding Handle, 78 g', desc: 'Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.', price: 4600, rating: 4.6, reviews: 210, stock: 9, colors: ['#55555E', '#C7CBD4'], eta: 5, madeIn: 'China', wh: 'MSK-2', seller: 'Summit Supply' },
+  // — Tools —
+  { id: 'TLS-DRV', sku: 'TLS-DRV32', dept: 'outdoor', sub: 'tools', brand: 'Kedr', mode: 'retail', title: 'Precision Screwdriver Set, 32 Bits, Aluminium Case', desc: 'S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.', price: 2890, was: 3400, rating: 4.7, reviews: 1880, stock: 430, eta: 2, madeIn: 'Taiwan', wh: 'MSK-1' },
+  { id: 'TLS-MLT', sku: 'TLS-MLT3', dept: 'outdoor', sub: 'tools', brand: 'Kedr', mode: 'handmade', title: 'Forged Camping Mallet, Ash Handle, Leather Head', desc: 'Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.', price: 3950, rating: 4.8, reviews: 62, stock: 5, colors: ['#8A5A2B', '#55555E'], eta: 7, madeIn: 'Russia', wh: 'SPB-1', maker: 'Vetka Forge', rel: '2026-05' },
+  // — Apparel —
+  { id: 'APP-JKT', sku: 'APP-JKT-M', dept: 'outdoor', sub: 'apparel', brand: 'Nordika', mode: 'retail', title: 'Insulated Trail Jacket, 10 000 mm Membrane, Unisex', desc: 'Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.', price: 11200, rating: 4.4, reviews: 512, stock: 74, colors: ['#0E6E5C', '#1B1B1F', '#A8452A'], sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'], sizeOff: ['XS', 'XXL'], eta: 3, madeIn: 'Vietnam', wh: 'SPB-2' },
+  { id: 'APP-SCK', sku: 'APP-SCK3', dept: 'outdoor', sub: 'apparel', brand: 'Baltic Linen', mode: 'marketplace', title: 'Merino Hiking Socks, 3-Pack, Cushioned Zone', desc: '18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.', price: 1980, was: 2400, rating: 4.6, reviews: 940, stock: 380, colors: ['#8FA5A0', '#1B1B1F', '#C4162D'], sizes: ['S', 'M', 'L', 'XL'], eta: 2, madeIn: 'Portugal', wh: 'MSK-1', seller: 'Path & Co' },
+];
+
+// ============================================================
+// CURRENCY — storefront conversion at display time
+// ============================================================
+const CUR = {
+  USD: { sym: '$', per: 0.0110, loc: 'en-US' },
+  EUR: { sym: '€', per: 0.0102, loc: 'de-DE' },
+  AED: { sym: 'AED ', per: 0.0404, loc: 'en-AE' },
+  CNY: { sym: '¥', per: 0.0780, loc: 'zh-CN' },
+  RUB: { sym: '₽', per: 1, loc: 'ru-RU' },
+};
+
+// ============================================================
+// ART — deterministic inline SVG per subsection.
+// Stands in for product photography and proves the media slot:
+// frame A is the main shot, frame B is the hover shot.
+// ============================================================
+const GLYPH = {
+  headphones: '<path d="M14 40v-8a18 18 0 0 1 36 0v8"/><rect x="8" y="38" width="12" height="18" rx="4"/><rect x="44" y="38" width="12" height="18" rx="4"/>',
+  ssd: '<rect x="10" y="18" width="44" height="28" rx="3"/><path d="M18 26h12M18 32h20M18 38h8"/><circle cx="44" cy="38" r="3"/>',
+  plug: '<path d="M24 10v12M40 10v12"/><rect x="16" y="22" width="32" height="18" rx="4"/><path d="M32 40v14"/>',
+  hub: '<circle cx="32" cy="32" r="10"/><path d="M32 6v10M32 48v10M6 32h10M48 32h10M14 14l7 7M50 14l-7 7"/>',
+  kettle: '<path d="M16 30h26a8 8 0 0 1 8 8v6H16z"/><path d="M22 30v-6h14v6"/><path d="M50 34l6-6"/><path d="M20 50h24"/>',
+  mixer: '<path d="M20 14h20v18H20z"/><path d="M14 32h32l-4 18H18z"/><path d="M26 14V8"/><path d="M40 20h8"/>',
+  lamp: '<path d="M20 10h24l-6 22H26z"/><path d="M32 32v18"/><path d="M20 52h24"/><path d="M32 4l4 6"/>',
+  towel: '<rect x="12" y="14" width="40" height="36" rx="4"/><path d="M20 14v36M30 14v36"/><path d="M42 22h6M42 30h6"/>',
+  yarn: '<circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/>',
+  beads: '<circle cx="16" cy="20" r="4"/><circle cx="32" cy="14" r="4"/><circle cx="48" cy="20" r="4"/><circle cx="20" cy="38" r="4"/><circle cx="40" cy="38" r="4"/><circle cx="32" cy="52" r="4"/><path d="M19 23l2 12M45 23l-3 12M24 40l6 10M40 40l-6 10"/>',
+  palette: '<path d="M32 12c14 0 22 8 22 18 0 8-8 8-12 8s-6 4-6 8-4 6-8 6C16 60 8 48 8 34 8 20 18 12 32 12z"/><circle cx="22" cy="26" r="3"/><circle cx="36" cy="22" r="3"/><circle cx="46" cy="32" r="3"/>',
+  kit: '<rect x="10" y="20" width="44" height="30" rx="3"/><path d="M10 30h44"/><path d="M26 20v-6h12v6"/><path d="M22 40h20"/>',
+  binocular: '<rect x="10" y="22" width="16" height="30" rx="4"/><rect x="38" y="22" width="16" height="30" rx="4"/><path d="M26 28h6v18h-6zM32 28h6v18h-6z"/><path d="M14 18h8M42 18h8"/>',
+  tent: '<path d="M6 48h52L32 12z"/><path d="M32 12v36"/><path d="M24 48l8-14 8 14"/>',
+  tool: '<path d="M14 14l14 14"/><path d="M10 20l10-10 8 8-10 10z"/><path d="M28 30l16 16a6 6 0 0 1-8 8L20 38z"/>',
+  jacket: '<path d="M22 10l10 6 10-6 10 8-6 8v26H18V34l-6-8z"/><path d="M32 16v40"/><path d="M22 40h6M36 40h6"/>',
+};
+
+const TINTS = ['#E8EDF8', '#EAF3EC', '#F6EEE4', '#EFEAF6', '#E7F1F4', '#F6E9E9', '#F0F1E9', '#E9EEF3'];
+
+function art(subId, tintIdx, variant) {
+  const g = GLYPH[subId] || '';
+  const tint = TINTS[tintIdx % TINTS.length];
+  // variant B = the second photo: tighter crop, mirrored, deeper tint
+  const tr = variant ? 'transform="translate(64 0) scale(-1 1)"' : '';
+  const sc = variant ? 'transform="scale(1.24)" transform-origin="32 32"' : '';
+  return `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="${variant ? 'rgba(0,0,0,.04)' : 'none'}" stroke="none"/>
+      <g ${tr}><g ${sc}>${g}</g></g></svg>`;
+}
+
+function tintBg(i, variant) {
+  const t = TINTS[i % TINTS.length];
+  return variant ? `background:color-mix(in srgb, ${t} 70%, var(--sunken))` : `background:${t}`;
+}
+
+// ============================================================
+// UNIFIED PRODUCT CARD
+// One renderer, every mode, every state, every size.
+// Slots that have no data are not emitted at all.
+// ============================================================
+const S = {
+  dept: 'all',
+  sub: 'all',
+  q: '',
+  stock: new Set(),
+  brand: new Set(),
+  mode: new Set(),
+  price: 'all',
+  rate: 0,
+  sort: 'featured',
+  view: 'grid',
+  cur: 'USD',
+  shown: 12,
+  favs: new Set(),
+  cart: 0,
+  lang: 'en',
+  // видимость разделов и подразделов: { electronics: true, home: true, ... }
+  // подразделы: { audio: true, storage: false, ... }
+  vis: {
+    all: true,
+    depts: {},
+    subs: {},
+  },
+};
+
+const MODE_LABEL = {
+  retail: 'Retail', marketplace: 'Marketplace', handmade: 'Handmade', b2b: 'B2B wholesale', pre: 'Pre-order',
+};
+
+// Bands are stored in the RUB base price so they survive a currency switch.
+const PRICE_BANDS = [
+  ['all', 'Any price'],
+  ['0-1400', 'Under $15'],
+  ['1400-3700', '$15 – $41'],
+  ['3700-8200', '$41 – $90'],
+  ['8200-9999999', 'Over $90'],
+];
+
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function money(rub) {
+  const c = CUR[S.cur];
+  return new Intl.NumberFormat(loc() || c.loc, { style: 'currency', currency: S.cur, maximumFractionDigits: 2 }).format(rub * c.per);
+}
+
+// Числа и даты идут через локаль интерфейса: в русской версии — «3 320»,
+// «сб, 31 окт». Дата всегда считается от браузера пользователя.
+const loc = () => (S.lang === 'ru' ? 'ru-RU' : null);
+const num = (n) => n.toLocaleString(loc() || 'en-US');
+
+function etaDate(days) {
+  if (!days) return null;
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return new Intl.DateTimeFormat(loc() || 'en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).format(d);
+}
+
+// Уникальный суффикс на каждую карточку: id градиента звезды должен быть
+// уникален в документе, иначе все карточки с одинаковым рейтингом
+// ссылаются на первый найденный градиент.
+let UID = 0;
+
+function stars(r, uid) {
+  let out = '';
+  for (let i = 1; i <= 5; i++) {
+    const f = Math.max(0, Math.min(1, r - (i - 1)));
+    const gid = `st${uid}-${i}`;
+    out += `<svg viewBox="0 0 24 24" aria-hidden="true">
+      <defs><linearGradient id="${gid}"><stop offset="${f * 100}%" stop-color="currentColor"/>
+      <stop offset="${f * 100}%" stop-color="transparent"/></linearGradient></defs>
+      <path fill="url(#${gid})" stroke="currentColor" stroke-width="1.4"
+        d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3-5.7 3 1.1-6.5L2.6 9.4l6.5-.9z"/>
+    </svg>`;
+  }
+  return `<span class="stars" role="img" aria-label="${r} out of 5 stars">${out}</span>`;
+}
+
+function subName(p) {
+  const d = DEPTS.find(x => x.id === p.dept);
+  return { dept: d.name, sub: d.subs.find(s => s.id === p.sub).name, idx: DEPTS.indexOf(d) * 4 + d.subs.findIndex(s => s.id === p.sub) };
+}
+
+// badges — slot 2
+function badges(p) {
+  const b = [];
+  if (p.was) b.push(`<span class="badge badge--sale">-${Math.round((1 - p.price / p.was) * 100)}%</span>`);
+  if (p.top) b.push('<span class="badge badge--top">Best seller</span>');
+  if (p.rel && p.rel >= '2026-08') b.push('<span class="badge badge--new">New</span>');
+  if (p.mode === 'handmade') b.push('<span class="badge badge--hand">Handmade</span>');
+  if (p.mode === 'b2b') b.push('<span class="badge badge--b2b">Wholesale</span>');
+  if (p.mode === 'pre') b.push('<span class="badge badge--pre">Pre-order</span>');
+  if (p.mode === 'marketplace') b.push('<span class="badge">Marketplace</span>');
+  return b.length ? `<div class="card__badges" data-slot="badges">${b.join('')}</div>` : '';
+}
+
+// price — slot 8
+function priceBlock(p) {
+  const main = `<span class="price__now">${money(p.price)}</span>`;
+  const was = p.was ? `<span class="price__was">${money(p.was)}</span><span class="price__off">Save ${money(p.was - p.price)}</span>` : '';
+  const unit = p.mode === 'b2b' ? `<span class="price__unit">per unit · excl. VAT</span>` : '';
+  // Оплата — на стороне продавца: цена, старая цена, экономия, оптовая
+  // таблица. Кредитных схем в карточке нет ни в одном режиме.
+  const tiers = p.tiers ? `<div class="price__tiers">${p.tiers.map(([q, v]) => `<span><b>${q}+</b> ${money(v)}</span>`).join('')}</div>` : '';
+  return `<div class="price" data-slot="price">
+    <div class="price__main">${main}${was}</div>${unit}${tiers}</div>`;
+}
+
+// variants — slot 9
+function varBlock(p) {
+  if (!p.colors && !p.sizes) return '';
+  let r = '<div class="vars" data-slot="variants">';
+  if (p.colors) {
+    // Показываем не больше пяти кадров, остальные — счётчиком. total берём из
+    // colourTotal, если в фиде их больше, чем отдано на карточку.
+    const shown = p.colors.slice(0, 5), total = p.colourTotal || p.colors.length, rest = total - shown.length;
+    r += `<div class="vars__row"><span class="vars__lb">Colour</span>${shown.map((c, i) =>
+      `<button class="sw" style="background:${c}" aria-pressed="${i === 0}" aria-label="Colour ${i + 1} of ${total}"></button>`).join('')}
+      ${rest > 0 ? `<span class="more">+${rest}</span>` : ''}</div>`;
+  }
+  if (p.sizes) {
+    r += `<div class="vars__row"><span class="vars__lb">Size</span>${p.sizes.map(s =>
+      `<button class="sz" aria-pressed="${s === 'M'}" ${p.sizeOff?.includes(s) ? 'disabled title="Sold out"' : ''}>${s}</button>`).join('')}</div>`;
+  }
+  return r + '</div>';
+}
+
+// availability — slot 10
+function availBlock(p) {
+  if (p.mode === 'pre') {
+    const pledged = p.pledged || 0;
+    const pct = Math.min(96, Math.round(pledged / (p.batch || 300) * 100));
+    return `<div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Pre-order · batch open</span></div>
+      <div class="bar100"><i style="width:${pct}%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Ships in about <b>${p.eta} days</b> · ${pledged} of ${p.batch || 300} pledged</span></div>`;
+  }
+  if (p.stock === 0) {
+    return `<div class="avail avail--bad" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--bad"></i><span>Out of stock</span></div>
+      <span class="avail__ship">Back in stock ${etaDate(14)}</span></div>`;
+  }
+  if (p.stock <= 10) {
+    return `<div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Only ${p.stock} left</span></div>
+      <div class="bar100"><i style="width:${Math.round(p.stock / 10 * 100)}%"></i></div>
+      <span class="avail__eta">Get it by <b>${etaDate(p.eta)}</b></span></div>`;
+  }
+  return `<div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>In stock · ${p.stock.toLocaleString(loc() || 'en-US')}</span></div>
+    <span class="avail__eta">Get it by <b>${etaDate(p.eta)}</b></span>
+    <span class="avail__ship">Free delivery over ${money(7000)}</span></div>`;
+}
+
+// actions — slot 11
+function actionBlock(p) {
+  const oos = p.stock === 0 && p.mode !== 'pre';
+  let btn;
+  if (p.mode === 'b2b') {
+    btn = `<button class="btn btn--accent" data-quote="${p.id}">Request quote</button>
+      <button class="btn btn--ghost" data-add="${p.id}">Add lot of ${p.moq}</button>`;
+  } else if (p.mode === 'pre') {
+    btn = `<button class="btn btn--accent" data-add="${p.id}">Reserve in pre-order</button>`;
+  } else if (oos) {
+    btn = `<button class="btn btn--primary" disabled>Out of stock</button>
+      <button class="btn btn--ghost" data-notify="${p.id}">Notify me</button>`;
+  } else {
+    btn = `<button class="btn btn--primary" data-add="${p.id}">Add to cart</button>`;
+  }
+  return `<div class="card__actions" data-slot="actions">${btn}</div>`;
+}
+
+// meta — slot 12
+function metaBlock(p) {
+  const bits = [`<span><b>SKU</b> ${p.sku}</span>`];
+  // Мастер = продавец: у хендмейда в мете тот же человек, чьё имя стоит
+  // в eyebrow, поэтому строка «Sold by» дублирует его явно — для доверия
+  // и для B2B, где важно, кто именно отгружает.
+  if (p.mode === 'marketplace') bits.push(`<span><b>Sold by</b> ${esc(p.seller)}</span>`);
+  if (p.mode === 'handmade') {
+    bits.push(`<span><b>Sold by</b> ${esc(p.maker || p.brand)}</span>`);
+    bits.push(`<span><b>Made to order</b> ${p.eta} days</span>`);
+  }
+  if (p.mode === 'b2b') bits.push(`<span><b>MOQ</b> ${p.moq} pcs</span>`);
+  bits.push(`<span><b>From</b> ${p.wh}</span>`);
+  bits.push(`<span><b>Origin</b> ${p.madeIn}</span>`);
+  return `<div class="card__meta" data-slot="meta">${bits.join('')}</div>`;
+}
+
+/**
+ * The card. opts: {compact, feature, state}
+ * state overrides used by the Card system gallery.
+ */
+function card(p, opts = {}) {
+  const n = subName(p);
+  const cls = ['card'];
+  if (opts.compact) cls.push('card--compact');
+  if (opts.feature) cls.push('card--feature');
+  if (opts.state) cls.push(`card--${opts.state}`);
+  if (p.mode === 'b2b') cls.push('card--b2b');
+  if (p.mode === 'pre') cls.push('card--pre');
+  if (p.stock === 0 && p.mode !== 'pre') cls.push('card--oos');
+
+  const eyebrow = opts.hideEyebrow ? '' : `<div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">${esc(p.brand)}</span><span aria-hidden="true">·</span><span>${n.dept}</span>
+      ${p.maker ? `<span class="card__maker">by ${esc(p.maker)}</span>` : ''}
+    </div>`;
+
+  const rate = opts.hideRating ? '' : `<div class="rate" data-slot="rating">${stars(p.rating, ++UID)}
+      <b>${p.rating.toFixed(1)}</b><a href="#card-system">${p.reviews.toLocaleString(loc() || 'en-US')} ratings</a></div>`;
+
+  const favOn = S.favs.has(p.id);
+  const a = opts.noMedia ? '' : `<div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="${tintBg(n.idx, false)}" data-art="${n.idx}">${art(p.sub, n.idx, false)}</span>
+      <span class="card__art card__art--b" style="${tintBg(n.idx, true)}" data-art="${n.idx}">${art(p.sub, n.idx, true)}</span>
+      ${badges(p)}
+      <button class="fav" data-fav="${p.id}" aria-pressed="${favOn}" aria-label="${favOn ? 'Remove from' : 'Save to'} wishlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="${p.id}" tabindex="-1">Quick view</button>
+    </div>`;
+
+  // Навигационные data-dept/data-sub здесь намеренно НЕ используются —
+  // они принадлежат плиткам разделов и футеру, иначе любой клик по
+  // карточке перехватывался бы как переход по каталогу.
+  return `<article class="${cls.join(' ')}" data-id="${p.id}" data-mode="${p.mode}">
+    ${a}
+    <div class="card__body">
+      ${eyebrow}
+      <h3 class="card__title" data-slot="title" title="${esc(p.title)}">
+        <a href="#card-system">${esc(p.title)}</a></h3>
+      ${p.mode !== 'retail' || opts.feature || opts.list ? `<p class="card__desc" data-slot="desc">${esc(p.desc)}</p>` : ''}
+      ${rate}
+      ${priceBlock(p)}
+      ${varBlock(p)}
+      ${availBlock(p)}
+      ${metaBlock(p)}
+      ${actionBlock(p)}
+    </div>
+  </article>`;
+}
+
+function skeleton() {
+  return `<div class="sk" aria-hidden="true">
+    <div class="sk__l sk__media"></div>
+    <div class="sk__pad">
+      <div class="sk__l" style="height:11px;width:44%"></div>
+      <div class="sk__l" style="height:16px"></div>
+      <div class="sk__l" style="height:16px;width:72%"></div>
+      <div class="sk__l" style="height:12px;width:38%"></div>
+      <div class="sk__l" style="height:22px;width:52%"></div>
+      <div class="sk__l" style="height:38px;border-radius:999px"></div>
+    </div></div>`;
+}
+
+// ============================================================
+// FILTER + SORT
+// ============================================================
+function filtered() {
+  const q = S.q.trim().toLowerCase();
+  let out = visFiltered().filter(p => {
+    if (S.dept !== 'all' && p.dept !== S.dept) return false;
+    if (S.sub !== 'all' && p.sub !== S.sub) return false;
+    if (S.stock.size) {
+      const k = p.mode === 'pre' ? 'pre' : p.stock === 0 ? 'oos' : p.stock <= 10 ? 'low' : 'in';
+      if (!S.stock.has(k)) return false;
+    }
+    if (S.brand.size && !S.brand.has(p.brand)) return false;
+    if (S.mode.size && !S.mode.has(p.mode)) return false;
+    if (S.price !== 'all') {
+      const [lo, hi] = S.price.split('-').map(Number);
+      if (p.price < lo || p.price > hi) return false;
+    }
+    if (S.rate && p.rating < S.rate) return false;
+    if (q) {
+      const n = subName(p);
+      // Индекс поиска двуязычный: в русской версии ищем и по переводу,
+      // иначе запрос «пряжа» не нашёл бы «Merino Worsted Yarn».
+      const ru = S.lang === 'ru'
+        ? [ruCore(p.title), ruCore(p.desc), ruCore(n.sub), ruCore(n.dept), ruCore(MODE_LABEL[p.mode])].filter(Boolean).join(' ')
+        : '';
+      const hay = `${p.title} ${p.brand} ${p.maker || ''} ${p.sku} ${n.sub} ${n.dept} ${MODE_LABEL[p.mode]} ${ru}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const cmp = {
+    featured: (a, b) => (b.top ? 1 : 0) - (a.top ? 1 : 0) || b.rating - a.rating,
+    'price-asc': (a, b) => a.price - b.price,
+    'price-desc': (a, b) => b.price - a.price,
+    rating: (a, b) => b.rating - a.rating || b.reviews - a.reviews,
+    reviews: (a, b) => b.reviews - a.reviews,
+    new: (a, b) => (b.rel || '0').localeCompare(a.rel || '0'),
+  }[S.sort];
+  return out.sort(cmp);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderDeps() {
+  el('deps').innerHTML = DEPTS.map(d => {
+    // считаем только из видимых товаров
+    const n = visFiltered().filter(p => p.dept === d.id).length;
+    const on = S.dept === d.id;
+    const visible = S.vis.depts[d.id];
+    return `<div class="dep" data-on="${on}" data-dept="${d.id}" style="${visible ? '' : 'opacity:.35;pointer-events:none'}">
+      <button class="dep__main" data-dept="${d.id}" aria-pressed="${on}" ${visible ? '' : 'disabled'}>
+        <span class="dep__icon">${DEPICON[d.icon]}</span>
+        <span class="dep__nm">${d.name}</span>
+        <span class="dep__n">${n} items · ${d.blurb}</span>
+      </button>
+      <div class="dep__sub" aria-label="${d.name} subsections">${d.subs.map(s =>
+      `<button data-dept="${d.id}" data-sub="${s.id}" ${S.vis.subs[s.id] ? '' : 'disabled'}>${s.name}</button>`).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+// Подсветка выбранного раздела. Плитки перерисовываются только при смене
+// конфигурации, а при навигации состояние разносим точечно: иначе data-on
+// залипает на разделе, который был активен в момент последней перерисовки,
+// и подсвечивается не тот блок, на который нажал пользователь.
+// Точечное обновление вместо innerHTML сохраняет фокус на кнопке раздела.
+function syncDeps() {
+  document.querySelectorAll('#deps .dep').forEach(node => {
+    const id = node.dataset.dept;
+    const on = S.dept === id;
+    const visible = S.vis.depts[id] !== false;
+    node.dataset.on = String(on);
+    node.style.opacity = visible ? '' : '.35';
+    node.style.pointerEvents = visible ? '' : 'none';
+    const main = node.querySelector('.dep__main');
+    if (main) {
+      main.setAttribute('aria-pressed', String(on));
+      main.disabled = !visible;
+    }
+    node.querySelectorAll('[data-sub]').forEach(sb => {
+      sb.disabled = S.vis.subs[sb.dataset.sub] === false;
+    });
+  });
+}
+
+const DEPICON = {
+  chip: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>',
+  home: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>',
+  needle: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 4L8 16"/><circle cx="6" cy="18" r="3"/><path d="M20 4l-2 6"/></svg>',
+  mountain: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20l7-12 5 8 3-4 5 8z"/><circle cx="18" cy="6" r="2"/></svg>',
+};
+
+function renderCrumbs() {
+  const d = DEPTS.find(x => x.id === S.dept);
+  const s = d && d.subs.find(x => x.id === S.sub);
+  const parts = [`<button data-crumb="all">Catalogue</button>`];
+  if (S.q.trim()) {
+    parts.push(`<span aria-hidden="true">/</span><b>Search “${esc(S.q.trim())}”</b>`);
+    el('crumbs').innerHTML = parts.join('');
+    return;
+  }
+  if (d) parts.push(`<span aria-hidden="true">/</span><button data-crumb="${d.id}" data-sub="all">${d.name}</button>`);
+  if (s) parts.push(`<span aria-hidden="true">/</span><b>${s.name}</b>`);
+  else if (d) parts.push(`<span aria-hidden="true">/</span><b>All ${d.name.toLowerCase()}</b>`);
+  el('crumbs').innerHTML = parts.join('');
+}
+
+function renderSubs() {
+  const box = el('subs');
+  if (S.dept === 'all') {
+    // no subsection row until a department is chosen — matches the
+    // marketplace habit of "pick a department first"
+    box.innerHTML = '';
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'flex';
+  const dept = DEPTS.find(d => d.id === S.dept);
+  const list = dept.subs.filter(s => S.vis.subs[s.id]);
+  const total = visFiltered().filter(p => p.dept === S.dept).length;
+  box.innerHTML = [
+    `<button class="pill" data-sub="all" aria-pressed="${S.sub === 'all'}">All ${dept.name} <span>${total}</span></button>`,
+    ...list.map(s => {
+      const n = visFiltered().filter(p => p.dept === S.dept && p.sub === s.id).length;
+      return `<button class="pill" data-sub="${s.id}" aria-pressed="${S.sub === s.id}">${s.name} <span>${n}</span></button>`;
+    })].join('');
+}
+
+function renderFilters() {
+  const brands = [...new Set(P.map(p => p.brand))].sort();
+  el('fStock').innerHTML = [['in', 'In stock'], ['low', 'Low stock'], ['oos', 'Out of stock'], ['pre', 'Pre-order']]
+    .map(([k, l]) => `<label class="check"><input type="checkbox" value="${k}" ${S.stock.has(k) ? 'checked' : ''}>${l}</label>`).join('');
+  el('fBrand').innerHTML = brands.map(b =>
+    `<label class="check"><input type="checkbox" value="${esc(b)}" ${S.brand.has(b) ? 'checked' : ''}>${esc(b)}</label>`).join('');
+  el('fMode').innerHTML = Object.entries(MODE_LABEL).map(([k, l]) =>
+    `<label class="check"><input type="checkbox" value="${k}" ${S.mode.has(k) ? 'checked' : ''}>${l}</label>`).join('');
+  el('fPrice').innerHTML = PRICE_BANDS.map(([k, l]) =>
+    `<button class="toggle" data-price="${k}" aria-pressed="${S.price === k}">${l}</button>`).join('');
+  el('fRate').innerHTML = [0, 4, 4.5, 4.8].map(r =>
+    `<button class="toggle" data-rate="${r}" aria-pressed="${S.rate === r}">${r ? `${r}+` : 'Any'}</button>`).join('');
+}
+
+function renderActive() {
+  const t = [];
+  if (S.q) t.push(['q', `“${S.q}”`]);
+  if (S.stock.size) [...S.stock].forEach(k => t.push(['stock:' + k, ({ in: 'In stock', low: 'Low stock', oos: 'Out of stock', pre: 'Pre-order' })[k]]));
+  if (S.brand.size) [...S.brand].forEach(b => t.push(['brand:' + b, b]));
+  if (S.mode.size) [...S.mode].forEach(m => t.push(['mode:' + m, MODE_LABEL[m]]));
+  if (S.price !== 'all') t.push(['price', PRICE_BANDS.find(x => x[0] === S.price)[1]]);
+  if (S.rate) t.push(['rate', `${S.rate}+ stars`]);
+  el('active').innerHTML = t.length
+    ? t.map(([k, l]) => `<span class="tag">${esc(l)}<button data-clear="${esc(k)}" aria-label="Remove filter ${esc(l)}">×</button></span>`).join('')
+    + `<button class="toggle" data-clearall>Clear all</button>`
+    : '';
+}
+
+function renderGrid() {
+  const list = filtered();
+  const slice = list.slice(0, S.shown);
+  el('grid').innerHTML = slice.map(p => card(p, { list: S.view === 'list' })).join('') ||
+    `<div style="grid-column:1/-1;text-align:center;padding:var(--s-800) var(--s-300)">
+       <p style="font-size:18px;font-weight:700">Nothing matches these filters</p>
+       <p style="color:var(--muted);margin-top:var(--s-100)">Try clearing a filter or widening the price band.</p>
+       <button class="btn btn--primary" style="max-width:220px;margin:var(--s-300) auto 0" data-clearall>Reset filters</button>
+     </div>`;
+  el('resCount').textContent = list.length
+    ? `Showing ${slice.length} of ${list.length} items${S.dept !== 'all' ? ` in ${DEPTS.find(d => d.id === S.dept).name}` : ''} · prices in ${S.cur}`
+    : `0 items · prices in ${S.cur}`;
+  el('endMark').innerHTML = slice.length < list.length
+    ? `<button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">Load 12 more (${list.length - slice.length} left)</button>`
+    : list.length ? `${list.length} items · end of catalogue` : '';
+
+  const d = DEPTS.find(x => x.id === S.dept);
+  el('pageTitle').textContent = S.q.trim() ? `Search: "${S.q.trim()}"`
+    : S.sub !== 'all' ? d.subs.find(s => s.id === S.sub).name
+      : d ? d.name : 'Catalogue';
+  const visTotal = visFiltered().length;
+  el('pageMeta').innerHTML = `<span>${visTotal} SKUs live</span><span>${DEPTS.filter(d => S.vis.depts[d.id]).length} departments</span>
+    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>
+    <span>${Object.keys(MODE_LABEL).length} content modes</span><span>${d ? d.blurb : 'Retail · marketplace · handmade · wholesale · pre-order'}</span>`;
+}
+
+// ============================================================
+// CARD SYSTEM — anatomy, modes, states, sizes
+// ============================================================
+const SLOTS = [
+  ['media', 'Media', '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.', '.card__media'],
+  ['badges', 'Badges', 'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.', '.card__badges'],
+  ['eyebrow', 'Brand / maker', 'Brand for retail, maker name for handmade. Both are links in production.', '.card__eyebrow'],
+  ['title', 'Title', 'Two lines, clamped. Full string stays in the accessible name.', '.card__title'],
+  ['desc', 'Short description', 'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.', '.card__desc'],
+  ['rating', 'Rating', 'Average plus the raw count. Count is always visible — a bare star is unverifiable.', '.rate'],
+  ['price', 'Price', 'Now, previous, saving, unit price, tier table. Tabular figures.', '.price'],
+  ['variants', 'Variants', 'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.', '.vars'],
+  ['avail', 'Availability', 'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.', '.avail'],
+  ['meta', 'Meta', 'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.', '.card__meta'],
+  ['actions', 'Actions', 'Last slot, pinned to the bottom. One primary verb per mode: add to cart, reserve, request quote, notify me.', '.card__actions'],
+];
+
+function renderAnatomy() {
+  el('slots').innerHTML = SLOTS.map(([k, n, d, sel], i) =>
+    `<button class="slot" data-hl="${k}"><i>${i + 1}</i><span><b>${n}</b><span>${d}</span>
+      <em>${sel} / [data-slot="${k}"]</em></span></button>`).join('');
+  const demo = P.find(p => p.id === 'AUD-Q20');
+  el('anatomyStage').innerHTML = card(demo, { feature: false });
+}
+
+function renderModes() {
+  const rows = [
+    ['Retail', 'Own stock, own brand', 'Add to cart · free-delivery threshold · tier table on bulk', P.find(p => p.mode === 'retail')],
+    ['Marketplace', 'Third-party seller', 'Sold by + warehouse in meta, platform never promises credit', P.find(p => p.mode === 'marketplace')],
+    ['Handmade', 'Maker, small batch', 'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock', P.find(p => p.mode === 'handmade')],
+    ['B2B wholesale', 'Tender / supplier buyer', 'Unit price excl. VAT, tier table, MOQ, Request quote replaces Add to cart', P.find(p => p.mode === 'b2b')],
+    ['Pre-order', 'Batch not produced yet', 'Progress bar, pledged %, ships-in date, Reserve replaces Add to cart', P.find(p => p.mode === 'pre')],
+  ];
+  el('modesTable').innerHTML = `<thead><tr><th>Mode</th><th>Who sells</th><th>What changes in the card</th><th>Example SKU</th></tr></thead>
+    <tbody>${rows.map(([n, w, c, p]) => `<tr><td>${n}</td><td>${w}</td><td>${c}</td>
+    <td><span class="mono">${p.sku}</span> — ${esc(p.title.split(',').slice(0, 1))}</td></tr>`).join('')}</tbody>`;
+}
+
+function renderStates() {
+  const g = [
+    ['Default', P.find(p => p.id === 'HOM-KTL'), {}],
+    ['On sale', P.find(p => p.mode === 'retail' && p.was), {}],
+    ['Low stock', P.find(p => p.id === 'SMH-CAM'), {}],
+    ['Out of stock', P.find(p => p.id === 'LGT-PND'), {}],
+    ['Handmade', P.find(p => p.mode === 'handmade'), {}],
+    ['Marketplace', P.find(p => p.mode === 'marketplace'), {}],
+    ['B2B wholesale', P.find(p => p.mode === 'b2b'), {}],
+    ['Pre-order', P.find(p => p.mode === 'pre'), {}],
+  ];
+  el('states').innerHTML = g.map(([cap, p]) =>
+    `<div><span class="state__cap">${cap}</span>${card(p)}</div>`).join('') +
+    `<div><span class="state__cap">Loading (skeleton)</span>${skeleton()}</div>` +
+    `<div><span class="state__cap">Saved to wishlist</span>${card(Object.assign({}, P.find(p => p.id === 'TEX-TWL')))}</div>`;
+}
+
+function renderSizes() {
+  const p = P.find(x => x.id === 'OPT-BIN');
+  el('sizes').innerHTML = `
+    <div class="sizebox"><h4>Compact</h4><p>5–6 column grids, cross-sell rails, cart upsell. <code>.card--compact</code></p>
+      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px">${card(p, { compact: true })}</div></div>
+    <div class="sizebox"><h4>Standard</h4><p>The default everywhere: category grid, search results, brand pages. No modifier.</p>
+      ${card(p)}</div>
+    <div class="sizebox"><h4>Feature</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
+      ${card(p, { feature: true })}</div>`;
+}
+
+function renderFoot() {
+  el('footGrid').innerHTML = DEPTS.map(d => `<div><h5>${d.name}</h5><ul>
+    ${d.subs.map(s => `<li><a href="#catalog" data-dept="${d.id}" data-sub="${s.id}">${s.name}</a></li>`).join('')}
+    </ul></div>`) +
+    `<div><h5>Card system</h5><ul>
+      <li><a href="#card-system">Anatomy</a></li><li><a href="#card-system">Content modes</a></li>
+      <li><a href="#card-system">States</a></li><li><a href="#card-system">Sizes</a></li>
+      <li><a href="CATALOG.md">Specification</a></li></ul></div>`;
+}
+
+// ============================================================
+// VISIBILITY CONFIG — localStorage per brand
+// ============================================================
+const CFG_KEY = 'catalog-vis';
+
+function loadConfig() {
+  try {
+    const raw = localStorage.getItem(CFG_KEY);
+    if (!raw) {
+      // по умолчанию — все разделы и подразделы включены
+      DEPTS.forEach(d => { S.vis.depts[d.id] = true; d.subs.forEach(s => { S.vis.subs[s.id] = true; }); });
+      return;
+    }
+    const cfg = JSON.parse(raw);
+    // merge: берём из конфига, чего нет — true
+    DEPTS.forEach(d => { S.vis.depts[d.id] = cfg.depts?.[d.id] ?? true; d.subs.forEach(s => { S.vis.subs[s.id] = cfg.subs?.[s.id] ?? true; }); });
+  } catch {
+    DEPTS.forEach(d => { S.vis.depts[d.id] = true; d.subs.forEach(s => { S.vis.subs[s.id] = true; }); });
+  }
+}
+
+function saveConfig() {
+  try {
+    localStorage.setItem(CFG_KEY, JSON.stringify({ depts: S.vis.depts, subs: S.vis.subs }));
+  } catch { /* quota exceeded — silently ignore */ }
+}
+
+// products filtered by visibility
+function visFiltered() {
+  const deptVisible = new Set(DEPTS.filter(d => S.vis.depts[d.id]).map(d => d.id));
+  const subVisible = new Set(DEPTS.flatMap(d => d.subs).filter(s => S.vis.subs[s.id]).map(s => s.id));
+  return P.filter(p => deptVisible.has(p.dept) && subVisible.has(p.sub));
+}
+
+// render mega-menu dropdown
+function renderMega() {
+  const box = el('mega');
+  const visibleDepts = DEPTS.filter(d => S.vis.depts[d.id]);
+  box.innerHTML = `<div class="mega__grid">${visibleDepts.map(d => {
+    const n = visFiltered().filter(p => p.dept === d.id).length;
+    return `<div class="mega__col">
+      <h4 data-dept-toggle="${d.id}">
+        ${DEPICON[d.icon]}
+        ${d.name}
+        <span style="margin-left:auto;font-weight:400;opacity:.5;font-size:11px">${n}</span>
+      </h4>
+      <ul>${d.subs.map(s => {
+      const visible = S.vis.subs[s.id];
+      const cnt = visFiltered().filter(p => p.sub === s.id).length;
+      return `<li><button data-dept="${d.id}" data-sub="${s.id}" ${visible ? '' : 'disabled'}>${s.name} <span style="opacity:.4;font-size:11px">${cnt}</span></button></li>`;
+    }).join('')}</ul>
+    </div>`;
+  }).join('')}</div>`;
+}
+
+// render config panel
+function renderConfig() {
+  const box = el('configBox');
+  box.innerHTML = `
+    <h3 id="cfgTitle">Catalog configuration</h3>
+    <p>Enable or disable departments and subsections. Only visible items appear in the catalogue and dropdown. Settings are saved per storefront.</p>
+    ${DEPTS.map(d => `
+    <div class="cfg-dept">
+      <div class="cfg-dept__head" data-dept-head="${d.id}" role="button" aria-expanded="false" tabindex="0">
+        <span>${d.name}</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+      <div class="cfg-dept__body" data-dept-body="${d.id}">
+        ${d.subs.map(s => {
+    const checked = S.vis.subs[s.id];
+    return `<div class="cfg-sub">
+            <span>${s.name}</span>
+            <label class="switch">
+              <input type="checkbox" data-sub-toggle="${s.id}" ${checked ? 'checked' : ''}>
+              <span class="switch__track"></span>
+            </label>
+          </div>`;
+  }).join('')}
+      </div>
+    </div>`).join('')}
+    <div class="config-actions">
+      <button class="btn btn--ghost" id="cfgReset">Reset all</button>
+      <button class="btn btn--primary" id="cfgClose">Done</button>
+    </div>`;
+}
+
+function openConfig() {
+  renderConfig();
+  el('configPanel').dataset.open = 'true';
+  el('configBox').focus();
+}
+
+function closeConfig() {
+  el('configPanel').dataset.open = 'false';
+}
+
+function resetConfig() {
+  DEPTS.forEach(d => { S.vis.depts[d.id] = true; d.subs.forEach(s => { S.vis.subs[s.id] = true; }); });
+  saveConfig();
+  renderConfig();
+  renderMega();
+  renderDeps();
+  rerender();
+  toast('Catalog visibility reset to default');
+}
+
+// ============================================================
+// WIRING
+// ============================================================
+function rerender() {
+  syncDeps();
+  renderCrumbs();
+  renderSubs();
+  renderFilters();
+  renderActive();
+  renderGrid();
+}
+
+function toast(msg) {
+  const t = el('toast');
+  t.textContent = msg;
+  t.dataset.on = 'true';
+  clearTimeout(t._t);
+  t._t = setTimeout(() => { t.dataset.on = 'false' }, 2200);
+}
+
+function bumpCart(n) {
+  S.cart += n;
+  el('cartN').textContent = S.cart;
+}
+
+const find = (id) => P.find(p => p.id === id);
+
+// close dropdown on outside click
+document.addEventListener('click', (e) => {
+  const dd = el('catalogDd');
+  if (!dd) return;
+  const open = dd.dataset.open === 'true';
+  if (open && !dd.contains(e.target)) {
+    dd.dataset.open = 'false';
+    el('catalogBtn').setAttribute('aria-pressed', 'false');
+    el('catalogBtn').setAttribute('aria-expanded', 'false');
+  }
+});
+
+// close config panel on outside click
+document.addEventListener('click', (e) => {
+  const panel = el('configPanel');
+  if (!panel || panel.dataset.open !== 'true') return;
+  if (panel === e.target) closeConfig();
+});
+
+// ESC closes both
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (el('configPanel').dataset.open === 'true') { closeConfig(); return; }
+    const dd = el('catalogDd');
+    if (dd && dd.dataset.open === 'true') {
+      dd.dataset.open = 'false';
+      el('catalogBtn').setAttribute('aria-pressed', 'false');
+      el('catalogBtn').setAttribute('aria-expanded', 'false');
+    }
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+
+  // dropdown catalog button
+  if (t.closest('#catalogBtn')) {
+    const dd = el('catalogDd');
+    const open = dd.dataset.open !== 'true';
+    dd.dataset.open = String(open);
+    el('catalogBtn').setAttribute('aria-pressed', String(open));
+    el('catalogBtn').setAttribute('aria-expanded', String(open));
+    if (open) renderMega();
+    return;
+  }
+
+  // mega-menu subsection link
+  const megaBtn = t.closest('#mega [data-dept][data-sub]');
+  if (megaBtn && !megaBtn.disabled) {
+    S.dept = megaBtn.dataset.dept;
+    S.sub = megaBtn.dataset.sub;
+    S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    el('catalogDd').dataset.open = 'false';
+    el('catalogBtn').setAttribute('aria-pressed', 'false');
+    el('catalogBtn').setAttribute('aria-expanded', 'false');
+    return;
+  }
+
+  // mega-menu dept header click
+  const megaDept = t.closest('#mega [data-dept-toggle]');
+  if (megaDept) {
+    S.dept = megaDept.dataset.deptToggle;
+    S.sub = 'all';
+    S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    el('catalogDd').dataset.open = 'false';
+    el('catalogBtn').setAttribute('aria-pressed', 'false');
+    el('catalogBtn').setAttribute('aria-expanded', 'false');
+    return;
+  }
+
+  // config button
+  if (t.closest('#configBtn')) {
+    openConfig();
+    return;
+  }
+
+  // config: toggle dept body expand
+  const cfgHead = t.closest('[data-dept-head]');
+  if (cfgHead) {
+    const id = cfgHead.dataset.deptHead;
+    const body = document.querySelector(`[data-dept-body="${id}"]`);
+    const open = body.dataset.open !== 'true';
+    body.dataset.open = String(open);
+    cfgHead.setAttribute('aria-expanded', String(open));
+    return;
+  }
+
+  // config: toggle subsection
+  const subToggle = t.closest('[data-sub-toggle]');
+  if (subToggle) {
+    const id = subToggle.dataset.subToggle;
+    S.vis.subs[id] = subToggle.checked;
+    saveConfig();
+    renderMega();
+    renderDeps();
+    rerender();
+    return;
+  }
+
+  // config: close
+  if (t.closest('#cfgClose')) {
+    closeConfig();
+    return;
+  }
+
+  // config: reset
+  if (t.closest('#cfgReset')) {
+    resetConfig();
+    return;
+  }
+
+  // subsection shortcut inside a department tile
+  const subLink = t.closest('#deps [data-dept][data-sub]');
+  if (subLink) {
+    S.dept = subLink.dataset.dept; S.sub = subLink.dataset.sub; S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // department tile
+  const depBtn = t.closest('.dep__main');
+  if (depBtn) {
+    const id = depBtn.dataset.dept;
+    S.dept = S.dept === id ? 'all' : id;
+    S.sub = 'all'; S.shown = 12;
+    rerender();
+    if (S.dept !== 'all') el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // subsection pill
+  const pill = t.closest('#subs [data-sub]');
+  if (pill) { S.sub = pill.dataset.sub; S.shown = 12; rerender(); return; }
+
+  // breadcrumb
+  const cr = t.closest('[data-crumb]');
+  if (cr) {
+    S.dept = cr.dataset.crumb;
+    S.sub = cr.dataset.sub || 'all';
+    S.shown = 12; rerender();
+    if (S.dept === 'all') window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  // footer taxonomy links
+  const fl = t.closest('.foot [data-dept]');
+  if (fl) {
+    S.dept = fl.dataset.dept; S.sub = fl.dataset.sub; S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // filter chips
+  const pc = t.closest('[data-price]');
+  if (pc) { S.price = S.price === pc.dataset.price ? 'all' : pc.dataset.price; S.shown = 12; renderFilters(); renderActive(); renderGrid(); return; }
+  const rc = t.closest('[data-rate]');
+  if (rc) { S.rate = S.rate === Number(rc.dataset.rate) ? 0 : Number(rc.dataset.rate); S.shown = 12; renderFilters(); renderActive(); renderGrid(); return; }
+
+  // clear
+  if (t.closest('[data-clearall]')) {
+    S.stock.clear(); S.brand.clear(); S.mode.clear(); S.price = 'all'; S.rate = 0; S.q = ''; S.shown = 12;
+    el('q').value = '';
+    rerender(); return;
+  }
+  const cl = t.closest('[data-clear]');
+  if (cl) {
+    const k = cl.dataset.clear;
+    if (k === 'q') { S.q = ''; el('q').value = ''; }
+    else if (k.startsWith('stock:')) S.stock.delete(k.slice(6));
+    else if (k.startsWith('brand:')) S.brand.delete(k.slice(6));
+    else if (k.startsWith('mode:')) S.mode.delete(k.slice(5));
+    else if (k === 'price') S.price = 'all';
+    else if (k === 'rate') S.rate = 0;
+    S.shown = 12; rerender(); return;
+  }
+
+  // filters panel
+  if (t.closest('#filterBtn')) {
+    const b = el('filterBtn'), open = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(open));
+    el('filters').dataset.open = String(open);
+    return;
+  }
+
+  // view toggle
+  if (t.closest('#viewBtn')) {
+    const b = el('viewBtn');
+    S.view = S.view === 'grid' ? 'list' : 'grid';
+    b.setAttribute('aria-pressed', String(S.view === 'list'));
+    el('viewLbl').textContent = S.view === 'grid' ? 'List' : 'Grid';
+    // режим описания зависит от вида — сетку перерисовываем целиком
+    renderGrid();
+    el('grid').dataset.view = S.view;
+    return;
+  }
+
+  // language
+  if (t.closest('#langBtn')) {
+    S.lang = S.lang === 'ru' ? 'en' : 'ru';
+    el('langBtn').setAttribute('aria-pressed', String(S.lang === 'ru'));
+    // на кнопке — язык, на который переключимся
+    el('langLbl').textContent = S.lang === 'ru' ? 'EN' : 'RU';
+    // локаль дат и чисел меняется вместе с языком — перерисовываем то, что её печатает
+    renderGrid(); renderAnatomy(); renderStates(); renderSizes();
+    applyLang();
+    return;
+  }
+
+  // theme
+  if (t.closest('#theme')) {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    el('theme').setAttribute('aria-pressed', String(dark));
+    el('themeLbl').textContent = dark ? 'Light' : 'Dark';
+    document.querySelector('meta[name=theme-color]').setAttribute('content', dark ? '#141417' : '#FFFFFF');
+    renderAnatomy(); renderStates(); renderSizes();
+    return;
+  }
+
+  // brand switcher
+  if (t.closest('#brandBtn')) {
+    const names = ['default', 'nordika', 'kedr', 'volt', 'baltic', 'leonardo'];
+    const cur = document.documentElement.dataset.brand;
+    const next = names[(names.indexOf(cur) + 1) % names.length];
+    document.documentElement.dataset.brand = next;
+    el('brandLbl').textContent = next === 'default' ? 'House' : next[0].toUpperCase() + next.slice(1);
+    el('brandBtn').setAttribute('aria-pressed', String(next !== 'default'));
+    toast(next === 'default' ? 'House tokens' : `Tokens switched to ${next} — same card, new brand`);
+    return;
+  }
+
+  // load more
+  if (t.closest('#more')) { S.shown += 12; renderGrid(); return; }
+
+  // favourite
+  const fav = t.closest('[data-fav]');
+  if (fav) {
+    const id = fav.dataset.fav, on = !S.favs.has(id);
+    on ? S.favs.add(id) : S.favs.delete(id);
+    fav.setAttribute('aria-pressed', String(on));
+    fav.setAttribute('aria-label', `${on ? 'Remove from' : 'Save to'} wishlist`);
+    toast(on ? 'Saved to wishlist' : 'Removed from wishlist');
+    return;
+  }
+
+  // add to cart
+  const add = t.closest('[data-add]');
+  if (add) {
+    const p = find(add.dataset.add);
+    const lot = p.mode === 'b2b' ? p.moq : 1;
+    bumpCart(lot);
+    add.classList.add('btn--added');
+    add.textContent = `Added ${lot > 1 ? lot + ' pcs' : ''}`.trim();
+    setTimeout(() => { add.classList.remove('btn--added'); add.textContent = p.mode === 'b2b' ? `Add lot of ${p.moq}` : 'Add to cart' }, 1400);
+    toast(`${p.sku} added — ${money(p.price * lot)}`);
+    return;
+  }
+
+  // B2B quote / notify / quick view
+  const q2 = t.closest('[data-quote]');
+  if (q2) { toast('Quote request opened for ' + find(q2.dataset.quote).sku); return; }
+  const nt = t.closest('[data-notify]');
+  if (nt) { nt.textContent = 'We will email you'; nt.disabled = true; toast('Restock alert saved'); return; }
+  const qs = t.closest('[data-quick]');
+  if (qs) { openQuick(find(qs.dataset.quick)); return; }
+
+  // title / card click → quick view
+  const titleLink = t.closest('.card__title a');
+  if (titleLink) {
+    e.preventDefault();
+    openQuick(find(titleLink.closest('.card').dataset.id));
+    return;
+  }
+
+  // variant swatches and sizes
+  const sw = t.closest('.sw');
+  if (sw) {
+    sw.closest('.vars__row').querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    sw.setAttribute('aria-pressed', 'true');
+    return;
+  }
+  const sz = t.closest('.sz');
+  if (sz && !sz.disabled) {
+    sz.closest('.vars__row').querySelectorAll('.sz').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    sz.setAttribute('aria-pressed', 'true');
+    return;
+  }
+
+  // anatomy slot hover/click
+  const hl = t.closest('[data-hl]');
+  if (hl) { highlight(hl.dataset.hl, hl); return; }
+
+  if (t.closest('#cartBtn')) { toast(S.cart ? `Cart: ${S.cart} item(s)` : 'Cart is empty'); return; }
+});
+
+// hover the slot list → highlight inside the demo card
+document.addEventListener('mouseover', (e) => {
+  const hl = e.target.closest('[data-hl]');
+  if (hl) highlight(hl.dataset.hl, hl);
+});
+
+function highlight(key, btn) {
+  document.querySelectorAll('.slot').forEach(s => s.dataset.on = String(s === btn));
+  document.querySelectorAll('#anatomyStage [data-slot]').forEach(n => {
+    n.classList.toggle('hl', n.dataset.slot === key);
+  });
+}
+
+// card keyboard access: Enter on the card body opens quick view
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && el('modal')) closeModal();
+  if (e.key === '/' && document.activeElement !== el('q')) { e.preventDefault(); el('q').focus(); }
+});
+
+// live search — a query always searches the whole catalogue,
+// the way shoppers expect on Amazon / Target: department navigation
+// steps aside for the search
+el('q').addEventListener('input', (e) => {
+  S.q = e.target.value;
+  S.shown = 12;
+  if (S.q.trim()) { S.dept = 'all'; S.sub = 'all'; }
+  rerender();
+});
+el('searchForm').addEventListener('submit', (e) => { e.preventDefault(); el('catalog').scrollIntoView({ block: 'start' }); });
+el('sort').addEventListener('change', (e) => { S.sort = e.target.value; S.shown = 12; renderGrid(); });
+el('cur').addEventListener('change', (e) => {
+  S.cur = e.target.value; renderGrid(); renderAnatomy(); renderStates(); renderSizes();
+  toast(`Prices converted to ${S.cur}`);
+});
+document.addEventListener('change', (e) => {
+  if (e.target.closest('#fStock')) { syncSet(e.target.closest('#fStock'), S.stock); }
+  else if (e.target.closest('#fBrand')) { syncSet(e.target.closest('#fBrand'), S.brand); }
+  else if (e.target.closest('#fMode')) { syncSet(e.target.closest('#fMode'), S.mode); }
+  else return;
+  S.shown = 12; renderActive(); renderGrid();
+});
+
+function syncSet(box, set) {
+  set.clear();
+  box.querySelectorAll('input:checked').forEach(i => set.add(i.value));
+}
+
+// quick view — the card, promoted to feature size, in a dialog
+function openQuick(p) {
+  if (!p) return;
+  closeModal();
+  const m = document.createElement('div');
+  m.id = 'modal';
+  m.setAttribute('role', 'dialog');
+  m.setAttribute('aria-modal', 'true');
+  m.setAttribute('aria-label', p.title);
+  m.style.cssText = 'position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:var(--s-200);background:rgba(10,10,14,.55);backdrop-filter:blur(3px)';
+  m.innerHTML = `<div style="max-height:92vh;overflow:auto;width:min(720px,100%)">
+      ${card(p, { feature: true })}
+      <button class="btn btn--ghost" id="closeM" style="margin-top:var(--s-200)">Close quick view</button></div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', (e) => { if (e.target === m) closeModal(); });
+  el('closeM').addEventListener('click', closeModal);
+  el('closeM').focus();
+}
+
+function closeModal() { el('modal')?.remove(); }
+
+// ============================================================
+// INIT
+// ============================================================
+// one SKU starts saved, so the "Saved to wishlist" state in the
+// card-system gallery shows a real pressed state rather than a mock-up
+S.favs.add('TEX-TWL');
+
+// load visibility config from localStorage
+loadConfig();
+
+renderDeps();
+renderAnatomy();
+renderModes();
+renderStates();
+renderSizes();
+renderFoot();
+rerender();
+  </script>
+</body>
+
+</html>
