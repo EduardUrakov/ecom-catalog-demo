@@ -10,6 +10,7 @@ storefront modes: retail, marketplace, handmade, B2B wholesale and pre-order.
 | File | Contents |
 |---|---|
 | `catalog.html` | The demo page. Self-contained: markup, styles and logic in one file. |
+| `index.html` | Byte-identical copy of `catalog.html`, so the repository root opens the catalog. |
 | `CATALOG.md` | Card anatomy, catalog tree, business decisions behind the structure. |
 
 ## Features to try
