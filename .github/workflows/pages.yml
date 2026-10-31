@@ -25,6 +25,15 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      # Репозиторий содержит уже собранный catalog.html: блоки catalog.*.js
+      # остаются в исходном проекте и в публичный репозиторий не выкладываются.
+      # Сборку проверяем до push — deploy-github.js не пустит несобранный файл.
+      - name: Verify bundle is built
+        run: |
+          test -s catalog.html
+          grep -q 'BUILD:SCRIPT' catalog.html
+          echo "catalog.html: $(wc -c < catalog.html) bytes"
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
