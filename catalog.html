@@ -12,6 +12,15 @@
   <meta property="og:description"
     content="Catalogue → departments → subsections → cards. One card component, five content modes, all storefront brands via tokens.">
   <meta name="theme-color" content="#FFFFFF">
+  <!-- SVG filters for liquid glass effect -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="liquid-glass" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" seed="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234F7CFF'/%3E%3Cpath d='M9 22V11l7 5 7-5v11' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1924,163 +1933,187 @@
     }
 
     /* ============================================================
-       MEGA-MENU DROPDOWN
+       DRAWER: unified sidebar for browse (Target-style) and configure
        ============================================================ */
-    .dropdown {
-      position: relative
-    }
-
-    .mega {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      width: min(90vw, 760px);
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: min(92vw, 900px);
       background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
+      border-right: 1px solid var(--line);
       box-shadow: var(--shadow-3);
-      padding: var(--s-300);
+      z-index: 95;
+      display: none;
+      grid-template-columns: 200px 1fr;
       opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms var(--curve), transform 180ms var(--curve);
-      z-index: 50
+      transform: translateX(-16px);
+      transition: opacity 200ms var(--curve), transform 200ms var(--curve)
     }
 
-    .dropdown[data-open="true"] .mega {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(0)
-    }
-
-    .mega__grid {
+    .drawer[data-open="true"] {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--s-200) var(--s-400)
+      opacity: 1;
+      transform: translateX(0)
     }
 
-    @media (min-width:600px) {
-      .mega__grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
+    /* Scrim behind drawer */
+    .drawer__scrim {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 14, .45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 94;
+      display: none;
+      opacity: 0;
+      transition: opacity 200ms var(--curve)
     }
 
-    .mega__col h4 {
-      font-size: 13px;
+    .drawer__scrim[data-open="true"] {
+      display: block;
+      opacity: 1
+    }
+
+    .drawer__rail {
+      overflow-y: auto;
+      border-right: 1px solid var(--line);
+      padding: var(--s-200) 0
+    }
+
+    .drawer__rail h3 {
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: var(--s-100);
-      padding-bottom: var(--s-75);
-      border-bottom: 1px solid var(--line);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--dim);
+      padding: var(--s-100) var(--s-200) var(--s-100);
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      z-index: 1
+    }
+
+    .drawer__dept {
       display: flex;
       align-items: center;
-      gap: var(--s-75);
-      cursor: pointer
-    }
-
-    .mega__col h4 svg {
-      flex: none;
-      color: var(--accent)
-    }
-
-    .mega__col ul {
-      margin-top: var(--s-100)
-    }
-
-    .mega__col li {
-      padding-block: 4px
-    }
-
-    .mega__col button {
-      background: none;
-      border: 0;
-      padding: 4px 0;
-      font-size: 13px;
-      color: var(--muted);
-      text-align: left;
+      gap: var(--s-100);
+      padding: var(--s-100) var(--s-200);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
       cursor: pointer;
-      min-height: 28px
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      transition: background 120ms var(--curve), color 120ms var(--curve)
     }
 
-    .mega__col button:hover {
+    .drawer__dept svg {
+      flex: none;
+      color: var(--accent);
+      opacity: .7
+    }
+
+    .drawer__dept:hover {
+      background: var(--surface)
+    }
+
+    .drawer__dept[data-active="true"] {
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700
+    }
+
+    .drawer__dept[data-active="true"] svg {
+      color: #fff;
+      opacity: 1
+    }
+
+    .drawer__dept__count {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--dim);
+      opacity: .7
+    }
+
+    .drawer__dept[data-active="true"] .drawer__dept__count {
+      color: rgba(255, 255, 255, .8)
+    }
+
+    .drawer__body {
+      overflow-y: auto;
+      padding: var(--s-300) var(--s-400)
+    }
+
+    .drawer__body h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--dim);
+      padding-bottom: var(--s-100);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: var(--s-200)
+    }
+
+    .drawer__sub {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      min-height: 32px;
+      transition: color 120ms var(--curve)
+    }
+
+    .drawer__sub:hover {
       color: var(--accent);
       text-decoration: underline
     }
 
-    .mega__col button[disabled] {
+    .drawer__sub[data-active="true"] {
+      color: var(--accent);
+      font-weight: 600
+    }
+
+    .drawer__sub__count {
+      font-size: 12px;
+      opacity: .5;
+      margin-left: var(--s-100)
+    }
+
+    .drawer__sub[disabled] {
       opacity: .35;
       cursor: default;
-      text-decoration: none
+      pointer-events: none
     }
 
-    @media (max-width:600px) {
-      .mega {
-        position: fixed;
-        top: 60px;
-        left: var(--s-200);
-        right: var(--s-200);
-        transform: none;
-        width: auto;
-        max-height: 70vh;
-        overflow-y: auto
-      }
-
-      .dropdown[data-open="true"] .mega {
-        transform: translateY(0)
-      }
-
-      .mega__grid {
-        grid-template-columns: 1fr
-      }
+    /* Config mode: toggle switch in drawer */
+    .drawer[data-mode="configure"] .drawer__sub {
+      cursor: default
     }
 
-    /* ============================================================
-       CONFIG PANEL (catalog visibility)
-       ============================================================ */
-    .config-panel {
-      position: fixed;
-      inset: 0;
-      z-index: 90;
-      display: none;
-      place-items: center;
-      padding: var(--s-200)
+    .drawer[data-mode="configure"] .drawer__sub:hover {
+      text-decoration: none;
+      color: var(--muted)
     }
 
-    .config-panel[data-open="true"] {
-      display: grid
+    .drawer[data-mode="configure"] .drawer__sub[data-on="true"] {
+      color: var(--accent);
+      font-weight: 600
     }
 
-    .config-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(10, 10, 14, .45);
-      backdrop-filter: blur(3px)
-    }
-
-    .config-box {
-      position: relative;
-      width: min(560px, 100%);
-      max-height: 80vh;
-      overflow: auto;
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-400);
-      box-shadow: var(--shadow-3)
-    }
-
-    .config-box h3 {
-      font-size: 20px;
-      margin-bottom: var(--s-100)
-    }
-
-    .config-box p {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: var(--s-300)
-    }
-
+    /* Config accordion inside drawer */
     .cfg-dept {
       border: 1px solid var(--line);
       border-radius: var(--r-md);
@@ -2142,7 +2175,8 @@
     .switch input {
       opacity: 0;
       width: 0;
-      height: 0
+      height: 0;
+      position: absolute
     }
 
     .switch__track {
@@ -2174,80 +2208,210 @@
       transform: translateX(18px)
     }
 
-    .config-actions {
+    /* Config header inside drawer */
+    .drawer__cfg-head {
       display: flex;
-      gap: var(--s-100);
-      margin-top: var(--s-300)
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--s-200) var(--s-300);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface)
     }
 
-    .config-actions .btn {
-      flex: 1
+    .drawer__cfg-head h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0
     }
 
-    /* footer */
-    .foot {
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-500) var(--s-700);
-      font-size: 13px;
-      color: var(--dim)
+    .drawer__cfg-actions {
+      display: flex;
+      gap: var(--s-100)
     }
 
-    .foot__grid {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: repeat(2, minmax(0, 1fr))
+    .drawer__cfg-actions .btn {
+      font-size: 12px;
+      padding: 4px var(--s-200)
     }
 
-    @media (min-width:800px) {
-      .foot__grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr))
+    /* Mobile: full-width sheet from top */
+    @media (max-width: 600px) {
+      .drawer {
+        width: 100vw;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        border-right: none;
+        border-top: 1px solid var(--line);
+        border-radius: var(--r-xl) var(--r-xl) 0 0;
+        grid-template-columns: 1fr;
+        transform: translateY(100%);
+        max-height: 80vh
+      }
+
+      .drawer[data-open="true"] {
+        transform: translateY(0)
+      }
+
+      .drawer__rail {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+        max-height: 180px
+      }
+
+      .drawer__rail h3 {
+        position: static
       }
     }
 
-    .foot h5 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      color: var(--text);
-      margin-bottom: var(--s-100)
+    /* ============================================================
+       LIQUID GLASS EFFECT
+       backdrop-filter: blur + saturate + displacement map + specular highlight
+       Uses the same tokens — no new palette
+       ============================================================ */
+    .glass-active {
+      --glass-blur: 16px;
+      --glass-saturate: 1.6;
+      --glass-brightness: 1.05;
+      --glass-tint: color-mix(in srgb, var(--accent) 12%, transparent)
     }
 
-    .foot li {
-      padding-block: 3px
+    /* Scrim glass layer */
+    .glass-active .drawer__scrim {
+      backdrop-filter: blur(6px) saturate(1.3);
+      -webkit-backdrop-filter: blur(6px) saturate(1.3)
     }
 
-    .foot a:hover {
-      color: var(--accent);
-      text-decoration: underline
+    /* Drawer glass surface */
+    .glass-active .drawer {
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, .12) 0%,
+          rgba(255, 255, 255, .04) 50%,
+          rgba(255, 255, 255, .08) 100%);
+      border: 1px solid rgba(255, 255, 255, .15);
+      box-shadow: var(--shadow-3),
+        inset 0 1px 0 rgba(255, 255, 255, .25),
+        inset 0 -1px 0 rgba(0, 0, 0, .05);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness))
     }
 
-    .foot__bar {
-      margin-top: var(--s-500);
-      padding-top: var(--s-200);
-      border-top: 1px solid var(--line);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s-100) var(--s-300);
-      font-size: 12px
-    }
-
-    .end {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--s-200);
-      padding-block: var(--s-400);
-      color: var(--dim);
-      font-size: 13px
-    }
-
-    .end::before,
-    .end::after {
-      content: "";
+    /* Glass specular highlight on drawer header */
+    .glass-active .drawer__rail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
-      width: 48px;
-      background: var(--line)
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .3) 60%, transparent);
+      pointer-events: none
     }
+
+    /* Glass toggle button */
+    .glass-active .ctrl#glassBtn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .04));
+      border: 1px solid rgba(255, 255, 255, .2);
+      backdrop-filter: blur(10px) saturate(1.4);
+      -webkit-backdrop-filter: blur(10px) saturate(1.4)
+    }
+
+    /* Apply displacement map filter for liquid refraction */
+    .glass-active .drawer__body {
+      position: relative
+    }
+
+    .glass-active .drawer__body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, .03) 0%,
+          transparent 40%,
+          rgba(255, 255, 255, .05) 100%);
+      mix-blend-mode: overlay;
+      z-index: 1
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+
+      .glass-active .drawer,
+      .glass-active .drawer__scrim,
+      .glass-active .ctrl#glassBtn {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--raised)
+      }
+    }
+
+    /* ============================================================
+       TOAST
+       ============================================================ */
+    .toast {
+      .foot {
+        border-top: 1px solid var(--line);
+        padding-block: var(--s-500) var(--s-700);
+        font-size: 13px;
+        color: var(--dim)
+      }
+
+      .foot__grid {
+        display: grid;
+        gap: var(--s-400);
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+
+      @media (min-width:800px) {
+        .foot__grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr))
+        }
+      }
+
+      .foot h5 {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        color: var(--text);
+        margin-bottom: var(--s-100)
+      }
+
+      .foot li {
+        padding-block: 3px
+      }
+
+      .foot a:hover {
+        color: var(--accent);
+        text-decoration: underline
+      }
+
+      .foot__bar {
+        margin-top: var(--s-500);
+        padding-top: var(--s-200);
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s-100) var(--s-300);
+        font-size: 12px
+      }
+
+      .end {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s-200);
+        padding-block: var(--s-400);
+        color: var(--dim);
+        font-size: 13px
+      }
+
+      .end::before,
+      .end::after {
+        content: "";
+        height: 1px;
+        width: 48px;
+        background: var(--line)
+      }
   </style>
 </head>
 
@@ -2279,20 +2443,17 @@
       </form>
 
       <div class="ctrls">
-        <!-- Dropdown catalog -->
-        <div class="dropdown" id="catalogDd">
-          <button class="ctrl" id="catalogBtn" aria-pressed="false" aria-haspopup="true" aria-expanded="false"
-            title="Browse catalogue">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7" rx="1.5" />
-              <rect x="14" y="3" width="7" height="7" rx="1.5" />
-              <rect x="3" y="14" width="7" height="7" rx="1.5" />
-              <rect x="14" y="14" width="7" height="7" rx="1.5" />
-            </svg>
-            <span id="catalogBtnLbl">Catalogue</span>
-          </button>
-          <div class="mega" id="mega" role="menu" aria-label="Catalogue departments"></div>
-        </div>
+        <!-- Catalog drawer trigger -->
+        <button class="ctrl" id="catalogBtn" aria-pressed="false" aria-haspopup="dialog" aria-expanded="false"
+          title="Browse catalogue">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          <span id="catalogBtnLbl">Catalogue</span>
+        </button>
         <button class="ctrl" id="brandBtn" aria-pressed="false" title="Switch storefront tokens">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="9" />
@@ -2300,12 +2461,22 @@
           </svg>
           <span id="brandLbl">House</span>
         </button>
-        <button class="ctrl" id="configBtn" title="Catalog configuration" aria-label="Catalog configuration">
+        <button class="ctrl" id="configBtn" title="Configure catalog visibility"
+          aria-label="Configure catalog visibility">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
             <path
               d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
           </svg>
+        </button>
+        <button class="ctrl" id="glassBtn" aria-pressed="true" title="Toggle liquid glass effect"
+          aria-label="Toggle liquid glass effect">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9" opacity=".3" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="9" cy="9" r="1.5" fill="currentColor" stroke="none" opacity=".6" />
+          </svg>
+          <span id="glassLbl">Glass</span>
         </button>
         <button class="ctrl ctrl--lang" id="langBtn" aria-pressed="false" title="Switch language"
           aria-label="Switch language">
@@ -2525,10 +2696,13 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- CONFIG PANEL -->
-  <div class="config-panel" id="configPanel" role="dialog" aria-modal="true" aria-label="Catalog configuration">
-    <div class="config-box" id="configBox"></div>
+  <!-- UNIFIED DRAWER: sidebar browse + configure -->
+  <div class="drawer" id="drawer" data-open="false" data-mode="browse" role="dialog" aria-modal="true"
+    aria-label="Catalog navigation">
+    <div class="drawer__rail" id="drawerRail"></div>
+    <div class="drawer__body" id="drawerBody"></div>
   </div>
+  <div class="drawer__scrim" id="drawerScrim"></div>
 
   <!-- BUILD:SCRIPT -->
 
@@ -2640,6 +2814,9 @@ const RU_DICT = {
     'Включите или отключите разделы и подразделы. В каталоге и выпадающем меню отображаются только видимые элементы. Настройки сохраняются для каждой витрины отдельно.',
   'Reset all': 'Сбросить всё',
   'Done': 'Готово',
+  'Glass': 'Стекло',
+  'Configure catalog visibility': 'Настройка видимости каталога',
+  'Toggle liquid glass effect': 'Переключить эффект жидкого стекла',
   'Any price': 'Любая цена',
 };
 // END A
@@ -3784,6 +3961,14 @@ function loadConfig() {
   } catch {
     DEPTS.forEach(d => { S.vis.depts[d.id] = true; d.subs.forEach(s => { S.vis.subs[s.id] = true; }); });
   }
+  // glass preference
+  const glassPref = localStorage.getItem('glass-pref');
+  const glassOn = glassPref !== 'off';
+  if (glassOn && window.matchMedia('(prefers-reduced-transparency: no-preference)').matches) {
+    document.documentElement.dataset.glass = 'on';
+    document.documentElement.classList.add('glass-active');
+    el('glassBtn')?.setAttribute('aria-pressed', 'true');
+  }
 }
 
 function saveConfig() {
@@ -3799,73 +3984,111 @@ function visFiltered() {
   return P.filter(p => deptVisible.has(p.dept) && subVisible.has(p.sub));
 }
 
-// render mega-menu dropdown
-function renderMega() {
-  const box = el('mega');
+// ============================================================
+// DRAWER: unified sidebar (Target-style cascade)
+// mode: 'browse' = navigation, 'configure' = toggle visibility
+// ============================================================
+let drawerHoverDept = null;
+
+function renderDrawer() {
+  const rail = el('drawerRail');
+  const body = el('drawerBody');
+  const mode = el('drawer').dataset.mode || 'browse';
   const visibleDepts = DEPTS.filter(d => S.vis.depts[d.id]);
-  box.innerHTML = `<div class="mega__grid">${visibleDepts.map(d => {
+  const activeDept = drawerHoverDept || (S.dept !== 'all' ? S.dept : null);
+
+  // --- Left rail: departments list ---
+  rail.innerHTML = `
+    <h3>${mode === 'configure' ? 'Departments' : 'Departments'}</h3>
+    ${visibleDepts.map(d => {
     const n = visFiltered().filter(p => p.dept === d.id).length;
-    return `<div class="mega__col">
-      <h4 data-dept-toggle="${d.id}">
+    const isActive = d.id === activeDept;
+    return `<button class="drawer__dept" data-drawer-dept="${d.id}" ${isActive ? 'data-active="true"' : ''}>
         ${DEPICON[d.icon]}
-        ${d.name}
-        <span style="margin-left:auto;font-weight:400;opacity:.5;font-size:11px">${n}</span>
-      </h4>
-      <ul>${d.subs.map(s => {
-      const visible = S.vis.subs[s.id];
-      const cnt = visFiltered().filter(p => p.sub === s.id).length;
-      return `<li><button data-dept="${d.id}" data-sub="${s.id}" ${visible ? '' : 'disabled'}>${s.name} <span style="opacity:.4;font-size:11px">${cnt}</span></button></li>`;
-    }).join('')}</ul>
-    </div>`;
-  }).join('')}</div>`;
-}
-
-// render config panel
-function renderConfig() {
-  const box = el('configBox');
-  box.innerHTML = `
-    <h3 id="cfgTitle">Catalog configuration</h3>
-    <p>Enable or disable departments and subsections. Only visible items appear in the catalogue and dropdown. Settings are saved per storefront.</p>
-    ${DEPTS.map(d => `
-    <div class="cfg-dept">
-      <div class="cfg-dept__head" data-dept-head="${d.id}" role="button" aria-expanded="false" tabindex="0">
         <span>${d.name}</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
-      <div class="cfg-dept__body" data-dept-body="${d.id}">
-        ${d.subs.map(s => {
-    const checked = S.vis.subs[s.id];
-    return `<div class="cfg-sub">
-            <span>${s.name}</span>
-            <label class="switch">
-              <input type="checkbox" data-sub-toggle="${s.id}" ${checked ? 'checked' : ''}>
-              <span class="switch__track"></span>
-            </label>
-          </div>`;
+        <span class="drawer__dept__count">${n}</span>
+      </button>`;
   }).join('')}
+  `;
+
+  // --- Right body: subsections ---
+  if (mode === 'configure') {
+    // Config mode: all depts, each with expandable subs + switches
+    body.innerHTML = `
+      <div class="drawer__cfg-head">
+        <h2 id="cfgTitle">Catalog configuration</h2>
+        <div class="drawer__cfg-actions">
+          <button class="btn btn--ghost" id="cfgReset">Reset all</button>
+          <button class="btn btn--primary" id="cfgClose">Done</button>
+        </div>
       </div>
-    </div>`).join('')}
-    <div class="config-actions">
-      <button class="btn btn--ghost" id="cfgReset">Reset all</button>
-      <button class="btn btn--primary" id="cfgClose">Done</button>
-    </div>`;
+      ${DEPTS.map(d => {
+      const n = visFiltered().filter(p => p.dept === d.id).length;
+      return `<div class="cfg-dept" data-drawer-dept="${d.id}" style="${S.vis.depts[d.id] ? '' : 'opacity:.35;pointer-events:none'}">
+          <div class="cfg-dept__head" data-dept-head="${d.id}" role="button" aria-expanded="false" tabindex="0">
+            <span>${d.name}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="cfg-dept__body" data-dept-body="${d.id}">
+            ${d.subs.map(s => {
+        const checked = S.vis.subs[s.id];
+        return `<div class="cfg-sub">
+                <span>${s.name}</span>
+                <label class="switch">
+                  <input type="checkbox" data-sub-toggle="${s.id}" ${checked ? 'checked' : ''}>
+                  <span class="switch__track"></span>
+                </label>
+              </div>`;
+      }).join('')}
+          </div>
+        </div>`;
+    }).join('')}
+    `;
+  } else {
+    // Browse mode: show subs of hovered/active dept, click navigates
+    body.innerHTML = `
+      <h3>Subsections</h3>
+      <div id="drawerSubs">
+        ${(activeDept ? visibleDepts.filter(d => d.id === activeDept) : visibleDepts).map(d => {
+      return d.subs.map(s => {
+        const visible = S.vis.subs[s.id];
+        const cnt = visFiltered().filter(p => p.sub === s.id).length;
+        const isActive = d.id === S.dept && s.id === S.sub;
+        return `<button class="drawer__sub" data-drawer-dept="${d.id}" data-drawer-sub="${s.id}" ${visible ? '' : 'disabled'} ${isActive ? 'data-active="true"' : ''}>
+              <span>${s.name}</span>
+              <span class="drawer__sub__count">${cnt}</span>
+            </button>`;
+      }).join('');
+    }).join('')}
+      </div>
+    `;
+  }
 }
 
-function openConfig() {
-  renderConfig();
-  el('configPanel').dataset.open = 'true';
-  el('configBox').focus();
+function openDrawer(mode) {
+  // mode: 'browse' or 'configure'
+  el('drawer').dataset.mode = mode;
+  el('drawer').dataset.open = 'true';
+  el('drawerScrim').dataset.open = 'true';
+  el('catalogBtn').setAttribute('aria-pressed', 'true');
+  el('catalogBtn').setAttribute('aria-expanded', 'true');
+  renderDrawer();
+  // Scroll to top of drawer
+  el('drawerRail').scrollTop = 0;
+  el('drawerBody').scrollTop = 0;
 }
 
-function closeConfig() {
-  el('configPanel').dataset.open = 'false';
+function closeDrawer() {
+  el('drawer').dataset.open = 'false';
+  el('drawerScrim').dataset.open = 'false';
+  el('catalogBtn').setAttribute('aria-pressed', 'false');
+  el('catalogBtn').setAttribute('aria-expanded', 'false');
 }
 
 function resetConfig() {
   DEPTS.forEach(d => { S.vis.depts[d.id] = true; d.subs.forEach(s => { S.vis.subs[s.id] = true; }); });
   saveConfig();
-  renderConfig();
-  renderMega();
+  renderDrawer();
   renderDeps();
   rerender();
   toast('Catalog visibility reset to default');
@@ -3898,87 +4121,53 @@ function bumpCart(n) {
 
 const find = (id) => P.find(p => p.id === id);
 
-// close dropdown on outside click
+// close drawer on outside click (scrim)
 document.addEventListener('click', (e) => {
-  const dd = el('catalogDd');
-  if (!dd) return;
-  const open = dd.dataset.open === 'true';
-  if (open && !dd.contains(e.target)) {
-    dd.dataset.open = 'false';
-    el('catalogBtn').setAttribute('aria-pressed', 'false');
-    el('catalogBtn').setAttribute('aria-expanded', 'false');
-  }
+  const drawer = el('drawer');
+  if (!drawer || drawer.dataset.open !== 'true') return;
+  const scrim = el('drawerScrim');
+  if (scrim && e.target === scrim) { closeDrawer(); return; }
+  // don't close when clicking inside the drawer
+  if (drawer.contains(e.target)) return;
 });
 
-// close config panel on outside click
-document.addEventListener('click', (e) => {
-  const panel = el('configPanel');
-  if (!panel || panel.dataset.open !== 'true') return;
-  if (panel === e.target) closeConfig();
-});
-
-// ESC closes both
+// ESC closes drawer
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
-    if (el('configPanel').dataset.open === 'true') { closeConfig(); return; }
-    const dd = el('catalogDd');
-    if (dd && dd.dataset.open === 'true') {
-      dd.dataset.open = 'false';
-      el('catalogBtn').setAttribute('aria-pressed', 'false');
-      el('catalogBtn').setAttribute('aria-expanded', 'false');
-    }
+    if (el('drawer').dataset.open === 'true') { closeDrawer(); return; }
   }
 });
 
 document.addEventListener('click', (e) => {
   const t = e.target;
 
-  // dropdown catalog button
+  // drawer: catalog button opens in browse mode
   if (t.closest('#catalogBtn')) {
-    const dd = el('catalogDd');
-    const open = dd.dataset.open !== 'true';
-    dd.dataset.open = String(open);
-    el('catalogBtn').setAttribute('aria-pressed', String(open));
-    el('catalogBtn').setAttribute('aria-expanded', String(open));
-    if (open) renderMega();
+    const open = el('drawer').dataset.open !== 'true';
+    if (open) openDrawer('browse');
+    else closeDrawer();
     return;
   }
 
-  // mega-menu subsection link
-  const megaBtn = t.closest('#mega [data-dept][data-sub]');
-  if (megaBtn && !megaBtn.disabled) {
-    S.dept = megaBtn.dataset.dept;
-    S.sub = megaBtn.dataset.sub;
-    S.shown = 12;
-    rerender();
-    el('catalog').scrollIntoView({ block: 'start' });
-    el('catalogDd').dataset.open = 'false';
-    el('catalogBtn').setAttribute('aria-pressed', 'false');
-    el('catalogBtn').setAttribute('aria-expanded', 'false');
-    return;
-  }
-
-  // mega-menu dept header click
-  const megaDept = t.closest('#mega [data-dept-toggle]');
-  if (megaDept) {
-    S.dept = megaDept.dataset.deptToggle;
-    S.sub = 'all';
-    S.shown = 12;
-    rerender();
-    el('catalog').scrollIntoView({ block: 'start' });
-    el('catalogDd').dataset.open = 'false';
-    el('catalogBtn').setAttribute('aria-pressed', 'false');
-    el('catalogBtn').setAttribute('aria-expanded', 'false');
-    return;
-  }
-
-  // config button
+  // drawer: gear opens in configure mode
   if (t.closest('#configBtn')) {
-    openConfig();
+    openDrawer('configure');
     return;
   }
 
-  // config: toggle dept body expand
+  // drawer: close button (Done)
+  if (t.closest('#cfgClose')) {
+    closeDrawer();
+    return;
+  }
+
+  // drawer: reset button
+  if (t.closest('#cfgReset')) {
+    resetConfig();
+    return;
+  }
+
+  // config: toggle dept body expand in config mode
   const cfgHead = t.closest('[data-dept-head]');
   if (cfgHead) {
     const id = cfgHead.dataset.deptHead;
@@ -3989,27 +4178,52 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  // config: toggle subsection
+  // drawer: department row click (browse mode) → set S.dept, close drawer
+  const deptBtn = t.closest('[data-drawer-dept]:not([data-drawer-sub]):not(.cfg-dept)');
+  if (deptBtn) {
+    const id = deptBtn.dataset.drawerDept;
+    if (el('drawer').dataset.mode === 'browse') {
+      drawerHoverDept = S.dept === id ? null : id;
+      S.dept = drawerHoverDept || 'all';
+      S.sub = 'all';
+      S.shown = 12;
+      rerender();
+      closeDrawer();
+      if (S.dept !== 'all') el('catalog').scrollIntoView({ block: 'start' });
+    } else {
+      // configure mode: toggle dept visibility
+      S.vis.depts[id] = !S.vis.depts[id];
+      saveConfig();
+      renderDrawer();
+      renderDeps();
+      renderSubs();
+      renderGrid();
+    }
+    return;
+  }
+
+  // drawer: subsection link (browse mode) → set S.dept+S.sub, close drawer
+  const subBtn = t.closest('[data-drawer-sub]');
+  if (subBtn && !subBtn.disabled) {
+    S.dept = subBtn.dataset.drawerDept;
+    S.sub = subBtn.dataset.drawerSub;
+    S.shown = 12;
+    rerender();
+    closeDrawer();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // drawer: subsection toggle (configure mode)
   const subToggle = t.closest('[data-sub-toggle]');
   if (subToggle) {
     const id = subToggle.dataset.subToggle;
     S.vis.subs[id] = subToggle.checked;
     saveConfig();
-    renderMega();
+    renderDrawer();
     renderDeps();
-    rerender();
-    return;
-  }
-
-  // config: close
-  if (t.closest('#cfgClose')) {
-    closeConfig();
-    return;
-  }
-
-  // config: reset
-  if (t.closest('#cfgReset')) {
-    resetConfig();
+    renderSubs();
+    renderGrid();
     return;
   }
 
@@ -4132,6 +4346,16 @@ document.addEventListener('click', (e) => {
     el('brandLbl').textContent = next === 'default' ? 'House' : next[0].toUpperCase() + next.slice(1);
     el('brandBtn').setAttribute('aria-pressed', String(next !== 'default'));
     toast(next === 'default' ? 'House tokens' : `Tokens switched to ${next} — same card, new brand`);
+    return;
+  }
+
+  // glass toggle
+  if (t.closest('#glassBtn')) {
+    const on = document.documentElement.dataset.glass !== 'on';
+    document.documentElement.dataset.glass = on ? 'on' : 'off';
+    document.documentElement.classList.toggle('glass-active', on);
+    el('glassBtn').setAttribute('aria-pressed', String(on));
+    localStorage.setItem('glass-pref', on ? 'on' : 'off');
     return;
   }
 
