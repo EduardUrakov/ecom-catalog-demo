@@ -326,7 +326,8 @@
       top: 0;
       z-index: 30;
       background: var(--raised);
-      border-bottom: 1px solid var(--line)
+      border-bottom: 1px solid var(--line);
+      transition: background 200ms var(--curve), border-color 200ms var(--curve), box-shadow 200ms var(--curve)
     }
 
     .head__row {
@@ -2274,6 +2275,157 @@
       --glass-saturate: 1.6;
       --glass-brightness: 1.05;
       --glass-tint: color-mix(in srgb, var(--accent) 12%, transparent)
+    }
+
+    /* Specular highlight: radial gradient follows mouse via CSS custom properties */
+    .glass-active .drawer {
+      --gx: 50%;
+      --gy: 50%;
+      background:
+        radial-gradient(circle at var(--gx) var(--gy),
+          rgba(255, 255, 255, .18) 0%,
+          rgba(255, 255, 255, .06) 25%,
+          transparent 55%),
+        linear-gradient(135deg,
+          rgba(255, 255, 255, .12) 0%,
+          rgba(255, 255, 255, .04) 50%,
+          rgba(255, 255, 255, .08) 100%);
+      border: 1px solid rgba(255, 255, 255, .15);
+      box-shadow: var(--shadow-3),
+        inset 0 1px 0 rgba(255, 255, 255, .25),
+        inset 0 -1px 0 rgba(0, 0, 0, .05);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness))
+    }
+
+    /* Scrim glass layer */
+    .glass-active .drawer__scrim {
+      backdrop-filter: blur(6px) saturate(1.3);
+      -webkit-backdrop-filter: blur(6px) saturate(1.3)
+    }
+
+    /* Glass specular highlight on drawer header */
+    .glass-active .drawer__rail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, .3) 60%, transparent);
+      pointer-events: none
+    }
+
+    /* Glass toggle button */
+    .glass-active .ctrl#glassBtn {
+      background: linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .04));
+      border: 1px solid rgba(255, 255, 255, .2);
+      backdrop-filter: blur(10px) saturate(1.4);
+      -webkit-backdrop-filter: blur(10px) saturate(1.4)
+    }
+
+    /* Apply displacement map filter for liquid refraction */
+    .glass-active .drawer__body {
+      position: relative
+    }
+
+    .glass-active .drawer__body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, .03) 0%,
+          transparent 40%,
+          rgba(255, 255, 255, .05) 100%);
+      mix-blend-mode: overlay;
+      z-index: 1
+    }
+
+    /* ============================================================
+       GLASS HEADER (scrolling)
+       backdrop-filter + border-bottom when scrolled
+       ============================================================ */
+    .head::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--bg);
+      opacity: 0;
+      transition: opacity 200ms var(--curve);
+      pointer-events: none
+    }
+
+    .glass-active .head.scrolled::before {
+      background:
+        radial-gradient(circle at var(--gx, 50%) var(--gy, 50%),
+          rgba(255,255,255,.12) 0%,
+          transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      opacity: 1
+    }
+
+    .glass-active .head.scrolled {
+      background: transparent;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 1px 0 rgba(255,255,255,.08), 0 2px 8px rgba(0,0,0,.04);
+      backdrop-filter: blur(12px) saturate(1.3);
+      -webkit-backdrop-filter: blur(12px) saturate(1.3)
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .glass-active .drawer,
+      .glass-active .drawer__scrim,
+      .glass-active .ctrl#glassBtn,
+      .glass-active .head.scrolled,
+      .glass-active .head.scrolled::before {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--raised)
+      }
+
+      .glass-active .head.scrolled::before {
+        opacity: 1
+      }
+    }
+
+    .head::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--bg);
+      opacity: 0;
+      transition: opacity 200ms var(--curve)
+    }
+
+    .glass-active .head.scrolled::before {
+      background:
+        radial-gradient(circle at var(--gx, 50%) var(--gy, 50%),
+          rgba(255, 255, 255, .12) 0%,
+          transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+      opacity: 1
+    }
+
+    .glass-active .head.scrolled {
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .08), 0 2px 8px rgba(0, 0, 0, .04);
+      backdrop-filter: blur(12px) saturate(1.3);
+      -webkit-backdrop-filter: blur(12px) saturate(1.3)
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+
+      .glass-active .drawer,
+      .glass-active .drawer__scrim,
+      .glass-active .ctrl#glassBtn,
+      .glass-active .head.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: var(--raised)
+      }
     }
 
     /* Scrim glass layer */
@@ -4490,6 +4642,62 @@ function openQuick(p) {
 }
 
 function closeModal() { el('modal')?.remove(); }
+
+// ============================================================
+// LIQUID GLASS: mouse tracking + scroll header
+// ============================================================
+
+// Specular highlight follows the cursor on the drawer
+let glassQueued = false;
+function trackGlass(e) {
+  if (glassQueued) return;
+  glassQueued = true;
+  requestAnimationFrame(() => {
+    glassQueued = false;
+    const d = el('drawer');
+    if (!d || d.dataset.open !== 'true') return;
+    const r = d.getBoundingClientRect();
+    d.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    d.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  });
+}
+document.addEventListener('pointermove', trackGlass, { passive: true });
+
+// Header turns glassy once the page is scrolled
+let scrollQueued = false;
+function trackScroll() {
+  if (scrollQueued) return;
+  scrollQueued = true;
+  requestAnimationFrame(() => {
+    scrollQueued = false;
+    const head = document.querySelector('.head');
+    if (!head) return;
+    head.classList.toggle('scrolled', window.scrollY > 8);
+    // specular highlight follows the cursor on the header too
+    if (head.classList.contains('scrolled')) {
+      head.style.setProperty('--gx', '50%');
+      head.style.setProperty('--gy', '50%');
+    }
+  });
+}
+window.addEventListener('scroll', trackScroll, { passive: true });
+
+// Header specular follows the cursor horizontally
+let headGlassQueued = false;
+function trackHeadGlass(e) {
+  if (headGlassQueued) return;
+  headGlassQueued = true;
+  requestAnimationFrame(() => {
+    headGlassQueued = false;
+    const head = document.querySelector('.head.scrolled');
+    if (!head) return;
+    const r = head.getBoundingClientRect();
+    if (e.clientY > r.bottom) return;
+    head.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    head.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  });
+}
+document.addEventListener('pointermove', trackHeadGlass, { passive: true });
 
 // ============================================================
 // INIT
