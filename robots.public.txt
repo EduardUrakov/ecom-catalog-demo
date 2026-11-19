@@ -1,0 +1,36 @@
+# Path Home — robots.txt на публичный запуск.
+# Копия заготовки 05-templates/robots-markup-feed.md §1. Ставится вместо robots.txt вместе
+# со снятием <meta name="robots" content="noindex,nofollow"> в build-static.js.
+# Бот читает только одну группу — ту, где назван сам, поэтому закрытые разделы повторяются.
+
+User-agent: *
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /api/
+Allow: /
+
+# ИИ-ассистенты: закрыть — значит пропасть из ответов ChatGPT, Claude, Perplexity, Siri
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Applebot
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /api/
+Allow: /
+
+# ИИ-компании: тексты для обучения. Открыто до решения № 50
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /api/
+Allow: /
+
+Sitemap: /sitemap.xml

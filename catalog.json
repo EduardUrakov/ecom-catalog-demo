@@ -1,0 +1,1576 @@
+{
+  "format": "path-catalog",
+  "version": "1.0",
+  "catalog": "path-home",
+  "mode": "replace",
+  "items": [
+    {
+      "sku": "AUD-Q20I",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Volt Coil",
+      "brand_owner": "own",
+      "price_usd": "108.90",
+      "availability": "in_stock",
+      "quantity": 184,
+      "lead_time_days": 2,
+      "radio_equipment": true,
+      "weight_g": 260,
+      "country_of_origin": "VN",
+      "sort": 1,
+      "attributes": {
+        "sub": "audio"
+      },
+      "texts": {
+        "en": {
+          "title": "Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime",
+          "description": "Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч",
+          "description": "Адаптивное ANC с режимом прозрачности, драйверы с сертификатом hi-res и батарея на 40 часов. Складываются в жёсткий кейс.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/aud-q20i-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/aud-q20i-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "AUD-SPK2",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Volt Coil",
+      "brand_owner": "own",
+      "price_usd": "48.40",
+      "availability": "in_stock",
+      "quantity": 62,
+      "lead_time_days": 3,
+      "radio_equipment": true,
+      "weight_g": 540,
+      "country_of_origin": "CN",
+      "sort": 2,
+      "attributes": {
+        "sub": "audio"
+      },
+      "texts": {
+        "en": {
+          "title": "SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof",
+          "description": "12 W stereo with passive bass radiators. Pairs two units for true stereo.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Портативная колонка SPK 2, 24 ч работы, защита IPX7",
+          "description": "Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/aud-spk2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/aud-spk2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "STO-NV1T",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "98.34",
+      "availability": "in_stock",
+      "quantity": 412,
+      "lead_time_days": 1,
+      "radio_equipment": false,
+      "weight_g": 45,
+      "country_of_origin": "KR",
+      "sort": 3,
+      "attributes": {
+        "sub": "storage"
+      },
+      "texts": {
+        "en": {
+          "title": "NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink",
+          "description": "DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором",
+          "description": "TLC без DRAM, с HMB, стабильные 5,2 ГБ/с под нагрузкой. В комплекте низкопрофильный алюминиевый радиатор.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/sto-nv1t-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/sto-nv1t-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "STO-CAR64",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "10.89",
+      "availability": "in_stock",
+      "quantity": 980,
+      "lead_time_days": 4,
+      "radio_equipment": false,
+      "weight_g": 60,
+      "country_of_origin": "CN",
+      "sort": 4,
+      "attributes": {
+        "sub": "storage"
+      },
+      "texts": {
+        "en": {
+          "title": "Industrial microSDXC 64 GB, Endurance Grade, 10-Pack",
+          "description": "Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.",
+          "description": "Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/sto-car64-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/sto-car64-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "POW-HUB7",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Volt Coil",
+      "brand_owner": "own",
+      "price_usd": "25.96",
+      "availability": "in_stock",
+      "quantity": 1180,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 320,
+      "country_of_origin": "CN",
+      "sort": 5,
+      "attributes": {
+        "sub": "power"
+      },
+      "texts": {
+        "en": {
+          "title": "7-Port USB Hub with 60 W Mains Adapter, Braided Cable",
+          "description": "Individually switched ports, 2.4 A per port, over-current protection on the bus.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель",
+          "description": "Каждый порт отключается отдельно, 2,4 А на порт, защита шины от перегрузки.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/pow-hub7-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/pow-hub7-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "POW-PD65",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Volt Coil",
+      "brand_owner": "own",
+      "price_usd": "35.20",
+      "availability": "preorder",
+      "quantity": 0,
+      "lead_time_days": 21,
+      "radio_equipment": false,
+      "weight_g": 82,
+      "country_of_origin": "CN",
+      "sort": 6,
+      "attributes": {
+        "sub": "power"
+      },
+      "texts": {
+        "en": {
+          "title": "65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4",
+          "description": "Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4",
+          "description": "Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/pow-pd65-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/pow-pd65-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "SMH-PLG2",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Aeromat",
+      "brand_owner": "own",
+      "price_usd": "20.79",
+      "availability": "in_stock",
+      "quantity": 320,
+      "lead_time_days": 2,
+      "radio_equipment": true,
+      "weight_g": 180,
+      "country_of_origin": "CN",
+      "sort": 7,
+      "attributes": {
+        "sub": "smart-home"
+      },
+      "texts": {
+        "en": {
+          "title": "Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter",
+          "description": "Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter",
+          "description": "Замер энергии по каждой розетке, расписания и мост Matter для сторонних хабов.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/smh-plg2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/smh-plg2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "SMH-CAM2",
+      "status": "active",
+      "type": "physical",
+      "category": "electronics",
+      "brand": "Aeromat",
+      "brand_owner": "own",
+      "price_usd": "41.25",
+      "availability": "in_stock",
+      "quantity": 6,
+      "lead_time_days": 3,
+      "radio_equipment": true,
+      "weight_g": 320,
+      "country_of_origin": "CN",
+      "sort": 8,
+      "attributes": {
+        "sub": "smart-home"
+      },
+      "texts": {
+        "en": {
+          "title": "Indoor Security Camera 2K, Privacy Shutter, Local SD",
+          "description": "No cloud subscription required. Physical lens shutter and on-device person detection.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Камера для дома 2K, шторка приватности, локальная SD",
+          "description": "Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/smh-cam2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/smh-cam2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "HOM-KTL30",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Nordika",
+      "brand_owner": "own",
+      "price_usd": "19.20",
+      "availability": "in_stock",
+      "quantity": 86,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 640,
+      "country_of_origin": "TR",
+      "sort": 9,
+      "attributes": {
+        "sub": "cookware"
+      },
+      "texts": {
+        "en": {
+          "title": "Enamel Spice Kettle 300 ml, Cream, Induction Ready",
+          "description": "Two-layer enamel over carbon steel, whistling spout, dishwasher safe.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Эмалированный чайник для специй 300 мл, кремовый, для индукции",
+          "description": "Двухслойная эмаль по углеродистой стали, свисток, можно в посудомоечную машину.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/hom-ktl30-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/hom-ktl30-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "HOM-PAN28",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Nordika",
+      "brand_owner": "own",
+      "price_usd": "45.10",
+      "availability": "in_stock",
+      "quantity": 240,
+      "lead_time_days": 5,
+      "radio_equipment": false,
+      "weight_g": 2100,
+      "country_of_origin": "RU",
+      "sort": 10,
+      "attributes": {
+        "sub": "cookware"
+      },
+      "texts": {
+        "en": {
+          "title": "Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade",
+          "description": "Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Чугунная гриль-сковорода 28 см, с заводской закалкой, отельный класс",
+          "description": "Литьё в песок, выдерживает до 260 °C в духовке. По 6 штук в коробке для HoReCa.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/hom-pan28-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/hom-pan28-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "HOM-WAF4",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Aeromat",
+      "brand_owner": "own",
+      "price_usd": "69.74",
+      "availability": "in_stock",
+      "quantity": 118,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 3400,
+      "country_of_origin": "CN",
+      "sort": 11,
+      "attributes": {
+        "sub": "appliances"
+      },
+      "texts": {
+        "en": {
+          "title": "Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids",
+          "description": "Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Вафельница, 4 панели, раскрытие 180°, чугунные решётки",
+          "description": "Съёмные чугунные решётки с бельгийской ячейкой 9 мм и отдельной регулировкой прожарки.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/hom-waf4-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/hom-waf4-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "HOM-MIX8",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Aeromat",
+      "brand_owner": "own",
+      "price_usd": "57.20",
+      "availability": "in_stock",
+      "quantity": 3,
+      "lead_time_days": 6,
+      "radio_equipment": false,
+      "weight_g": 1900,
+      "country_of_origin": "RU",
+      "sort": 12,
+      "attributes": {
+        "sub": "appliances"
+      },
+      "texts": {
+        "en": {
+          "title": "Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces",
+          "description": "Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Набор керамических мисок ручной работы, 3 шт.",
+          "description": "Каменная керамика, вытянутая на круге, матовая глазурь для контакта с едой. Каждый набор обжигается малой партией.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/hom-mix8-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/hom-mix8-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "LGT-ARCL",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Nordika",
+      "brand_owner": "own",
+      "price_usd": "137.28",
+      "availability": "in_stock",
+      "quantity": 34,
+      "lead_time_days": 4,
+      "radio_equipment": false,
+      "weight_g": 6800,
+      "country_of_origin": "PL",
+      "sort": 13,
+      "attributes": {
+        "sub": "lighting"
+      },
+      "texts": {
+        "en": {
+          "title": "Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable",
+          "description": "Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "LED-торшер Arc, шлифованная сталь, 1 600 лм с диммером",
+          "description": "Консольная дуга 2,1 м, утяжелённое мраморное основание и плавный диммер-колесо.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/lgt-arcl-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/lgt-arcl-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "LGT-PND36",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Aeromat",
+      "brand_owner": "own",
+      "price_usd": "61.82",
+      "availability": "out_of_stock",
+      "quantity": 0,
+      "lead_time_days": 0,
+      "radio_equipment": false,
+      "weight_g": 1250,
+      "country_of_origin": "DE",
+      "sort": 14,
+      "attributes": {
+        "sub": "lighting"
+      },
+      "texts": {
+        "en": {
+          "title": "Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K",
+          "description": "Surface-mounted driver, tool-free cable shortening, glare shield below 30°.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Подвесной светильник 36 Вт, опаловый рассеиватель, 2 700–4 000 K",
+          "description": "Драйвер на поверхности, укорочение троса без инструментов, защита от слепящего света ниже 30°.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/lgt-pnd36-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/lgt-pnd36-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TEX-TWL50",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Baltic Linen",
+      "brand_owner": "own",
+      "price_usd": "23.98",
+      "availability": "in_stock",
+      "quantity": 640,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 1400,
+      "country_of_origin": "RU",
+      "sort": 15,
+      "attributes": {
+        "sub": "textiles"
+      },
+      "texts": {
+        "en": {
+          "title": "Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces",
+          "description": "Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Набор махровых полотенец 500 г/м², 70 × 140 см, 2 шт.",
+          "description": "Длинноволокнистый чесаный хлопок, бордюр с вытянутой петлёй, прошёл стирку и не сыплется после первой.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/tex-twl50-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/tex-twl50-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TEX-RUG80",
+      "status": "active",
+      "type": "physical",
+      "category": "home-kitchen",
+      "brand": "Baltic Linen",
+      "brand_owner": "own",
+      "price_usd": "163.90",
+      "availability": "in_stock",
+      "quantity": 2,
+      "lead_time_days": 9,
+      "radio_equipment": false,
+      "weight_g": 3600,
+      "country_of_origin": "RU",
+      "sort": 16,
+      "attributes": {
+        "sub": "textiles"
+      },
+      "texts": {
+        "en": {
+          "title": "Hand-Woven Wool Runner 80 x 240 cm, Natural Dye",
+          "description": "Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Шерстяная дорожка ручного ткачества 80 × 240 см, натуральный краситель",
+          "description": "Тканая на станке из некрашеной местной шерсти. Небольшая разница в ворсе — подпись, а не брак.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/tex-rug80-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/tex-rug80-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CRF-YRNM",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "9.79",
+      "availability": "in_stock",
+      "quantity": 2400,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 100,
+      "country_of_origin": "PE",
+      "sort": 17,
+      "attributes": {
+        "sub": "yarn"
+      },
+      "texts": {
+        "en": {
+          "title": "Merino Worsted Yarn, 100 g Skein, 24 Colours",
+          "description": "Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Мериносовая пряжа Worsted, моток 100 г, 24 цвета",
+          "description": "Меринос 19,5 мкм от одного источника, машинная стирка на шерстяном режиме. Красится малыми партиями.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/crf-yrnm-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/crf-yrnm-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CRF-ALPA",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "26.95",
+      "availability": "in_stock",
+      "quantity": 148,
+      "lead_time_days": 5,
+      "radio_equipment": false,
+      "weight_g": 200,
+      "country_of_origin": "PE",
+      "sort": 18,
+      "attributes": {
+        "sub": "yarn"
+      },
+      "texts": {
+        "en": {
+          "title": "Baby Alpaca Blend DK, 200 g Cone, Cloud Grey",
+          "description": "22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Смесь с бэби-альпакой DK, конус 200 г, облачно-серый",
+          "description": "22 % альпаки на акриловой основе: ореол без покалывания. Продаётся конусом для трикотажных студий.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/crf-alpa-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/crf-alpa-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CRF-BDS11",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "7.04",
+      "availability": "in_stock",
+      "quantity": 3100,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 380,
+      "country_of_origin": "CZ",
+      "sort": 19,
+      "attributes": {
+        "sub": "beading"
+      },
+      "texts": {
+        "en": {
+          "title": "Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish",
+          "description": "Consistent Czech-made hole size, no more than 2 % deformed beads per tube.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Стеклянный бисер 11/0, туба 8 000 шт., матовый",
+          "description": "Стабильный чешский размер отверстия, не больше 2 % деформированных бисерин в тубе.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/crf-bds11-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/crf-bds11-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CRF-MUL24",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "42.90",
+      "availability": "in_stock",
+      "quantity": 410,
+      "lead_time_days": 4,
+      "radio_equipment": false,
+      "weight_g": 900,
+      "country_of_origin": "RU",
+      "sort": 20,
+      "attributes": {
+        "sub": "beading"
+      },
+      "texts": {
+        "en": {
+          "title": "Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box",
+          "description": "390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Хлопковое мулине в 6 сложений, набор 24 мотка, студийная коробка",
+          "description": "390 м в мотке, стойкая окраска, фасовка для вышивальных мастерских и школьных поставок.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/crf-mul24-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/crf-mul24-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "ART-GOU12",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "18.48",
+      "availability": "in_stock",
+      "quantity": 520,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 520,
+      "country_of_origin": "DE",
+      "sort": 21,
+      "attributes": {
+        "sub": "art-supplies"
+      },
+      "texts": {
+        "en": {
+          "title": "Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment",
+          "description": "Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children’s classes.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Художественная гуашь, 12 × 20 мл, сверхтонкий пигмент",
+          "description": "Укрывистая, перерабатываемая, на медовой связке. Соответствует EN 71-3 для детских занятий.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/art-gou12-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/art-gou12-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "ART-BRS6",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "47.30",
+      "availability": "in_stock",
+      "quantity": 4,
+      "lead_time_days": 8,
+      "radio_equipment": false,
+      "weight_g": 90,
+      "country_of_origin": "RU",
+      "sort": 22,
+      "attributes": {
+        "sub": "art-supplies"
+      },
+      "texts": {
+        "en": {
+          "title": "Hand-Tied Sable Brush Set of 6, Birch Handles",
+          "description": "Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Набор кистей из соболя ручной вязки, 6 шт., берёзовые ручки",
+          "description": "Каждая кисть связана вручную из соболя класса «колонок»; двух одинаковых нет.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/art-brs6-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/art-brs6-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "KIT-DEC1",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "13.64",
+      "availability": "in_stock",
+      "quantity": 760,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 480,
+      "country_of_origin": "RU",
+      "sort": 23,
+      "attributes": {
+        "sub": "diy-kits"
+      },
+      "texts": {
+        "en": {
+          "title": "Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages",
+          "description": "Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Набор для декупажа деревянной шкатулки, 3 слоя, инструкция на 4 языках",
+          "description": "Заготовка из бука, салфетки, клей, кисть и лак в одной коробке.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/kit-dec1-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/kit-dec1-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "KIT-QUI2",
+      "status": "active",
+      "type": "physical",
+      "category": "craft-hobby",
+      "brand": "Remesla",
+      "brand_owner": "own",
+      "price_usd": "30.25",
+      "availability": "preorder",
+      "quantity": 0,
+      "lead_time_days": 18,
+      "radio_equipment": false,
+      "weight_g": 2400,
+      "country_of_origin": "CN",
+      "sort": 24,
+      "attributes": {
+        "sub": "diy-kits"
+      },
+      "texts": {
+        "en": {
+          "title": "Quilling Frame Loom, Improved Tension, Pre-Order",
+          "description": "Second production run after the first sold out in nine days. Closes when 300 units are pledged.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Станок для квиллинга, усиленное натяжение, предзаказ",
+          "description": "Второй тираж: первый разошёлся за девять дней. Партия закрывается на 300 заявках.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/kit-qui2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/kit-qui2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "OPT-B1042",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr Optics",
+      "brand_owner": "own",
+      "price_usd": "207.90",
+      "availability": "in_stock",
+      "quantity": 27,
+      "lead_time_days": 3,
+      "radio_equipment": false,
+      "weight_g": 740,
+      "country_of_origin": "JP",
+      "sort": 25,
+      "attributes": {
+        "sub": "optics"
+      },
+      "texts": {
+        "en": {
+          "title": "Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled",
+          "description": "Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Водозащищённый бинокль 10×42, призмы BaK-4, заполнен азотом",
+          "description": "Призмы с фазовой коррекцией, поле 6,5°, корпус IPX7, вынос зрачка 22 мм.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/opt-b1042-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/opt-b1042-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "OPT-SHP22",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr Optics",
+      "brand_owner": "own",
+      "price_usd": "15.95",
+      "availability": "in_stock",
+      "quantity": 1600,
+      "lead_time_days": 6,
+      "radio_equipment": false,
+      "weight_g": 60,
+      "country_of_origin": "CN",
+      "sort": 26,
+      "attributes": {
+        "sub": "optics"
+      },
+      "texts": {
+        "en": {
+          "title": "Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot",
+          "description": "MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Крышка для оптического прицела 22 мм, антиблик, оптовая партия",
+          "description": "Закалённое стекло по MIL-spec с антибликовым покрытием. Партии по 20 штук для снабженцев.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/opt-shp22-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/opt-shp22-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CMP-TNT2",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "147.40",
+      "availability": "in_stock",
+      "quantity": 41,
+      "lead_time_days": 4,
+      "radio_equipment": false,
+      "weight_g": 1980,
+      "country_of_origin": "CN",
+      "sort": 27,
+      "attributes": {
+        "sub": "camping"
+      },
+      "texts": {
+        "en": {
+          "title": "Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon",
+          "description": "Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Двухместная ультралёгкая палатка, 1 980 г, 3 сезона, силикон-нейлон",
+          "description": "Два входа и два тамбура, тент 3 000 мм, дуги с цветовой маркировкой.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/cmp-tnt2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/cmp-tnt2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "CMP-KTL9",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "50.60",
+      "availability": "in_stock",
+      "quantity": 9,
+      "lead_time_days": 5,
+      "radio_equipment": false,
+      "weight_g": 78,
+      "country_of_origin": "CN",
+      "sort": 28,
+      "attributes": {
+        "sub": "camping"
+      },
+      "texts": {
+        "en": {
+          "title": "Titanium Trail Kettle 0.9 L, Folding Handle, 78 g",
+          "description": "Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Титановый походный чайник 0,9 л, складная ручка, 78 г",
+          "description": "Однослойный титан grade-1, зачернённое дно для быстрого закипания. Складывается плоско.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/cmp-ktl9-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/cmp-ktl9-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TLS-DRV32",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "31.79",
+      "availability": "in_stock",
+      "quantity": 430,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 340,
+      "country_of_origin": "TW",
+      "sort": 29,
+      "attributes": {
+        "sub": "tools"
+      },
+      "texts": {
+        "en": {
+          "title": "Precision Screwdriver Set, 32 Bits, Aluminium Case",
+          "description": "S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Набор точных отвёрток, 32 биты, алюминиевый кейс",
+          "description": "Биты из стали S2, шестигранная ручка, которая не катится, и держатель с фиксацией биты для электроники.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/tls-drv32-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/tls-drv32-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TLS-MLT3",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Kedr",
+      "brand_owner": "own",
+      "price_usd": "43.45",
+      "availability": "in_stock",
+      "quantity": 5,
+      "lead_time_days": 7,
+      "radio_equipment": false,
+      "weight_g": 620,
+      "country_of_origin": "RU",
+      "sort": 30,
+      "attributes": {
+        "sub": "tools"
+      },
+      "texts": {
+        "en": {
+          "title": "Forged Camping Mallet, Ash Handle, Leather Head",
+          "description": "Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Кованый кемпинговый молоток, ясеневая ручка, кожаная голова",
+          "description": "Кованая вручную голова, прошитая кожаная набойка для колышков. Изготовление за пять рабочих дней.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/tls-mlt3-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/tls-mlt3-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "APP-JKT-M",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Nordika",
+      "brand_owner": "own",
+      "price_usd": "123.20",
+      "availability": "in_stock",
+      "quantity": 74,
+      "lead_time_days": 3,
+      "radio_equipment": false,
+      "weight_g": 480,
+      "country_of_origin": "VN",
+      "sort": 31,
+      "attributes": {
+        "sub": "apparel"
+      },
+      "texts": {
+        "en": {
+          "title": "Insulated Trail Jacket, 10 000 mm Membrane, Unisex",
+          "description": "Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Утеплённая трекинговая куртка, мембрана 10 000 мм, унисекс",
+          "description": "Проклеенные швы, капюшон под шлем, два боковых кармана и внутренний сброс-карман.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/app-jkt-m-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/app-jkt-m-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "APP-SCK3",
+      "status": "active",
+      "type": "physical",
+      "category": "outdoor-optics",
+      "brand": "Baltic Linen",
+      "brand_owner": "own",
+      "price_usd": "21.78",
+      "availability": "in_stock",
+      "quantity": 380,
+      "lead_time_days": 2,
+      "radio_equipment": false,
+      "weight_g": 180,
+      "country_of_origin": "PT",
+      "sort": 32,
+      "attributes": {
+        "sub": "apparel"
+      },
+      "texts": {
+        "en": {
+          "title": "Merino Hiking Socks, 3-Pack, Cushioned Zone",
+          "description": "18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Трекинговые носки из мериноса, 3 пары, амортизирующая зона",
+          "description": "Смесь с 18 % мериноса, усиленные пятка и мыс. Не держат запах при многодневном ношении.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/app-sck3-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/app-sck3-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    }
+  ]
+}

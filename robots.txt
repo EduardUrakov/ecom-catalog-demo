@@ -1,0 +1,6 @@
+# Path Home — закрытый контур.
+# Основание: rules/03-content.md («Демо до запуска — принято, вопрос 14») и rules/06-readiness.md.
+# GitHub Pages не отдаёт X-Robots-Tag, поэтому закрываем файлом и мета-тегом на странице.
+# Пароля Pages не даёт — см. PATH-COMPLIANCE.md, вопрос Q-11.
+User-agent: *
+Disallow: /

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    <title>path-home: en, DE</title>
+    <link>https://path.example</link>
+    <description>Product feed of catalog path-home</description>
+    <item>
+      <g:id>STO-NV1T</g:id>
+      <g:title>NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink</g:title>
+      <g:description>DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.</g:description>
+      <g:link>https://path.example/en/p/sto-nv1t</g:link>
+      <g:image_link>https://cdn.example.com/path-home/sto-nv1t-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/sto-nv1t-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>98.34 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>45 g</g:shipping_weight>
+      <g:product_type>electronics</g:product_type>
+    </item>
+    <item>
+      <g:id>STO-CAR64</g:id>
+      <g:title>Industrial microSDXC 64 GB, Endurance Grade, 10-Pack</g:title>
+      <g:description>Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.</g:description>
+      <g:link>https://path.example/en/p/sto-car64</g:link>
+      <g:image_link>https://cdn.example.com/path-home/sto-car64-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/sto-car64-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>10.89 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>60 g</g:shipping_weight>
+      <g:product_type>electronics</g:product_type>
+    </item>
+    <item>
+      <g:id>POW-HUB7</g:id>
+      <g:title>7-Port USB Hub with 60 W Mains Adapter, Braided Cable</g:title>
+      <g:description>Individually switched ports, 2.4 A per port, over-current protection on the bus.</g:description>
+      <g:link>https://path.example/en/p/pow-hub7</g:link>
+      <g:image_link>https://cdn.example.com/path-home/pow-hub7-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/pow-hub7-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>25.96 USD</g:price>
+      <g:brand>Volt Coil</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>320 g</g:shipping_weight>
+      <g:product_type>electronics</g:product_type>
+    </item>
+    <item>
+      <g:id>POW-PD65</g:id>
+      <g:title>65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4</g:title>
+      <g:description>Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.</g:description>
+      <g:link>https://path.example/en/p/pow-pd65</g:link>
+      <g:image_link>https://cdn.example.com/path-home/pow-pd65-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/pow-pd65-2.webp</g:additional_image_link>
+      <g:availability>preorder</g:availability>
+      <g:availability_date>2026-12-10T00:00+0000</g:availability_date>
+      <g:price>35.20 USD</g:price>
+      <g:brand>Volt Coil</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>82 g</g:shipping_weight>
+      <g:product_type>electronics</g:product_type>
+    </item>
+    <item>
+      <g:id>HOM-KTL30</g:id>
+      <g:title>Enamel Spice Kettle 300 ml, Cream, Induction Ready</g:title>
+      <g:description>Two-layer enamel over carbon steel, whistling spout, dishwasher safe.</g:description>
+      <g:link>https://path.example/en/p/hom-ktl30</g:link>
+      <g:image_link>https://cdn.example.com/path-home/hom-ktl30-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/hom-ktl30-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>19.20 USD</g:price>
+      <g:brand>Nordika</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>640 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>HOM-PAN28</g:id>
+      <g:title>Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade</g:title>
+      <g:description>Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.</g:description>
+      <g:link>https://path.example/en/p/hom-pan28</g:link>
+      <g:image_link>https://cdn.example.com/path-home/hom-pan28-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/hom-pan28-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>45.10 USD</g:price>
+      <g:brand>Nordika</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>2100 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>HOM-WAF4</g:id>
+      <g:title>Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids</g:title>
+      <g:description>Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.</g:description>
+      <g:link>https://path.example/en/p/hom-waf4</g:link>
+      <g:image_link>https://cdn.example.com/path-home/hom-waf4-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/hom-waf4-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>69.74 USD</g:price>
+      <g:brand>Aeromat</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>3400 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>HOM-MIX8</g:id>
+      <g:title>Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces</g:title>
+      <g:description>Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.</g:description>
+      <g:link>https://path.example/en/p/hom-mix8</g:link>
+      <g:image_link>https://cdn.example.com/path-home/hom-mix8-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/hom-mix8-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>57.20 USD</g:price>
+      <g:brand>Aeromat</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>1900 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>LGT-ARCL</g:id>
+      <g:title>Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable</g:title>
+      <g:description>Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.</g:description>
+      <g:link>https://path.example/en/p/lgt-arcl</g:link>
+      <g:image_link>https://cdn.example.com/path-home/lgt-arcl-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/lgt-arcl-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>137.28 USD</g:price>
+      <g:brand>Nordika</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>6800 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>LGT-PND36</g:id>
+      <g:title>Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K</g:title>
+      <g:description>Surface-mounted driver, tool-free cable shortening, glare shield below 30°.</g:description>
+      <g:link>https://path.example/en/p/lgt-pnd36</g:link>
+      <g:image_link>https://cdn.example.com/path-home/lgt-pnd36-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/lgt-pnd36-2.webp</g:additional_image_link>
+      <g:availability>out_of_stock</g:availability>
+      <g:price>61.82 USD</g:price>
+      <g:brand>Aeromat</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>1250 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>TEX-TWL50</g:id>
+      <g:title>Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces</g:title>
+      <g:description>Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.</g:description>
+      <g:link>https://path.example/en/p/tex-twl50</g:link>
+      <g:image_link>https://cdn.example.com/path-home/tex-twl50-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/tex-twl50-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>23.98 USD</g:price>
+      <g:brand>Baltic Linen</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>1400 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>TEX-RUG80</g:id>
+      <g:title>Hand-Woven Wool Runner 80 x 240 cm, Natural Dye</g:title>
+      <g:description>Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.</g:description>
+      <g:link>https://path.example/en/p/tex-rug80</g:link>
+      <g:image_link>https://cdn.example.com/path-home/tex-rug80-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/tex-rug80-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>163.90 USD</g:price>
+      <g:brand>Baltic Linen</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>3600 g</g:shipping_weight>
+      <g:product_type>home-kitchen</g:product_type>
+    </item>
+    <item>
+      <g:id>CRF-YRNM</g:id>
+      <g:title>Merino Worsted Yarn, 100 g Skein, 24 Colours</g:title>
+      <g:description>Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.</g:description>
+      <g:link>https://path.example/en/p/crf-yrnm</g:link>
+      <g:image_link>https://cdn.example.com/path-home/crf-yrnm-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/crf-yrnm-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>9.79 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>100 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>CRF-ALPA</g:id>
+      <g:title>Baby Alpaca Blend DK, 200 g Cone, Cloud Grey</g:title>
+      <g:description>22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.</g:description>
+      <g:link>https://path.example/en/p/crf-alpa</g:link>
+      <g:image_link>https://cdn.example.com/path-home/crf-alpa-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/crf-alpa-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>26.95 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>200 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>CRF-BDS11</g:id>
+      <g:title>Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish</g:title>
+      <g:description>Consistent Czech-made hole size, no more than 2 % deformed beads per tube.</g:description>
+      <g:link>https://path.example/en/p/crf-bds11</g:link>
+      <g:image_link>https://cdn.example.com/path-home/crf-bds11-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/crf-bds11-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>7.04 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>380 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>CRF-MUL24</g:id>
+      <g:title>Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box</g:title>
+      <g:description>390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.</g:description>
+      <g:link>https://path.example/en/p/crf-mul24</g:link>
+      <g:image_link>https://cdn.example.com/path-home/crf-mul24-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/crf-mul24-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>42.90 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>900 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>ART-GOU12</g:id>
+      <g:title>Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment</g:title>
+      <g:description>Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children’s classes.</g:description>
+      <g:link>https://path.example/en/p/art-gou12</g:link>
+      <g:image_link>https://cdn.example.com/path-home/art-gou12-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/art-gou12-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>18.48 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>520 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>ART-BRS6</g:id>
+      <g:title>Hand-Tied Sable Brush Set of 6, Birch Handles</g:title>
+      <g:description>Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.</g:description>
+      <g:link>https://path.example/en/p/art-brs6</g:link>
+      <g:image_link>https://cdn.example.com/path-home/art-brs6-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/art-brs6-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>47.30 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>90 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>KIT-DEC1</g:id>
+      <g:title>Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages</g:title>
+      <g:description>Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.</g:description>
+      <g:link>https://path.example/en/p/kit-dec1</g:link>
+      <g:image_link>https://cdn.example.com/path-home/kit-dec1-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/kit-dec1-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>13.64 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>480 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>KIT-QUI2</g:id>
+      <g:title>Quilling Frame Loom, Improved Tension, Pre-Order</g:title>
+      <g:description>Second production run after the first sold out in nine days. Closes when 300 units are pledged.</g:description>
+      <g:link>https://path.example/en/p/kit-qui2</g:link>
+      <g:image_link>https://cdn.example.com/path-home/kit-qui2-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/kit-qui2-2.webp</g:additional_image_link>
+      <g:availability>preorder</g:availability>
+      <g:availability_date>2026-12-07T00:00+0000</g:availability_date>
+      <g:price>30.25 USD</g:price>
+      <g:brand>Remesla</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>2400 g</g:shipping_weight>
+      <g:product_type>craft-hobby</g:product_type>
+    </item>
+    <item>
+      <g:id>OPT-B1042</g:id>
+      <g:title>Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled</g:title>
+      <g:description>Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.</g:description>
+      <g:link>https://path.example/en/p/opt-b1042</g:link>
+      <g:image_link>https://cdn.example.com/path-home/opt-b1042-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/opt-b1042-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>207.90 USD</g:price>
+      <g:brand>Kedr Optics</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>740 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>OPT-SHP22</g:id>
+      <g:title>Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot</g:title>
+      <g:description>MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.</g:description>
+      <g:link>https://path.example/en/p/opt-shp22</g:link>
+      <g:image_link>https://cdn.example.com/path-home/opt-shp22-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/opt-shp22-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>15.95 USD</g:price>
+      <g:brand>Kedr Optics</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>60 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>CMP-TNT2</g:id>
+      <g:title>Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon</g:title>
+      <g:description>Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.</g:description>
+      <g:link>https://path.example/en/p/cmp-tnt2</g:link>
+      <g:image_link>https://cdn.example.com/path-home/cmp-tnt2-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/cmp-tnt2-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>147.40 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>1980 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>CMP-KTL9</g:id>
+      <g:title>Titanium Trail Kettle 0.9 L, Folding Handle, 78 g</g:title>
+      <g:description>Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.</g:description>
+      <g:link>https://path.example/en/p/cmp-ktl9</g:link>
+      <g:image_link>https://cdn.example.com/path-home/cmp-ktl9-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/cmp-ktl9-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>50.60 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>78 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>TLS-DRV32</g:id>
+      <g:title>Precision Screwdriver Set, 32 Bits, Aluminium Case</g:title>
+      <g:description>S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.</g:description>
+      <g:link>https://path.example/en/p/tls-drv32</g:link>
+      <g:image_link>https://cdn.example.com/path-home/tls-drv32-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/tls-drv32-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>31.79 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>340 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>TLS-MLT3</g:id>
+      <g:title>Forged Camping Mallet, Ash Handle, Leather Head</g:title>
+      <g:description>Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.</g:description>
+      <g:link>https://path.example/en/p/tls-mlt3</g:link>
+      <g:image_link>https://cdn.example.com/path-home/tls-mlt3-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/tls-mlt3-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>43.45 USD</g:price>
+      <g:brand>Kedr</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>620 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>APP-JKT-M</g:id>
+      <g:title>Insulated Trail Jacket, 10 000 mm Membrane, Unisex</g:title>
+      <g:description>Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.</g:description>
+      <g:link>https://path.example/en/p/app-jkt-m</g:link>
+      <g:image_link>https://cdn.example.com/path-home/app-jkt-m-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/app-jkt-m-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>123.20 USD</g:price>
+      <g:brand>Nordika</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>480 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+    <item>
+      <g:id>APP-SCK3</g:id>
+      <g:title>Merino Hiking Socks, 3-Pack, Cushioned Zone</g:title>
+      <g:description>18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.</g:description>
+      <g:link>https://path.example/en/p/app-sck3</g:link>
+      <g:image_link>https://cdn.example.com/path-home/app-sck3-1.webp</g:image_link>
+      <g:additional_image_link>https://cdn.example.com/path-home/app-sck3-2.webp</g:additional_image_link>
+      <g:availability>in_stock</g:availability>
+      <g:price>21.78 USD</g:price>
+      <g:brand>Baltic Linen</g:brand>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:condition>new</g:condition>
+      <g:shipping_weight>180 g</g:shipping_weight>
+      <g:product_type>outdoor-optics</g:product_type>
+    </item>
+  </channel>
+</rss>

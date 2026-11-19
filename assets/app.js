@@ -1,0 +1,2437 @@
+// ============================================================
+// КОНФИГУРАЦИЯ ВИТРИНЫ Path Home
+//
+// Единственный источник правды про домен, языки, набор разделов и
+// список сайтов экосистемы. Меняет её сторона заказчика (файл сборки
+// или запись в базе), а не браузер посетителя:
+//   · схема v0.2, §3.6 Shared Platform Services → Configuration Management;
+//   · схема v0.2, §7 → Least Privilege: настройка витрины — право роли;
+//   · 02-standards/domains-and-urls.md → «базовый адрес продукта и адреса
+//     ссылок — только через конфигурацию, ничего не зашивать в код»;
+//   · правила 03/06 → до публичного запуска витрина закрыта от поисковиков.
+//
+// Ни одного секрета здесь нет и быть не должно (02-standards/secrets-and-access.md).
+// ============================================================
+const HUB = {
+  code: 'path-home',
+  name: 'Path Home',
+  tagline: 'Home & living storefront of the Path ecosystem',
+
+  // Базовый адрес. Поддомен заказчик завёл 19.11.2026 в 14:59: A-запись
+  // 188.68.57.48 есть, 443 открыт, TLS 1.3. Публиковать пока нечего — Traefik
+  // отдаёт «TRAEFIK DEFAULT CERT» (самоподписанный, без SAN, выдан 18.11.2026)
+  // и «404 page not found» на /, /en/ и /api/health: роутер на бэкенд витрины
+  // не подключён, сертификат не выпущен. Проверено probe-home.js.
+  baseUrl: 'https://home.vcpath.us',
+  domainReady: true,
+  // false, пока нет нормального сертификата и роутера: выкладывать некуда.
+  publishReady: false,
+
+  // Языки. Правило: 19 языков на всех сайтах с первого дня, английский —
+  // источник переводов (rules/04, вопрос 15). Порядок — по ключевым рынкам
+  // (ответ 16.10): EN, европейские включая русский, ZH JA KO AR ID HI,
+  // остальные; он же в langs.config.js.
+  //
+  // Живыми считаются языки, для которых есть словарь i18n/<код>.json: сборка
+  // отказывается делать страницу на языке без словаря, а не выдаёт английскую
+  // под чужим кодом (правила 04: перевод «на лету» в браузере поисковики не
+  // видят, значит язык — это файл, а не переключатель).
+  langs: {
+    live: ['en', 'de', 'fr', 'es', 'pt', 'it', 'tr', 'ru', 'zh', 'ja', 'ko',
+      'ar', 'id', 'hi', 'vi', 'th', 'sw', 'ha', 'am'],
+    source: 'en',
+    all: ['en', 'de', 'fr', 'es', 'pt', 'it', 'tr', 'ru', 'zh', 'ja', 'ko',
+      'ar', 'id', 'hi', 'vi', 'th', 'sw', 'ha', 'am'],
+    rtl: ['ar'],
+  },
+
+  // Набор разделов и подразделов витрины. Это конфигурация сайта:
+  // посетитель её не меняет.
+  catalog: {
+    departments: { electronics: true, home: true, craft: true, outdoor: true },
+    sections: {
+      'audio': true, 'storage': true, 'power': true, 'smart-home': true,
+      'cookware': true, 'appliances': true, 'lighting': true, 'textiles': true,
+      'yarn': true, 'beading': true, 'art-supplies': true, 'diy-kits': true,
+      'optics': true, 'camping': true, 'tools': true, 'apparel': true,
+    },
+  },
+
+  // Панель «включить/выключить разделы» в шапке — инструмент демонстрации,
+  // а не настройка посетителя. В бою: false, кнопка не рендерится.
+  demoTools: true,
+
+  // Оплата выключена, покупка оформляется заявкой (правила 01, О-3).
+  payments: { enabled: false },
+
+  // Куда уходят заявки. Пусто → кнопка «отправить» не появляется, форма
+  // отдаёт готовый текст. Адрес или эндпоинт ждём от заказчика (Q-12).
+  lead: { email: '', endpoint: '' },
+
+  // Реестр сайтов экосистемы — источник блоков переходов в подвале и в
+  // llms.txt. Ответ заказчика от 19.11.2026 14:38: хаб центральный, в нём
+  // разделены «каталоги и витрины на каждый сайт», «динамические витрины» и
+  // ссылки «на другие каналы медиа, новостей, группы разные, тг и каналы
+  // продаж». Поэтому kind бывает:
+  //   'storefront' — сайт с каталогом товаров; данные тяняются по path-catalog
+  //   'dynamic'    — витрина, собираемая на лету (site-factory)
+  //   'service'    — страница услуги
+  //   'sales'      — канал продаж
+  //   'media' | 'news' | 'community' | 'telegram' — внешние каналы
+  //   'internal'   — панель или сервис: на витрине не показывается никогда
+  // Формат записи:
+  //   { code, name, niche, url, kind, langs: ['ru', …], status: 'live' | 'planned',
+  //     data?: false }
+  //
+  // Названия и описания здесь только те, что реально отдаёт сайт (заголовок,
+  // текст, ссылка из его же билда) — выдумывать нельзя (rules/03: «чужих
+  // брендов и персонажей нет, в том числе в заглушках»). Товарных витрин в
+  // зоне ещё нет: ни один из отвечавших 19.11.2026 поддоменов не отдаёт
+  // каталог (probe-live.js), поэтому блок «Other storefronts» пуст и не
+  // рендерится — «пункт без страницы не показывается»
+  // (05-templates/shared-sections-task.md, критерий 2).
+  sites: [
+    {
+      code: 'vibe',
+      name: 'Vibecode Path',
+      niche: 'Автоматизация бизнеса на ИИ-агентах',
+      url: 'https://vibe.vcpath.us/',
+      kind: 'sales',
+      langs: ['ru'],
+      status: 'live',
+      data: false,
+      note: 'Заголовок и ниша — из <title> и текста публичного билда 19.11.2026. ' +
+        'Сайт отдаёт 545-байтную Vite-заготовку, весь контент в JS — машинного ' +
+        'слоя нет (robots.txt, sitemap.xml, llms.txt отдают тот же shell). ' +
+        'Ждём от заказчика подтверждения, что это канал продаж хаба.',
+    },
+    {
+      code: 'tg-vibecode-path',
+      name: 't.me/vibecode_path',
+      niche: 'Telegram',
+      url: 'https://t.me/vibecode_path',
+      kind: 'telegram',
+      langs: ['ru'],
+      status: 'live',
+      data: false,
+      note: 'Единственная ссылка на внешний канал, найденная в публичном билде ' +
+        'vibe.vcpath.us (19.11.2026). Остальные группы и каналы заказчик ещё не перечислил.',
+    },
+  ],
+
+  // Откуда у хаба товары. Пока откуда: из демо-набора catalog.data.js,
+  // карточки в демо заполнены случайно и содержания не несут — они показывают
+  // только анатомию карточки (решение заказчика от 19.11). Боевые данные
+  // приходят с поддоменов: каждый сайт отдаёт каталог по стандарту
+  // path-catalog/1.0, хаб их читает и склеивает.
+  //   node pull-sites.js            — обойти реестр и собрать sites.json
+  //   node pull-sites.js --self-test— тот же код на локальном каталоге
+  aggregation: {
+    enabled: false,
+    catalogPath: '/path-catalog/catalog.json',
+    requireFormat: 'path-catalog',
+    // Демо-наполнение: true, пока каталоги поддоменов не заведены.
+    demoFiller: true,
+  },
+
+  // Что уже заведено в зоне vcpath.us и чем оно отвечает. Проверено
+  // 19.11.2026 (15:00) скриптами probe-live.js и probe-home.js: DNS
+  // A/AAAA/CNAME, TLS, HTTP-ответ и содержимое страницы. Прежний проход через
+  // PowerShell 5.1 (probe-domains.ps1) давал ложное «не отвечает»: он смотрел
+  // только A-запись и шёл с дефолтным UA, поэтому имена за nginx с фильтром
+  // ботов не видел. Выводы по hub.sites от 14:30 были неверными — исправлены.
+  //
+  // СПРАВОЧНО, ссылок на витрине по этому списку нет: это сервисы, панели и
+  // инфраструктура, а не витрины. Публичная навигация их не показывает
+  // (схема v0.2 §7 — Least Privilege и «скрытие внутренней архитектуры»).
+  platform: [
+    { host: 'vcpath.us', kind: 'apex', public: false, http: null, role: 'A и AAAA нет; NS ns1.reg.ru, ns2.reg.ru' },
+    { host: 'home.vcpath.us', kind: 'storefront', public: false, http: 404, role: 'Path Home: поддомен создан 19.11 в 14:59, A=188.68.57.48, TLS 1.3, но сертификат TRAEFIK DEFAULT CERT (самоподписанный, без SAN) и роутер на бэкенд не подключён — /, /en/ и /api/health отдают 404' },
+    { host: 'vibe.vcpath.us', kind: 'sales', public: true, http: 200, role: 'публичный лендинг услуг: Vite/React SPA, HTML 545 байт, контент только в JS-билде, catch-all отдаёт shell на любой путь' },
+    { host: 'cms.vcpath.us', kind: 'service', public: false, http: 200, role: 'Directus: / → /admin, «Loading…», без JS не работает' },
+    { host: 'crm.vcpath.us', kind: 'internal', public: false, http: 200, role: 'отдаёт тот же 545-байтный shell, что и vibe, байт в байт — под этим именем панель CRM не узнаётся, уточнить у заказчика' },
+    { host: 'sb.vcpath.us', kind: 'infra', public: false, http: 401, role: 'envoy: «User authentication failed» — Supabase' },
+    { host: 'factory.vcpath.us', kind: 'internal', public: false, http: 401, role: '401 Unauthorized — по имени site-factory, внутренний инструмент' },
+    { host: 'news.vcpath.us', kind: 'internal', public: false, http: 401, role: '401 Unauthorized — то ли новостной сайт, то ли закрытая панель' },
+    { host: 'paymesh.vcpath.us', kind: 'service', public: false, http: 404, role: '404 page not found (Go) — роутер есть, корневого маршрута нет' },
+    { host: 'pagemesh.vcpath.us', kind: 'unknown', public: false, http: null, role: 'не резолвится' },
+    { host: 'apex.vcpath.us', kind: 'unknown', public: false, http: null, role: 'не резолвится' },
+    { host: 'auth / api / market / edu / status .vcpath.us', kind: 'unknown', public: false, http: null, role: 'не резолвятся — имена из плана, заводит заказчик' },
+  ],
+
+  // Разметка и фид живут по этим путям; сборка подставляет их в sitemap,
+  // hreflang и в ссылку фида.
+  paths: {
+    home: '/',
+    category: '/c/',        // /{lang}/c/{department}/{section}/
+    product: '/p/',         // /{lang}/p/{sku в нижнем регистре}/ — та же схема, что у фида
+    sitemap: '/sitemap.xml',
+    robots: '/robots.txt',
+    llms: '/llms.txt',
+  },
+};
+
+// Адрес страницы витрины. Режим сборки задаёт сборка: в однофайловом демо
+// (GitHub Pages, `catalog.html`) серверных маршрутов нет, и ссылки остаются
+// якорями; в статической сборке (`dist/`) — `window.__STATIC = true`.
+const NAV = {
+  static: (typeof window !== 'undefined' && !!window.__STATIC),
+  lang: (typeof window !== 'undefined' && window.__LANG) || HUB.langs.source,
+  // Префикс каталога, если витрина живёт не в корне домена (project-page на
+  // GitHub Pages: /ecom-catalog-demo). В бою пусто; задаёт сборка через
+  // window.__BASE.
+  base: (typeof window !== 'undefined' && window.__BASE) || '',
+
+  to(path) {
+    if (!NAV.static) return '#catalog';
+    return NAV.base + '/' + NAV.lang + path;
+  },
+  home() { return NAV.static ? NAV.base + '/' + NAV.lang + '/' : '#catalog'; },
+  dept(deptId) { return NAV.static ? NAV.base + '/' + NAV.lang + '/c/' + deptId + '/' : '#catalog'; },
+  section(deptId, subId) {
+    return NAV.static ? NAV.base + '/' + NAV.lang + '/c/' + deptId + '/' + subId + '/' : '#catalog';
+  },
+  product(sku) {
+    return NAV.static ? NAV.base + '/' + NAV.lang + '/p/' + String(sku).toLowerCase() + '/' : '#card-system';
+  },
+  absolute(path) {
+    return path.startsWith('http') ? path : HUB.baseUrl + path;
+  },
+};
+
+// ============================================================
+// ПЕРЕВОДЧИК СТРАНИЦЫ — один и тот же код в сборке и в браузере
+//
+// Почему один: сервер рисует страницу переводом, а затем браузер догружает
+// app.js, и любой перерисованный блок (крошки, сетка, панель заявки) обязан
+// перевестись тем же механизмом. Два разных переводчика расходятся на первом
+// же новом шаблоне — check-hydrate.js это и поймал.
+//
+// Формат словаря — i18n/<код>.json: { ui: {«английская строка»: «перевод»},
+// tpl: {id шаблона: «шаблон с {p1}»} }; шаблоны берутся из i18n/templates.json,
+// где у каждого плейсхолдера записано, чем он матчится.
+// ============================================================
+(function (root) {
+  'use strict';
+
+  function decode(s) {
+    return String(s).replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&');
+  }
+  function encode(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function norm(s) { return String(s).trim().replace(/\s+/g, ' '); }
+
+  // Шаблон «Showing {p1} of {p2}» → регулярка. always из АНГЛИЙСКОГО шаблона:
+  // матчить надо текст до перевода, а перевод подставляется по ИМЕНАМ
+  // плейсхолдеров — порядок слов в нём свободный.
+  function compile(tpl, ph) {
+    var re = '', order = [], parts = String(tpl).split(/(\{p\d+\})/);
+    for (var i = 0; i < parts.length; i++) {
+      var m = parts[i].match(/^\{(p\d+)\}$/);
+      if (m) { order.push(m[1]); re += '(' + (ph && ph[m[1]] || '[\\s\\S]+?') + ')'; }
+      else re += parts[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+    }
+    return { re: new RegExp('^' + re + '$'), order: order };
+  }
+
+  function make(dict, templates) {
+    var ui = {}, k;
+    for (k in (dict && dict.ui) || {}) ui[norm(k)] = dict.ui[k];
+    var tpl = [];
+    (templates || []).forEach(function (t) {
+      var target = (dict && dict.tpl || {})[t.id];
+      if (!target) return;
+      var c = compile(t.en, t.ph);
+      tpl.push({ re: c.re, order: c.order, out: target });
+    });
+
+    function core(raw) {
+      var s = norm(decode(raw));
+      if (!s) return null;
+      if (ui[s] !== undefined) return ui[s];
+      for (var i = 0; i < tpl.length; i++) {
+        var m = s.match(tpl[i].re);
+        if (m) {
+          var out = tpl[i].out;
+          tpl[i].order.forEach(function (name, j) { out = out.split('{' + name + '}').join(m[j + 1]); });
+          return out;
+        }
+      }
+      return null;
+    }
+
+    function html(source) {
+      var keep = [];
+      var masked = String(source).replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, function (mm) {
+        keep.push(mm); return '\u0000' + (keep.length - 1) + '\u0000';
+      });
+      var parts = masked.split(/(<[^>]*>)/);
+      for (var i = 0; i < parts.length; i += 2) {
+        var chunk = parts[i];
+        if (!chunk || !chunk.trim()) continue;
+        var lead = chunk.slice(0, chunk.length - chunk.trimStart().length);
+        var trail = chunk.slice(chunk.trimEnd().length);
+        var r = core(chunk);
+        if (r !== null) parts[i] = lead + encode(r) + trail;
+      }
+      for (var j = 1; j < parts.length; j += 2) {
+        parts[j] = parts[j].replace(/\s(title|aria-label|placeholder|alt)="([^"]*)"/g, function (mm, attr, val) {
+          var rr = core(val);
+          return rr === null ? mm : ' ' + attr + '="' + encode(rr).replace(/"/g, '&quot;') + '"';
+        });
+      }
+      return parts.join('').replace(/\u0000(\d+)\u0000/g, function (mm, idx) { return keep[Number(idx)]; });
+    }
+
+    return { core: core, html: html, ui: ui, tplCount: tpl.length };
+  }
+
+  root.I18NHtml = { make: make, compile: compile, norm: norm, decode: decode, encode: encode };
+  if (typeof module !== 'undefined' && module.exports) module.exports = root.I18NHtml;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+// ============================================================
+// RU LOCALE
+// Один словарь + один проход по DOM после каждого рендера.
+// Ключ — точная английская строка из разметки, значение — русская.
+// Составные строки (числа, даты, цены) обрабатываются шаблонами ниже.
+// ============================================================
+const RU_DICT = {
+  // --- шапка ---
+  'Skip to catalogue': 'Перейти к каталогу',
+  'Storefront demo': 'Демо-витрина',
+  'Search the catalogue': 'Поиск по каталогу',
+  'Dark': 'Тёмная',
+  'Light': 'Светлая',
+  'Enquiry': 'Заявка',
+  'Catalogue': 'Каталог',
+  'Other storefronts': 'Другие витрины',
+  // Метка марки по умолчанию в переключателе брендовых токенов.
+  'House': 'Собственная марка',
+  'Channels': 'Каналы',
+  'Card system': 'Система карточки',
+  // Строки, которые принадлежат сборке страниц, а не разметке демо: они
+  // попадают в <title>, в meta description и в JSON-LD организации. Держим их
+  // в этом же словаре, чтобы исходник перевода был один на все языки.
+  'Home & living storefront of the Path ecosystem':
+    'Дом и быт — витрина экосистемы Path',
+  'Path Home: four departments, sixteen subsections and one unified product card covering retail, marketplace, handmade, B2B wholesale and pre-order.':
+    'Path Home: четыре раздела, шестнадцать подразделов и одна единая карточка товара — ритейл, маркетплейс, хендмейд, опт и предзаказ.',
+  'One commercial core, one product card for every storefront. Pick a department, then a subsection — the card below is the same component everywhere, only the tokens and the content mode change.':
+    'Одно торговое ядро, одна карточка товара на все витрины. Выберите раздел, затем подраздел — карточка ниже везде один и тот же компонент, меняются только токены и режим контента.',
+  'Anatomy': 'Анатомия',
+  'Specification': 'Спецификация',
+  'Card specification': 'Спецификация карточки',
+  'Back to the platform demo': 'Вернуться в демо платформы',
+  '32 SKUs live': '32 SKU в каталоге',
+  '4 departments': '4 раздела',
+  '16 subsections': '16 подразделов',
+  '5 content modes': '5 режимов карточки',
+  'Retail · marketplace · handmade · wholesale · pre-order': 'Ритейл · маркетплейс · хендмейд · опт · предзаказ',
+
+  // --- тулбар ---
+  'Filters': 'Фильтры',
+  'Sort by': 'Сортировка',
+  'Featured': 'Рекомендуемые',
+  'Price: low to high': 'Цена: по возрастанию',
+  'Price: high to low': 'Цена: по убыванию',
+  'Newest': 'Новинки',
+  'List': 'Списком',
+  'Grid': 'Сеткой',
+
+  // --- фильтры ---
+  'Availability': 'Наличие',
+  'In stock': 'В наличии',
+  'Low stock': 'Мало на складе',
+  'Out of stock': 'Нет в наличии',
+  'Pre-order': 'Предзаказ',
+  'Brand or maker': 'Бренд или мастер',
+  'Content mode': 'Режим карточки',
+  'Retail': 'Ритейл',
+  'Marketplace': 'Маркетплейс',
+  'Handmade': 'Хендмейд',
+  'B2B wholesale': 'Опт B2B',
+  'Price, USD': 'Цена, USD',
+  'Any price': 'Любая цена',
+  'Under $15': 'До $15',
+  'Over $90': 'От $90',
+  'Clear all': 'Сбросить всё',
+  'Reset filters': 'Сбросить фильтры',
+  'Nothing matches these filters': 'Ничего не найдено',
+  'Try clearing a filter or widening the price band.': 'Уберите фильтр или расширьте диапазон цен.',
+  'Remove filter': 'Убрать фильтр',
+
+  // --- карточка ---
+  'Best seller': 'Хит продаж',
+  'New': 'Новинка',
+  'Wholesale': 'Опт',
+  'Quick view': 'Быстрый просмотр',
+  'Save': 'Экономия',
+  'Add to enquiry': 'В заявку',
+  'Colour': 'Цвет',
+  'Size': 'Размер',
+  'SKU': 'Артикул',
+  'From': 'Склад',
+  'Origin': 'Страна',
+  'Sold by': 'Продавец',
+  'Made to order': 'На заказ',
+  'Notify me': 'Сообщить о поступлении',
+  'Request quote': 'Запросить цену',
+  'Reserve in pre-order': 'Забронировать',
+  'per unit · taxes and duties included': 'за единицу · налоги и пошлины внутри',
+  'Pre-order · batch open': 'Предзаказ · приём заявок',
+  'Ships in about': 'Отправка примерно через',
+  'Get it by': 'Доставка',
+  'Back in stock': 'Снова в наличии',
+  'Free delivery over': 'Бесплатная доставка от',
+  'Close quick view': 'Закрыть быстрый просмотр',
+  'Loading (skeleton)': 'Загрузка (скелетон)',
+  'Saved to wishlist': 'Сохранено в избранное',
+  'Removed from wishlist': 'Убрано из избранного',
+  'Save to wishlist': 'В избранное',
+  'Remove from wishlist': 'Убрать из избранного',
+  'House tokens': 'Базовые токены',
+
+  // --- заявка (покупка оформляется заявкой, оплата выключена) ---
+  'The enquiry is empty. “Add to enquiry” on a card puts the item here — this list is what goes to sales.':
+    'Заявка пуста. Кнопка «В заявку» на карточке кладёт товар сюда — этот список и уходит в отдел продаж.',
+  'Payment is switched off until the company and the merchant are chosen. This form prepares a request, not an order, and it never asks for card details.':
+    'Оплата выключена, пока не выбраны юрлицо и мерчант. Форма готовит запрос, а не заказ, и никогда не спрашивает данные карты.',
+  'Total': 'Итого',
+  'Remove': 'Убрать',
+  'Name': 'Имя',
+  'Email': 'Почта',
+  'Quantity, terms, delivery country': 'Количество, условия, страна доставки',
+  'Prepare enquiry': 'Сформировать заявку',
+  'Close': 'Закрыть',
+  'Enquiry ready': 'Заявка готова',
+  'Open it in your mail client — the address and the text are already filled in.':
+    'Откройте в почтовой программе — адрес и текст уже подставлены.',
+  'No sales address is configured for this storefront yet, so the request cannot be sent from the page. Copy the text and send it to your manager.':
+    'Адрес отдела продаж для этой витрины ещё не настроен, поэтому со страницы заявка не уходит. Скопируйте текст и отправьте его менеджеру.',
+  'Open in email': 'Открыть в почте',
+  'Copy enquiry text': 'Скопировать текст заявки',
+  'Back to the enquiry': 'Назад к заявке',
+  'Enquiry text copied': 'Текст заявки скопирован',
+  'Select the text and copy it manually': 'Выделите текст и скопируйте его вручную',
+  'Name is required.': 'Укажите имя.',
+  'A valid email is required.': 'Укажите корректную почту.',
+  'Catalogue': 'Каталог',
+  'Browse catalogue': 'Просмотр каталога',
+  'Catalog configuration': 'Конфигурация каталога',
+  'Visibility restored from the storefront configuration': 'Видимость разделов возвращена из конфигурации витрины',
+  'Catalog sections come from the storefront configuration': 'Разделы каталога задаёт конфигурация витрины',
+  'Catalog configuration': 'Конфигурация каталога',
+  'Demo tool — changes last until this tab reloads. The storefront section set comes from the site configuration.':
+    'Инструмент демонстрации — изменения живут до перезагрузки вкладки. Набор разделов витрины задаёт конфигурация сайта.',
+  'Reset all': 'Сбросить всё',
+  'Done': 'Готово',
+  'Glass': 'Стекло',
+  'Configure catalog visibility': 'Настройка видимости каталога',
+  'Toggle liquid glass effect': 'Переключить эффект жидкого стекла',
+  'Any price': 'Любая цена',
+};
+// END A
+
+Object.assign(RU_DICT, {
+  // --- система карточки: заголовки и анатомия ---
+  'One component · 11 slots · 5 content modes · 10 states · 3 sizes':
+    'Один компонент · 11 слотов · 5 режимов · 10 состояний · 3 размера',
+  'Everything below is the same HTML. A card either fills a slot or the slot is not rendered — there is no second card template. Hover a slot on the left to see where it lives.':
+    'Ниже — один и тот же HTML. Карточка либо заполняет слот, либо слот не выводится вовсе: второго шаблона нет. Наведите на слот слева, чтобы увидеть, где он живёт.',
+  'Media': 'Медиа',
+  '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.':
+    '1:1 в сетке, 4:3 в списке. При наведении подменяется вторым кадром. Никогда не растягивается и не получает полей.',
+  'Badges': 'Бейджи',
+  'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.':
+    'Скидка, хит продаж, новинка, хендмейд, опт, предзаказ. Не больше трёх одновременно.',
+  'Brand / maker': 'Бренд / мастер',
+  'Brand for retail, maker name for handmade. Both are links in production.':
+    'Бренд для ритейла, имя мастера для хендмейда. В продакшене оба — ссылки.',
+  'Title': 'Заголовок',
+  'Two lines, clamped. Full string stays in the accessible name.':
+    'Две строки с обрезкой. Полная строка остаётся в доступном имени.',
+  'Short description': 'Короткое описание',
+  'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.':
+    'Всегда в списке; в сетке — только для неритейловых режимов и акцентного размера. Две строки, никогда в пятиколоночной сетке.',
+  'Price': 'Цена',
+  'Now, previous, saving, unit price, tier table. Tabular figures, one currency: USD.':
+    'Текущая, прежняя, экономия, цена за единицу, таблица тиров. Табличные цифры, валюта одна — доллары.',
+  'Variants': 'Варианты',
+  'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.':
+    'Сначала точки цветов, затем размеры. Не больше пяти точек, остальные счётчиком +N. Распроданные комбинации зачёркнуты, а не скрыты.',
+  'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.':
+    'В наличии / осталось N / нет в наличии / прогресс предзаказа — с датой доставки. Фиксированная высота.',
+  'Meta': 'Мета',
+  'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.':
+    'Артикул, продавец, склад, страна происхождения. Слой доверия для B2B и маркетплейса.',
+  'Actions': 'Действия',
+  'Last slot, pinned to the bottom. One primary verb per mode: add to enquiry, reserve, request quote, notify me.':
+    'Последний слот, прижат к низу. Один главный глагол на режим: в заявку, забронировать, запросить цену, сообщить о поступлении.',
+
+  // --- режимы контента ---
+  'Content modes': 'Режимы карточки',
+  'Mode': 'Режим',
+  'Who sells': 'Кто продаёт',
+  'What changes in the card': 'Что меняется в карточке',
+  'Example SKU': 'Пример SKU',
+  'Own stock, own brand': 'Свой склад, свой бренд',
+  'Add to enquiry · free-delivery threshold · tier table on bulk':
+    'В заявку · порог бесплатной доставки · таблица тиров на объём',
+  'Third-party seller': 'Сторонний продавец',
+  'Sold by + warehouse in meta, platform never promises credit':
+    'Продавец и склад в мете; условия оплаты — на стороне продавца',
+  'Maker, small batch': 'Мастер, малая партия',
+  'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock':
+    'Имя мастера в надзаголовке, бейдж «Хендмейд», срок изготовления, маленький остаток',
+  'Tender / supplier buyer': 'Тендер / закупщик',
+  'Unit price with taxes and duties inside, tier table, MOQ, Request quote replaces Add to enquiry':
+    'Цена за единицу с налогом и пошлиной внутри, таблица тиров, MOQ, «Запросить цену» вместо «В заявку»',
+  'Batch not produced yet': 'Партия ещё не произведена',
+  'Progress bar, pledged %, ships-in date, Reserve replaces Add to enquiry':
+    'Прогресс-бар, процент заявок, дата отправки, «Забронировать» вместо «В заявку»',
+
+  // --- состояния и размеры ---
+  'States': 'Состояния',
+  'Default': 'Обычное',
+  'On sale': 'Со скидкой',
+  'Sizes': 'Размеры',
+  'Compact': 'Компактная',
+  '5–6 column grids, cross-sell rails, the enquiry list.':
+    'Сетки на 5–6 колонок, блоки кросс-продаж, список заявки.',
+  'Standard': 'Стандартная',
+  'The default everywhere: category grid, search results, brand pages. No modifier.':
+    'Базовая везде: сетка категории, результаты поиска, страницы бренда. Без модификатора.',
+  'Feature': 'Акцентная',
+  'Hero slot, department landing, first row of a subsection.':
+    'Hero-слот, посадка раздела, первый ряд подраздела.',
+
+  // --- жёсткие правила ---
+  'Hard rules': 'Жёсткие правила',
+  'Always 1:1 in grid, 4:3 in list. Second image swaps on hover only where a pointer exists (':
+    'В сетке всегда 1:1, в списке 4:3. Второй кадр подменяется по наведению только там, где есть указатель (',
+  ') — never on touch. Text never overlaps the badge column.':
+    ') — на тач-экранах никогда. Текст не заходит на колонку бейджей.',
+  'Clamped to 2 lines in standard, 3 in feature. Full title is in the ':
+    'Обрезка до 2 строк в стандартной, до 3 в акцентной. Полный заголовок лежит в атрибуте ',
+  'attribute and in the accessible name, so nothing is lost to the ellipsis.':
+    ' и в доступном имени, так что многоточие ничего не теряет.',
+  'Tabular figures, always the storefront currency of the moment. A strikethrough price renders only when it is a real previous price, never an invented anchor.':
+    'Табличные цифры, всегда текущая валюта витрины. Зачёркнутая цена выводится, только если это настоящая прежняя цена, а не выдуманный якорь.',
+  'Three levels only: in stock, low stock with the exact count and a bar, out of stock with a notify form. Colour is never the only signal — the words carry it.':
+    'Только три уровня: в наличии, мало с точным остатком и полосой, нет в наличии с формой оповещения. Цвет никогда не единственный сигнал — смысл несут слова.',
+  'Max 5 swatches then ': 'Не больше 5 чипов, дальше ',
+  '. Sizes render as a chip row; unavailable combinations are struck through, not hidden, so the shopper knows the full range exists.':
+    '. Размеры — ряд чипов; недоступные комбинации зачёркнуты, а не скрыты, чтобы покупатель видел весь диапазон.',
+  'Tap targets': 'Зоны нажатия',
+  'Primary button 44px, secondary 38px, favourite 36px. Card body is clickable, but the button stays a real button for keyboard and screen-reader users.':
+    'Главная кнопка 44px, вторичная 38px, избранное 36px. Тело карточки кликабельно, но кнопка остаётся настоящей кнопкой для клавиатуры и скринридеров.',
+  'Equal height': 'Одинаковая высота',
+  'Cards in one row share height. The CTA is the last slot and is pinned with':
+    'Карточки в одном ряду одной высоты. CTA — последний слот, он прижат через',
+  ', so nothing sits below it — the button lands on one line in every row whatever the title length, stock state or metadata width happens to be. The availability slot keeps a reserved height (':
+    ', поэтому ниже ничего нет: кнопка встаёт на одну линию в любом ряду, какими бы ни были длина заголовка, остаток или ширина метаданных. Слот наличия держит резервную высоту (',
+  ') so the info band stays uniform too.':
+    '), поэтому информационная полоса тоже ровная.',
+  'Theming': 'Темизация',
+  'No card rule uses a literal colour. Every storefront ships a block of tokens and zero CSS forks. Try the brand switcher in the toolbar above.':
+    'Ни одно правило карточки не использует цвет литералом. У каждой витрины — свой блок токенов и ноль форков CSS. Попробуйте переключатель бренда в тулбаре выше.',
+
+  // --- футер ---
+  'Path Home — storefront of the Path ecosystem.':
+    'Path Home — витрина экосистемы Path.',
+  'Prices, stock and delivery dates are illustrative.':
+    'Цены, остатки и даты доставки — иллюстративные.',
+});
+// END B
+
+Object.assign(RU_DICT, {
+  // --- дерево каталога ---
+  'Electronics': 'Электроника',
+  'Home & Kitchen': 'Дом и кухня',
+  'Craft & Hobby': 'Рукоделие и хобби',
+  'Outdoor & Optics': 'Туризм и оптика',
+  'Audio, storage, power, smart home': 'Аудио, накопители, питание, умный дом',
+  'Cookware, appliances, lighting, textiles': 'Посуда, техника, свет, текстиль',
+  'Yarn, beading, art supplies, DIY kits': 'Пряжа, бисер, материалы, наборы',
+  'Optics, camping, tools, apparel': 'Оптика, кемпинг, инструменты, одежда',
+  '8 items · Audio, storage, power, smart home': '8 товаров · Аудио, накопители, питание, умный дом',
+  '8 items · Cookware, appliances, lighting, textiles': '8 товаров · Посуда, техника, свет, текстиль',
+  '8 items · Yarn, beading, art supplies, DIY kits': '8 товаров · Пряжа, бисер, материалы, наборы',
+  '8 items · Optics, camping, tools, apparel': '8 товаров · Оптика, кемпинг, инструменты, одежда',
+
+  'Audio': 'Аудио',
+  'Storage & Memory': 'Накопители и память',
+  'Power & Cables': 'Питание и кабели',
+  'Smart Home': 'Умный дом',
+  'Cookware & Prep': 'Посуда и подготовка',
+  'Small Appliances': 'Мелкая техника',
+  'Lighting': 'Освещение',
+  'Textiles': 'Текстиль',
+  'Yarn & Fibre': 'Пряжа и волокно',
+  'Beading & Embroidery': 'Бисер и вышивка',
+  'Art Supplies': 'Художественные материалы',
+  'DIY Kits': 'Наборы для творчества',
+  'Optics & Vision': 'Оптика и зрение',
+  'Camping & Hiking': 'Кемпинг и походы',
+  'Tools': 'Инструменты',
+  'Outdoor Apparel': 'Туристическая одежда',
+
+  // --- подписи дерева для скринридеров ---
+  'Departments': 'Разделы',
+  'Subsections': 'Подразделы',
+  'Electronics subsections': 'Подразделы: Электроника',
+  'Home & Kitchen subsections': 'Подразделы: Дом и кухня',
+  'Craft & Hobby subsections': 'Подразделы: Рукоделие и хобби',
+  'Outdoor & Optics subsections': 'Подразделы: Туризм и оптика',
+  'Breadcrumb': 'Хлебные крошки',
+  'Search': 'Поиск',
+  'Content modes table, scrollable': 'Таблица режимов, прокручивается',
+  'Hard rules table, scrollable': 'Таблица правил, прокручивается',
+  'Switch storefront tokens': 'Переключить токены витрины',
+  'Switch theme': 'Переключить тему',
+  'Switch grid / list': 'Переключить сетку или список',
+  'Switch language': 'Переключить язык',
+  'Search 32 products, e.g. “kettle”, “yarn”, “binocular”':
+    'Поиск по 32 товарам, например «чайник», «пряжа», «бинокль»',
+});
+// END C
+
+Object.assign(RU_DICT, {
+  // --- товары: электроника ---
+  'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime':
+    'Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч',
+  'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.':
+    'Адаптивное ANC с режимом прозрачности, драйверы с сертификатом hi-res и батарея на 40 часов. Складываются в жёсткий кейс.',
+  'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof':
+    'Портативная колонка SPK 2, 24 ч работы, защита IPX7',
+  '12 W stereo with passive bass radiators. Pairs two units for true stereo.':
+    'Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.',
+  'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink':
+    'SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором',
+  'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.':
+    'TLC без DRAM, с HMB, стабильные 5,2 ГБ/с под нагрузкой. В комплекте низкопрофильный алюминиевый радиатор.',
+  'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack':
+    'Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.',
+  'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.':
+    'Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.',
+  '7-Port USB Hub with 60 W Mains Adapter, Braided Cable':
+    'USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель',
+  'Individually switched ports, 2.4 A per port, over-current protection on the bus.':
+    'Каждый порт отключается отдельно, 2,4 А на порт, защита шины от перегрузки.',
+  '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4':
+    'Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4',
+  'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.':
+    'Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.',
+  'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter':
+    'Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter',
+  'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.':
+    'Замер энергии по каждой розетке, расписания и мост Matter для сторонних хабов.',
+  'Indoor Security Camera 2K, Privacy Shutter, Local SD':
+    'Камера для дома 2K, шторка приватности, локальная SD',
+  'No cloud subscription required. Physical lens shutter and on-device person detection.':
+    'Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.',
+});
+// END D1
+
+Object.assign(RU_DICT, {
+  // --- товары: дом и кухня ---
+  'Enamel Spice Kettle 300 ml, Cream, Induction Ready':
+    'Эмалированный чайник для специй 300 мл, кремовый, для индукции',
+  'Two-layer enamel over carbon steel, whistling spout, dishwasher safe.':
+    'Двухслойная эмаль по углеродистой стали, свисток, можно в посудомоечную машину.',
+  'Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade':
+    'Чугунная гриль-сковорода 28 см, с заводской закалкой, отельный класс',
+  'Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.':
+    'Литьё в песок, выдерживает до 260 °C в духовке. По 6 штук в коробке для HoReCa.',
+  'Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids':
+    'Вафельница, 4 панели, раскрытие 180°, чугунные решётки',
+  'Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.':
+    'Съёмные чугунные решётки с бельгийской ячейкой 9 мм и отдельной регулировкой прожарки.',
+  'Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces':
+    'Набор керамических мисок ручной работы, 3 шт.',
+  'Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.':
+    'Каменная керамика, вытянутая на круге, матовая глазурь для контакта с едой. Каждый набор обжигается малой партией.',
+  'Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable':
+    'LED-торшер Arc, шлифованная сталь, 1 600 лм с диммером',
+  'Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.':
+    'Консольная дуга 2,1 м, утяжелённое мраморное основание и плавный диммер-колесо.',
+  'Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K':
+    'Подвесной светильник 36 Вт, опаловый рассеиватель, 2 700–4 000 K',
+  'Surface-mounted driver, tool-free cable shortening, glare shield below 30°.':
+    'Драйвер на поверхности, укорочение троса без инструментов, защита от слепящего света ниже 30°.',
+  'Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces':
+    'Набор махровых полотенец 500 г/м², 70 × 140 см, 2 шт.',
+  'Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.':
+    'Длинноволокнистый чесаный хлопок, бордюр с вытянутой петлёй, прошёл стирку и не сыплется после первой.',
+  'Hand-Woven Wool Runner 80 x 240 cm, Natural Dye':
+    'Шерстяная дорожка ручного ткачества 80 × 240 см, натуральный краситель',
+  'Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.':
+    'Тканая на станке из некрашеной местной шерсти. Небольшая разница в ворсе — подпись, а не брак.',
+
+  // --- товары: рукоделие ---
+  'Merino Worsted Yarn, 100 g Skein, 24 Colours':
+    'Мериносовая пряжа Worsted, моток 100 г, 24 цвета',
+  'Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.':
+    'Меринос 19,5 мкм от одного источника, машинная стирка на шерстяном режиме. Красится малыми партиями.',
+  'Baby Alpaca Blend DK, 200 g Cone, Cloud Grey':
+    'Смесь с бэби-альпакой DK, конус 200 г, облачно-серый',
+  '22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.':
+    '22 % альпаки на акриловой основе: ореол без покалывания. Продаётся конусом для трикотажных студий.',
+  'Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish':
+    'Стеклянный бисер 11/0, туба 8 000 шт., матовый',
+  'Consistent Czech-made hole size, no more than 2 % deformed beads per tube.':
+    'Стабильный чешский размер отверстия, не больше 2 % деформированных бисерин в тубе.',
+  'Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box':
+    'Хлопковое мулине в 6 сложений, набор 24 мотка, студийная коробка',
+  '390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.':
+    '390 м в мотке, стойкая окраска, фасовка для вышивальных мастерских и школьных поставок.',
+  'Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment':
+    'Художественная гуашь, 12 × 20 мл, сверхтонкий пигмент',
+  'Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children’s classes.':
+    'Укрывистая, перерабатываемая, на медовой связке. Соответствует EN 71-3 для детских занятий.',
+  'Hand-Tied Sable Brush Set of 6, Birch Handles':
+    'Набор кистей из соболя ручной вязки, 6 шт., берёзовые ручки',
+  'Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.':
+    'Каждая кисть связана вручную из соболя класса «колонок»; двух одинаковых нет.',
+  'Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages':
+    'Набор для декупажа деревянной шкатулки, 3 слоя, инструкция на 4 языках',
+  'Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.':
+    'Заготовка из бука, салфетки, клей, кисть и лак в одной коробке.',
+  'Quilling Frame Loom, Improved Tension, Pre-Order':
+    'Станок для квиллинга, усиленное натяжение, предзаказ',
+  'Second production run after the first sold out in nine days. Closes when 300 units are pledged.':
+    'Второй тираж: первый разошёлся за девять дней. Партия закрывается на 300 заявках.',
+});
+// END D2
+
+Object.assign(RU_DICT, {
+  // --- товары: туризм и оптика ---
+  'Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled':
+    'Водозащищённый бинокль 10×42, призмы BaK-4, заполнен азотом',
+  'Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.':
+    'Призмы с фазовой коррекцией, поле 6,5°, корпус IPX7, вынос зрачка 22 мм.',
+  'Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot':
+    'Крышка для оптического прицела 22 мм, антиблик, оптовая партия',
+  'MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.':
+    'Закалённое стекло по MIL-spec с антибликовым покрытием. Партии по 20 штук для снабженцев.',
+  'Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon':
+    'Двухместная ультралёгкая палатка, 1 980 г, 3 сезона, силикон-нейлон',
+  'Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.':
+    'Два входа и два тамбура, тент 3 000 мм, дуги с цветовой маркировкой.',
+  'Titanium Trail Kettle 0.9 L, Folding Handle, 78 g':
+    'Титановый походный чайник 0,9 л, складная ручка, 78 г',
+  'Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.':
+    'Однослойный титан grade-1, зачернённое дно для быстрого закипания. Складывается плоско.',
+  'Precision Screwdriver Set, 32 Bits, Aluminium Case':
+    'Набор точных отвёрток, 32 биты, алюминиевый кейс',
+  'S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.':
+    'Биты из стали S2, шестигранная ручка, которая не катится, и держатель с фиксацией биты для электроники.',
+  'Forged Camping Mallet, Ash Handle, Leather Head':
+    'Кованый кемпинговый молоток, ясеневая ручка, кожаная голова',
+  'Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.':
+    'Кованая вручную голова, прошитая кожаная набойка для колышков. Изготовление за пять рабочих дней.',
+  'Insulated Trail Jacket, 10 000 mm Membrane, Unisex':
+    'Утеплённая трекинговая куртка, мембрана 10 000 мм, унисекс',
+  'Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.':
+    'Проклеенные швы, капюшон под шлем, два боковых кармана и внутренний сброс-карман.',
+  'Merino Hiking Socks, 3-Pack, Cushioned Zone':
+    'Трекинговые носки из мериноса, 3 пары, амортизирующая зона',
+  '18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.':
+    'Смесь с 18 % мериноса, усиленные пятка и мыс. Не держат запах при многодневном ношении.',
+});
+// END D3
+
+// ============================================================
+// ПЕРЕВОД: шаблоны для составных строк (числа, даты, цены)
+// Порядок важен: сначала узкие правила, потом общие.
+// ============================================================
+const RU_PAT = [
+  [/^Showing (\d+) of (\d+) items · prices in (\w+)$/, 'Показано $1 из $2 товаров · цены в $3'],
+  // На странице подраздела в счётчике ещё и имя раздела — без этой пары он
+  // оставался английским и в демо, и в сборке.
+  [/^Showing (\d+) of (\d+) items in (.+) · prices in (\w+)$/, 'Показано $1 из $2 товаров раздела $3 · цены в $4'],
+  [/^(\d+) items · prices in (\w+)$/, '$1 товаров · цены в $2'],
+  [/^In stock · ([\d.,\s]+)$/, (m, n) => `В наличии · ${n.replace(/,/g, ' ')}`],
+  [/^Only (\d+) left$/, 'Осталось $1 шт.'],
+  [/^Back in stock (.+)$/, 'Снова в наличии $1'],
+  [/^Get it by (.+)$/, 'Доставка $1'],
+  [/^Free delivery over (.+)$/, 'Бесплатная доставка от $1'],
+  [/^Ships in about (.+)$/, 'Отправка примерно через $1'],
+  [/^(\d+) days$/, '$1 дн.'],
+  [/^Made to order (\d+) days$/, 'На заказ, $1 дн.'],
+  [/^· (\d+) of (\d+) pledged$/, '· $1 из $2 зарезервировано'],
+  [/^(\d+) of (\d+) pledged$/, '$1 из $2 зарезервировано'],
+  [/^Load (\d+) more \((\d+) left\)$/, 'Показать ещё $1 (осталось $2)'],
+  [/^Save (.+)$/, 'Экономия $1'],
+  [/^by (.+)$/, 'мастер: $1'],
+  [/^Add lot of (\d+)$/, 'Добавить партию $1'],
+  [/^(\d+) pcs$/, '$1 шт.'],
+  [/^Colour (\d+) of (\d+)$/, 'Цвет $1 из $2'],
+  [/^Remove filter “(.+)”$/, 'Убрать фильтр «$1»'],
+  [/^Search: “(.+)”$/, 'Поиск: «$1»'],
+  [/^Search “(.+)”$/, 'Поиск «$1»'],
+  // «All Electronics» в хлебных крошках, в пилюле подраздела и в конце сетки
+  // товара: без этой пары на русском оставалась английская вставка.
+  [/^All (.+)$/, 'Все: $1'],
+  [/^“(.+)”$/, '«$1»'],
+  [/^(\d+) item\(s\)$/, '$1 шт.'],
+  [/^Added (\d+) pcs$/, 'Добавлено $1 шт.'],
+  [/^Added$/, 'Добавлено'],
+  [/^Tokens switched to (\w+) — same card, new brand$/, 'Токены переключены на $1 — та же карточка, новый бренд'],
+  [/^Remove (\S+) from enquiry$/, 'Убрать $1 из заявки'],
+  [/^(\S+) added to the enquiry — (.+)$/, '$1 добавлен в заявку — $2'],
+  [/^(\S+) — quote request added to the enquiry$/, '$1 — запрос цены добавлен в заявку'],
+  [/^(\S+) — restock request added to the enquiry$/, '$1 — запрос о поступлении добавлен в заявку'],
+  [/^(\d+) items · (.+)$/, '$1 товаров · $2'],
+  [/^Catalog configuration$/, 'Конфигурация каталога'],
+  [/^Reset all$/, 'Сбросить всё'],
+  [/^Done$/, 'Готово'],
+];
+
+// ============================================================
+// ПЕРЕВОД: один проход по DOM
+// Узел запоминает свою английскую и русскую версии, поэтому
+// переключение туда-обратно ничего не теряет, а повторный
+// прогон не порождает мутаций (меняем только при отличии).
+// ============================================================
+const L10N = new Map();
+const ATTR_L10N = new Map();
+let langBusy = false;
+
+function ruCore(raw) {
+  const core = String(raw).trim().replace(/\s+/g, ' ');
+  if (!core) return null;
+  const hit = RU_DICT[core];
+  if (hit) return hit;
+  for (let i = 0; i < RU_PAT.length; i++) {
+    const re = RU_PAT[i][0];
+    if (re.test(core)) return core.replace(re, RU_PAT[i][1]);
+  }
+  return null;
+}
+
+function applyLang() {
+  const ru = S.lang === 'ru';
+  langBusy = true;
+
+  const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(n) {
+      const p = n.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      const t = p.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'PRE' || t === 'TEXTAREA') return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  const nodes = [];
+  for (let n = walk.nextNode(); n; n = walk.nextNode()) nodes.push(n);
+
+  for (const node of nodes) {
+    const cur = node.textContent;
+    let rec = L10N.get(node);
+    if (!rec) { rec = { en: cur, ru: null }; L10N.set(node, rec); }
+    else if (cur !== rec.en && cur !== rec.ru) { rec.en = cur; rec.ru = null; }
+    if (rec.ru === null) rec.ru = ruCore(rec.en) || rec.en;
+    const want = ru ? rec.ru : rec.en;
+    if (cur !== want) node.textContent = want;
+  }
+
+  const ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
+  for (const el of document.querySelectorAll('[placeholder],[aria-label],[title],[alt]')) {
+    let map = ATTR_L10N.get(el);
+    if (!map) { map = {}; ATTR_L10N.set(el, map); }
+    for (const a of ATTRS) {
+      const v = el.getAttribute(a);
+      if (!v) continue;
+      let rec = map[a];
+      if (!rec) { rec = { en: v, ru: null }; map[a] = rec; }
+      else if (v !== rec.en && v !== rec.ru) { rec.en = v; rec.ru = null; }
+      if (rec.ru === null) rec.ru = ruCore(rec.en) || rec.en;
+      const want = ru ? rec.ru : rec.en;
+      if (v !== want) el.setAttribute(a, want);
+    }
+  }
+
+  document.documentElement.lang = ru ? 'ru' : 'en';
+  langBusy = false;
+}
+
+// Всё, что рендерится после переключения (фильтры, грид, тост, модалка),
+// переводится на лету: следим за DOM и переводим один раз на кадр.
+let langQueued = false;
+function scheduleLang() {
+  if (langBusy || langQueued || S.lang !== 'ru') return;
+  langQueued = true;
+  requestAnimationFrame(() => { langQueued = false; if (!langBusy) applyLang(); });
+}
+
+new MutationObserver(scheduleLang).observe(document.body, {
+  childList: true, subtree: true, characterData: true,
+});
+// END E
+
+// ============================================================
+// CATALOGUE DATA
+// Taxonomy: 4 departments x 4 subsections. Коды разделов и подразделов —
+// предложение, реестр категорий ведёт заказчик (№ 67).
+// Цена — в долларах США, вторая валюта правилами не предусмотрена.
+// Рейтингов и отзывов в данных нет: блок отзывов показывается
+// только на настоящих отзывах (правила 03, «обязательно», вопрос 13).
+// ============================================================
+const DEPTS = [
+  {
+    id: 'electronics', name: 'Electronics', icon: 'chip',
+    blurb: 'Audio, storage, power, smart home',
+    subs: [
+      { id: 'audio', name: 'Audio', glyph: 'headphones' },
+      { id: 'storage', name: 'Storage & Memory', glyph: 'ssd' },
+      { id: 'power', name: 'Power & Cables', glyph: 'plug' },
+      { id: 'smart-home', name: 'Smart Home', glyph: 'hub' },
+    ]
+  },
+  {
+    id: 'home', name: 'Home & Kitchen', icon: 'home',
+    blurb: 'Cookware, appliances, lighting, textiles',
+    subs: [
+      { id: 'cookware', name: 'Cookware & Prep', glyph: 'kettle' },
+      { id: 'appliances', name: 'Small Appliances', glyph: 'mixer' },
+      { id: 'lighting', name: 'Lighting', glyph: 'lamp' },
+      { id: 'textiles', name: 'Textiles', glyph: 'towel' },
+    ]
+  },
+  {
+    id: 'craft', name: 'Craft & Hobby', icon: 'needle',
+    blurb: 'Yarn, beading, art supplies, DIY kits',
+    subs: [
+      { id: 'yarn', name: 'Yarn & Fibre', glyph: 'yarn' },
+      { id: 'beading', name: 'Beading & Embroidery', glyph: 'beads' },
+      { id: 'art-supplies', name: 'Art Supplies', glyph: 'palette' },
+      { id: 'diy-kits', name: 'DIY Kits', glyph: 'kit' },
+    ]
+  },
+  {
+    id: 'outdoor', name: 'Outdoor & Optics', icon: 'mountain',
+    blurb: 'Optics, camping, tools, apparel',
+    subs: [
+      { id: 'optics', name: 'Optics & Vision', glyph: 'binocular' },
+      { id: 'camping', name: 'Camping & Hiking', glyph: 'tent' },
+      { id: 'tools', name: 'Tools', glyph: 'tool' },
+      { id: 'apparel', name: 'Outdoor Apparel', glyph: 'jacket' },
+    ]
+  },
+];
+
+// mode: retail | marketplace | handmade | b2b | pre
+const P = [
+  // — Electronics / Audio —
+  { id: 'AUD-Q20', sku: 'AUD-Q20I', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'retail', title: 'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime', desc: 'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.', price: 108.9, was: 141.9, stock: 184, colors: ['#1B1B1F', '#C7CBD4', '#8A5A2B'], eta: 2, madeIn: 'Vietnam', wh: 'MSK-1', top: true, rel: '2026-04' },
+  { id: 'AUD-SPK', sku: 'AUD-SPK2', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'marketplace', title: 'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof', desc: '12 W stereo with passive bass radiators. Pairs two units for true stereo.', price: 48.4, stock: 62, colors: ['#2E5BFF', '#1B1B1F', '#B02418'], eta: 3, madeIn: 'China', wh: 'SPB-2', seller: 'SoundLab' },
+  // — Storage —
+  { id: 'STO-NV1', sku: 'STO-NV1T', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'retail', title: 'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink', desc: 'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.', price: 98.34, was: 114.4, stock: 412, eta: 1, madeIn: 'South Korea', wh: 'MSK-1', top: true },
+  { id: 'STO-CAR', sku: 'STO-CAR64', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'b2b', title: 'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack', desc: 'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.', price: 10.89, stock: 980, moq: 10, tiers: [[10, 10.89], [50, 10.01], [200, 9.24]], eta: 4, madeIn: 'China', wh: 'MSK-2' },
+  // — Power —
+  { id: 'POW-HUB', sku: 'POW-HUB7', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'retail', title: '7-Port USB Hub with 60 W Mains Adapter, Braided Cable', desc: 'Individually switched ports, 2.4 A per port, over-current protection on the bus.', price: 25.96, stock: 1180, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'POW-PD', sku: 'POW-PD65', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'pre', title: '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4', desc: 'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.', price: 35.2, stock: 0, pledged: 268, batch: 300, eta: 21, madeIn: 'China', wh: 'MSK-2', rel: '2026-09' },
+  // — Smart home —
+  { id: 'SMH-PLG', sku: 'SMH-PLG2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'retail', title: 'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter', desc: 'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.', price: 20.79, was: 26.4, stock: 320, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'SMH-CAM', sku: 'SMH-CAM2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'marketplace', title: 'Indoor Security Camera 2K, Privacy Shutter, Local SD', desc: 'No cloud subscription required. Physical lens shutter and on-device person detection.', price: 41.25, stock: 6, colors: ['#EFEFF1', '#1B1B1F'], eta: 3, madeIn: 'China', wh: 'MSK-2', seller: 'SafeNest' },
+
+  // — Home / Cookware —
+  { id: 'HOM-KTL', sku: 'HOM-KTL30', dept: 'home', sub: 'cookware', brand: 'Nordika', mode: 'retail', title: 'Enamel Spice Kettle 300 ml, Cream, Induction Ready', desc: 'Two-layer enamel over carbon steel, whistling spout, dishwasher safe.', price: 19.2, was: 24.75, stock: 86, colors: ['#F0E6D8', '#1B1B1F', '#0E6E5C'], eta: 2, madeIn: 'Türkiye', wh: 'SPB-1', top: true },
+  { id: 'HOM-PAN', sku: 'HOM-PAN28', dept: 'home', sub: 'cookware', brand: 'Nordika', mode: 'b2b', title: 'Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade', desc: 'Sand-cast, oven safe to 260 °C. Packed six units per carton for food-service buyers.', price: 45.1, stock: 240, moq: 6, tiers: [[6, 45.1], [24, 40.92], [60, 37.29]], eta: 5, madeIn: 'Russia', wh: 'MSK-2' },
+  // — Appliances —
+  { id: 'HOM-WAF', sku: 'HOM-WAF4', dept: 'home', sub: 'appliances', brand: 'Aeromat', mode: 'retail', title: 'Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids', desc: 'Removable cast-iron grids with a 9 mm Belgian cell and an independent browning dial.', price: 69.74, stock: 118, colors: ['#1B1B1F', '#C7CBD4'], eta: 2, madeIn: 'China', wh: 'SPB-1' },
+  { id: 'HOM-MIX', sku: 'HOM-MIX8', dept: 'home', sub: 'appliances', brand: 'Aeromat', mode: 'handmade', title: 'Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces', desc: 'Wheel-thrown stoneware with a food-safe matte glaze. Each set is fired in a small batch.', price: 57.2, stock: 3, colors: ['#D9C7B0', '#8FA5A0', '#3C4A56'], eta: 6, madeIn: 'Russia', wh: 'SPB-1', maker: 'Kuznetsova Studio', rel: '2026-08' },
+  // — Lighting —
+  { id: 'LGT-ARC', sku: 'LGT-ARCL', dept: 'home', sub: 'lighting', brand: 'Nordika', mode: 'retail', title: 'Arc LED Floor Lamp, Brushed Steel, 1 600 lm Dimmable', desc: 'Cantilevered 2.1 m arc with a weighted marble base and a stepless dial dimmer.', price: 137.28, was: 174.9, stock: 34, colors: ['#C7CBD4', '#1B1B1F', '#8A5A2B'], eta: 4, madeIn: 'Poland', wh: 'SPB-1' },
+  { id: 'LGT-PND', sku: 'LGT-PND36', dept: 'home', sub: 'lighting', brand: 'Aeromat', mode: 'retail', title: 'Pendant Light 36 W, Opal Diffuser, Tunable 2 700–4 000 K', desc: 'Surface-mounted driver, tool-free cable shortening, glare shield below 30°.', price: 61.82, stock: 0, colors: ['#EFEFF1', '#1B1B1F', '#E8A200'], eta: 0, madeIn: 'Germany', wh: 'MSK-1' },
+  // — Textiles —
+  { id: 'TEX-TWL', sku: 'TEX-TWL50', dept: 'home', sub: 'textiles', brand: 'Baltic Linen', mode: 'retail', title: 'Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces', desc: 'Long-staple combed cotton, drop-pile border, pre-washed so it stops shedding after the first wash.', price: 23.98, was: 30.58, stock: 640, colors: ['#F0E6D8', '#8FA5A0', '#3C4A56', '#C4162D'], eta: 2, madeIn: 'Russia', wh: 'SPB-1', top: true },
+  { id: 'TEX-RUG', sku: 'TEX-RUG80', dept: 'home', sub: 'textiles', brand: 'Baltic Linen', mode: 'handmade', title: 'Hand-Woven Wool Runner 80 x 240 cm, Natural Dye', desc: 'Woven on a floor loom from undyed local fleece. Slight variation in pile is the signature, not a defect.', price: 163.9, stock: 2, colors: ['#D9C7B0', '#A8452A', '#55555E'], eta: 9, madeIn: 'Russia', wh: 'SPB-1', maker: 'Anna P.', rel: '2026-07' },
+
+  // — Craft / Yarn —
+  { id: 'CRF-YRN', sku: 'CRF-YRNM', dept: 'craft', sub: 'yarn', brand: 'Remesla', mode: 'retail', title: 'Merino Worsted Yarn, 100 g Skein, 24 Colours', desc: 'Single-source 19.5 µm merino, machine washable on a wool cycle. Dyed in small lots.', price: 9.79, stock: 2400, colors: ['#C4162D', '#0E6E5C', '#2E5BFF', '#E8A200', '#55555E'], colourTotal: 24, eta: 2, madeIn: 'Peru', wh: 'MSK-1', top: true },
+  { id: 'CRF-ALP', sku: 'CRF-ALPA', dept: 'craft', sub: 'yarn', brand: 'Remesla', mode: 'marketplace', title: 'Baby Alpaca Blend DK, 200 g Cone, Cloud Grey', desc: '22 % alpaca over acrylic core — halo without the itch. Sold by the cone for knitwear studios.', price: 26.95, stock: 148, colors: ['#C7CBD4', '#D9C7B0', '#8FA5A0'], eta: 5, madeIn: 'Peru', wh: 'MSK-2', seller: 'Fibra Andina' },
+  // — Beading —
+  { id: 'CRF-BDS', sku: 'CRF-BDS11', dept: 'craft', sub: 'beading', brand: 'Remesla', mode: 'retail', title: 'Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish', desc: 'Consistent Czech-made hole size, no more than 2 % deformed beads per tube.', price: 7.04, was: 9.02, stock: 3100, colors: ['#1B1B1F', '#E8A200', '#2E5BFF', '#F0E6D8'], eta: 2, madeIn: 'Czechia', wh: 'MSK-1' },
+  { id: 'CRF-MUL', sku: 'CRF-MUL24', dept: 'craft', sub: 'beading', brand: 'Remesla', mode: 'b2b', title: 'Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box', desc: '390 m per skein, colour-fast, packed for embroidery workshops and school suppliers.', price: 42.9, stock: 410, moq: 5, tiers: [[5, 42.9], [20, 38.94], [100, 34.98]], eta: 4, madeIn: 'Russia', wh: 'MSK-2' },
+  // — Art supplies —
+  { id: 'ART-GOU', sku: 'ART-GOU12', dept: 'craft', sub: 'art-supplies', brand: 'Remesla', mode: 'retail', title: 'Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment', desc: 'Opaque, reworkable, honey-bound. Meets EN 71-3 for use in children\u2019s classes.', price: 18.48, stock: 520, eta: 2, madeIn: 'Germany', wh: 'MSK-1' },
+  { id: 'ART-BRS', sku: 'ART-BRS6', dept: 'craft', sub: 'art-supplies', brand: 'Remesla', mode: 'handmade', title: 'Hand-Tied Sable Brush Set of 6, Birch Handles', desc: 'Each brush is tied by hand from Kolinsky-grade sable; no two loads are identical.', price: 47.3, stock: 4, colors: ['#8A5A2B', '#D9C7B0'], eta: 8, madeIn: 'Russia', wh: 'SPB-1', maker: 'Mosbrush Workshop', rel: '2026-06' },
+  // — DIY kits —
+  { id: 'KIT-DEC', sku: 'KIT-DEC1', dept: 'craft', sub: 'diy-kits', brand: 'Remesla', mode: 'retail', title: 'Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages', desc: 'Blank beech box, napkins, glue, brush and a varnish top-coat in one carton.', price: 13.64, was: 17.49, stock: 760, eta: 2, madeIn: 'Russia', wh: 'MSK-1' },
+  { id: 'KIT-QUI', sku: 'KIT-QUI2', dept: 'craft', sub: 'diy-kits', brand: 'Remesla', mode: 'pre', title: 'Quilling Frame Loom, Improved Tension, Pre-Order', desc: 'Second production run after the first sold out in nine days. Closes when 300 units are pledged.', price: 30.25, stock: 0, pledged: 121, batch: 300, eta: 18, madeIn: 'China', wh: 'MSK-2', rel: '2026-10' },
+
+  // — Outdoor / Optics —
+  { id: 'OPT-BIN', sku: 'OPT-B1042', dept: 'outdoor', sub: 'optics', brand: 'Kedr Optics', mode: 'retail', title: 'Waterproof Binocular 10x42, BaK-4 Prisms, Nitrogen Filled', desc: 'Phase-corrected roof prisms, 6.5° field, IPX7 body with a 22 mm eye relief.', price: 207.9, was: 240.9, stock: 27, colors: ['#1B1B1F', '#55555E', '#0E6E5C'], eta: 3, madeIn: 'Japan', wh: 'MSK-1', top: true },
+  { id: 'OPT-SHP', sku: 'OPT-SHP22', dept: 'outdoor', sub: 'optics', brand: 'Kedr Optics', mode: 'b2b', title: 'Optical Sight Cover 22 mm, Anti-Reflective, Bulk Lot', desc: 'MIL-spec tempered glass with an AR coating. Supplied in twenty-unit lots for outfitters.', price: 15.95, stock: 1600, moq: 20, tiers: [[20, 15.95], [100, 14.19], [500, 12.32]], eta: 6, madeIn: 'China', wh: 'MSK-2' },
+  // — Camping —
+  { id: 'CMP-TNT', sku: 'CMP-TNT2', dept: 'outdoor', sub: 'camping', brand: 'Kedr', mode: 'retail', title: 'Two-Person Ultralight Tent, 1 980 g, 3-Season, Silicone-Nylon', desc: 'Two-door, two-vestibule geometry with a 3 000 mm fly and colour-coded poles.', price: 147.4, stock: 41, colors: ['#0E6E5C', '#8A5A2B', '#1B1B1F'], eta: 4, madeIn: 'China', wh: 'SPB-2' },
+  { id: 'CMP-KTL', sku: 'CMP-KTL9', dept: 'outdoor', sub: 'camping', brand: 'Kedr', mode: 'marketplace', title: 'Titanium Trail Kettle 0.9 L, Folding Handle, 78 g', desc: 'Single-wall grade-1 titanium, blackened base for faster boil. Packs flat.', price: 50.6, stock: 9, colors: ['#55555E', '#C7CBD4'], eta: 5, madeIn: 'China', wh: 'MSK-2', seller: 'Summit Supply' },
+  // — Tools —
+  { id: 'TLS-DRV', sku: 'TLS-DRV32', dept: 'outdoor', sub: 'tools', brand: 'Kedr', mode: 'retail', title: 'Precision Screwdriver Set, 32 Bits, Aluminium Case', desc: 'S2 steel bits, a hexagonal non-roll handle and a captive-bit driver for electronics work.', price: 31.79, was: 37.4, stock: 430, eta: 2, madeIn: 'Taiwan', wh: 'MSK-1' },
+  { id: 'TLS-MLT', sku: 'TLS-MLT3', dept: 'outdoor', sub: 'tools', brand: 'Kedr', mode: 'handmade', title: 'Forged Camping Mallet, Ash Handle, Leather Head', desc: 'Hand-forged head, stitched rawhide face for tent pegs. Made to order in five working days.', price: 43.45, stock: 5, colors: ['#8A5A2B', '#55555E'], eta: 7, madeIn: 'Russia', wh: 'SPB-1', maker: 'Vetka Forge', rel: '2026-05' },
+  // — Apparel —
+  { id: 'APP-JKT', sku: 'APP-JKT-M', dept: 'outdoor', sub: 'apparel', brand: 'Nordika', mode: 'retail', title: 'Insulated Trail Jacket, 10 000 mm Membrane, Unisex', desc: 'Taped seams, helmet-compatible hood, two hand pockets and an internal dump pocket.', price: 123.2, stock: 74, colors: ['#0E6E5C', '#1B1B1F', '#A8452A'], sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'], sizeOff: ['XS', 'XXL'], eta: 3, madeIn: 'Vietnam', wh: 'SPB-2' },
+  { id: 'APP-SCK', sku: 'APP-SCK3', dept: 'outdoor', sub: 'apparel', brand: 'Baltic Linen', mode: 'marketplace', title: 'Merino Hiking Socks, 3-Pack, Cushioned Zone', desc: '18 % merino blend with a synchised heel and toe. Odour-resistant over multi-day use.', price: 21.78, was: 26.4, stock: 380, colors: ['#8FA5A0', '#1B1B1F', '#C4162D'], sizes: ['S', 'M', 'L', 'XL'], eta: 2, madeIn: 'Portugal', wh: 'MSK-1', seller: 'Path & Co' },
+];
+
+// ============================================================
+// DELIVERY — порог бесплатной доставки, USD (правила 01: цена одна, USD)
+// ============================================================
+const FREE_DELIVERY_USD = 80;
+// Базовая цена и валюта: USD, курс-снимок 0.011 USD/RUB (90,9 RUB за доллар).
+// Права: rules/01-market-and-money.md, «Валюта — принято (вопрос 02)».
+
+// ============================================================
+// ART — deterministic inline SVG per subsection.
+// Stands in for product photography and proves the media slot:
+// frame A is the main shot, frame B is the hover shot.
+// ============================================================
+const GLYPH = {
+  headphones: '<path d="M14 40v-8a18 18 0 0 1 36 0v8"/><rect x="8" y="38" width="12" height="18" rx="4"/><rect x="44" y="38" width="12" height="18" rx="4"/>',
+  ssd: '<rect x="10" y="18" width="44" height="28" rx="3"/><path d="M18 26h12M18 32h20M18 38h8"/><circle cx="44" cy="38" r="3"/>',
+  plug: '<path d="M24 10v12M40 10v12"/><rect x="16" y="22" width="32" height="18" rx="4"/><path d="M32 40v14"/>',
+  hub: '<circle cx="32" cy="32" r="10"/><path d="M32 6v10M32 48v10M6 32h10M48 32h10M14 14l7 7M50 14l-7 7"/>',
+  kettle: '<path d="M16 30h26a8 8 0 0 1 8 8v6H16z"/><path d="M22 30v-6h14v6"/><path d="M50 34l6-6"/><path d="M20 50h24"/>',
+  mixer: '<path d="M20 14h20v18H20z"/><path d="M14 32h32l-4 18H18z"/><path d="M26 14V8"/><path d="M40 20h8"/>',
+  lamp: '<path d="M20 10h24l-6 22H26z"/><path d="M32 32v18"/><path d="M20 52h24"/><path d="M32 4l4 6"/>',
+  towel: '<rect x="12" y="14" width="40" height="36" rx="4"/><path d="M20 14v36M30 14v36"/><path d="M42 22h6M42 30h6"/>',
+  yarn: '<circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/>',
+  beads: '<circle cx="16" cy="20" r="4"/><circle cx="32" cy="14" r="4"/><circle cx="48" cy="20" r="4"/><circle cx="20" cy="38" r="4"/><circle cx="40" cy="38" r="4"/><circle cx="32" cy="52" r="4"/><path d="M19 23l2 12M45 23l-3 12M24 40l6 10M40 40l-6 10"/>',
+  palette: '<path d="M32 12c14 0 22 8 22 18 0 8-8 8-12 8s-6 4-6 8-4 6-8 6C16 60 8 48 8 34 8 20 18 12 32 12z"/><circle cx="22" cy="26" r="3"/><circle cx="36" cy="22" r="3"/><circle cx="46" cy="32" r="3"/>',
+  kit: '<rect x="10" y="20" width="44" height="30" rx="3"/><path d="M10 30h44"/><path d="M26 20v-6h12v6"/><path d="M22 40h20"/>',
+  binocular: '<rect x="10" y="22" width="16" height="30" rx="4"/><rect x="38" y="22" width="16" height="30" rx="4"/><path d="M26 28h6v18h-6zM32 28h6v18h-6z"/><path d="M14 18h8M42 18h8"/>',
+  tent: '<path d="M6 48h52L32 12z"/><path d="M32 12v36"/><path d="M24 48l8-14 8 14"/>',
+  tool: '<path d="M14 14l14 14"/><path d="M10 20l10-10 8 8-10 10z"/><path d="M28 30l16 16a6 6 0 0 1-8 8L20 38z"/>',
+  jacket: '<path d="M22 10l10 6 10-6 10 8-6 8v26H18V34l-6-8z"/><path d="M32 16v40"/><path d="M22 40h6M36 40h6"/>',
+};
+
+const TINTS = ['#E8EDF8', '#EAF3EC', '#F6EEE4', '#EFEAF6', '#E7F1F4', '#F6E9E9', '#F0F1E9', '#E9EEF3'];
+
+function art(subId, tintIdx, variant) {
+  const g = GLYPH[subId] || '';
+  const tint = TINTS[tintIdx % TINTS.length];
+  // variant B = the second photo: tighter crop, mirrored, deeper tint
+  const tr = variant ? 'transform="translate(64 0) scale(-1 1)"' : '';
+  const sc = variant ? 'transform="scale(1.24)" transform-origin="32 32"' : '';
+  return `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="${variant ? 'rgba(0,0,0,.04)' : 'none'}" stroke="none"/>
+      <g ${tr}><g ${sc}>${g}</g></g></svg>`;
+}
+
+function tintBg(i, variant) {
+  const t = TINTS[i % TINTS.length];
+  return variant ? `background:color-mix(in srgb, ${t} 70%, var(--sunken))` : `background:${t}`;
+}
+
+// ============================================================
+// UNIFIED PRODUCT CARD
+// One renderer, every mode, every state, every size.
+// Slots that have no data are not emitted at all.
+// ============================================================
+const S = {
+  dept: 'all',
+  sub: 'all',
+  q: '',
+  stock: new Set(),
+  brand: new Set(),
+  mode: new Set(),
+  price: 'all',
+  sort: 'featured',
+  view: 'grid',
+  shown: 12,
+  favs: new Set(),
+  // Позиции заявки. Корзины и оплаты нет: покупатель оформляет заявку,
+  // а не платит (правила 01, О-3 — «кнопка оплаты выключена, заказ уходит
+  // заявкой»). Живёт только в памяти вкладки: в localStorage до согласия
+  // на необязательные хранилища ничего не пишем.
+  inq: [],
+  // Язык страницы задаёт сборка (window.__LANG из пути /ru/…), а не
+  // настройка посетителя; переключатель в шапке остаётся для демо.
+  lang: (typeof window !== 'undefined' && window.__LANG) || HUB.langs.source,
+  // видимость разделов и подразделов: { electronics: true, home: true, ... }
+  // подразделы: { audio: true, storage: false, ... }
+  vis: {
+    all: true,
+    depts: {},
+    subs: {},
+  },
+};
+
+// Адрес для заявок выдаёт заказчик (вопрос Q-12 в PATH-COMPLIANCE.md).
+// Пусто — кнопки отправки нет, вместо неё копирование текста заявки.
+const LEAD_EMAIL = HUB.lead.email;
+
+const MODE_LABEL = {
+  retail: 'Retail', marketplace: 'Marketplace', handmade: 'Handmade', b2b: 'B2B wholesale', pre: 'Pre-order',
+};
+
+// Границы цен — в долларах США: валюта на витрине одна.
+const PRICE_BANDS = [
+  ['all', 'Any price'],
+  ['0-15', 'Under $15'],
+  ['15-41', '$15 – $41'],
+  ['41-90', '$41 – $90'],
+  ['90-9999999', 'Over $90'],
+];
+
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// Формат — по локали интерфейса, валюта одна: USD (правила 01, вопрос 02).
+function money(usd) {
+  return new Intl.NumberFormat(loc() || 'en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 2 }).format(usd);
+}
+
+// Числа и даты идут через локаль интерфейса: в русской версии — «3 320»,
+// «сб, 31 окт». Локаль задаёт не словарь и не браузер гостя, а язык страницы:
+// сборка проставляет window.__INTL из реестра языков (правила 04, «технические
+// правила для письменностей»: числа, цены, единицы и даты форматирует Intl).
+// Для демо без сборки остаётся пара ru/en.
+const loc = () => (typeof window !== 'undefined' && window.__INTL) || (S.lang === 'ru' ? 'ru-RU' : null);
+const num = (n) => n.toLocaleString(loc() || 'en-US');
+
+// Страна производства. По правилам 04 названия стран не лежат в словарях, а
+// форматируются по языку страницы: словарь стран на 19 языках расходился бы с
+// ISO. Данные могут прийти и кодом (в path-catalog поле country_of_origin —
+// код), и именем (в демо-наборе), поэтому имя сначала превращается в код.
+const CC = {
+  Vietnam: 'VN', China: 'CN', 'South Korea': 'KR', Türkiye: 'TR', Turkey: 'TR', Russia: 'RU',
+  Poland: 'PL', Germany: 'DE', Peru: 'PE', Czechia: 'CZ', Japan: 'JP', Taiwan: 'TW',
+  Portugal: 'PT', Italy: 'IT', India: 'IN', 'United Kingdom': 'GB', USA: 'US',
+  Sweden: 'SE', Finland: 'FI', Spain: 'ES', France: 'FR', Netherlands: 'NL', Belarus: 'BY',
+  Indonesia: 'ID', Thailand: 'TH', Switzerland: 'CH', Austria: 'AT', Hungary: 'HU',
+};
+const DN = {};
+function originName(v) {
+  const s = String(v || '').trim();
+  if (!s) return '';
+  const code = /^[A-Z]{2}$/.test(s) ? s : (CC[s] || null);
+  if (!code) return s;
+  const locale = loc() || 'en-US';
+  try {
+    DN[locale] = DN[locale] || new Intl.DisplayNames([locale], { type: 'region' });
+    return DN[locale].of(code) || s;
+  } catch (e) {
+    return s;
+  }
+}
+
+function etaDate(days) {
+  if (!days) return null;
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return new Intl.DateTimeFormat(loc() || 'en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).format(d);
+}
+
+function subName(p) {
+  const d = DEPTS.find(x => x.id === p.dept);
+  return { dept: d.name, sub: d.subs.find(s => s.id === p.sub).name, idx: DEPTS.indexOf(d) * 4 + d.subs.findIndex(s => s.id === p.sub) };
+}
+
+// badges — slot 2
+function badges(p) {
+  const b = [];
+  if (p.was) b.push(`<span class="badge badge--sale">-${Math.round((1 - p.price / p.was) * 100)}%</span>`);
+  if (p.top) b.push('<span class="badge badge--top">Best seller</span>');
+  if (p.rel && p.rel >= '2026-08') b.push('<span class="badge badge--new">New</span>');
+  if (p.mode === 'handmade') b.push('<span class="badge badge--hand">Handmade</span>');
+  if (p.mode === 'b2b') b.push('<span class="badge badge--b2b">Wholesale</span>');
+  if (p.mode === 'pre') b.push('<span class="badge badge--pre">Pre-order</span>');
+  if (p.mode === 'marketplace') b.push('<span class="badge">Marketplace</span>');
+  return b.length ? `<div class="card__badges" data-slot="badges">${b.join('')}</div>` : '';
+}
+
+// price — slot 6
+function priceBlock(p) {
+  const main = `<span class="price__now">${money(p.price)}</span>`;
+  const was = p.was ? `<span class="price__was">${money(p.was)}</span><span class="price__off">Save ${money(p.was - p.price)}</span>` : '';
+  const unit = p.mode === 'b2b' ? `<span class="price__unit">per unit · taxes and duties included</span>` : '';
+  // Цена одна и та же на странице, в разметке и в фиде: налоги и пошлины
+  // заложены в цену (правила 01, вопрос 04), отдельной строкой — только в
+  // оформлении. Старая цена — настоящая предыдущая, не выдуманная.
+  // Кредитных схем в карточке нет ни в одном режиме.
+  const tiers = p.tiers ? `<div class="price__tiers">${p.tiers.map(([q, v]) => `<span><b>${q}+</b> ${money(v)}</span>`).join('')}</div>` : '';
+  return `<div class="price" data-slot="price">
+    <div class="price__main">${main}${was}</div>${unit}${tiers}</div>`;
+}
+
+// variants — slot 7
+function varBlock(p) {
+  if (!p.colors && !p.sizes) return '';
+  let r = '<div class="vars" data-slot="variants">';
+  if (p.colors) {
+    // Показываем не больше пяти кадров, остальные — счётчиком. total берём из
+    // colourTotal, если в фиде их больше, чем отдано на карточку.
+    const shown = p.colors.slice(0, 5), total = p.colourTotal || p.colors.length, rest = total - shown.length;
+    r += `<div class="vars__row"><span class="vars__lb">Colour</span>${shown.map((c, i) =>
+      `<button class="sw" style="background:${c}" aria-pressed="${i === 0}" aria-label="Colour ${i + 1} of ${total}"></button>`).join('')}
+      ${rest > 0 ? `<span class="more">+${rest}</span>` : ''}</div>`;
+  }
+  if (p.sizes) {
+    r += `<div class="vars__row"><span class="vars__lb">Size</span>${p.sizes.map(s =>
+      `<button class="sz" aria-pressed="${s === 'M'}" ${p.sizeOff?.includes(s) ? 'disabled title="Sold out"' : ''}>${s}</button>`).join('')}</div>`;
+  }
+  return r + '</div>';
+}
+
+// availability — slot 8
+function availBlock(p) {
+  if (p.mode === 'pre') {
+    const pledged = p.pledged || 0;
+    const pct = Math.min(96, Math.round(pledged / (p.batch || 300) * 100));
+    return `<div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Pre-order · batch open</span></div>
+      <div class="bar100"><i style="width:${pct}%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Ships in about <b>${p.eta} days</b> · ${pledged} of ${p.batch || 300} pledged</span></div>`;
+  }
+  if (p.stock === 0) {
+    return `<div class="avail avail--bad" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--bad"></i><span>Out of stock</span></div>
+      <span class="avail__ship">Back in stock ${etaDate(14)}</span></div>`;
+  }
+  if (p.stock <= 10) {
+    return `<div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Only ${p.stock} left</span></div>
+      <div class="bar100"><i style="width:${Math.round(p.stock / 10 * 100)}%"></i></div>
+      <span class="avail__eta">Get it by <b>${etaDate(p.eta)}</b></span></div>`;
+  }
+  return `<div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>In stock · ${p.stock.toLocaleString(loc() || 'en-US')}</span></div>
+    <span class="avail__eta">Get it by <b>${etaDate(p.eta)}</b></span>
+    <span class="avail__ship">Free delivery over ${money(FREE_DELIVERY_USD)}</span></div>`;
+}
+
+// actions — slot 10
+function actionBlock(p) {
+  const oos = p.stock === 0 && p.mode !== 'pre';
+  let btn;
+  if (p.mode === 'b2b') {
+    btn = `<button class="btn btn--accent" data-quote="${p.id}">Request quote</button>
+      <button class="btn btn--ghost" data-add="${p.id}">Add lot of ${p.moq}</button>`;
+  } else if (p.mode === 'pre') {
+    btn = `<button class="btn btn--accent" data-add="${p.id}">Reserve in pre-order</button>`;
+  } else if (oos) {
+    btn = `<button class="btn btn--primary" disabled>Out of stock</button>
+      <button class="btn btn--ghost" data-notify="${p.id}">Notify me</button>`;
+  } else {
+    btn = `<button class="btn btn--primary" data-add="${p.id}">Add to enquiry</button>`;
+  }
+  return `<div class="card__actions" data-slot="actions">${btn}</div>`;
+}
+
+// meta — slot 9
+function metaBlock(p) {
+  const bits = [`<span><b>SKU</b> ${p.sku}</span>`];
+  // Мастер = продавец: у хендмейда в мете тот же человек, чьё имя стоит
+  // в eyebrow, поэтому строка «Sold by» дублирует его явно — для доверия
+  // и для B2B, где важно, кто именно отгружает.
+  if (p.mode === 'marketplace') bits.push(`<span><b>Sold by</b> ${esc(p.seller)}</span>`);
+  if (p.mode === 'handmade') {
+    bits.push(`<span><b>Sold by</b> ${esc(p.maker || p.brand)}</span>`);
+    bits.push(`<span><b>Made to order</b> ${p.eta} days</span>`);
+  }
+  if (p.mode === 'b2b') bits.push(`<span><b>MOQ</b> ${p.moq} pcs</span>`);
+  bits.push(`<span><b>From</b> ${p.wh}</span>`);
+  bits.push(`<span><b>Origin</b> ${originName(p.madeIn)}</span>`);
+  return `<div class="card__meta" data-slot="meta">${bits.join('')}</div>`;
+}
+
+/**
+ * The card. opts: {compact, feature, state}
+ * state overrides used by the Card system gallery.
+ */
+function card(p, opts = {}) {
+  const n = subName(p);
+  const cls = ['card'];
+  if (opts.compact) cls.push('card--compact');
+  if (opts.feature) cls.push('card--feature');
+  if (opts.state) cls.push(`card--${opts.state}`);
+  if (p.mode === 'b2b') cls.push('card--b2b');
+  if (p.mode === 'pre') cls.push('card--pre');
+  if (p.stock === 0 && p.mode !== 'pre') cls.push('card--oos');
+
+  const eyebrow = opts.hideEyebrow ? '' : `<div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">${esc(p.brand)}</span><span aria-hidden="true">·</span><span>${n.dept}</span>
+      ${p.maker ? `<span class="card__maker">by ${esc(p.maker)}</span>` : ''}
+    </div>`;
+
+  const favOn = S.favs.has(p.id);
+  const a = opts.noMedia ? '' : `<div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="${tintBg(n.idx, false)}" data-art="${n.idx}">${art(p.sub, n.idx, false)}</span>
+      <span class="card__art card__art--b" style="${tintBg(n.idx, true)}" data-art="${n.idx}">${art(p.sub, n.idx, true)}</span>
+      ${badges(p)}
+      <button class="fav" data-fav="${p.id}" aria-pressed="${favOn}" aria-label="${favOn ? 'Remove from' : 'Save to'} wishlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="${p.id}" tabindex="-1">Quick view</button>
+    </div>`;
+
+  // Навигационные data-dept/data-sub здесь намеренно НЕ используются —
+  // они принадлежат плиткам разделов и футеру, иначе любой клик по
+  // карточке перехватывался бы как переход по каталогу.
+  return `<article class="${cls.join(' ')}" data-id="${p.id}" data-mode="${p.mode}">
+    ${a}
+    <div class="card__body">
+      ${eyebrow}
+      <h3 class="card__title" data-slot="title" title="${esc(p.title)}">
+        <a href="${NAV.product(p.sku)}">${esc(p.title)}</a></h3>
+      ${p.mode !== 'retail' || opts.feature || opts.list ? `<p class="card__desc" data-slot="desc">${esc(p.desc)}</p>` : ''}
+      ${priceBlock(p)}
+      ${varBlock(p)}
+      ${availBlock(p)}
+      ${metaBlock(p)}
+      ${actionBlock(p)}
+    </div>
+  </article>`;
+}
+
+function skeleton() {
+  return `<div class="sk" aria-hidden="true">
+    <div class="sk__l sk__media"></div>
+    <div class="sk__pad">
+      <div class="sk__l" style="height:11px;width:44%"></div>
+      <div class="sk__l" style="height:16px"></div>
+      <div class="sk__l" style="height:16px;width:72%"></div>
+      <div class="sk__l" style="height:12px;width:38%"></div>
+      <div class="sk__l" style="height:22px;width:52%"></div>
+      <div class="sk__l" style="height:38px;border-radius:999px"></div>
+    </div></div>`;
+}
+
+// ============================================================
+// FILTER + SORT
+// ============================================================
+function filtered() {
+  const q = S.q.trim().toLowerCase();
+  let out = visFiltered().filter(p => {
+    if (S.dept !== 'all' && p.dept !== S.dept) return false;
+    if (S.sub !== 'all' && p.sub !== S.sub) return false;
+    if (S.stock.size) {
+      const k = p.mode === 'pre' ? 'pre' : p.stock === 0 ? 'oos' : p.stock <= 10 ? 'low' : 'in';
+      if (!S.stock.has(k)) return false;
+    }
+    if (S.brand.size && !S.brand.has(p.brand)) return false;
+    if (S.mode.size && !S.mode.has(p.mode)) return false;
+    if (S.price !== 'all') {
+      const [lo, hi] = S.price.split('-').map(Number);
+      if (p.price < lo || p.price > hi) return false;
+    }
+    if (q) {
+      const n = subName(p);
+      // Индекс поиска двуязычный: в русской версии ищем и по переводу,
+      // иначе запрос «пряжа» не нашёл бы «Merino Worsted Yarn».
+      const ru = S.lang === 'ru'
+        ? [ruCore(p.title), ruCore(p.desc), ruCore(n.sub), ruCore(n.dept), ruCore(MODE_LABEL[p.mode])].filter(Boolean).join(' ')
+        : '';
+      const hay = `${p.title} ${p.brand} ${p.maker || ''} ${p.sku} ${n.sub} ${n.dept} ${MODE_LABEL[p.mode]} ${ru}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Сортировки по рейтингу и числу отзывов нет: сортировать по выдуманным
+  // оценкам — то же самое, что показывать их (правила 03, вопрос 13).
+  const cmp = {
+    featured: (a, b) => (b.top ? 1 : 0) - (a.top ? 1 : 0) || a.title.localeCompare(b.title),
+    'price-asc': (a, b) => a.price - b.price,
+    'price-desc': (a, b) => b.price - a.price,
+    new: (a, b) => (b.rel || '0').localeCompare(a.rel || '0'),
+  }[S.sort];
+  return out.sort(cmp);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderDeps() {
+  el('deps').innerHTML = DEPTS.map(d => {
+    // считаем только из видимых товаров
+    const n = visFiltered().filter(p => p.dept === d.id).length;
+    const on = S.dept === d.id;
+    const visible = S.vis.depts[d.id];
+    const inner = `
+        <span class="dep__icon">${DEPICON[d.icon]}</span>
+        <span class="dep__nm">${d.name}</span>
+        <span class="dep__n">${n} items · ${d.blurb}</span>`;
+    // В серверной сборке раздел — ссылка на свою страницу: без JavaScript
+    // навигация остаётся (чек-лист 1.5, «текст страницы есть в ответе
+    // сервера»). В однофайловом демо это кнопка фильтра.
+    const head = NAV.static
+      ? `<a class="dep__main" href="${NAV.dept(d.id)}"${on ? ' aria-current="page"' : ''}>${inner}</a>`
+      : `<button class="dep__main" data-dept="${d.id}" aria-pressed="${on}" ${visible ? '' : 'disabled'}>${inner}</button>`;
+    return `<div class="dep" data-on="${on}" data-dept="${d.id}" style="${visible ? '' : 'opacity:.35;pointer-events:none'}">
+      ${head}
+      <div class="dep__sub" aria-label="${d.name} subsections">${d.subs.map(s =>
+      NAV.static
+        ? `<a href="${NAV.section(d.id, s.id)}"${S.dept === d.id && S.sub === s.id ? ' aria-current="page"' : ''}>${s.name}</a>`
+        : `<button data-dept="${d.id}" data-sub="${s.id}" ${S.vis.subs[s.id] ? '' : 'disabled'}>${s.name}</button>`).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+// Подсветка выбранного раздела. Плитки перерисовываются только при смене
+// конфигурации, а при навигации состояние разносим точечно: иначе data-on
+// залипает на разделе, который был активен в момент последней перерисовки,
+// и подсвечивается не тот блок, на который нажал пользователь.
+// Точечное обновление вместо innerHTML сохраняет фокус на кнопке раздела.
+function syncDeps() {
+  // На серверных страницах переход по разделу меняет URL, а не состояние
+  // плитки: пересинхронизировать нечего, а aria-pressed ссылке не положен.
+  if (NAV.static) return;
+  document.querySelectorAll('#deps .dep').forEach(node => {
+    const id = node.dataset.dept;
+    const on = S.dept === id;
+    const visible = S.vis.depts[id] !== false;
+    node.dataset.on = String(on);
+    node.style.opacity = visible ? '' : '.35';
+    node.style.pointerEvents = visible ? '' : 'none';
+    const main = node.querySelector('.dep__main');
+    if (main) {
+      main.setAttribute('aria-pressed', String(on));
+      main.disabled = !visible;
+    }
+    node.querySelectorAll('[data-sub]').forEach(sb => {
+      sb.disabled = S.vis.subs[sb.dataset.sub] === false;
+    });
+  });
+}
+
+const DEPICON = {
+  chip: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>',
+  home: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>',
+  needle: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 4L8 16"/><circle cx="6" cy="18" r="3"/><path d="M20 4l-2 6"/></svg>',
+  mountain: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20l7-12 5 8 3-4 5 8z"/><circle cx="18" cy="6" r="2"/></svg>',
+};
+
+function renderCrumbs() {
+  const d = DEPTS.find(x => x.id === S.dept);
+  const s = d && d.subs.find(x => x.id === S.sub);
+  const parts = [NAV.static
+    ? `<a href="${NAV.home()}">Catalogue</a>`
+    : `<button data-crumb="all">Catalogue</button>`];
+  if (S.q.trim()) {
+    parts.push(`<span aria-hidden="true">/</span><b>Search “${esc(S.q.trim())}”</b>`);
+    el('crumbs').innerHTML = parts.join('');
+    return;
+  }
+  if (d) parts.push(`<span aria-hidden="true">/</span>` + (NAV.static
+    ? `<a href="${NAV.dept(d.id)}">${d.name}</a>`
+    : `<button data-crumb="${d.id}" data-sub="all">${d.name}</button>`));
+  if (s) parts.push(`<span aria-hidden="true">/</span><b>${s.name}</b>`);
+  else if (d) parts.push(`<span aria-hidden="true">/</span><b>All ${d.name.toLowerCase()}</b>`);
+  el('crumbs').innerHTML = parts.join('');
+}
+
+function renderSubs() {
+  const box = el('subs');
+  if (S.dept === 'all') {
+    // no subsection row until a department is chosen — matches the
+    // marketplace habit of "pick a department first"
+    box.innerHTML = '';
+    box.style.display = 'none';
+    return;
+  }
+  box.style.display = 'flex';
+  const dept = DEPTS.find(d => d.id === S.dept);
+  const list = dept.subs.filter(s => S.vis.subs[s.id]);
+  const total = visFiltered().filter(p => p.dept === S.dept).length;
+  box.innerHTML = [
+    NAV.static
+      ? `<a class="pill" href="${NAV.dept(dept.id)}"${S.sub === 'all' ? ' aria-current="page"' : ''}>All ${dept.name} <span>${total}</span></a>`
+      : `<button class="pill" data-sub="all" aria-pressed="${S.sub === 'all'}">All ${dept.name} <span>${total}</span></button>`,
+    ...list.map(s => {
+      const n = visFiltered().filter(p => p.dept === S.dept && p.sub === s.id).length;
+      return NAV.static
+        ? `<a class="pill" href="${NAV.section(S.dept, s.id)}"${S.sub === s.id ? ' aria-current="page"' : ''}>${s.name} <span>${n}</span></a>`
+        : `<button class="pill" data-sub="${s.id}" aria-pressed="${S.sub === s.id}">${s.name} <span>${n}</span></button>`;
+    })].join('');
+}
+
+function renderFilters() {
+  const brands = [...new Set(P.map(p => p.brand))].sort();
+  el('fStock').innerHTML = [['in', 'In stock'], ['low', 'Low stock'], ['oos', 'Out of stock'], ['pre', 'Pre-order']]
+    .map(([k, l]) => `<label class="check"><input type="checkbox" value="${k}" ${S.stock.has(k) ? 'checked' : ''}>${l}</label>`).join('');
+  el('fBrand').innerHTML = brands.map(b =>
+    `<label class="check"><input type="checkbox" value="${esc(b)}" ${S.brand.has(b) ? 'checked' : ''}>${esc(b)}</label>`).join('');
+  el('fMode').innerHTML = Object.entries(MODE_LABEL).map(([k, l]) =>
+    `<label class="check"><input type="checkbox" value="${k}" ${S.mode.has(k) ? 'checked' : ''}>${l}</label>`).join('');
+  el('fPrice').innerHTML = PRICE_BANDS.map(([k, l]) =>
+    `<button class="toggle" data-price="${k}" aria-pressed="${S.price === k}">${l}</button>`).join('');
+}
+
+function renderActive() {
+  const t = [];
+  if (S.q) t.push(['q', `“${S.q}”`]);
+  if (S.stock.size) [...S.stock].forEach(k => t.push(['stock:' + k, ({ in: 'In stock', low: 'Low stock', oos: 'Out of stock', pre: 'Pre-order' })[k]]));
+  if (S.brand.size) [...S.brand].forEach(b => t.push(['brand:' + b, b]));
+  if (S.mode.size) [...S.mode].forEach(m => t.push(['mode:' + m, MODE_LABEL[m]]));
+  if (S.price !== 'all') t.push(['price', PRICE_BANDS.find(x => x[0] === S.price)[1]]);
+  el('active').innerHTML = t.length
+    ? t.map(([k, l]) => `<span class="tag">${esc(l)}<button data-clear="${esc(k)}" aria-label="Remove filter ${esc(l)}">×</button></span>`).join('')
+    + `<button class="toggle" data-clearall>Clear all</button>`
+    : '';
+}
+
+function renderGrid() {
+  const list = filtered();
+  const slice = list.slice(0, S.shown);
+  el('grid').innerHTML = slice.map(p => card(p, { list: S.view === 'list' })).join('') ||
+    `<div style="grid-column:1/-1;text-align:center;padding:var(--s-800) var(--s-300)">
+       <p style="font-size:18px;font-weight:700">Nothing matches these filters</p>
+       <p style="color:var(--muted);margin-top:var(--s-100)">Try clearing a filter or widening the price band.</p>
+       <button class="btn btn--primary" style="max-width:220px;margin:var(--s-300) auto 0" data-clearall>Reset filters</button>
+     </div>`;
+  el('resCount').textContent = list.length
+    ? `Showing ${slice.length} of ${list.length} items${S.dept !== 'all' ? ` in ${DEPTS.find(d => d.id === S.dept).name}` : ''} · prices in USD`
+    : `0 items · prices in USD`;
+  el('endMark').innerHTML = slice.length < list.length
+    ? `<button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">Load 12 more (${list.length - slice.length} left)</button>`
+    : list.length ? `${list.length} items · end of catalogue` : '';
+
+  const d = DEPTS.find(x => x.id === S.dept);
+  el('pageTitle').textContent = S.q.trim() ? `Search: "${S.q.trim()}"`
+    : S.sub !== 'all' ? d.subs.find(s => s.id === S.sub).name
+      : d ? d.name : 'Catalogue';
+  const visTotal = visFiltered().length;
+  el('pageMeta').innerHTML = `<span>${visTotal} SKUs live</span><span>${DEPTS.filter(d => S.vis.depts[d.id]).length} departments</span>
+    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>
+    <span>${Object.keys(MODE_LABEL).length} content modes</span><span>${d ? d.blurb : 'Retail · marketplace · handmade · wholesale · pre-order'}</span>`;
+}
+
+// ============================================================
+// CARD SYSTEM — anatomy, modes, states, sizes
+// ============================================================
+const SLOTS = [
+  ['media', 'Media', '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.', '.card__media'],
+  ['badges', 'Badges', 'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.', '.card__badges'],
+  ['eyebrow', 'Brand / maker', 'Brand for retail, maker name for handmade. Both are links in production.', '.card__eyebrow'],
+  ['title', 'Title', 'Two lines, clamped. Full string stays in the accessible name.', '.card__title'],
+  ['desc', 'Short description', 'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.', '.card__desc'],
+  ['price', 'Price', 'Now, previous, saving, unit price, tier table. Tabular figures, one currency: USD.', '.price'],
+  ['variants', 'Variants', 'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.', '.vars'],
+  ['avail', 'Availability', 'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.', '.avail'],
+  ['meta', 'Meta', 'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.', '.card__meta'],
+  ['actions', 'Actions', 'Last slot, pinned to the bottom. One primary verb per mode: add to enquiry, reserve, request quote, notify me.', '.card__actions'],
+];
+
+function renderAnatomy() {
+  el('slots').innerHTML = SLOTS.map(([k, n, d, sel], i) =>
+    `<button class="slot" data-hl="${k}"><i>${i + 1}</i><span><b>${n}</b><span>${d}</span>
+      <em>${sel} / [data-slot="${k}"]</em></span></button>`).join('');
+  const demo = P.find(p => p.id === 'AUD-Q20');
+  el('anatomyStage').innerHTML = card(demo, { feature: false });
+}
+
+function renderModes() {
+  const rows = [
+    ['Retail', 'Own stock, own brand', 'Add to enquiry · free-delivery threshold · tier table on bulk', P.find(p => p.mode === 'retail')],
+    ['Marketplace', 'Third-party seller', 'Sold by + warehouse in meta, platform never promises credit', P.find(p => p.mode === 'marketplace')],
+    ['Handmade', 'Maker, small batch', 'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock', P.find(p => p.mode === 'handmade')],
+    ['B2B wholesale', 'Tender / supplier buyer', 'Unit price with taxes and duties inside, tier table, MOQ, Request quote replaces Add to enquiry', P.find(p => p.mode === 'b2b')],
+    ['Pre-order', 'Batch not produced yet', 'Progress bar, pledged %, ships-in date, Reserve replaces Add to enquiry', P.find(p => p.mode === 'pre')],
+  ];
+  el('modesTable').innerHTML = `<thead><tr><th>Mode</th><th>Who sells</th><th>What changes in the card</th><th>Example SKU</th></tr></thead>
+    <tbody>${rows.map(([n, w, c, p]) => `<tr><td>${n}</td><td>${w}</td><td>${c}</td>
+    <td><span class="mono">${p.sku}</span> — ${esc(p.title.split(',').slice(0, 1))}</td></tr>`).join('')}</tbody>`;
+}
+
+function renderStates() {
+  const g = [
+    ['Default', P.find(p => p.id === 'HOM-KTL'), {}],
+    ['On sale', P.find(p => p.mode === 'retail' && p.was), {}],
+    ['Low stock', P.find(p => p.id === 'SMH-CAM'), {}],
+    ['Out of stock', P.find(p => p.id === 'LGT-PND'), {}],
+    ['Handmade', P.find(p => p.mode === 'handmade'), {}],
+    ['Marketplace', P.find(p => p.mode === 'marketplace'), {}],
+    ['B2B wholesale', P.find(p => p.mode === 'b2b'), {}],
+    ['Pre-order', P.find(p => p.mode === 'pre'), {}],
+  ];
+  el('states').innerHTML = g.map(([cap, p]) =>
+    `<div><span class="state__cap">${cap}</span>${card(p)}</div>`).join('') +
+    `<div><span class="state__cap">Loading (skeleton)</span>${skeleton()}</div>` +
+    `<div><span class="state__cap">Saved to wishlist</span>${card(Object.assign({}, P.find(p => p.id === 'TEX-TWL')))}</div>`;
+}
+
+function renderSizes() {
+  const p = P.find(x => x.id === 'OPT-BIN');
+  el('sizes').innerHTML = `
+    <div class="sizebox"><h4>Compact</h4><p>5–6 column grids, cross-sell rails, the enquiry list. <code>.card--compact</code></p>
+      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px">${card(p, { compact: true })}</div></div>
+    <div class="sizebox"><h4>Standard</h4><p>The default everywhere: category grid, search results, brand pages. No modifier.</p>
+      ${card(p)}</div>
+    <div class="sizebox"><h4>Feature</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
+      ${card(p, { feature: true })}</div>`;
+}
+
+function renderFoot() {
+  const el$ = el('footGrid');
+  if (!el$) return;
+  const cols = DEPTS.filter(d => S.vis.depts[d.id]).map(d => `<div><h5>${d.name}</h5><ul>
+    ${d.subs.filter(s => S.vis.subs[s.id]).map(s =>
+      `<li><a href="${NAV.section(d.id, s.id)}" data-dept="${d.id}" data-sub="${s.id}">${s.name}</a></li>`).join('')}
+    </ul></div>`);
+
+  // Блок переходов по экосистеме. Два списка, как ответил заказчик
+  // 19.11.2026 14:38: «каталоги и витрины на каждый сайт» + «динамические
+  // витрины» — и отдельно «другие каналы медиа, новостей, группы, тг и
+  // каналы продаж». Пустой список = пустой блок: «пункт без страницы не
+  // показывается» (05-templates/shared-sections-task.md, критерий 2),
+  // выдумывать сайты нельзя (rules/03). kind:'internal' (cms, crm, sb,
+  // factory, paymesh) не попадает ни в один блок — внутренняя архитектура
+  // публично не показывается (схема v0.2 §7, Least Privilege).
+  const shops = HUB.sites.filter(s => (s.kind === 'storefront' || s.kind === 'dynamic') && s.status === 'live');
+  if (shops.length) {
+    cols.push(`<div><h5>Other storefronts</h5><ul>
+      ${shops.map(s =>
+        `<li><a href="${esc(s.url)}" lang="${s.langs?.[0] || HUB.langs.source}">${esc(s.name)}</a>
+         <span>${esc(s.niche)}</span></li>`).join('')}
+      </ul></div>`);
+  }
+
+  const CHANNEL_KINDS = ['service', 'sales', 'media', 'news', 'community', 'telegram'];
+  const channels = HUB.sites.filter(s => CHANNEL_KINDS.includes(s.kind) && s.status === 'live');
+  if (channels.length) {
+    cols.push(`<div><h5>Channels</h5><ul>
+      ${channels.map(s =>
+        `<li><a href="${esc(s.url)}" lang="${s.langs?.[0] || HUB.langs.source}">${esc(s.name)}</a>
+         <span>${esc(s.niche)}</span></li>`).join('')}
+      </ul></div>`);
+  }
+
+  cols.push(`<div><h5>Card system</h5><ul>
+      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Anatomy</a></li>
+      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Content modes</a></li>
+      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">States</a></li>
+      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Sizes</a></li>
+      <li><a href="CATALOG.md">Specification</a></li></ul></div>`);
+
+  el$.innerHTML = cols.join('');
+}
+
+// ============================================================
+// КОНФИГУРАЦИЯ ВИТРИНЫ — только из hub.config.js
+//
+// Раньше набор включённых разделов лежал в localStorage браузера гостя
+// (ключ `catalog-vis`): конфигурация сайта зависела от того, чей браузер
+// её открыл, поисковик видел не согласованный набор, и это же было
+// необязательное хранилище до согласия. Теперь источник — файл сборки
+// (или запись в базе): схема v0.2 §3.6 Configuration Management и §7
+// Least Privilege, чек-лист 1.6 про согласия.
+// ============================================================
+let glassOn = true;
+
+function applyHubConfig() {
+  DEPTS.forEach((d) => {
+    S.vis.depts[d.id] = HUB.catalog.departments[d.id] !== false;
+    d.subs.forEach((s) => { S.vis.subs[s.id] = HUB.catalog.sections[s.id] !== false; });
+  });
+
+  // Декоративный эффект «жидкого стекла»: решалка — системная настройка
+  // прозрачности, выбор посетителя живёт до перезагрузки и никуда не
+  // пишется до согласия на необязательные хранилища.
+  glassOn = window.matchMedia('(prefers-reduced-transparency: no-preference)').matches;
+  if (glassOn) {
+    document.documentElement.dataset.glass = 'on';
+    document.documentElement.classList.add('glass-active');
+    el('glassBtn')?.setAttribute('aria-pressed', 'true');
+  } else {
+    el('glassBtn')?.setAttribute('aria-pressed', 'false');
+  }
+
+  // Панель включения разделов — инструмент демонстрации, а не настройка
+  // покупателя. В бою HUB.demoTools = false, кнопка скрыта.
+  const cfgBtn = el('configBtn');
+  if (cfgBtn) cfgBtn.hidden = !HUB.demoTools;
+}
+
+// products filtered by visibility
+function visFiltered() {
+  const deptVisible = new Set(DEPTS.filter(d => S.vis.depts[d.id]).map(d => d.id));
+  const subVisible = new Set(DEPTS.flatMap(d => d.subs).filter(s => S.vis.subs[s.id]).map(s => s.id));
+  return P.filter(p => deptVisible.has(p.dept) && subVisible.has(p.sub));
+}
+
+// ============================================================
+// DRAWER: unified sidebar (Target-style cascade)
+// mode: 'browse' = navigation, 'configure' = toggle visibility
+// ============================================================
+let drawerHoverDept = null;
+
+function renderDrawer() {
+  const rail = el('drawerRail');
+  const body = el('drawerBody');
+  const mode = el('drawer').dataset.mode || 'browse';
+  const visibleDepts = DEPTS.filter(d => S.vis.depts[d.id]);
+  const activeDept = drawerHoverDept || (S.dept !== 'all' ? S.dept : null);
+
+  // --- Left rail: departments list ---
+  rail.innerHTML = `
+    <h3>${mode === 'configure' ? 'Departments' : 'Departments'}</h3>
+    ${visibleDepts.map(d => {
+    const n = visFiltered().filter(p => p.dept === d.id).length;
+    const isActive = d.id === activeDept;
+    return `<button class="drawer__dept" data-drawer-dept="${d.id}" ${isActive ? 'data-active="true"' : ''}>
+        ${DEPICON[d.icon]}
+        <span>${d.name}</span>
+        <span class="drawer__dept__count">${n}</span>
+      </button>`;
+  }).join('')}
+  `;
+
+  // --- Right body: subsections ---
+  if (mode === 'configure') {
+    // Config mode: all depts, each with expandable subs + switches
+    body.innerHTML = `
+      <div class="drawer__cfg-head">
+        <h2 id="cfgTitle">Catalog configuration</h2>
+        <p class="drawer__cfg-note">Demo tool — changes last until this tab reloads. The storefront section set comes from the site configuration.</p>
+        <div class="drawer__cfg-actions">
+          <button class="btn btn--ghost" id="cfgReset">Reset all</button>
+          <button class="btn btn--primary" id="cfgClose">Done</button>
+        </div>
+      </div>
+      ${DEPTS.map(d => {
+      const n = visFiltered().filter(p => p.dept === d.id).length;
+      return `<div class="cfg-dept" data-drawer-dept="${d.id}" style="${S.vis.depts[d.id] ? '' : 'opacity:.35;pointer-events:none'}">
+          <div class="cfg-dept__head" data-dept-head="${d.id}" role="button" aria-expanded="false" tabindex="0">
+            <span>${d.name}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+          <div class="cfg-dept__body" data-dept-body="${d.id}">
+            ${d.subs.map(s => {
+        const checked = S.vis.subs[s.id];
+        return `<div class="cfg-sub">
+                <span>${s.name}</span>
+                <label class="switch">
+                  <input type="checkbox" data-sub-toggle="${s.id}" ${checked ? 'checked' : ''}>
+                  <span class="switch__track"></span>
+                </label>
+              </div>`;
+      }).join('')}
+          </div>
+        </div>`;
+    }).join('')}
+    `;
+  } else {
+    // Browse mode: show subs of hovered/active dept, click navigates
+    body.innerHTML = `
+      <h3>Subsections</h3>
+      <div id="drawerSubs">
+        ${(activeDept ? visibleDepts.filter(d => d.id === activeDept) : visibleDepts).map(d => {
+      return d.subs.map(s => {
+        const visible = S.vis.subs[s.id];
+        const cnt = visFiltered().filter(p => p.sub === s.id).length;
+        const isActive = d.id === S.dept && s.id === S.sub;
+        return `<button class="drawer__sub" data-drawer-dept="${d.id}" data-drawer-sub="${s.id}" ${visible ? '' : 'disabled'} ${isActive ? 'data-active="true"' : ''}>
+              <span>${s.name}</span>
+              <span class="drawer__sub__count">${cnt}</span>
+            </button>`;
+      }).join('');
+    }).join('')}
+      </div>
+    `;
+  }
+}
+
+function openDrawer(mode) {
+  // mode: 'browse' or 'configure'
+  el('drawer').dataset.mode = mode;
+  el('drawer').dataset.open = 'true';
+  el('drawerScrim').dataset.open = 'true';
+  el('catalogBtn').setAttribute('aria-pressed', 'true');
+  el('catalogBtn').setAttribute('aria-expanded', 'true');
+  renderDrawer();
+  // Scroll to top of drawer
+  el('drawerRail').scrollTop = 0;
+  el('drawerBody').scrollTop = 0;
+}
+
+function closeDrawer() {
+  el('drawer').dataset.open = 'false';
+  el('drawerScrim').dataset.open = 'false';
+  el('catalogBtn').setAttribute('aria-pressed', 'false');
+  el('catalogBtn').setAttribute('aria-expanded', 'false');
+}
+
+function resetConfig() {
+  // Сбрасывать есть на что только в демо-режиме: возвращаем набор из
+  // конфигурации витрины, а не «всё включено» из воздуха.
+  applyHubConfig();
+  renderDrawer();
+  renderDeps();
+  rerender();
+  toast(HUB.demoTools ? 'Visibility restored from the storefront configuration'
+    : 'Catalog sections come from the storefront configuration');
+}
+
+// ============================================================
+// ENQUIRY — заявка вместо покупки.
+// Оплата выключена, пока не определены юрлицо и мерчант (правила 01, О-3),
+// а покупка оформляется заявкой. Каждый глагол карточки ведёт в этот список,
+// поэтому на витрине нет кнопки, которая ничего не делает (чек-лист 1.6).
+// Список живёт в памяти вкладки: в localStorage до согласия на
+// необязательные хранилища ничего не пишем.
+// ============================================================
+function inqAdd(p, qty = 1, note = '') {
+  const line = S.inq.find(x => x.id === p.id && x.note === note);
+  if (line) line.qty += qty;
+  else S.inq.push({ id: p.id, sku: p.sku, title: p.title, price: p.price, qty, note });
+  inqPaint();
+}
+
+function inqRemove(id, note) {
+  S.inq = S.inq.filter(x => !(x.id === id && x.note === note));
+  inqPaint();
+}
+
+const inqCount = () => S.inq.reduce((a, x) => a + x.qty, 0);
+const inqTotal = () => S.inq.reduce((a, x) => a + x.qty * x.price, 0);
+
+function inqText() {
+  return ['Enquiry — Path Home', '']
+    .concat(S.inq.map(x => `${x.sku} · ${x.title} · ${x.qty} × ${money(x.price)} = ${money(x.qty * x.price)}${x.note ? ' · ' + x.note : ''}`))
+    .concat(['', `Total: ${money(inqTotal())}`])
+    .join('\n');
+}
+
+function inqPaint() {
+  const n = el('inqN');
+  if (n) n.textContent = String(inqCount());
+  const box = el('inqBox');
+  if (box) { box.innerHTML = inqHtml(); wireInq(box); }
+}
+
+function inqHtml() {
+  if (!S.inq.length) {
+    return `<h2>Enquiry</h2>
+      <p class="inq__note">The enquiry is empty. “Add to enquiry” on a card puts the item here — this list is what goes to sales.</p>
+      <button class="btn btn--ghost" id="inqClose" type="button">Close</button>`;
+  }
+  const rows = S.inq.map(x => `<div class="inq__row">
+      <span class="grow"><b>${esc(x.sku)}</b> · ${esc(x.title)}${x.note ? ` · ${esc(x.note)}` : ''}</span>
+      <span>${x.qty} × ${money(x.price)}</span>
+      <button class="btn btn--ghost" type="button" data-inq-remove="${esc(x.id)}||${esc(x.note)}">Remove</button>
+    </div>`).join('');
+  return `<h2>Enquiry</h2>
+    <div class="inq__list">${rows}</div>
+    <div class="inq__row"><b>Total</b><span class="grow"></span><b>${money(inqTotal())}</b></div>
+    <p class="inq__note">Payment is switched off until the company and the merchant are chosen. This form prepares a request, not an order, and it never asks for card details.</p>
+    <form class="inq__form" id="inqForm" novalidate>
+      <label for="inqName">Name</label>
+      <input id="inqName" name="name" type="text" autocomplete="name">
+      <label for="inqMail">Email</label>
+      <input id="inqMail" name="email" type="email" autocomplete="email" inputmode="email">
+      <label for="inqMsg">Quantity, terms, delivery country</label>
+      <textarea id="inqMsg" name="msg" rows="3"></textarea>
+      <p class="inq__err" id="inqErr" role="alert" hidden></p>
+      <button class="btn btn--primary" type="submit">Prepare enquiry</button>
+      <button class="btn btn--ghost" type="button" id="inqClose">Close</button>
+    </form>`;
+}
+
+function inqDone() {
+  const body = `From: ${el('inqName').value.trim()} <${el('inqMail').value.trim()}>\n${el('inqMsg').value.trim()}\n\n${inqText()}`;
+  const href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent('Enquiry — Path Home')}&body=${encodeURIComponent(body)}`;
+  const box = el('inqBox');
+  if (!box) return;
+  box.innerHTML = `<h2>Enquiry ready</h2>
+    <div class="inq__done">
+      <p class="inq__note">${LEAD_EMAIL
+        ? 'Open it in your mail client — the address and the text are already filled in.'
+        : 'No sales address is configured for this storefront yet, so the request cannot be sent from the page. Copy the text and send it to your manager.'}</p>
+      ${LEAD_EMAIL ? `<a class="btn btn--primary" id="inqMailLink" href="${href}">Open in email</a>` : ''}
+      <button class="btn btn--accent" type="button" id="inqCopy">Copy enquiry text</button>
+      <button class="btn btn--ghost" type="button" id="inqBack">Back to the enquiry</button>
+      <button class="btn btn--ghost" type="button" id="inqClose">Close</button>
+    </div>
+    <textarea id="inqRaw" class="sr" aria-hidden="true">${esc(body)}</textarea>`;
+  wireInq(box);
+}
+
+function wireInq(root) {
+  root.querySelectorAll('[data-inq-remove]').forEach(b => b.addEventListener('click', () => {
+    const [id, note] = b.dataset.inqRemove.split('||');
+    inqRemove(id, note || '');
+  }));
+  const close = root.querySelector('#inqClose');
+  if (close) close.addEventListener('click', closeModal);
+  const back = root.querySelector('#inqBack');
+  if (back) back.addEventListener('click', () => { const b = el('inqBox'); if (b) { b.innerHTML = inqHtml(); wireInq(b); } });
+  const copy = root.querySelector('#inqCopy');
+  if (copy) copy.addEventListener('click', async () => {
+    const raw = el('inqRaw');
+    const text = raw ? raw.value : inqText();
+    try {
+      await navigator.clipboard.writeText(text);
+      toast('Enquiry text copied');
+    } catch {
+      // clipboard может быть недоступен — оставляем выделенный текст
+      if (raw) { raw.classList.remove('sr'); raw.select(); }
+      toast('Select the text and copy it manually');
+    }
+  });
+  const form = root.querySelector('#inqForm');
+  if (form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const err = el('inqErr');
+    const name = el('inqName').value.trim();
+    const mail = el('inqMail').value.trim();
+    // Ошибка — текстом, не только рамкой (требование доступности)
+    const bad = !name ? 'Name is required.'
+      : !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail) ? 'A valid email is required.' : '';
+    if (bad) { err.textContent = bad; err.hidden = false; el('inqName').focus(); return; }
+    err.hidden = true;
+    inqDone();
+  });
+}
+
+function openEnquiry() {
+  closeModal();
+  const m = document.createElement('div');
+  m.id = 'modal';
+  m.setAttribute('role', 'dialog');
+  m.setAttribute('aria-modal', 'true');
+  m.setAttribute('aria-label', 'Enquiry');
+  m.style.cssText = 'position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:var(--s-200);background:rgba(10,10,14,.55);backdrop-filter:blur(3px)';
+  m.innerHTML = `<div class="inq__box" id="inqBox">${inqHtml()}</div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', (e) => { if (e.target === m) closeModal(); });
+  wireInq(m);
+  const first = el('inqName') || el('inqClose');
+  if (first) first.focus();
+}
+
+// ============================================================
+// WIRING
+// ============================================================
+function rerender() {
+  syncDeps();
+  renderCrumbs();
+  renderSubs();
+  renderFilters();
+  renderActive();
+  renderGrid();
+}
+
+function toast(msg) {
+  const t = el('toast');
+  t.textContent = msg;
+  t.dataset.on = 'true';
+  clearTimeout(t._t);
+  t._t = setTimeout(() => { t.dataset.on = 'false' }, 2200);
+}
+
+const find = (id) => P.find(p => p.id === id);
+
+// close drawer on outside click (scrim)
+document.addEventListener('click', (e) => {
+  const drawer = el('drawer');
+  if (!drawer || drawer.dataset.open !== 'true') return;
+  const scrim = el('drawerScrim');
+  if (scrim && e.target === scrim) { closeDrawer(); return; }
+  // don't close when clicking inside the drawer
+  if (drawer.contains(e.target)) return;
+});
+
+// ESC closes drawer
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (el('drawer').dataset.open === 'true') { closeDrawer(); return; }
+  }
+});
+
+document.addEventListener('click', (e) => {
+  const t = e.target;
+
+  // На серверных страницах навигация — это ссылки: переходим, а не
+  // фильтруем на месте. Фильтрация на месте остаётся однофайловому демо,
+  // где маршрутов нет.
+  const link = t.closest && t.closest('a[href]');
+  if (NAV.static && link && !link.getAttribute('href').startsWith('#')) return;
+
+  // drawer: catalog button opens in browse mode
+  if (t.closest('#catalogBtn')) {
+    const open = el('drawer').dataset.open !== 'true';
+    if (open) openDrawer('browse');
+    else closeDrawer();
+    return;
+  }
+
+  // drawer: gear opens in configure mode
+  if (t.closest('#configBtn')) {
+    openDrawer('configure');
+    return;
+  }
+
+  // drawer: close button (Done)
+  if (t.closest('#cfgClose')) {
+    closeDrawer();
+    return;
+  }
+
+  // drawer: reset button
+  if (t.closest('#cfgReset')) {
+    resetConfig();
+    return;
+  }
+
+  // config: toggle dept body expand in config mode
+  const cfgHead = t.closest('[data-dept-head]');
+  if (cfgHead) {
+    const id = cfgHead.dataset.deptHead;
+    const body = document.querySelector(`[data-dept-body="${id}"]`);
+    const open = body.dataset.open !== 'true';
+    body.dataset.open = String(open);
+    cfgHead.setAttribute('aria-expanded', String(open));
+    return;
+  }
+
+  // drawer: department row click (browse mode) → set S.dept, close drawer
+  const deptBtn = t.closest('[data-drawer-dept]:not([data-drawer-sub]):not(.cfg-dept)');
+  if (deptBtn) {
+    const id = deptBtn.dataset.drawerDept;
+    if (el('drawer').dataset.mode === 'browse') {
+      drawerHoverDept = S.dept === id ? null : id;
+      S.dept = drawerHoverDept || 'all';
+      S.sub = 'all';
+      S.shown = 12;
+      rerender();
+      closeDrawer();
+      if (S.dept !== 'all') el('catalog').scrollIntoView({ block: 'start' });
+    } else {
+      // configure mode: toggle dept visibility
+      S.vis.depts[id] = !S.vis.depts[id];
+      saveConfig();
+      renderDrawer();
+      renderDeps();
+      renderSubs();
+      renderGrid();
+    }
+    return;
+  }
+
+  // drawer: subsection link (browse mode) → set S.dept+S.sub, close drawer
+  const subBtn = t.closest('[data-drawer-sub]');
+  if (subBtn && !subBtn.disabled) {
+    S.dept = subBtn.dataset.drawerDept;
+    S.sub = subBtn.dataset.drawerSub;
+    S.shown = 12;
+    rerender();
+    closeDrawer();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // drawer: subsection toggle (configure mode)
+  const subToggle = t.closest('[data-sub-toggle]');
+  if (subToggle) {
+    const id = subToggle.dataset.subToggle;
+    S.vis.subs[id] = subToggle.checked;
+    renderDrawer();
+    renderDeps();
+    renderSubs();
+    renderGrid();
+    return;
+  }
+
+  // subsection shortcut inside a department tile
+  const subLink = t.closest('#deps [data-dept][data-sub]');
+  if (subLink) {
+    S.dept = subLink.dataset.dept; S.sub = subLink.dataset.sub; S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // department tile
+  const depBtn = t.closest('.dep__main');
+  if (depBtn) {
+    const id = depBtn.dataset.dept;
+    S.dept = S.dept === id ? 'all' : id;
+    S.sub = 'all'; S.shown = 12;
+    rerender();
+    if (S.dept !== 'all') el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // subsection pill
+  const pill = t.closest('#subs [data-sub]');
+  if (pill) { S.sub = pill.dataset.sub; S.shown = 12; rerender(); return; }
+
+  // breadcrumb
+  const cr = t.closest('[data-crumb]');
+  if (cr) {
+    S.dept = cr.dataset.crumb;
+    S.sub = cr.dataset.sub || 'all';
+    S.shown = 12; rerender();
+    if (S.dept === 'all') window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+
+  // footer taxonomy links
+  const fl = t.closest('.foot [data-dept]');
+  if (fl) {
+    S.dept = fl.dataset.dept; S.sub = fl.dataset.sub; S.shown = 12;
+    rerender();
+    el('catalog').scrollIntoView({ block: 'start' });
+    return;
+  }
+
+  // filter chips
+  const pc = t.closest('[data-price]');
+  if (pc) { S.price = S.price === pc.dataset.price ? 'all' : pc.dataset.price; S.shown = 12; renderFilters(); renderActive(); renderGrid(); return; }
+
+  // clear
+  if (t.closest('[data-clearall]')) {
+    S.stock.clear(); S.brand.clear(); S.mode.clear(); S.price = 'all'; S.q = ''; S.shown = 12;
+    el('q').value = '';
+    rerender(); return;
+  }
+  const cl = t.closest('[data-clear]');
+  if (cl) {
+    const k = cl.dataset.clear;
+    if (k === 'q') { S.q = ''; el('q').value = ''; }
+    else if (k.startsWith('stock:')) S.stock.delete(k.slice(6));
+    else if (k.startsWith('brand:')) S.brand.delete(k.slice(6));
+    else if (k.startsWith('mode:')) S.mode.delete(k.slice(5));
+    else if (k === 'price') S.price = 'all';
+    S.shown = 12; rerender(); return;
+  }
+
+  // filters panel
+  if (t.closest('#filterBtn')) {
+    const b = el('filterBtn'), open = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(open));
+    el('filters').dataset.open = String(open);
+    return;
+  }
+
+  // view toggle
+  if (t.closest('#viewBtn')) {
+    const b = el('viewBtn');
+    S.view = S.view === 'grid' ? 'list' : 'grid';
+    b.setAttribute('aria-pressed', String(S.view === 'list'));
+    el('viewLbl').textContent = S.view === 'grid' ? 'List' : 'Grid';
+    // режим описания зависит от вида — сетку перерисовываем целиком
+    renderGrid();
+    el('grid').dataset.view = S.view;
+    return;
+  }
+
+  // language
+  if (t.closest('#langBtn')) {
+    // На серверной странице #langBtn — меню ссылок на 19 версий этой же
+    // страницы: переключать словарь ru↔en здесь нельзя, это сбросило бы
+    // немца на русский.
+    if (NAV.static) return;
+    S.lang = S.lang === 'ru' ? 'en' : 'ru';
+    el('langBtn').setAttribute('aria-pressed', String(S.lang === 'ru'));
+    // на кнопке — язык, на который переключимся
+    el('langLbl').textContent = S.lang === 'ru' ? 'EN' : 'RU';
+    // локаль дат и чисел меняется вместе с языком — перерисовываем то, что её печатает
+    renderGrid(); renderAnatomy(); renderStates(); renderSizes();
+    applyLang();
+    return;
+  }
+
+  // theme
+  if (t.closest('#theme')) {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    el('theme').setAttribute('aria-pressed', String(dark));
+    el('themeLbl').textContent = dark ? 'Light' : 'Dark';
+    document.querySelector('meta[name=theme-color]').setAttribute('content', dark ? '#141417' : '#FFFFFF');
+    renderAnatomy(); renderStates(); renderSizes();
+    return;
+  }
+
+  // brand switcher
+  if (t.closest('#brandBtn')) {
+    const names = ['default', 'nordika', 'kedr', 'volt', 'baltic', 'remesla'];
+    const cur = document.documentElement.dataset.brand;
+    const next = names[(names.indexOf(cur) + 1) % names.length];
+    document.documentElement.dataset.brand = next;
+    el('brandLbl').textContent = next === 'default' ? 'House' : next[0].toUpperCase() + next.slice(1);
+    el('brandBtn').setAttribute('aria-pressed', String(next !== 'default'));
+    toast(next === 'default' ? 'House tokens' : `Tokens switched to ${next} — same card, new brand`);
+    return;
+  }
+
+  // glass toggle — декоративный эффект, выбор живёт до перезагрузки.
+  // В localStorage ничего не пишем: необязательные браузерные хранилища
+  // включаются только после согласия (чек-лист 1.6).
+  if (t.closest('#glassBtn')) {
+    const on = document.documentElement.dataset.glass !== 'on';
+    document.documentElement.dataset.glass = on ? 'on' : 'off';
+    document.documentElement.classList.toggle('glass-active', on);
+    el('glassBtn').setAttribute('aria-pressed', String(on));
+    glassOn = on;
+    return;
+  }
+
+  // load more
+  if (t.closest('#more')) { S.shown += 12; renderGrid(); return; }
+
+  // favourite
+  const fav = t.closest('[data-fav]');
+  if (fav) {
+    const id = fav.dataset.fav, on = !S.favs.has(id);
+    on ? S.favs.add(id) : S.favs.delete(id);
+    fav.setAttribute('aria-pressed', String(on));
+    fav.setAttribute('aria-label', `${on ? 'Remove from' : 'Save to'} wishlist`);
+    toast(on ? 'Saved to wishlist' : 'Removed from wishlist');
+    return;
+  }
+
+  // add to enquiry
+  const add = t.closest('[data-add]');
+  if (add) {
+    const p = find(add.dataset.add);
+    const lot = p.mode === 'b2b' ? p.moq : 1;
+    const label = p.mode === 'pre' ? 'Reserve in pre-order' : p.mode === 'b2b' ? `Add lot of ${p.moq}` : 'Add to enquiry';
+    inqAdd(p, lot, p.mode === 'pre' ? 'Pre-order reservation' : '');
+    add.classList.add('btn--added');
+    add.textContent = `Added ${lot > 1 ? lot + ' pcs' : ''}`.trim();
+    setTimeout(() => { add.classList.remove('btn--added'); add.textContent = label }, 1400);
+    toast(`${p.sku} added to the enquiry — ${money(p.price * lot)}`);
+    return;
+  }
+
+  // B2B quote, restock alert and quick view. Первые два ведут в ту же
+  // заявку: обещать письмо или счёт, которого не происходит, нельзя.
+  const q2 = t.closest('[data-quote]');
+  if (q2) {
+    const p = find(q2.dataset.quote);
+    inqAdd(p, p.moq, 'Request for a wholesale quote');
+    toast(`${p.sku} — quote request added to the enquiry`);
+    openEnquiry();
+    return;
+  }
+  const nt = t.closest('[data-notify]');
+  if (nt) {
+    const p = find(nt.dataset.notify);
+    inqAdd(p, 1, 'Notify when back in stock');
+    toast(`${p.sku} — restock request added to the enquiry`);
+    openEnquiry();
+    return;
+  }
+  const qs = t.closest('[data-quick]');
+  if (qs) { openQuick(find(qs.dataset.quick)); return; }
+
+  // title / card click → quick view
+  const titleLink = t.closest('.card__title a');
+  if (titleLink) {
+    e.preventDefault();
+    openQuick(find(titleLink.closest('.card').dataset.id));
+    return;
+  }
+
+  // variant swatches and sizes
+  const sw = t.closest('.sw');
+  if (sw) {
+    sw.closest('.vars__row').querySelectorAll('.sw').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    sw.setAttribute('aria-pressed', 'true');
+    return;
+  }
+  const sz = t.closest('.sz');
+  if (sz && !sz.disabled) {
+    sz.closest('.vars__row').querySelectorAll('.sz').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    sz.setAttribute('aria-pressed', 'true');
+    return;
+  }
+
+  // anatomy slot hover/click
+  const hl = t.closest('[data-hl]');
+  if (hl) { highlight(hl.dataset.hl, hl); return; }
+
+  if (t.closest('#inqBtn')) { openEnquiry(); return; }
+});
+
+// hover the slot list → highlight inside the demo card
+document.addEventListener('mouseover', (e) => {
+  const hl = e.target.closest('[data-hl]');
+  if (hl) highlight(hl.dataset.hl, hl);
+});
+
+function highlight(key, btn) {
+  document.querySelectorAll('.slot').forEach(s => s.dataset.on = String(s === btn));
+  document.querySelectorAll('#anatomyStage [data-slot]').forEach(n => {
+    n.classList.toggle('hl', n.dataset.slot === key);
+  });
+}
+
+// card keyboard access: Enter on the card body opens quick view
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && el('modal')) closeModal();
+  if (e.key === '/' && document.activeElement !== el('q')) { e.preventDefault(); el('q').focus(); }
+});
+
+// live search — a query always searches the whole catalogue,
+// the way shoppers expect on Amazon / Target: department navigation
+// steps aside for the search
+el('q').addEventListener('input', (e) => {
+  S.q = e.target.value;
+  S.shown = 12;
+  if (S.q.trim()) { S.dept = 'all'; S.sub = 'all'; }
+  rerender();
+});
+el('searchForm').addEventListener('submit', (e) => { e.preventDefault(); el('catalog').scrollIntoView({ block: 'start' }); });
+el('sort').addEventListener('change', (e) => { S.sort = e.target.value; S.shown = 12; renderGrid(); });
+document.addEventListener('change', (e) => {
+  if (e.target.closest('#fStock')) { syncSet(e.target.closest('#fStock'), S.stock); }
+  else if (e.target.closest('#fBrand')) { syncSet(e.target.closest('#fBrand'), S.brand); }
+  else if (e.target.closest('#fMode')) { syncSet(e.target.closest('#fMode'), S.mode); }
+  else return;
+  S.shown = 12; renderActive(); renderGrid();
+});
+
+function syncSet(box, set) {
+  set.clear();
+  box.querySelectorAll('input:checked').forEach(i => set.add(i.value));
+}
+
+// quick view — the card, promoted to feature size, in a dialog
+function openQuick(p) {
+  if (!p) return;
+  closeModal();
+  const m = document.createElement('div');
+  m.id = 'modal';
+  m.setAttribute('role', 'dialog');
+  m.setAttribute('aria-modal', 'true');
+  m.setAttribute('aria-label', p.title);
+  m.style.cssText = 'position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:var(--s-200);background:rgba(10,10,14,.55);backdrop-filter:blur(3px)';
+  m.innerHTML = `<div style="max-height:92vh;overflow:auto;width:min(720px,100%)">
+      ${card(p, { feature: true })}
+      <button class="btn btn--ghost" id="closeM" style="margin-top:var(--s-200)">Close quick view</button></div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click', (e) => { if (e.target === m) closeModal(); });
+  el('closeM').addEventListener('click', closeModal);
+  el('closeM').focus();
+}
+
+function closeModal() { el('modal')?.remove(); }
+
+// ============================================================
+// LIQUID GLASS: mouse tracking + scroll header
+// ============================================================
+
+// Specular highlight follows the cursor on the drawer
+let glassQueued = false;
+function trackGlass(e) {
+  if (glassQueued) return;
+  glassQueued = true;
+  requestAnimationFrame(() => {
+    glassQueued = false;
+    const d = el('drawer');
+    if (!d || d.dataset.open !== 'true') return;
+    const r = d.getBoundingClientRect();
+    d.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    d.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  });
+}
+document.addEventListener('pointermove', trackGlass, { passive: true });
+
+// Header turns glassy once the page is scrolled
+let scrollQueued = false;
+function trackScroll() {
+  if (scrollQueued) return;
+  scrollQueued = true;
+  requestAnimationFrame(() => {
+    scrollQueued = false;
+    const head = document.querySelector('.head');
+    if (!head) return;
+    head.classList.toggle('scrolled', window.scrollY > 8);
+    // specular highlight follows the cursor on the header too
+    if (head.classList.contains('scrolled')) {
+      head.style.setProperty('--gx', '50%');
+      head.style.setProperty('--gy', '50%');
+    }
+  });
+}
+window.addEventListener('scroll', trackScroll, { passive: true });
+
+// Header specular follows the cursor horizontally
+let headGlassQueued = false;
+function trackHeadGlass(e) {
+  if (headGlassQueued) return;
+  headGlassQueued = true;
+  requestAnimationFrame(() => {
+    headGlassQueued = false;
+    const head = document.querySelector('.head.scrolled');
+    if (!head) return;
+    const r = head.getBoundingClientRect();
+    if (e.clientY > r.bottom) return;
+    head.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    head.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  });
+}
+document.addEventListener('pointermove', trackHeadGlass, { passive: true });
+
+// ============================================================
+// INIT
+// ============================================================
+// one SKU starts saved, so the "Saved to wishlist" state in the
+// card-system gallery shows a real pressed state rather than a mock-up
+S.favs.add('TEX-TWL');
+
+// Серверная страница (dist/) уже переведена в ответе. Когда браузер догружает
+// app.js, любой перерисованный блок — крошки, сетка, панель заявки — собирается
+// из английских строк, и без перевода на лету страница съезжала бы обратно на
+// английский (это и поймал check-hydrate.js). Перевод ставится на единственную
+// точку вывода: присваивание innerHTML. Так не надо трогать 27 мест рендера, и
+// правило «текст в ответе сервера есть без JavaScript» от этого не меняется —
+// серверный HTML остаётся серверным.
+(function installRuntimeI18n() {
+  if (typeof window === 'undefined' || !window.__STATIC || !window.__I18N || !window.I18NHtml) return;
+  if (typeof HTMLElement === 'undefined') return;
+  const tr = window.I18NHtml.make(window.__I18N, window.__I18N.templates || []);
+  const d = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+  if (!d || !d.set) return;
+  Object.defineProperty(HTMLElement.prototype, 'innerHTML', {
+    configurable: true,
+    get: d.get,
+    set(v) { d.set.call(this, typeof v === 'string' ? tr.html(v) : v); },
+  });
+})();
+
+// набор разделов — из конфигурации витрины (hub.config.js), не из браузера
+applyHubConfig();
+
+// Серверная страница (dist/) уже нарисована для своего адреса. Скрипт
+// догружается, чтобы фильтр, поиск и панель заявки работали, но стартовое
+// состояние берёт из маршрута сборки: иначе посетитель категории терял бы
+// отбор, а страница товара показывался бы весь раздел.
+const ROUTE = (typeof window !== 'undefined' && window.__ROUTE) || null;
+if (ROUTE) {
+  if (ROUTE.dept) S.dept = ROUTE.dept;
+  if (ROUTE.sub) S.sub = ROUTE.sub;
+  if (ROUTE.shown) S.shown = ROUTE.shown;
+}
+
+renderDeps();
+renderFoot();
+
+const hasCardSystem = !!el('anatomyStage');
+if (hasCardSystem) {
+  renderAnatomy();
+  renderModes();
+  renderStates();
+  renderSizes();
+}
+if (ROUTE && ROUTE.kind === 'product') {
+  // Сетку на странице товара не перерисовываем: там одна feature-карточка,
+  // её нарисовал сервер. Пользовательский фильтр всё равно сработает —
+  // он вызовет renderGrid сам.
+} else {
+  rerender();
+}
+  

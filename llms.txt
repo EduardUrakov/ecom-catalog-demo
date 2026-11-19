@@ -1,0 +1,52 @@
+# Path Home
+
+> Home & living storefront of the Path ecosystem
+> Каталог: 32 SKU в 4 разделах и 16 подразделах.
+> Валюта: USD, цена одна — налоги и пошлины внутри цены (rules/01, вопрос 02).
+> Оплата выключена до решения об юрлице и мерчанте; покупка оформляется заявкой.
+> Статус: закрытый контур, страницы отмечены noindex (rules/03, вопрос 14).
+> Отзывы и рейтинги не публикуются, пока отзывы не настоящие (rules/03, вопрос 13).
+> Card content in this build is placeholder filler for layout acceptance; live records arrive from member storefront catalogues.
+
+## Catalogue
+- [Electronics](/en/c/electronics/): Audio, storage, power, smart home
+- [Home & Kitchen](/en/c/home/): Cookware, appliances, lighting, textiles
+- [Craft & Hobby](/en/c/craft/): Yarn, beading, art supplies, DIY kits
+- [Outdoor & Optics](/en/c/outdoor/): Optics, camping, tools, apparel
+
+## Languages
+- en: English (en-US) — /en/
+- de: Deutsch (de-DE) — /de/
+- fr: Français (fr-FR) — /fr/
+- es: Español (es-ES) — /es/
+- pt: Português (pt-BR) — /pt/
+- it: Italiano (it-IT) — /it/
+- tr: Türkçe (tr-TR) — /tr/
+- ru: Русский (ru-RU) — /ru/
+- zh: 中文 (zh-CN) — /zh/
+- ja: 日本語 (ja-JP) — /ja/
+- ko: 한국어 (ko-KR) — /ko/
+- ar: العربية (ar, right-to-left) — /ar/
+- id: Bahasa Indonesia (id-ID) — /id/
+- hi: हिन्दी (hi-IN) — /hi/
+- vi: Tiếng Việt (vi-VN) — /vi/
+- th: ไทย (th-TH) — /th/
+- sw: Kiswahili (sw) — /sw/
+- ha: Hausa (ha) — /ha/
+- am: አማርኛ (am) — /am/
+Translations beyond English are machine-made from the English source and not yet reviewed by native speakers (rules 04, questions 16-17).
+
+## Machine-readable
+- Каталог по стандарту path-catalog/1.0: /catalog.json
+- Фид товаров (Google Merchant Center): /feed.xml
+- Карта сайта: /sitemap.xml
+
+## Storefronts
+No member storefront has published a catalogue yet — the registry is issued by the platform owner.
+
+## Channels
+- [Vibecode Path](https://vibe.vcpath.us/) (sales)
+- [t.me/vibecode_path](https://t.me/vibecode_path) (telegram)
+
+## Data sources
+Demo item set only. Live records come from member storefronts via /path-catalog/catalog.json (pull-sites.js).
