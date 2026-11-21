@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/aud-q20i/"
+      "name": "着陆页，交钥匙",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SPK 2便携蓝牙音箱，24小时播放时间，IPX7防水",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/aud-spk2/"
+      "name": "着陆页：内容和流量分析",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NVMe SSD驱动器1TB Gen4，7400 MB/s，带散热器",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/sto-nv1t/"
+      "name": "基于PostgreSQL 16的CRM仪表板",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "工业级microSDXC 64GB，耐用等级，10个装",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/sto-car64/"
+      "name": "多项目工作区",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "7口USB集线器，60W电源适配器，编织电缆",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/pow-hub7/"
+      "name": "AI销售代理",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "65W GaN墙壁充电器，3个端口，预购批次4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/pow-pd65/"
+      "name": "AI潜在客户资格认证",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "智能插头2件套，能量计量，Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/smh-plg2/"
+      "name": "n8n场景为您的流程",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "室内安全摄像头2K，隐私快门，本地SD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/smh-cam2/"
+      "name": "销售自动化，交钥匙",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="部门"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/zh/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">电子产品</span>
-        <span class="dep__n">8件商品 · 音频、存储、电源、智能家居</span></a>
-      <div class="dep__sub" aria-label="电子子部分"><a href="/ecom-catalog-demo/zh/c/electronics/audio/">音频</a><a href="/ecom-catalog-demo/zh/c/electronics/storage/">存储与内存</a><a href="/ecom-catalog-demo/zh/c/electronics/power/">电源与电缆</a><a href="/ecom-catalog-demo/zh/c/electronics/smart-home/">智能家居</a></div>
+      <div class="deps" id="deps" role="group" aria-label="部门"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/zh/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8项服务 · 着陆页、CRM仪表板和AI代理</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path子部分"><a href="/ecom-catalog-demo/zh/c/vibecode/landings/">着陆页</a><a href="/ecom-catalog-demo/zh/c/vibecode/crm/">CRM仪表板</a><a href="/ecom-catalog-demo/zh/c/vibecode/agents/">AI代理</a><a href="/ecom-catalog-demo/zh/c/vibecode/automation/">自动化</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/zh/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,78 +3118,41 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">显示 12 个 32 项目 · 价格为 USD</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="STO-NV1" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="SVC-AGT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="保存到愿望清单">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">畅销</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="NVMe SSD驱动器1TB Gen4，7400 MB/s，带散热器">
-        <a href="/ecom-catalog-demo/zh/p/sto-nv1t/">NVMe SSD驱动器1TB Gen4，7400 MB/s，带散热器</a></h3>
+      <h3 class="card__title" data-slot="title" title="AI销售代理">
+        <a href="/ecom-catalog-demo/zh/p/svc-agt1/">AI销售代理</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$98.34</span><span class="price__was">US$114.40</span><span class="price__off">保存 US$16.06</span></div></div>
+      <div class="price__main"><span class="price__ask">根据要求报价</span></div>
+      <span class="price__unit">交钥匙</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 412</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月20日周五</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 韩国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">添加到询价</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间">
-        <a href="/ecom-catalog-demo/zh/p/aud-q20i/">Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 184</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 越南</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">添加到询价</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>接受项目</span></div>
+      <span class="avail__eta">在简报后大约10天开始</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>格式</b> 交钥匙</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">添加到询价</button></div>
     </div>
   </article><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3214,7 +3186,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
@@ -3251,7 +3223,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 640</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">添加到询价</button></div>
@@ -3288,7 +3260,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 2,400</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 秘鲁</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">添加到询价</button></div>
@@ -3325,83 +3297,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
     </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--pre">预购</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="保存到愿望清单">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65W GaN墙壁充电器，3个端口，预购批次4">
-        <a href="/ecom-catalog-demo/zh/p/pow-pd65/">65W GaN墙壁充电器，3个端口，预购批次4</a></h3>
-      <p class="card__desc" data-slot="desc">两个USB-C和一个USB-A，重42克。批次结束时发货。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$35.20</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>预订 · 批次开放</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">大约发货 <b>21 天</b> · 268 的 300 已承诺</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">预订</button></div>
-    </div>
-  </article><article class="card" data-id="POW-HUB" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      
-      <button class="fav" data-fav="POW-HUB" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="POW-HUB" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="7口USB集线器，60W电源适配器，编织电缆">
-        <a href="/ecom-catalog-demo/zh/p/pow-hub7/">7口USB集线器，60W电源适配器，编织电缆</a></h3>
+      <h3 class="card__title" data-slot="title" title="AI潜在客户资格认证">
+        <a href="/ecom-catalog-demo/zh/p/svc-agt2/">AI潜在客户资格认证</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$25.96</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="颜色 1 的 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 2"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">每个任务</span></div>
+      <span class="price__unit">交钥匙</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 1,180</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-HUB7</span><span><b>来自</b> SPB-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="POW-HUB">添加到询价</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>接受项目</span></div>
+      <span class="avail__eta">在简报后大约10天开始</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT2</span><span><b>格式</b> 交钥匙</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">添加到询价</button></div>
     </div>
   </article><article class="card card--b2b" data-id="CRF-MUL" data-mode="b2b">
     <div class="card__media" data-slot="media">
@@ -3434,48 +3369,47 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 410</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-MUL24</span><span><b>MOQ</b> 5 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="CRF-MUL">请求报价</button>
       <button class="btn btn--ghost" data-add="CRF-MUL">添加大量 5</button></div>
     </div>
-  </article><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article><article class="card" data-id="SVC-N8N" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">市场</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="保存到愿望清单">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-N8N" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="SVC-N8N" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2便携蓝牙音箱，24小时播放时间，IPX7防水">
-        <a href="/ecom-catalog-demo/zh/p/aud-spk2/">SPK 2便携蓝牙音箱，24小时播放时间，IPX7防水</a></h3>
-      <p class="card__desc" data-slot="desc">12W立体声与被动低音辐射器。可配对两个单元以实现真实立体声。</p>
+      <h3 class="card__title" data-slot="title" title="n8n场景为您的流程">
+        <a href="/ecom-catalog-demo/zh/p/svc-n8n1/">n8n场景为您的流程</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">根据要求报价</span></div>
+      <span class="price__unit">交钥匙</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 62</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>销售商</b> SoundLab</span><span><b>来自</b> SPB-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">添加到询价</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>接受项目</span></div>
+      <span class="avail__eta">在简报后大约12天开始</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-N8N1</span><span><b>格式</b> 交钥匙</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-N8N">添加到询价</button></div>
     </div>
   </article><article class="card" data-id="APP-JKT" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3509,7 +3443,7 @@
       </div><div class="vars__row"><span class="vars__lb">尺寸</span><button class="sz" aria-pressed="false" disabled title="Sold out">XS</button><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button><button class="sz" aria-pressed="false" disabled title="Sold out">XXL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 74</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-JKT-M</span><span><b>来自</b> SPB-2</span><span><b>来源</b> 越南</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-JKT">添加到询价</button></div>
@@ -3545,11 +3479,84 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 1,600</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-SHP22</span><span><b>MOQ</b> 20 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">请求报价</button>
       <button class="btn btn--ghost" data-add="OPT-SHP">添加大量 20</button></div>
+    </div>
+  </article><article class="card" data-id="HOM-WAF" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      
+      <button class="fav" data-fav="HOM-WAF" aria-pressed="false" aria-label="保存到愿望清单">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="HOM-WAF" tabindex="-1">快速查看</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>家居与厨房</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="华夫饼机，4个盘，180°平压，铸造格栅">
+        <a href="/ecom-catalog-demo/zh/p/hom-waf4/">华夫饼机，4个盘，180°平压，铸造格栅</a></h3>
+      
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">US$69.74</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 2"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="颜色 2 的 2"></button>
+      </div></div>
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 118</span></div>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__ship">满 US$80.00 免运费</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-WAF4</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-WAF">添加到询价</button></div>
+    </div>
+  </article><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--pre">预购</span></div>
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="保存到愿望清单">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">快速查看</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>手工艺与爱好</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="卷纸框织机，改进张力，预购">
+        <a href="/ecom-catalog-demo/zh/p/kit-qui2/">卷纸框织机，改进张力，预购</a></h3>
+      <p class="card__desc" data-slot="desc">在第一次售罄后进行第二次生产。300个单位承诺时关闭。</p>
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">US$30.25</span></div></div>
+      
+      <div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>预订 · 批次开放</span></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">大约发货 <b>18 天</b> · 121 的 300 已承诺</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">预订</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">加载 12 个更多（剩 20 个）</button></div>
@@ -3577,42 +3584,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>元数据</b><span>SKU，卖家，仓库，原产国。B2B 和市场的信任层。</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>操作</b><span>最后一个插槽，固定在底部。每种模式一个主要动词：添加到询价，预留，请求报价，通知我。</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="保存到愿望清单">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间">
-        <a href="/ecom-catalog-demo/zh/p/aud-q20i/">Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间</a></h3>
+      <h3 class="card__title" data-slot="title" title="搪瓷调料壶300毫升，奶油色，适用于感应炉">
+        <a href="/ecom-catalog-demo/zh/p/hom-ktl30/">搪瓷调料壶300毫升，奶油色，适用于感应炉</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="颜色 3 的 3"></button>
+    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">保存 US$5.55</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 184</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 越南</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">添加到询价</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
     </div>
   </article></div>
         </div>
@@ -3656,84 +3663,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
     </div>
-  </article></div><div><span class="state__cap">特价</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">特价</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="保存到愿望清单">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间">
-        <a href="/ecom-catalog-demo/zh/p/aud-q20i/">Q20混合主动噪声取消耳机，耳罩式，蓝牙5.3，40小时播放时间</a></h3>
+      <h3 class="card__title" data-slot="title" title="搪瓷调料壶300毫升，奶油色，适用于感应炉">
+        <a href="/ecom-catalog-demo/zh/p/hom-ktl30/">搪瓷调料壶300毫升，奶油色，适用于感应炉</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="颜色 3 的 3"></button>
+    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">保存 US$5.55</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 184</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 越南</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">添加到询价</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
     </div>
-  </article></div><div><span class="state__cap">库存低</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">库存低</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">市场</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="保存到愿望清单">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--hand">手工制作</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>电子产品</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>家居与厨房</span>
+      <span class="card__maker">由 Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="室内安全摄像头2K，隐私快门，本地SD">
-        <a href="/ecom-catalog-demo/zh/p/smh-cam2/">室内安全摄像头2K，隐私快门，本地SD</a></h3>
-      <p class="card__desc" data-slot="desc">无需云订阅。物理镜头快门和设备上的人脸检测。</p>
+      <h3 class="card__title" data-slot="title" title="手工陶瓷混合碗套装，3件">
+        <a href="/ecom-catalog-demo/zh/p/hom-mix8/">手工陶瓷混合碗套装，3件</a></h3>
+      <p class="card__desc" data-slot="desc">轮制石器，食品安全哑光釉。每套在小批量中烧制。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$41.25</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="颜色 1 的 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 2"></button>
+    <div class="price__main"><span class="price__now">US$57.20</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="颜色 3 的 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>仅剩 6</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>销售商</b> SafeNest</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">添加到询价</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>仅剩 3</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>销售商</b> Kuznetsova Studio</span><span><b>定制</b> 6 天</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">添加到询价</button></div>
     </div>
   </article></div><div><span class="state__cap">缺货</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3767,7 +3774,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>缺货</span></div>
-      <span class="avail__ship">重新上架 12月3日周四</span></div>
+      <span class="avail__ship">重新上架 12月5日周六</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 德国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>缺货</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">通知我</button></div>
@@ -3805,119 +3812,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>仅剩 3</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span></div>
+      <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>销售商</b> Kuznetsova Studio</span><span><b>定制</b> 6 天</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">添加到询价</button></div>
     </div>
-  </article></div><div><span class="state__cap">市场</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">市场</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">市场</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="保存到愿望清单">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>手工艺与爱好</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2便携蓝牙音箱，24小时播放时间，IPX7防水">
-        <a href="/ecom-catalog-demo/zh/p/aud-spk2/">SPK 2便携蓝牙音箱，24小时播放时间，IPX7防水</a></h3>
-      <p class="card__desc" data-slot="desc">12W立体声与被动低音辐射器。可配对两个单元以实现真实立体声。</p>
+      <h3 class="card__title" data-slot="title" title="婴儿羊驼混合DK，200克锥，云灰色">
+        <a href="/ecom-catalog-demo/zh/p/crf-alpa/">婴儿羊驼混合DK，200克锥，云灰色</a></h3>
+      <p class="card__desc" data-slot="desc">22%羊驼在丙烯酸核心上——无痒感的光环。按锥出售，适合针织工作室。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="颜色 3 的 3"></button>
+    <div class="price__main"><span class="price__now">US$26.95</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 3 的 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 62</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 148</span></div>
+    <span class="avail__eta">在...之前收到 <b>11月26日周四</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>销售商</b> SoundLab</span><span><b>来自</b> SPB-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">添加到询价</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>销售商</b> Fibra Andina</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 秘鲁</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">添加到询价</button></div>
     </div>
-  </article></div><div><span class="state__cap">B2B 批发</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">B2B 批发</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">批发</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="保存到愿望清单">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="工业级microSDXC 64GB，耐用等级，10个装">
-        <a href="/ecom-catalog-demo/zh/p/sto-car64/">工业级microSDXC 64GB，耐用等级，10个装</a></h3>
-      <p class="card__desc" data-slot="desc">写入耐久性适用于行车记录仪和POS终端。以十个单位的零售盒供应。</p>
+      <h3 class="card__title" data-slot="title" title="铸铁烤盘28厘米，预调味，酒店级">
+        <a href="/ecom-catalog-demo/zh/p/hom-pan28/">铸铁烤盘28厘米，预调味，酒店级</a></h3>
+      <p class="card__desc" data-slot="desc">沙铸，耐260°C烤箱。每箱包装六个单位，适合餐饮买家。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$10.89</span></div><span class="price__unit">每单位 · 包含税费</span><div class="price__tiers"><span><b>10+</b> US$10.89</span><span><b>50+</b> US$10.01</span><span><b>200+</b> US$9.24</span></div></div>
+    <div class="price__main"><span class="price__now">US$45.10</span></div><span class="price__unit">每单位 · 包含税费</span><div class="price__tiers"><span><b>6+</b> US$45.10</span><span><b>24+</b> US$40.92</span><span><b>60+</b> US$37.29</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 980</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 240</span></div>
+    <span class="avail__eta">在...之前收到 <b>11月26日周四</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">请求报价</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">添加大量 10</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 俄罗斯</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">请求报价</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">添加大量 6</button></div>
     </div>
-  </article></div><div><span class="state__cap">预购</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">预购</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--pre">预购</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="保存到愿望清单">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="保存到愿望清单">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">快速查看</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">快速查看</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>电子产品</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>手工艺与爱好</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65W GaN墙壁充电器，3个端口，预购批次4">
-        <a href="/ecom-catalog-demo/zh/p/pow-pd65/">65W GaN墙壁充电器，3个端口，预购批次4</a></h3>
-      <p class="card__desc" data-slot="desc">两个USB-C和一个USB-A，重42克。批次结束时发货。</p>
+      <h3 class="card__title" data-slot="title" title="卷纸框织机，改进张力，预购">
+        <a href="/ecom-catalog-demo/zh/p/kit-qui2/">卷纸框织机，改进张力，预购</a></h3>
+      <p class="card__desc" data-slot="desc">在第一次售罄后进行第二次生产。300个单位承诺时关闭。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$35.20</span></div></div>
+    <div class="price__main"><span class="price__now">US$30.25</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>预订 · 批次开放</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">大约发货 <b>21 天</b> · 268 的 300 已承诺</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">预订</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">大约发货 <b>18 天</b> · 121 的 300 已承诺</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">预订</button></div>
     </div>
   </article></div><div><span class="state__cap">加载中（骨架）</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3960,7 +3967,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 640</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">添加到询价</button></div>
@@ -4002,7 +4009,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
@@ -4041,7 +4048,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
@@ -4080,7 +4087,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月22日周日</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
@@ -4134,8 +4141,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>电子产品</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/electronics/audio/" data-dept="electronics" data-sub="audio">音频</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/storage/" data-dept="electronics" data-sub="storage">存储与内存</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/power/" data-dept="electronics" data-sub="power">电源与电缆</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">智能家居</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/zh/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">着陆页</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM仪表板</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AI代理</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">自动化</a></li>
     </ul></div><div><h5>家居与厨房</h5><ul>
     <li><a href="/ecom-catalog-demo/zh/c/home/cookware/" data-dept="home" data-sub="cookware">炊具与准备</a></li><li><a href="/ecom-catalog-demo/zh/c/home/appliances/" data-dept="home" data-sub="appliances">小型电器</a></li><li><a href="/ecom-catalog-demo/zh/c/home/lighting/" data-dept="home" data-sub="lighting">照明</a></li><li><a href="/ecom-catalog-demo/zh/c/home/textiles/" data-dept="home" data-sub="textiles">纺织品</a></li>
     </ul></div><div><h5>手工艺与爱好</h5><ul>

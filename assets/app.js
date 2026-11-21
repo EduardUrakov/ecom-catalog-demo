@@ -48,9 +48,9 @@ const HUB = {
   // Набор разделов и подразделов витрины. Это конфигурация сайта:
   // посетитель её не меняет.
   catalog: {
-    departments: { electronics: true, home: true, craft: true, outdoor: true },
+    departments: { vibecode: true, home: true, craft: true, outdoor: true },
     sections: {
-      'audio': true, 'storage': true, 'power': true, 'smart-home': true,
+      'landings': true, 'crm': true, 'agents': true, 'automation': true,
       'cookware': true, 'appliances': true, 'lighting': true, 'textiles': true,
       'yarn': true, 'beading': true, 'art-supplies': true, 'diy-kits': true,
       'optics': true, 'camping': true, 'tools': true, 'apparel': true,
@@ -550,23 +550,23 @@ Object.assign(RU_DICT, {
 
 Object.assign(RU_DICT, {
   // --- дерево каталога ---
-  'Electronics': 'Электроника',
+  'Vibecode Path': 'Vibecode Path',
   'Home & Kitchen': 'Дом и кухня',
   'Craft & Hobby': 'Рукоделие и хобби',
   'Outdoor & Optics': 'Туризм и оптика',
-  'Audio, storage, power, smart home': 'Аудио, накопители, питание, умный дом',
+  'Landing pages, CRM dashboards and AI agents': 'Лендинги, CRM-дашборды и ИИ-агенты',
   'Cookware, appliances, lighting, textiles': 'Посуда, техника, свет, текстиль',
   'Yarn, beading, art supplies, DIY kits': 'Пряжа, бисер, материалы, наборы',
   'Optics, camping, tools, apparel': 'Оптика, кемпинг, инструменты, одежда',
-  '8 items · Audio, storage, power, smart home': '8 товаров · Аудио, накопители, питание, умный дом',
+  '8 services · Landing pages, CRM dashboards and AI agents': '8 услуг · Лендинги, CRM-дашборды и ИИ-агенты',
   '8 items · Cookware, appliances, lighting, textiles': '8 товаров · Посуда, техника, свет, текстиль',
   '8 items · Yarn, beading, art supplies, DIY kits': '8 товаров · Пряжа, бисер, материалы, наборы',
   '8 items · Optics, camping, tools, apparel': '8 товаров · Оптика, кемпинг, инструменты, одежда',
 
-  'Audio': 'Аудио',
-  'Storage & Memory': 'Накопители и память',
-  'Power & Cables': 'Питание и кабели',
-  'Smart Home': 'Умный дом',
+  'Landing Pages': 'Лендинги',
+  'CRM Dashboards': 'CRM-дашборды',
+  'AI Agents': 'ИИ-агенты',
+  'Automation': 'Автоматизация',
   'Cookware & Prep': 'Посуда и подготовка',
   'Small Appliances': 'Мелкая техника',
   'Lighting': 'Освещение',
@@ -583,10 +583,15 @@ Object.assign(RU_DICT, {
   // --- подписи дерева для скринридеров ---
   'Departments': 'Разделы',
   'Subsections': 'Подразделы',
-  'Electronics subsections': 'Подразделы: Электроника',
+  'Vibecode Path subsections': 'Подразделы: Vibecode Path',
   'Home & Kitchen subsections': 'Подразделы: Дом и кухня',
   'Craft & Hobby subsections': 'Подразделы: Рукоделие и хобби',
   'Outdoor & Optics subsections': 'Подразделы: Туризм и оптика',
+  // Строки новой строки таблицы режимов: услуга — это type, не режим.
+  'Service (type)': 'Услуга (type)',
+  'The storefront sells the work, not a unit': 'Витрина продаёт работу, а не единицу товара',
+  'Price on request instead of a number, start date instead of stock, format instead of warehouse and origin':
+    'Цена по запросу вместо цифры, срок старта вместо склада, формат вместо склада и страны',
   'Breadcrumb': 'Хлебные крошки',
   'Search': 'Поиск',
   'Content modes table, scrollable': 'Таблица режимов, прокручивается',
@@ -601,39 +606,46 @@ Object.assign(RU_DICT, {
 // END C
 
 Object.assign(RU_DICT, {
-  // --- товары: электроника ---
-  'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime':
-    'Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч',
-  'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.':
-    'Адаптивное ANC с режимом прозрачности, драйверы с сертификатом hi-res и батарея на 40 часов. Складываются в жёсткий кейс.',
-  'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof':
-    'Портативная колонка SPK 2, 24 ч работы, защита IPX7',
-  '12 W stereo with passive bass radiators. Pairs two units for true stereo.':
-    'Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.',
-  'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink':
-    'SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором',
-  'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.':
-    'TLC без DRAM, с HMB, стабильные 5,2 ГБ/с под нагрузкой. В комплекте низкопрофильный алюминиевый радиатор.',
-  'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack':
-    'Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.',
-  'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.':
-    'Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.',
-  '7-Port USB Hub with 60 W Mains Adapter, Braided Cable':
-    'USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель',
-  'Individually switched ports, 2.4 A per port, over-current protection on the bus.':
-    'Каждый порт отключается отдельно, 2,4 А на порт, защита шины от перегрузки.',
-  '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4':
-    'Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4',
-  'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.':
-    'Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.',
-  'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter':
-    'Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter',
-  'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.':
-    'Замер энергии по каждой розетке, расписания и мост Matter для сторонних хабов.',
-  'Indoor Security Camera 2K, Privacy Shutter, Local SD':
-    'Камера для дома 2K, шторка приватности, локальная SD',
-  'No cloud subscription required. Physical lens shutter and on-device person detection.':
-    'Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.',
+  // --- услуги: Vibecode Path ---
+  'Landing Page, Turnkey': 'Лендинг под ключ',
+  'A selling page in 7 days: copywriting and design, responsive 320–2560 px, lead capture form wired to Telegram or n8n, domain and SSL connected.':
+    'Продающая страница за 7 дней: копирайтинг и дизайн, адаптив 320–2560 px, форма захвата лидов с интеграцией в Telegram или n8n, подключение домена и SSL.',
+  'Landing Page: Content and Traffic Analytics': 'Лендинг: контент и аналитика трафика',
+  'SEO articles and hourly traffic analytics. In the furniture maker case organic search reached second place in the niche.':
+    'SEO-статьи и аналитика трафика по часам. В кейсе производителя мебели органика вышла на второе место по нише.',
+  'CRM Dashboard on PostgreSQL 16': 'CRM-дашборд на PostgreSQL 16',
+  'PostgreSQL 16 base, realtime dashboard, reports and error monitoring: enquiries stop getting lost between channels.':
+    'База на PostgreSQL 16, дашборд в реальном времени, отчёты и мониторинг ошибок: заявки перестают теряться между каналами.',
+  'Multi-Project Workspace': 'Мультипроектный кабинет',
+  'Several sites, one workspace, custom integrations, priority support and a dedicated manager.':
+    'Несколько сайтов, единый кабинет, кастомные интеграции, приоритетная поддержка и выделенный менеджер.',
+  'AI Sales Agent': 'ИИ-агент продаж',
+  'A Telegram bot on an LLM that qualifies leads, answers questions and hands warm customers to the manager with full context. Answers in 3 seconds, 24/7.':
+    'Телеграм-бот на LLM, который квалифицирует лидов, отвечает на вопросы и передаёт тёплых клиентов менеджеру с полным контекстом. Отвечает за 3 секунды, 24/7.',
+  'AI Lead Qualification': 'ИИ-квалификация лидов',
+  'Lead scoring trained on your own base, answer drafts and escalation to a human manager.':
+    'Скоринг лидов на вашей базе, черновики ответов и эскалация живому менеджеру.',
+  'n8n Scenarios for Your Process': 'n8n-сценарии под ваш процесс',
+  'Sales automation turnkey: enquiries from the landing page, CRM systems and AI agents take leads and move the customer to the deal without lost messages and manual routine.':
+    'Автоматизация продаж под ключ: заявки с лендинга, CRM-системы и ИИ-агенты принимают лидов и ведут клиента до сделки — без потери сообщений и ручной рутины.',
+  'Sales Automation, Turnkey': 'Автоматизация продаж под ключ',
+  'Landing page + CRM dashboard + AI agent: they take enquiries, qualify leads and run the customer to the deal.':
+    'Лендинг + CRM-дашборд + ИИ-агент: принимают заявки, квалифицируют лидов и ведут клиента до сделки.',
+
+  // --- подписи услуги: цена по запросу, формат, срок ---
+  'Price on request': 'Цена по запросу',
+  'Per task': 'Под задачу',
+  'Taking projects': 'Принимаем проекты',
+  'Starts in about 7 days after the brief': 'Старт примерно через 7 дней после брифа',
+  'Starts in about 10 days after the brief': 'Старт примерно через 10 дней после брифа',
+  'Starts in about 12 days after the brief': 'Старт примерно через 12 дней после брифа',
+  'Starts in about 14 days after the brief': 'Старт примерно через 14 дней после брифа',
+  'Starts in about 21 days after the brief': 'Старт примерно через 21 день после брифа',
+  'Format': 'Формат',
+  'Turnkey': 'Под ключ',
+  'Ongoing support': 'Поддержка на этапе эксплуатации',
+  'Turnkey + support': 'Под ключ + поддержка',
+  'services': 'услуг',
 });
 // END D1
 
@@ -884,13 +896,13 @@ new MutationObserver(scheduleLang).observe(document.body, {
 // ============================================================
 const DEPTS = [
   {
-    id: 'electronics', name: 'Electronics', icon: 'chip',
-    blurb: 'Audio, storage, power, smart home',
+    id: 'vibecode', name: 'Vibecode Path', icon: 'flow',
+    blurb: 'Landing pages, CRM dashboards and AI agents',
     subs: [
-      { id: 'audio', name: 'Audio', glyph: 'headphones' },
-      { id: 'storage', name: 'Storage & Memory', glyph: 'ssd' },
-      { id: 'power', name: 'Power & Cables', glyph: 'plug' },
-      { id: 'smart-home', name: 'Smart Home', glyph: 'hub' },
+      { id: 'landings', name: 'Landing Pages', glyph: 'landings' },
+      { id: 'crm', name: 'CRM Dashboards', glyph: 'crm' },
+      { id: 'agents', name: 'AI Agents', glyph: 'agents' },
+      { id: 'automation', name: 'Automation', glyph: 'automation' },
     ]
   },
   {
@@ -927,18 +939,18 @@ const DEPTS = [
 
 // mode: retail | marketplace | handmade | b2b | pre
 const P = [
-  // — Electronics / Audio —
-  { id: 'AUD-Q20', sku: 'AUD-Q20I', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'retail', title: 'Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime', desc: 'Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.', price: 108.9, was: 141.9, stock: 184, colors: ['#1B1B1F', '#C7CBD4', '#8A5A2B'], eta: 2, madeIn: 'Vietnam', wh: 'MSK-1', top: true, rel: '2026-04' },
-  { id: 'AUD-SPK', sku: 'AUD-SPK2', dept: 'electronics', sub: 'audio', brand: 'Volt Coil', mode: 'marketplace', title: 'SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof', desc: '12 W stereo with passive bass radiators. Pairs two units for true stereo.', price: 48.4, stock: 62, colors: ['#2E5BFF', '#1B1B1F', '#B02418'], eta: 3, madeIn: 'China', wh: 'SPB-2', seller: 'SoundLab' },
-  // — Storage —
-  { id: 'STO-NV1', sku: 'STO-NV1T', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'retail', title: 'NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink', desc: 'DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.', price: 98.34, was: 114.4, stock: 412, eta: 1, madeIn: 'South Korea', wh: 'MSK-1', top: true },
-  { id: 'STO-CAR', sku: 'STO-CAR64', dept: 'electronics', sub: 'storage', brand: 'Kedr', mode: 'b2b', title: 'Industrial microSDXC 64 GB, Endurance Grade, 10-Pack', desc: 'Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.', price: 10.89, stock: 980, moq: 10, tiers: [[10, 10.89], [50, 10.01], [200, 9.24]], eta: 4, madeIn: 'China', wh: 'MSK-2' },
-  // — Power —
-  { id: 'POW-HUB', sku: 'POW-HUB7', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'retail', title: '7-Port USB Hub with 60 W Mains Adapter, Braided Cable', desc: 'Individually switched ports, 2.4 A per port, over-current protection on the bus.', price: 25.96, stock: 1180, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
-  { id: 'POW-PD', sku: 'POW-PD65', dept: 'electronics', sub: 'power', brand: 'Volt Coil', mode: 'pre', title: '65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4', desc: 'Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.', price: 35.2, stock: 0, pledged: 268, batch: 300, eta: 21, madeIn: 'China', wh: 'MSK-2', rel: '2026-09' },
-  // — Smart home —
-  { id: 'SMH-PLG', sku: 'SMH-PLG2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'retail', title: 'Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter', desc: 'Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.', price: 20.79, was: 26.4, stock: 320, colors: ['#EFEFF1', '#1B1B1F'], eta: 2, madeIn: 'China', wh: 'SPB-2' },
-  { id: 'SMH-CAM', sku: 'SMH-CAM2', dept: 'electronics', sub: 'smart-home', brand: 'Aeromat', mode: 'marketplace', title: 'Indoor Security Camera 2K, Privacy Shutter, Local SD', desc: 'No cloud subscription required. Physical lens shutter and on-device person detection.', price: 41.25, stock: 6, colors: ['#EFEFF1', '#1B1B1F'], eta: 3, madeIn: 'China', wh: 'MSK-2', seller: 'SafeNest' },
+  // — Vibecode Path / Landing pages —
+  { id: 'SVC-LND', sku: 'SVC-LND1', dept: 'vibecode', sub: 'landings', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'Landing Page, Turnkey', desc: 'A selling page in 7 days: copywriting and design, responsive 320–2560 px, lead capture form wired to Telegram or n8n, domain and SSL connected.', price: null, priceNote: 'Price on request', stock: null, eta: 7, format: 'Turnkey' },
+  { id: 'SVC-LNA', sku: 'SVC-LND2', dept: 'vibecode', sub: 'landings', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'Landing Page: Content and Traffic Analytics', desc: 'SEO articles and hourly traffic analytics. In the furniture maker case organic search reached second place in the niche.', price: null, priceNote: 'Per task', stock: null, eta: 14, format: 'Ongoing support' },
+  // — CRM dashboards —
+  { id: 'SVC-CRM', sku: 'SVC-CRM1', dept: 'vibecode', sub: 'crm', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'CRM Dashboard on PostgreSQL 16', desc: 'PostgreSQL 16 base, realtime dashboard, reports and error monitoring: enquiries stop getting lost between channels.', price: null, priceNote: 'Price on request', stock: null, eta: 14, format: 'Turnkey' },
+  { id: 'SVC-MUL', sku: 'SVC-CRM2', dept: 'vibecode', sub: 'crm', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'Multi-Project Workspace', desc: 'Several sites, one workspace, custom integrations, priority support and a dedicated manager.', price: null, priceNote: 'Per task', stock: null, eta: 21, format: 'Ongoing support' },
+  // — AI agents —
+  { id: 'SVC-AGT', sku: 'SVC-AGT1', dept: 'vibecode', sub: 'agents', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'AI Sales Agent', desc: 'A Telegram bot on an LLM that qualifies leads, answers questions and hands warm customers to the manager with full context. Answers in 3 seconds, 24/7.', price: null, priceNote: 'Price on request', stock: null, eta: 10, format: 'Turnkey', top: true },
+  { id: 'SVC-QLF', sku: 'SVC-AGT2', dept: 'vibecode', sub: 'agents', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'AI Lead Qualification', desc: 'Lead scoring trained on your own base, answer drafts and escalation to a human manager.', price: null, priceNote: 'Per task', stock: null, eta: 10, format: 'Turnkey' },
+  // — Automation —
+  { id: 'SVC-N8N', sku: 'SVC-N8N1', dept: 'vibecode', sub: 'automation', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'n8n Scenarios for Your Process', desc: 'Sales automation turnkey: enquiries from the landing page, CRM systems and AI agents take leads and move the customer to the deal without lost messages and manual routine.', price: null, priceNote: 'Price on request', stock: null, eta: 12, format: 'Turnkey' },
+  { id: 'SVC-AUT', sku: 'SVC-N8N2', dept: 'vibecode', sub: 'automation', brand: 'Vibecode Path', mode: 'retail', type: 'service', title: 'Sales Automation, Turnkey', desc: 'Landing page + CRM dashboard + AI agent: they take enquiries, qualify leads and run the customer to the deal.', price: null, priceNote: 'Per task', stock: null, eta: 21, format: 'Turnkey + support', rel: '2026-10' },
 
   // — Home / Cookware —
   { id: 'HOM-KTL', sku: 'HOM-KTL30', dept: 'home', sub: 'cookware', brand: 'Nordika', mode: 'retail', title: 'Enamel Spice Kettle 300 ml, Cream, Induction Ready', desc: 'Two-layer enamel over carbon steel, whistling spout, dishwasher safe.', price: 19.2, was: 24.75, stock: 86, colors: ['#F0E6D8', '#1B1B1F', '#0E6E5C'], eta: 2, madeIn: 'Türkiye', wh: 'SPB-1', top: true },
@@ -993,6 +1005,13 @@ const FREE_DELIVERY_USD = 80;
 // frame A is the main shot, frame B is the hover shot.
 // ============================================================
 const GLYPH = {
+  // Ключи GLYPH совпадают с id подраздела: art() ищет GLYPH[subId]. Старые
+  // подразделы (audio, storage…) рисуют пустую плашку именно потому, что их
+  // id там не было — для новых услуг ключи проставлены сразу.
+  landings: '<rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/>',
+  crm: '<rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/>',
+  agents: '<rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/>',
+  automation: '<circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/>',
   headphones: '<path d="M14 40v-8a18 18 0 0 1 36 0v8"/><rect x="8" y="38" width="12" height="18" rx="4"/><rect x="44" y="38" width="12" height="18" rx="4"/>',
   ssd: '<rect x="10" y="18" width="44" height="28" rx="3"/><path d="M18 26h12M18 32h20M18 38h8"/><circle cx="44" cy="38" r="3"/>',
   plug: '<path d="M24 10v12M40 10v12"/><rect x="16" y="22" width="32" height="18" rx="4"/><path d="M32 40v14"/>',
@@ -1150,6 +1169,14 @@ function badges(p) {
 
 // price — slot 6
 function priceBlock(p) {
+  // Услуга без цены: money(null) даёт «0,00 $», а это утверждение
+  // «бесплатно». Если в данных цены нет и есть priceNote, слот говорит
+  // «по запросу» (правила 01, вопрос 02: цена в USD либо её нет вовсе).
+  if (p.type === 'service' && p.price == null) {
+    return `<div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">${esc(p.priceNote || 'Price on request')}</span></div>
+      ${p.format ? `<span class="price__unit">${esc(p.format)}</span>` : ''}</div>`;
+  }
   const main = `<span class="price__now">${money(p.price)}</span>`;
   const was = p.was ? `<span class="price__was">${money(p.was)}</span><span class="price__off">Save ${money(p.was - p.price)}</span>` : '';
   const unit = p.mode === 'b2b' ? `<span class="price__unit">per unit · taxes and duties included</span>` : '';
@@ -1183,6 +1210,13 @@ function varBlock(p) {
 
 // availability — slot 8
 function availBlock(p) {
+  // Услуга: склада нет, `stock: null` иначе проходит как «осталось null шт.»
+  // и обещает возврат на склад. Здесь — срок старта после брифа.
+  if (p.type === 'service') {
+    return `<div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Taking projects</span></div>
+      <span class="avail__eta">Starts in about ${p.eta} days after the brief</span></div>`;
+  }
   if (p.mode === 'pre') {
     const pledged = p.pledged || 0;
     const pct = Math.min(96, Math.round(pledged / (p.batch || 300) * 100));
@@ -1228,6 +1262,15 @@ function actionBlock(p) {
 
 // meta — slot 9
 function metaBlock(p) {
+  // Услуга: ни склада, ни страны происхождения, ни веса у неё нет — строки
+  // «From null» и пустой «Origin» на карточке быть не должно (правило: слот
+  // либо заполнен, либо его нет).
+  if (p.type === 'service') {
+    const bits = [`<span><b>SKU</b> ${p.sku}</span>`];
+    if (p.format) bits.push(`<span><b>Format</b> ${esc(p.format)}</span>`);
+    if (p.seller) bits.push(`<span><b>Sold by</b> ${esc(p.seller)}</span>`);
+    return `<div class="card__meta" data-slot="meta">${bits.join('')}</div>`;
+  }
   const bits = [`<span><b>SKU</b> ${p.sku}</span>`];
   // Мастер = продавец: у хендмейда в мете тот же человек, чьё имя стоит
   // в eyebrow, поэтому строка «Sold by» дублирует его явно — для доверия
@@ -1316,7 +1359,8 @@ function filtered() {
     if (S.dept !== 'all' && p.dept !== S.dept) return false;
     if (S.sub !== 'all' && p.sub !== S.sub) return false;
     if (S.stock.size) {
-      const k = p.mode === 'pre' ? 'pre' : p.stock === 0 ? 'oos' : p.stock <= 10 ? 'low' : 'in';
+      const k = p.mode === 'pre' ? 'pre' : p.type === 'service' ? 'in'
+        : p.stock === 0 ? 'oos' : p.stock <= 10 ? 'low' : 'in';
       if (!S.stock.has(k)) return false;
     }
     if (S.brand.size && !S.brand.has(p.brand)) return false;
@@ -1342,8 +1386,10 @@ function filtered() {
   // оценкам — то же самое, что показывать их (правила 03, вопрос 13).
   const cmp = {
     featured: (a, b) => (b.top ? 1 : 0) - (a.top ? 1 : 0) || a.title.localeCompare(b.title),
-    'price-asc': (a, b) => a.price - b.price,
-    'price-desc': (a, b) => b.price - a.price,
+    // У услуги цены может не быть вовсе: NaN в вычитании перемешал бы весь
+    // список, поэтому позиции без цены всегда уходят в конец.
+    'price-asc': (a, b) => (a.price == null ? 1 : 0) - (b.price == null ? 1 : 0) || a.price - b.price,
+    'price-desc': (a, b) => (a.price == null ? 1 : 0) - (b.price == null ? 1 : 0) || b.price - a.price,
     new: (a, b) => (b.rel || '0').localeCompare(a.rel || '0'),
   }[S.sort];
   return out.sort(cmp);
@@ -1352,6 +1398,13 @@ function filtered() {
 // ============================================================
 // RENDER
 // ============================================================
+// Слово счётчика раздела: в отделе, где все позиции — услуги, писать
+// «8 items» неправильно; смешанный отдел остаётся «items».
+function DEPT_UNIT(d) {
+  const items = P.filter((p) => p.dept === d.id);
+  return items.length && items.every((p) => p.type === 'service') ? 'services' : 'items';
+}
+
 function renderDeps() {
   el('deps').innerHTML = DEPTS.map(d => {
     // считаем только из видимых товаров
@@ -1361,7 +1414,7 @@ function renderDeps() {
     const inner = `
         <span class="dep__icon">${DEPICON[d.icon]}</span>
         <span class="dep__nm">${d.name}</span>
-        <span class="dep__n">${n} items · ${d.blurb}</span>`;
+        <span class="dep__n">${n} ${DEPT_UNIT(d)} · ${d.blurb}</span>`;
     // В серверной сборке раздел — ссылка на свою страницу: без JavaScript
     // навигация остаётся (чек-лист 1.5, «текст страницы есть в ответе
     // сервера»). В однофайловом демо это кнопка фильтра.
@@ -1410,6 +1463,9 @@ const DEPICON = {
   home: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>',
   needle: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 4L8 16"/><circle cx="6" cy="18" r="3"/><path d="M20 4l-2 6"/></svg>',
   mountain: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 20l7-12 5 8 3-4 5 8z"/><circle cx="18" cy="6" r="2"/></svg>',
+  // Раздел услуг: узлы с рёбрами — та же линия и та же толщина, что у
+  // остальных иконок разделов.
+  flow: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg>',
 };
 
 function renderCrumbs() {
@@ -1427,7 +1483,9 @@ function renderCrumbs() {
     ? `<a href="${NAV.dept(d.id)}">${d.name}</a>`
     : `<button data-crumb="${d.id}" data-sub="all">${d.name}</button>`));
   if (s) parts.push(`<span aria-hidden="true">/</span><b>${s.name}</b>`);
-  else if (d) parts.push(`<span aria-hidden="true">/</span><b>All ${d.name.toLowerCase()}</b>`);
+  // Название раздела в крошке остаётся как названо: lowercasing ломает
+  // имена собственные («Vibecode Path» превращалось в «vibecode path»).
+  else if (d) parts.push(`<span aria-hidden="true">/</span><b>All ${d.name}</b>`);
   el('crumbs').innerHTML = parts.join('');
 }
 
@@ -1527,17 +1585,22 @@ function renderAnatomy() {
   el('slots').innerHTML = SLOTS.map(([k, n, d, sel], i) =>
     `<button class="slot" data-hl="${k}"><i>${i + 1}</i><span><b>${n}</b><span>${d}</span>
       <em>${sel} / [data-slot="${k}"]</em></span></button>`).join('');
-  const demo = P.find(p => p.id === 'AUD-Q20');
+  const demo = P.find((p) => p.was && p.colors && p.mode === 'retail') || P[0];
   el('anatomyStage').innerHTML = card(demo, { feature: false });
 }
 
 function renderModes() {
   const rows = [
-    ['Retail', 'Own stock, own brand', 'Add to enquiry · free-delivery threshold · tier table on bulk', P.find(p => p.mode === 'retail')],
+    ['Retail', 'Own stock, own brand', 'Add to enquiry · free-delivery threshold · tier table on bulk', P.find(p => p.mode === 'retail' && p.type !== 'service')],
     ['Marketplace', 'Third-party seller', 'Sold by + warehouse in meta, platform never promises credit', P.find(p => p.mode === 'marketplace')],
     ['Handmade', 'Maker, small batch', 'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock', P.find(p => p.mode === 'handmade')],
     ['B2B wholesale', 'Tender / supplier buyer', 'Unit price with taxes and duties inside, tier table, MOQ, Request quote replaces Add to enquiry', P.find(p => p.mode === 'b2b')],
     ['Pre-order', 'Batch not produced yet', 'Progress bar, pledged %, ships-in date, Reserve replaces Add to enquiry', P.find(p => p.mode === 'pre')],
+    // Услуга — не шестой режим, а type: режим описывает, КТО продаёт и как
+    // считается цена, а type — что продаётся. Меняются три слота сразу:
+    // цена («по запросу» вместо цифры), наличие (срок старта вместо склада)
+    // и мета (формат вместо склада и страны происхождения).
+    ['Service (type)', 'The storefront sells the work, not a unit', 'Price on request instead of a number, start date instead of stock, format instead of warehouse and origin', P.find(p => p.type === 'service')],
   ];
   el('modesTable').innerHTML = `<thead><tr><th>Mode</th><th>Who sells</th><th>What changes in the card</th><th>Example SKU</th></tr></thead>
     <tbody>${rows.map(([n, w, c, p]) => `<tr><td>${n}</td><td>${w}</td><td>${c}</td>
@@ -1548,7 +1611,7 @@ function renderStates() {
   const g = [
     ['Default', P.find(p => p.id === 'HOM-KTL'), {}],
     ['On sale', P.find(p => p.mode === 'retail' && p.was), {}],
-    ['Low stock', P.find(p => p.id === 'SMH-CAM'), {}],
+    ['Low stock', P.find((p) => p.stock != null && p.stock > 0 && p.stock <= 10 && p.mode !== 'pre'), {}],
     ['Out of stock', P.find(p => p.id === 'LGT-PND'), {}],
     ['Handmade', P.find(p => p.mode === 'handmade'), {}],
     ['Marketplace', P.find(p => p.mode === 'marketplace'), {}],

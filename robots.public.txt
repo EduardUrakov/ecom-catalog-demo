@@ -33,4 +33,4 @@ Disallow: /checkout/
 Disallow: /api/
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://eduardurakov.github.io/ecom-catalog-demo/sitemap.xml

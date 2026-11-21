@@ -5,38 +5,35 @@
   "mode": "replace",
   "items": [
     {
-      "sku": "AUD-Q20I",
+      "sku": "SVC-LND1",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Volt Coil",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "108.90",
-      "availability": "in_stock",
-      "quantity": 184,
-      "lead_time_days": 2,
-      "radio_equipment": true,
-      "weight_g": 260,
-      "country_of_origin": "VN",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 7,
+      "radio_equipment": false,
       "sort": 1,
       "attributes": {
-        "sub": "audio"
+        "sub": "landings"
       },
       "texts": {
         "en": {
-          "title": "Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime",
-          "description": "Adaptive ANC with transparency mode, hi-res certified drivers and a 40-hour battery. Folds flat into a hard case.",
+          "title": "Landing Page, Turnkey",
+          "description": "A selling page in 7 days: copywriting and design, responsive 320–2560 px, lead capture form wired to Telegram or n8n, domain and SSL connected.",
           "source": "human"
         },
         "ru": {
-          "title": "Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч",
-          "description": "Адаптивное ANC с режимом прозрачности, драйверы с сертификатом hi-res и батарея на 40 часов. Складываются в жёсткий кейс.",
+          "title": "Лендинг под ключ",
+          "description": "Продающая страница за 7 дней: копирайтинг и дизайн, адаптив 320–2560 px, форма захвата лидов с интеграцией в Telegram или n8n, подключение домена и SSL.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/aud-q20i-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-lnd1-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -44,7 +41,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/aud-q20i-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-lnd1-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -54,38 +51,35 @@
       ]
     },
     {
-      "sku": "AUD-SPK2",
+      "sku": "SVC-LND2",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Volt Coil",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "48.40",
-      "availability": "in_stock",
-      "quantity": 62,
-      "lead_time_days": 3,
-      "radio_equipment": true,
-      "weight_g": 540,
-      "country_of_origin": "CN",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 14,
+      "radio_equipment": false,
       "sort": 2,
       "attributes": {
-        "sub": "audio"
+        "sub": "landings"
       },
       "texts": {
         "en": {
-          "title": "SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof",
-          "description": "12 W stereo with passive bass radiators. Pairs two units for true stereo.",
+          "title": "Landing Page: Content and Traffic Analytics",
+          "description": "SEO articles and hourly traffic analytics. In the furniture maker case organic search reached second place in the niche.",
           "source": "human"
         },
         "ru": {
-          "title": "Портативная колонка SPK 2, 24 ч работы, защита IPX7",
-          "description": "Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.",
+          "title": "Лендинг: контент и аналитика трафика",
+          "description": "SEO-статьи и аналитика трафика по часам. В кейсе производителя мебели органика вышла на второе место по нише.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/aud-spk2-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-lnd2-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -93,7 +87,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/aud-spk2-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-lnd2-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -103,38 +97,35 @@
       ]
     },
     {
-      "sku": "STO-NV1T",
+      "sku": "SVC-CRM1",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Kedr",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "98.34",
-      "availability": "in_stock",
-      "quantity": 412,
-      "lead_time_days": 1,
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 14,
       "radio_equipment": false,
-      "weight_g": 45,
-      "country_of_origin": "KR",
       "sort": 3,
       "attributes": {
-        "sub": "storage"
+        "sub": "crm"
       },
       "texts": {
         "en": {
-          "title": "NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink",
-          "description": "DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.",
+          "title": "CRM Dashboard on PostgreSQL 16",
+          "description": "PostgreSQL 16 base, realtime dashboard, reports and error monitoring: enquiries stop getting lost between channels.",
           "source": "human"
         },
         "ru": {
-          "title": "SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором",
-          "description": "TLC без DRAM, с HMB, стабильные 5,2 ГБ/с под нагрузкой. В комплекте низкопрофильный алюминиевый радиатор.",
+          "title": "CRM-дашборд на PostgreSQL 16",
+          "description": "База на PostgreSQL 16, дашборд в реальном времени, отчёты и мониторинг ошибок: заявки перестают теряться между каналами.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/sto-nv1t-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-crm1-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -142,7 +133,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/sto-nv1t-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-crm1-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -152,136 +143,127 @@
       ]
     },
     {
-      "sku": "STO-CAR64",
+      "sku": "SVC-CRM2",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Kedr",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "10.89",
-      "availability": "in_stock",
-      "quantity": 980,
-      "lead_time_days": 4,
-      "radio_equipment": false,
-      "weight_g": 60,
-      "country_of_origin": "CN",
-      "sort": 4,
-      "attributes": {
-        "sub": "storage"
-      },
-      "texts": {
-        "en": {
-          "title": "Industrial microSDXC 64 GB, Endurance Grade, 10-Pack",
-          "description": "Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.",
-          "source": "human"
-        },
-        "ru": {
-          "title": "Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.",
-          "description": "Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.",
-          "source": "human"
-        }
-      },
-      "images": [
-        {
-          "url": "https://cdn.example.com/path-home/sto-car64-1.webp",
-          "rights": {
-            "source": "generated",
-            "confirmed_by": "демо-заглушка, прав не подтверждено",
-            "confirmed_at": "2026-11-19"
-          }
-        },
-        {
-          "url": "https://cdn.example.com/path-home/sto-car64-2.webp",
-          "rights": {
-            "source": "generated",
-            "confirmed_by": "демо-заглушка, прав не подтверждено",
-            "confirmed_at": "2026-11-19"
-          }
-        }
-      ]
-    },
-    {
-      "sku": "POW-HUB7",
-      "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Volt Coil",
-      "brand_owner": "own",
-      "price_usd": "25.96",
-      "availability": "in_stock",
-      "quantity": 1180,
-      "lead_time_days": 2,
-      "radio_equipment": false,
-      "weight_g": 320,
-      "country_of_origin": "CN",
-      "sort": 5,
-      "attributes": {
-        "sub": "power"
-      },
-      "texts": {
-        "en": {
-          "title": "7-Port USB Hub with 60 W Mains Adapter, Braided Cable",
-          "description": "Individually switched ports, 2.4 A per port, over-current protection on the bus.",
-          "source": "human"
-        },
-        "ru": {
-          "title": "USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель",
-          "description": "Каждый порт отключается отдельно, 2,4 А на порт, защита шины от перегрузки.",
-          "source": "human"
-        }
-      },
-      "images": [
-        {
-          "url": "https://cdn.example.com/path-home/pow-hub7-1.webp",
-          "rights": {
-            "source": "generated",
-            "confirmed_by": "демо-заглушка, прав не подтверждено",
-            "confirmed_at": "2026-11-19"
-          }
-        },
-        {
-          "url": "https://cdn.example.com/path-home/pow-hub7-2.webp",
-          "rights": {
-            "source": "generated",
-            "confirmed_by": "демо-заглушка, прав не подтверждено",
-            "confirmed_at": "2026-11-19"
-          }
-        }
-      ]
-    },
-    {
-      "sku": "POW-PD65",
-      "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Volt Coil",
-      "brand_owner": "own",
-      "price_usd": "35.20",
-      "availability": "preorder",
-      "quantity": 0,
+      "price_usd": null,
+      "availability": "on_request",
       "lead_time_days": 21,
       "radio_equipment": false,
-      "weight_g": 82,
-      "country_of_origin": "CN",
+      "sort": 4,
+      "attributes": {
+        "sub": "crm"
+      },
+      "texts": {
+        "en": {
+          "title": "Multi-Project Workspace",
+          "description": "Several sites, one workspace, custom integrations, priority support and a dedicated manager.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "Мультипроектный кабинет",
+          "description": "Несколько сайтов, единый кабинет, кастомные интеграции, приоритетная поддержка и выделенный менеджер.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/svc-crm2-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/svc-crm2-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "SVC-AGT1",
+      "status": "active",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
+      "brand_owner": "own",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 10,
+      "radio_equipment": false,
+      "sort": 5,
+      "attributes": {
+        "sub": "agents"
+      },
+      "texts": {
+        "en": {
+          "title": "AI Sales Agent",
+          "description": "A Telegram bot on an LLM that qualifies leads, answers questions and hands warm customers to the manager with full context. Answers in 3 seconds, 24/7.",
+          "source": "human"
+        },
+        "ru": {
+          "title": "ИИ-агент продаж",
+          "description": "Телеграм-бот на LLM, который квалифицирует лидов, отвечает на вопросы и передаёт тёплых клиентов менеджеру с полным контекстом. Отвечает за 3 секунды, 24/7.",
+          "source": "human"
+        }
+      },
+      "images": [
+        {
+          "url": "https://cdn.example.com/path-home/svc-agt1-1.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        },
+        {
+          "url": "https://cdn.example.com/path-home/svc-agt1-2.webp",
+          "rights": {
+            "source": "generated",
+            "confirmed_by": "демо-заглушка, прав не подтверждено",
+            "confirmed_at": "2026-11-19"
+          }
+        }
+      ]
+    },
+    {
+      "sku": "SVC-AGT2",
+      "status": "active",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
+      "brand_owner": "own",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 10,
+      "radio_equipment": false,
       "sort": 6,
       "attributes": {
-        "sub": "power"
+        "sub": "agents"
       },
       "texts": {
         "en": {
-          "title": "65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4",
-          "description": "Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.",
+          "title": "AI Lead Qualification",
+          "description": "Lead scoring trained on your own base, answer drafts and escalation to a human manager.",
           "source": "human"
         },
         "ru": {
-          "title": "Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4",
-          "description": "Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.",
+          "title": "ИИ-квалификация лидов",
+          "description": "Скоринг лидов на вашей базе, черновики ответов и эскалация живому менеджеру.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/pow-pd65-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-agt2-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -289,7 +271,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/pow-pd65-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-agt2-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -299,38 +281,35 @@
       ]
     },
     {
-      "sku": "SMH-PLG2",
+      "sku": "SVC-N8N1",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Aeromat",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "20.79",
-      "availability": "in_stock",
-      "quantity": 320,
-      "lead_time_days": 2,
-      "radio_equipment": true,
-      "weight_g": 180,
-      "country_of_origin": "CN",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 12,
+      "radio_equipment": false,
       "sort": 7,
       "attributes": {
-        "sub": "smart-home"
+        "sub": "automation"
       },
       "texts": {
         "en": {
-          "title": "Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter",
-          "description": "Per-outlet power monitoring, schedules and Matter bridging for non-Vendor hubs.",
+          "title": "n8n Scenarios for Your Process",
+          "description": "Sales automation turnkey: enquiries from the landing page, CRM systems and AI agents take leads and move the customer to the deal without lost messages and manual routine.",
           "source": "human"
         },
         "ru": {
-          "title": "Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter",
-          "description": "Замер энергии по каждой розетке, расписания и мост Matter для сторонних хабов.",
+          "title": "n8n-сценарии под ваш процесс",
+          "description": "Автоматизация продаж под ключ: заявки с лендинга, CRM-системы и ИИ-агенты принимают лидов и ведут клиента до сделки — без потери сообщений и ручной рутины.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/smh-plg2-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-n8n1-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -338,7 +317,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/smh-plg2-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-n8n1-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -348,38 +327,35 @@
       ]
     },
     {
-      "sku": "SMH-CAM2",
+      "sku": "SVC-N8N2",
       "status": "active",
-      "type": "physical",
-      "category": "electronics",
-      "brand": "Aeromat",
+      "type": "service",
+      "category": "services",
+      "brand": "Vibecode Path",
       "brand_owner": "own",
-      "price_usd": "41.25",
-      "availability": "in_stock",
-      "quantity": 6,
-      "lead_time_days": 3,
-      "radio_equipment": true,
-      "weight_g": 320,
-      "country_of_origin": "CN",
+      "price_usd": null,
+      "availability": "on_request",
+      "lead_time_days": 21,
+      "radio_equipment": false,
       "sort": 8,
       "attributes": {
-        "sub": "smart-home"
+        "sub": "automation"
       },
       "texts": {
         "en": {
-          "title": "Indoor Security Camera 2K, Privacy Shutter, Local SD",
-          "description": "No cloud subscription required. Physical lens shutter and on-device person detection.",
+          "title": "Sales Automation, Turnkey",
+          "description": "Landing page + CRM dashboard + AI agent: they take enquiries, qualify leads and run the customer to the deal.",
           "source": "human"
         },
         "ru": {
-          "title": "Камера для дома 2K, шторка приватности, локальная SD",
-          "description": "Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.",
+          "title": "Автоматизация продаж под ключ",
+          "description": "Лендинг + CRM-дашборд + ИИ-агент: принимают заявки, квалифицируют лидов и ведут клиента до сделки.",
           "source": "human"
         }
       },
       "images": [
         {
-          "url": "https://cdn.example.com/path-home/smh-cam2-1.webp",
+          "url": "https://cdn.example.com/path-home/svc-n8n2-1.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",
@@ -387,7 +363,7 @@
           }
         },
         {
-          "url": "https://cdn.example.com/path-home/smh-cam2-2.webp",
+          "url": "https://cdn.example.com/path-home/svc-n8n2-2.webp",
           "rights": {
             "source": "generated",
             "confirmed_by": "демо-заглушка, прав не подтверждено",

@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2917,12 +2926,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/pt/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Eletrônicos</span>
-        <span class="dep__n">8 itens · Áudio, armazenamento, energia, casa inteligente</span></a>
-      <div class="dep__sub" aria-label="Subseções de Eletrônicos"><a href="/ecom-catalog-demo/pt/c/electronics/audio/">Áudio</a><a href="/ecom-catalog-demo/pt/c/electronics/storage/">Armazenamento e Memória</a><a href="/ecom-catalog-demo/pt/c/electronics/power/">Energia e Cabos</a><a href="/ecom-catalog-demo/pt/c/electronics/smart-home/">Casa Inteligente</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/pt/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 serviços · Landing pages, CRM dashboards e agentes de IA</span></a>
+      <div class="dep__sub" aria-label="Subseções do Vibecode Path"><a href="/ecom-catalog-demo/pt/c/vibecode/landings/">Landing Pages</a><a href="/ecom-catalog-demo/pt/c/vibecode/crm/">CRM Dashboards</a><a href="/ecom-catalog-demo/pt/c/vibecode/agents/">Agentes de IA</a><a href="/ecom-catalog-demo/pt/c/vibecode/automation/">Automação</a></div>
     </div><div class="dep" data-on="true" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/pt/c/home/" aria-current="page">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3033,7 +3042,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Em estoque · 34</span></div>
-    <span class="avail__eta">Receba até <b>seg., 23 de nov.</b></span>
+    <span class="avail__eta">Receba até <b>qua., 25 de nov.</b></span>
     <span class="avail__ship">Entrega gratuita acima de US$ 80,00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-ARCL</span><span><b>De</b> SPB-1</span><span><b>Origem</b> Polônia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="LGT-ARC">Adicionar à consulta</button></div>
@@ -3070,7 +3079,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Fora de estoque</span></div>
-      <span class="avail__ship">De volta em estoque qui., 3 de dez.</span></div>
+      <span class="avail__ship">De volta em estoque sáb., 5 de dez.</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>De</b> MSK-1</span><span><b>Origem</b> Alemanha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Fora de estoque</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Me avise</button></div>
@@ -3085,8 +3094,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Eletrônicos</h5><ul>
-    <li><a href="/ecom-catalog-demo/pt/c/electronics/audio/" data-dept="electronics" data-sub="audio">Áudio</a></li><li><a href="/ecom-catalog-demo/pt/c/electronics/storage/" data-dept="electronics" data-sub="storage">Armazenamento e Memória</a></li><li><a href="/ecom-catalog-demo/pt/c/electronics/power/" data-dept="electronics" data-sub="power">Energia e Cabos</a></li><li><a href="/ecom-catalog-demo/pt/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Casa Inteligente</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/pt/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Landing Pages</a></li><li><a href="/ecom-catalog-demo/pt/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM Dashboards</a></li><li><a href="/ecom-catalog-demo/pt/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Agentes de IA</a></li><li><a href="/ecom-catalog-demo/pt/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automação</a></li>
     </ul></div><div><h5>Casa e Cozinha</h5><ul>
     <li><a href="/ecom-catalog-demo/pt/c/home/cookware/" data-dept="home" data-sub="cookware">Utensílios de Cozinha e Preparação</a></li><li><a href="/ecom-catalog-demo/pt/c/home/appliances/" data-dept="home" data-sub="appliances">Eletrodomésticos Pequenos</a></li><li><a href="/ecom-catalog-demo/pt/c/home/lighting/" data-dept="home" data-sub="lighting">Iluminação</a></li><li><a href="/ecom-catalog-demo/pt/c/home/textiles/" data-dept="home" data-sub="textiles">Têxteis</a></li>
     </ul></div><div><h5>Artesanato e Lazer</h5><ul>

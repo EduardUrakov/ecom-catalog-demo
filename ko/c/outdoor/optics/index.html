@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2917,12 +2926,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="부서"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ko/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">전자제품</span>
-        <span class="dep__n">8개 품목 · 오디오, 저장, 전원, 스마트 홈</span></a>
-      <div class="dep__sub" aria-label="전자 제품 하위 섹션"><a href="/ecom-catalog-demo/ko/c/electronics/audio/">오디오</a><a href="/ecom-catalog-demo/ko/c/electronics/storage/">저장 &amp; 메모리</a><a href="/ecom-catalog-demo/ko/c/electronics/power/">전원 &amp; 케이블</a><a href="/ecom-catalog-demo/ko/c/electronics/smart-home/">스마트 홈</a></div>
+      <div class="deps" id="deps" role="group" aria-label="부서"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ko/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 서비스 · 랜딩 페이지, CRM 대시보드 및 AI 에이전트</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path 하위 섹션"><a href="/ecom-catalog-demo/ko/c/vibecode/landings/">랜딩 페이지</a><a href="/ecom-catalog-demo/ko/c/vibecode/crm/">CRM 대시보드</a><a href="/ecom-catalog-demo/ko/c/vibecode/agents/">AI 에이전트</a><a href="/ecom-catalog-demo/ko/c/vibecode/automation/">자동화</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ko/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3033,7 +3042,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>재고 있음 · 27</span></div>
-    <span class="avail__eta">까지 받기 <b>11월 22일 (일)</b></span>
+    <span class="avail__eta">까지 받기 <b>11월 24일 (화)</b></span>
     <span class="avail__ship">US$80.00 이상 무료 배송</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>출처</b> MSK-1</span><span><b>원산지</b> 일본</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">문의 추가</button></div>
@@ -3069,7 +3078,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>재고 있음 · 1,600</span></div>
-    <span class="avail__eta">까지 받기 <b>11월 25일 (수)</b></span>
+    <span class="avail__eta">까지 받기 <b>11월 27일 (금)</b></span>
     <span class="avail__ship">US$80.00 이상 무료 배송</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-SHP22</span><span><b>MOQ</b> 20개</span><span><b>출처</b> MSK-2</span><span><b>원산지</b> 중국</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">견적 요청</button>
@@ -3085,8 +3094,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>전자제품</h5><ul>
-    <li><a href="/ecom-catalog-demo/ko/c/electronics/audio/" data-dept="electronics" data-sub="audio">오디오</a></li><li><a href="/ecom-catalog-demo/ko/c/electronics/storage/" data-dept="electronics" data-sub="storage">저장 &amp; 메모리</a></li><li><a href="/ecom-catalog-demo/ko/c/electronics/power/" data-dept="electronics" data-sub="power">전원 &amp; 케이블</a></li><li><a href="/ecom-catalog-demo/ko/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">스마트 홈</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ko/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">랜딩 페이지</a></li><li><a href="/ecom-catalog-demo/ko/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM 대시보드</a></li><li><a href="/ecom-catalog-demo/ko/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AI 에이전트</a></li><li><a href="/ecom-catalog-demo/ko/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">자동화</a></li>
     </ul></div><div><h5>홈 &amp; 주방</h5><ul>
     <li><a href="/ecom-catalog-demo/ko/c/home/cookware/" data-dept="home" data-sub="cookware">조리기구 &amp; 준비</a></li><li><a href="/ecom-catalog-demo/ko/c/home/appliances/" data-dept="home" data-sub="appliances">소형 가전제품</a></li><li><a href="/ecom-catalog-demo/ko/c/home/lighting/" data-dept="home" data-sub="lighting">조명</a></li><li><a href="/ecom-catalog-demo/ko/c/home/textiles/" data-dept="home" data-sub="textiles">섬유</a></li>
     </ul></div><div><h5>공예 &amp; 취미</h5><ul>

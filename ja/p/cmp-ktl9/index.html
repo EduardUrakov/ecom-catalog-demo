@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2804,11 +2813,11 @@
   "image": "https://cdn.example.com/path-home/cmp-ktl9-1.webp",
   "offers": {
     "@type": "Offer",
-    "price": "50.60",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/cmp-ktl9/",
-    "itemCondition": "https://schema.org/NewCondition"
+    "itemCondition": "https://schema.org/NewCondition",
+    "price": "50.60"
   }
 }
   </script>
@@ -2940,12 +2949,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="部門"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ja/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">エレクトロニクス</span>
-        <span class="dep__n">8アイテム · オーディオ、ストレージ、電源、スマートホーム</span></a>
-      <div class="dep__sub" aria-label="エレクトロニクス サブセクション"><a href="/ecom-catalog-demo/ja/c/electronics/audio/">オーディオ</a><a href="/ecom-catalog-demo/ja/c/electronics/storage/">ストレージ＆メモリ</a><a href="/ecom-catalog-demo/ja/c/electronics/power/">電源＆ケーブル</a><a href="/ecom-catalog-demo/ja/c/electronics/smart-home/">スマートホーム</a></div>
+      <div class="deps" id="deps" role="group" aria-label="部門"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ja/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8サービス · ランディングページ、CRMダッシュボード、AIエージェント</span></a>
+      <div class="dep__sub" aria-label="Vibecode Pathのサブセクション"><a href="/ecom-catalog-demo/ja/c/vibecode/landings/">ランディングページ</a><a href="/ecom-catalog-demo/ja/c/vibecode/crm/">CRMダッシュボード</a><a href="/ecom-catalog-demo/ja/c/vibecode/agents/">AIエージェント</a><a href="/ecom-catalog-demo/ja/c/vibecode/automation/">自動化</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ja/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3057,7 +3066,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>残り 9</span></div>
       <div class="bar100"><i style="width:90%"></i></div>
-      <span class="avail__eta">までに受け取る <b>11月24日(火)</b></span></div>
+      <span class="avail__eta">までに受け取る <b>11月26日(木)</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CMP-KTL9</span><span><b>販売者</b> Summit Supply</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-KTL">問い合わせに追加</button></div>
     </div>
@@ -3071,8 +3080,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>エレクトロニクス</h5><ul>
-    <li><a href="/ecom-catalog-demo/ja/c/electronics/audio/" data-dept="electronics" data-sub="audio">オーディオ</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/storage/" data-dept="electronics" data-sub="storage">ストレージ＆メモリ</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/power/" data-dept="electronics" data-sub="power">電源＆ケーブル</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">スマートホーム</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ja/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">ランディングページ</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRMダッシュボード</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AIエージェント</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">自動化</a></li>
     </ul></div><div><h5>ホーム＆キッチン</h5><ul>
     <li><a href="/ecom-catalog-demo/ja/c/home/cookware/" data-dept="home" data-sub="cookware">調理器具＆準備</a></li><li><a href="/ecom-catalog-demo/ja/c/home/appliances/" data-dept="home" data-sub="appliances">小型家電</a></li><li><a href="/ecom-catalog-demo/ja/c/home/lighting/" data-dept="home" data-sub="lighting">照明</a></li><li><a href="/ecom-catalog-demo/ja/c/home/textiles/" data-dept="home" data-sub="textiles">テキスタイル</a></li>
     </ul></div><div><h5>クラフト＆ホビー</h5><ul>

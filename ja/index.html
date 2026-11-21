@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/aud-q20i/"
+      "name": "ランディングページ、ターンキー",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SPK 2 ポータブルBluetoothスピーカー、24時間再生、IPX7防水",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/aud-spk2/"
+      "name": "ランディングページ：コンテンツとトラフィック分析",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NVMe SSDドライブ 1 TB Gen4、7 400 MB/s、ヒートシンク付き",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/sto-nv1t/"
+      "name": "PostgreSQL 16のCRMダッシュボード",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "産業用microSDXC 64 GB、耐久グレード、10パック",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/sto-car64/"
+      "name": "マルチプロジェクトワークスペース",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "7ポートUSBハブ、60 Wメインアダプター、編組ケーブル",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/pow-hub7/"
+      "name": "AI営業エージェント",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "65 W GaN壁充電器、3ポート、予約注文バッチ4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/pow-pd65/"
+      "name": "AIリード評価",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "スマートプラグ2パック、エネルギーメーター、Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/smh-plg2/"
+      "name": "プロセスのためのn8nシナリオ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "屋内セキュリティカメラ2K、プライバシーシャッター、ローカルSD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/smh-cam2/"
+      "name": "販売自動化、ターンキー",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ja/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="部門"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ja/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">エレクトロニクス</span>
-        <span class="dep__n">8アイテム · オーディオ、ストレージ、電源、スマートホーム</span></a>
-      <div class="dep__sub" aria-label="エレクトロニクス サブセクション"><a href="/ecom-catalog-demo/ja/c/electronics/audio/">オーディオ</a><a href="/ecom-catalog-demo/ja/c/electronics/storage/">ストレージ＆メモリ</a><a href="/ecom-catalog-demo/ja/c/electronics/power/">電源＆ケーブル</a><a href="/ecom-catalog-demo/ja/c/electronics/smart-home/">スマートホーム</a></div>
+      <div class="deps" id="deps" role="group" aria-label="部門"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ja/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8サービス · ランディングページ、CRMダッシュボード、AIエージェント</span></a>
+      <div class="dep__sub" aria-label="Vibecode Pathのサブセクション"><a href="/ecom-catalog-demo/ja/c/vibecode/landings/">ランディングページ</a><a href="/ecom-catalog-demo/ja/c/vibecode/crm/">CRMダッシュボード</a><a href="/ecom-catalog-demo/ja/c/vibecode/agents/">AIエージェント</a><a href="/ecom-catalog-demo/ja/c/vibecode/automation/">自動化</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ja/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,78 +3118,41 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">12 の 32 アイテムを表示 · 価格は USD</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="STO-NV1" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="SVC-AGT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">ベストセラー</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">ベストセラー</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="NVMe SSDドライブ 1 TB Gen4、7 400 MB/s、ヒートシンク付き">
-        <a href="/ecom-catalog-demo/ja/p/sto-nv1t/">NVMe SSDドライブ 1 TB Gen4、7 400 MB/s、ヒートシンク付き</a></h3>
+      <h3 class="card__title" data-slot="title" title="AI営業エージェント">
+        <a href="/ecom-catalog-demo/ja/p/svc-agt1/">AI営業エージェント</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$98.34</span><span class="price__was">$114.40</span><span class="price__off">$16.06 を保存</span></div></div>
+      <div class="price__main"><span class="price__ask">価格はリクエストに応じて</span></div>
+      <span class="price__unit">ターンキー</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 412</span></div>
-    <span class="avail__eta">までに受け取る <b>11月20日(金)</b></span>
-    <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> 韓国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">問い合わせに追加</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">ベストセラー</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ウィッシュリストに保存">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">クイックビュー</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生">
-        <a href="/ecom-catalog-demo/ja/p/aud-q20i/">Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108.90</span><span class="price__was">$141.90</span><span class="price__off">$33.00 を保存</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="色 3 の 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 184</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
-    <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ベトナム</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">問い合わせに追加</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>プロジェクトを受け付けています</span></div>
+      <span class="avail__eta">ブリーフの後、約10日で開始します。</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>形式</b> ターンキー</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">問い合わせに追加</button></div>
     </div>
   </article><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3214,7 +3186,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 86</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> トルコ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">問い合わせに追加</button></div>
@@ -3251,7 +3223,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 640</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> ロシア</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">問い合わせに追加</button></div>
@@ -3288,7 +3260,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 2,400</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ペルー</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">問い合わせに追加</button></div>
@@ -3325,120 +3297,82 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 27</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月24日(火)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">問い合わせに追加</button></div>
     </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新着</span><span class="badge badge--pre">予約注文</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN壁充電器、3ポート、予約注文バッチ4">
-        <a href="/ecom-catalog-demo/ja/p/pow-pd65/">65 W GaN壁充電器、3ポート、予約注文バッチ4</a></h3>
-      <p class="card__desc" data-slot="desc">42 gの本体にUSB-Cが2つとUSB-Aが1つ。バッチが終了次第発送。</p>
+      <h3 class="card__title" data-slot="title" title="AIリード評価">
+        <a href="/ecom-catalog-demo/ja/p/svc-agt2/">AIリード評価</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$35.20</span></div></div>
+      <div class="price__main"><span class="price__ask">タスクごと</span></div>
+      <span class="price__unit">ターンキー</span></div>
       
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>予約注文 · バッチオープン</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">約で発送 <b>21 日</b> · 268 の 300 が約束されました</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">予約注文</button></div>
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>プロジェクトを受け付けています</span></div>
+      <span class="avail__eta">ブリーフの後、約10日で開始します。</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT2</span><span><b>形式</b> ターンキー</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">問い合わせに追加</button></div>
     </div>
-  </article><article class="card" data-id="POW-HUB" data-mode="retail">
+  </article><article class="card" data-id="SVC-CRM" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
       
-      <button class="fav" data-fav="POW-HUB" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <button class="fav" data-fav="SVC-CRM" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-HUB" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="SVC-CRM" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="7ポートUSBハブ、60 Wメインアダプター、編組ケーブル">
-        <a href="/ecom-catalog-demo/ja/p/pow-hub7/">7ポートUSBハブ、60 Wメインアダプター、編組ケーブル</a></h3>
+      <h3 class="card__title" data-slot="title" title="PostgreSQL 16のCRMダッシュボード">
+        <a href="/ecom-catalog-demo/ja/p/svc-crm1/">PostgreSQL 16のCRMダッシュボード</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$25.96</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="色 1 の 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 2"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 1,180</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
-    <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-HUB7</span><span><b>出所</b> SPB-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="POW-HUB">問い合わせに追加</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-SPK" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">マーケットプレイス</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="ウィッシュリストに保存">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">クイックビュー</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <div class="price__main"><span class="price__ask">価格はリクエストに応じて</span></div>
+      <span class="price__unit">ターンキー</span></div>
       
-    </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 ポータブルBluetoothスピーカー、24時間再生、IPX7防水">
-        <a href="/ecom-catalog-demo/ja/p/aud-spk2/">SPK 2 ポータブルBluetoothスピーカー、24時間再生、IPX7防水</a></h3>
-      <p class="card__desc" data-slot="desc">12 Wステレオとパッシブバスラジエーター。2台をペアリングして真のステレオを実現。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="色 3 の 3"></button>
-      </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 62</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
-    <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>販売者</b> SoundLab</span><span><b>出所</b> SPB-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">問い合わせに追加</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>プロジェクトを受け付けています</span></div>
+      <span class="avail__eta">ブリーフの後、約14日で開始します。</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-CRM1</span><span><b>形式</b> ターンキー</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-CRM">問い合わせに追加</button></div>
     </div>
   </article><article class="card" data-id="LGT-ARC" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3472,7 +3406,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 34</span></div>
-    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月25日(水)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-ARCL</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> ポーランド</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="LGT-ARC">問い合わせに追加</button></div>
@@ -3508,7 +3442,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 520</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-GOU12</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ドイツ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-GOU">問い合わせに追加</button></div>
@@ -3545,10 +3479,83 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 3,100</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-BDS11</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> チェコ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-BDS">問い合わせに追加</button></div>
+    </div>
+  </article><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新着</span><span class="badge badge--pre">予約注文</span></div>
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="ウィッシュリストに保存">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">クイックビュー</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>クラフト＆ホビー</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="クイリングフレーム織機、改良されたテンション、予約注文">
+        <a href="/ecom-catalog-demo/ja/p/kit-qui2/">クイリングフレーム織機、改良されたテンション、予約注文</a></h3>
+      <p class="card__desc" data-slot="desc">最初の生産が9日で完売した後の第2生産。300ユニットの予約が締切。</p>
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$30.25</span></div></div>
+      
+      <div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>予約注文 · バッチオープン</span></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">約で発送 <b>18 日</b> · 121 の 300 が約束されました</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">予約注文</button></div>
+    </div>
+  </article><article class="card" data-id="CMP-KTL" data-mode="marketplace">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="13"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="13"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge">マーケットプレイス</span></div>
+      <button class="fav" data-fav="CMP-KTL" aria-pressed="false" aria-label="ウィッシュリストに保存">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="CMP-KTL" tabindex="-1">クイックビュー</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>アウトドア＆光学</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="チタン製トレイルケトル 0.9 L、折りたたみハンドル、78 g">
+        <a href="/ecom-catalog-demo/ja/p/cmp-ktl9/">チタン製トレイルケトル 0.9 L、折りたたみハンドル、78 g</a></h3>
+      <p class="card__desc" data-slot="desc">単壁のグレード1チタン、迅速な沸騰のための黒化されたベース。平らに収納可能。</p>
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$50.60</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#55555E" aria-pressed="true" aria-label="色 1 の 2"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="色 2 の 2"></button>
+      </div></div>
+      <div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>残り 9</span></div>
+      <div class="bar100"><i style="width:90%"></i></div>
+      <span class="avail__eta">までに受け取る <b>11月26日(木)</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CMP-KTL9</span><span><b>販売者</b> Summit Supply</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-KTL">問い合わせに追加</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">12 もっと読み込む (20 残り)</button></div>
@@ -3576,42 +3583,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>メタ</b><span>SKU、販売者、倉庫、原産国。B2Bおよびマーケットプレイスの信頼レイヤー。</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>アクション</b><span>最後のスロット、下部に固定。モードごとに1つの主要動詞: お問い合わせに追加、予約、見積もり依頼、お知らせ。</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">ベストセラー</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">ベストセラー</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ホーム＆キッチン</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生">
-        <a href="/ecom-catalog-demo/ja/p/aud-q20i/">Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生</a></h3>
+      <h3 class="card__title" data-slot="title" title="エナメルスパイスケトル300 ml、クリーム、誘導加熱対応">
+        <a href="/ecom-catalog-demo/ja/p/hom-ktl30/">エナメルスパイスケトル300 ml、クリーム、誘導加熱対応</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108.90</span><span class="price__was">$141.90</span><span class="price__off">$33.00 を保存</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="色 3 の 3"></button>
+    <div class="price__main"><span class="price__now">$19.20</span><span class="price__was">$24.75</span><span class="price__off">$5.55 を保存</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="色 3 の 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 184</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 86</span></div>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ベトナム</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">問い合わせに追加</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> トルコ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">問い合わせに追加</button></div>
     </div>
   </article></div>
         </div>
@@ -3655,84 +3662,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 86</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> トルコ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">問い合わせに追加</button></div>
     </div>
-  </article></div><div><span class="state__cap">セール中</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">セール中</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">ベストセラー</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">ベストセラー</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ホーム＆キッチン</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生">
-        <a href="/ecom-catalog-demo/ja/p/aud-q20i/">Q20 ハイブリッドアクティブノイズキャンセリングヘッドフォン、オーバーイヤー、Bluetooth 5.3、40時間再生</a></h3>
+      <h3 class="card__title" data-slot="title" title="エナメルスパイスケトル300 ml、クリーム、誘導加熱対応">
+        <a href="/ecom-catalog-demo/ja/p/hom-ktl30/">エナメルスパイスケトル300 ml、クリーム、誘導加熱対応</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108.90</span><span class="price__was">$141.90</span><span class="price__off">$33.00 を保存</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="色 3 の 3"></button>
+    <div class="price__main"><span class="price__now">$19.20</span><span class="price__was">$24.75</span><span class="price__off">$5.55 を保存</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="色 3 の 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 184</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 86</span></div>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ベトナム</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">問い合わせに追加</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> トルコ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">問い合わせに追加</button></div>
     </div>
-  </article></div><div><span class="state__cap">在庫少</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">在庫少</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">マーケットプレイス</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新着</span><span class="badge badge--hand">手作り</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>ホーム＆キッチン</span>
+      <span class="card__maker">Kuznetsova Studio による</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="屋内セキュリティカメラ2K、プライバシーシャッター、ローカルSD">
-        <a href="/ecom-catalog-demo/ja/p/smh-cam2/">屋内セキュリティカメラ2K、プライバシーシャッター、ローカルSD</a></h3>
-      <p class="card__desc" data-slot="desc">クラウドサブスクリプション不要。物理的なレンズシャッターとデバイス内の人物検出。</p>
+      <h3 class="card__title" data-slot="title" title="手作りセラミックミキシングボウルセット、3ピース">
+        <a href="/ecom-catalog-demo/ja/p/hom-mix8/">手作りセラミックミキシングボウルセット、3ピース</a></h3>
+      <p class="card__desc" data-slot="desc">食品安全なマットグレーズの車輪で作られたストーンウェア。各セットは小ロットで焼成。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$41.25</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="色 1 の 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 2"></button>
+    <div class="price__main"><span class="price__now">$57.20</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="色 3 の 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>残り 6</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>販売者</b> SafeNest</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">問い合わせに追加</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>残り 3</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">までに受け取る <b>11月27日(金)</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>販売者</b> Kuznetsova Studio</span><span><b>受注生産</b> 6 日</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> ロシア</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">問い合わせに追加</button></div>
     </div>
   </article></div><div><span class="state__cap">在庫切れ</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3766,7 +3773,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>在庫切れ</span></div>
-      <span class="avail__ship">再入荷しました 12月3日(木)</span></div>
+      <span class="avail__ship">再入荷しました 12月5日(土)</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> ドイツ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>在庫切れ</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">通知する</button></div>
@@ -3804,119 +3811,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>残り 3</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">までに受け取る <b>11月25日(水)</b></span></div>
+      <span class="avail__eta">までに受け取る <b>11月27日(金)</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>販売者</b> Kuznetsova Studio</span><span><b>受注生産</b> 6 日</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> ロシア</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">問い合わせに追加</button></div>
     </div>
-  </article></div><div><span class="state__cap">マーケットプレイス</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">マーケットプレイス</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">マーケットプレイス</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>クラフト＆ホビー</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 ポータブルBluetoothスピーカー、24時間再生、IPX7防水">
-        <a href="/ecom-catalog-demo/ja/p/aud-spk2/">SPK 2 ポータブルBluetoothスピーカー、24時間再生、IPX7防水</a></h3>
-      <p class="card__desc" data-slot="desc">12 Wステレオとパッシブバスラジエーター。2台をペアリングして真のステレオを実現。</p>
+      <h3 class="card__title" data-slot="title" title="ベビーアルパカブレンドDK、200 gコーン、クラウドグレー">
+        <a href="/ecom-catalog-demo/ja/p/crf-alpa/">ベビーアルパカブレンドDK、200 gコーン、クラウドグレー</a></h3>
+      <p class="card__desc" data-slot="desc">アクリルコアの上に22 %アルパカ — かゆみのないハロー。ニットウェアスタジオ向けにコーン単位で販売。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="色 3 の 3"></button>
+    <div class="price__main"><span class="price__now">$26.95</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">色</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="色 1 の 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="色 2 の 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="色 3 の 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 62</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 148</span></div>
+    <span class="avail__eta">までに受け取る <b>11月26日(木)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>販売者</b> SoundLab</span><span><b>出所</b> SPB-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">問い合わせに追加</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>販売者</b> Fibra Andina</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> ペルー</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">問い合わせに追加</button></div>
     </div>
-  </article></div><div><span class="state__cap">B2B卸売</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">B2B卸売</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">卸売</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ホーム＆キッチン</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="産業用microSDXC 64 GB、耐久グレード、10パック">
-        <a href="/ecom-catalog-demo/ja/p/sto-car64/">産業用microSDXC 64 GB、耐久グレード、10パック</a></h3>
-      <p class="card__desc" data-slot="desc">ダッシュカムやPOS端末向けの書き込み耐久性評価。10ユニットの小売ボックスで提供。</p>
+      <h3 class="card__title" data-slot="title" title="鋳鉄グリルパン28 cm、プレシーズニング、ホテルグレード">
+        <a href="/ecom-catalog-demo/ja/p/hom-pan28/">鋳鉄グリルパン28 cm、プレシーズニング、ホテルグレード</a></h3>
+      <p class="card__desc" data-slot="desc">砂型鋳造、260 °Cまでオーブン対応。食品サービスバイヤー向けに6ユニットずつ梱包。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$10.89</span></div><span class="price__unit">単位あたり · 税金および手数料込み</span><div class="price__tiers"><span><b>10+</b> $10.89</span><span><b>50+</b> $10.01</span><span><b>200+</b> $9.24</span></div></div>
+    <div class="price__main"><span class="price__now">$45.10</span></div><span class="price__unit">単位あたり · 税金および手数料込み</span><div class="price__tiers"><span><b>6+</b> $45.10</span><span><b>24+</b> $40.92</span><span><b>60+</b> $37.29</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 980</span></div>
-    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 240</span></div>
+    <span class="avail__eta">までに受け取る <b>11月26日(木)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 個</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">見積もりをリクエスト</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">10 をたくさん追加</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 個</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> ロシア</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">見積もりをリクエスト</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">6 をたくさん追加</button></div>
     </div>
-  </article></div><div><span class="state__cap">予約注文</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">予約注文</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">新着</span><span class="badge badge--pre">予約注文</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="ウィッシュリストに保存">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="ウィッシュリストに保存">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">クイックビュー</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">クイックビュー</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>エレクトロニクス</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>クラフト＆ホビー</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN壁充電器、3ポート、予約注文バッチ4">
-        <a href="/ecom-catalog-demo/ja/p/pow-pd65/">65 W GaN壁充電器、3ポート、予約注文バッチ4</a></h3>
-      <p class="card__desc" data-slot="desc">42 gの本体にUSB-Cが2つとUSB-Aが1つ。バッチが終了次第発送。</p>
+      <h3 class="card__title" data-slot="title" title="クイリングフレーム織機、改良されたテンション、予約注文">
+        <a href="/ecom-catalog-demo/ja/p/kit-qui2/">クイリングフレーム織機、改良されたテンション、予約注文</a></h3>
+      <p class="card__desc" data-slot="desc">最初の生産が9日で完売した後の第2生産。300ユニットの予約が締切。</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$35.20</span></div></div>
+    <div class="price__main"><span class="price__now">$30.25</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>予約注文 · バッチオープン</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">約で発送 <b>21 日</b> · 268 の 300 が約束されました</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">予約注文</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">約で発送 <b>18 日</b> · 121 の 300 が約束されました</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>出所</b> MSK-2</span><span><b>原産地</b> 中国</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">予約注文</button></div>
     </div>
   </article></div><div><span class="state__cap">読み込み中 (スケルトン)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3959,7 +3966,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 640</span></div>
-    <span class="avail__eta">までに受け取る <b>11月21日(土)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月23日(月)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>出所</b> SPB-1</span><span><b>原産地</b> ロシア</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">問い合わせに追加</button></div>
@@ -4001,7 +4008,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 27</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月24日(火)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">問い合わせに追加</button></div>
@@ -4040,13 +4047,13 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 27</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月24日(火)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">問い合わせに追加</button></div>
     </div>
   </article></div>
-    <div class="sizebox"><h4>機能</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
+    <div class="sizebox"><h4>機能</h4><p>ヒーロースロット、部門ランディング、サブセクションの最初の行。 <code>.card--feature</code></p>
       <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
@@ -4079,7 +4086,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>在庫あり · 27</span></div>
-    <span class="avail__eta">までに受け取る <b>11月22日(日)</b></span>
+    <span class="avail__eta">までに受け取る <b>11月24日(火)</b></span>
     <span class="avail__ship">$80.00 以上で送料無料</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>出所</b> MSK-1</span><span><b>原産地</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">問い合わせに追加</button></div>
@@ -4133,8 +4140,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>エレクトロニクス</h5><ul>
-    <li><a href="/ecom-catalog-demo/ja/c/electronics/audio/" data-dept="electronics" data-sub="audio">オーディオ</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/storage/" data-dept="electronics" data-sub="storage">ストレージ＆メモリ</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/power/" data-dept="electronics" data-sub="power">電源＆ケーブル</a></li><li><a href="/ecom-catalog-demo/ja/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">スマートホーム</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ja/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">ランディングページ</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRMダッシュボード</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AIエージェント</a></li><li><a href="/ecom-catalog-demo/ja/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">自動化</a></li>
     </ul></div><div><h5>ホーム＆キッチン</h5><ul>
     <li><a href="/ecom-catalog-demo/ja/c/home/cookware/" data-dept="home" data-sub="cookware">調理器具＆準備</a></li><li><a href="/ecom-catalog-demo/ja/c/home/appliances/" data-dept="home" data-sub="appliances">小型家電</a></li><li><a href="/ecom-catalog-demo/ja/c/home/lighting/" data-dept="home" data-sub="lighting">照明</a></li><li><a href="/ecom-catalog-demo/ja/c/home/textiles/" data-dept="home" data-sub="textiles">テキスタイル</a></li>
     </ul></div><div><h5>クラフト＆ホビー</h5><ul>

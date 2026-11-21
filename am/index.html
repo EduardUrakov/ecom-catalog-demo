@@ -8,7 +8,7 @@
        принято, вопрос 14») и 06; чек-лист 1.5. Снимается вместе с X-Robots-Tag
        на среде, когда заказчик утвердит сайт и ответит об юрлице (О-3). -->
 <title>Path Home — ካታሎግ</title>
-<meta name="description" content="Path Home: four departments, sixteen subsections and one unified product card covering retail, marketplace, handmade, B2B wholesale and pre-order.">
+<meta name="description" content="Path Home: አራት ዳፕታርትመንት፣ ዓሥር ንብረት እና አንድ የተያያዘ የምርት ካርድ የመሸጫ፣ የገበያ፣ የእጅ ሥራ፣ B2B የግዢ ወርሃዊ እና የቅድመ ትዕዛዝ ይወስዳል።">
 <link rel="canonical" href="https://eduardurakov.github.io/ecom-catalog-demo/am/">
   <link rel="alternate" hreflang="en" href="https://eduardurakov.github.io/ecom-catalog-demo/en/">
   <link rel="alternate" hreflang="de" href="https://eduardurakov.github.io/ecom-catalog-demo/de/">
@@ -34,7 +34,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Path Home">
   <meta property="og:title" content="Path Home — ካታሎግ">
-  <meta property="og:description" content="Path Home: four departments, sixteen subsections and one unified product card covering retail, marketplace, handmade, B2B wholesale and pre-order.">
+  <meta property="og:description" content="Path Home: አራት ዳፕታርትመንት፣ ዓሥር ንብረት እና አንድ የተያያዘ የምርት ካርድ የመሸጫ፣ የገበያ፣ የእጅ ሥራ፣ B2B የግዢ ወርሃዊ እና የቅድመ ትዕዛዝ ይወስዳል።">
   <meta property="og:url" content="https://eduardurakov.github.io/ecom-catalog-demo/am/">
   <meta property="og:locale" content="am">
   <meta name="robots" content="noindex,nofollow">
@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2795,7 +2804,7 @@
   "@type": "Organization",
   "name": "Path Home",
   "url": "https://eduardurakov.github.io/ecom-catalog-demo/",
-  "description": "Home & living storefront of the Path ecosystem"
+  "description": "የመነሻ እና እንቅስቃሴ የመሸጫ ገፅ የPath ኢኮስተም"
 }
   </script>
   <script type="application/ld+json">
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/aud-q20i/"
+      "name": "መድረክ ገፅ, ተወዳዳሪ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SPK 2 እንቅስቃሴ ብሉቱ ድምፅ ማዕቀብ, 24 ሰዓት የመጫወቻ ጊዜ, IPX7 ውሃ የማይገባ",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/aud-spk2/"
+      "name": "መድረክ ገፅ: ይዘት እና ትራፊክ ትንበያ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NVMe SSD ዳርቨር 1 TB Gen4, 7 400 MB/s, ከምርጥ እንደ ምርጥ ይወዳድሩ",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/sto-nv1t/"
+      "name": "CRM ዳሽቦርድ በPostgreSQL 16",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "ኢንዱስትሪያል ማይክሮSDXC 64 GB, የተረጋገጠ ደረጃ, 10-ጥቅል",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/sto-car64/"
+      "name": "በብዙ ፕሮጀክቶች ውስጥ የሥራ ቦታ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "7-አንደኛ የUSB ሃብ ከ60 W ዋንታ አዳፕተር, የተሰራ ካብል",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/pow-hub7/"
+      "name": "AI የሽያጭ ወንበር",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "65 W GaN የግንባር አዳፕተር, 3 አንደኛ, የቀድሞ ቦታ 4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/pow-pd65/"
+      "name": "AI የወይዘር ማረጋገጫ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "ስልክ የተለዋዋጭ 2-ጥቅል, የእንደምን መለኪያ, Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/smh-plg2/"
+      "name": "n8n የሂደት ስኬቶች",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "ውስጥ የደህንነት ካሜራ 2K, የግል የማይገባ, የአንደኛ የSD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/smh-cam2/"
+      "name": "የሽያጭ አውቶሜሽን, ተወዳዳሪ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/am/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3016,7 +3025,7 @@
 
       <div class="ph">
         <h1 id="pageTitle">ካታሎግ</h1>
-        <p id="pageLead">One commercial core, one product card for every storefront. Pick a department, then a subsection — the card below is the same component everywhere, only the tokens and the content mode change.</p>
+        <p id="pageLead">አንድ ንግድ መሠረት፣ ለእያንዳንዱ የመሸጫ ገፅ አንድ የምርት ካርድ። ዳፕታርት ይምረጡ፣ ከዚያ ዕቅፍ ይምረጡ — በታች ያለው ካርድ በሁሉም ቦታ አንደኛ አካል ነው፣ ብቻ ቶክኖች እና ይዘት ይለዋዋጣል።</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs በሕይወት ይገኛሉ</span><span>4 ዳፓርትመንቶች</span>
     <span>16 ንዑስ ክፍሎች</span>
     <span>5 የይዘት ሞዴዎች</span><span>የሱቅ · ገበያ · የተሰራ በእጅ · ወርቅ · የቀድሞ ትዕዛዝ</span></div>
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="የክፍል"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/am/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">ኤሌክትሮኒክስ</span>
-        <span class="dep__n">8 እቃዎች · ድምፅ፣ የእቃ መያዣ፣ ኃይል፣ የተሻሻለ ቤት</span></a>
-      <div class="dep__sub" aria-label="ኤሌክትሮኒክስ ክፍሎች"><a href="/ecom-catalog-demo/am/c/electronics/audio/">ድምፅ</a><a href="/ecom-catalog-demo/am/c/electronics/storage/">የእቃ መያዣ እና ዝርዝር</a><a href="/ecom-catalog-demo/am/c/electronics/power/">ኃይል እና ካብል</a><a href="/ecom-catalog-demo/am/c/electronics/smart-home/">የተሻሻለ ቤት</a></div>
+      <div class="deps" id="deps" role="group" aria-label="የክፍል"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/am/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 አገልግሎቶች · የመድረክ ገፅዎች፣ የCRM ዳሽቦርድ እና የAI ወንበሮች</span></a>
+      <div class="dep__sub" aria-label="የVibecode Path ንብረት ንብረቶች"><a href="/ecom-catalog-demo/am/c/vibecode/landings/">የመድረክ ገፅዎች</a><a href="/ecom-catalog-demo/am/c/vibecode/crm/">የCRM ዳሽቦርድ</a><a href="/ecom-catalog-demo/am/c/vibecode/agents/">የAI ወንበሮች</a><a href="/ecom-catalog-demo/am/c/vibecode/automation/">አውቶሜሽን</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/am/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,78 +3118,41 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">የሚያሳይ 12 ከ 32 እቃዎች · ዋጋዎች በ USD</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="STO-NV1" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="SVC-AGT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">በጣም የተሸጠ</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="NVMe SSD ዳርቨር 1 TB Gen4, 7 400 MB/s, ከምርጥ እንደ ምርጥ ይወዳድሩ">
-        <a href="/ecom-catalog-demo/am/p/sto-nv1t/">NVMe SSD ዳርቨር 1 TB Gen4, 7 400 MB/s, ከምርጥ እንደ ምርጥ ይወዳድሩ</a></h3>
+      <h3 class="card__title" data-slot="title" title="AI የሽያጭ ወንበር">
+        <a href="/ecom-catalog-demo/am/p/svc-agt1/">AI የሽያጭ ወንበር</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$98.34</span><span class="price__was">US$114.40</span><span class="price__off">US$16.06 ይቀይሩ</span></div></div>
+      <div class="price__main"><span class="price__ask">ዋጋ በጥያቄ ላይ</span></div>
+      <span class="price__unit">ተዘጋጅቷል</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 412</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ዓርብ፣ ኖቬም 20</b></span>
-    <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ደቡብ ኮሪያ</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">ወደ ጥያቄ ያክል</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">አጭር እይታ</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ">
-        <a href="/ecom-catalog-demo/am/p/aud-q20i/">Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">US$33.00 ይቀይሩ</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 184</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
-    <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ቬትናም</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">ወደ ጥያቄ ያክል</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ10 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>ፎርማት</b> ተዘጋጅቷል</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article><article class="card" data-id="CRF-YRN" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3214,7 +3186,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 2,400</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ፔሩ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">ወደ ጥያቄ ያክል</button></div>
@@ -3251,7 +3223,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 27</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ማክሰ፣ ኖቬም 24</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ጃፓን</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">ወደ ጥያቄ ያክል</button></div>
@@ -3288,7 +3260,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 640</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">ወደ ጥያቄ ያክል</button></div>
@@ -3325,120 +3297,118 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 86</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ቱርክ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">አዲስ</span><span class="badge badge--pre">የቀድሞ ትዕዛዝ</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN የግንባር አዳፕተር, 3 አንደኛ, የቀድሞ ቦታ 4">
-        <a href="/ecom-catalog-demo/am/p/pow-pd65/">65 W GaN የግንባር አዳፕተር, 3 አንደኛ, የቀድሞ ቦታ 4</a></h3>
-      <p class="card__desc" data-slot="desc">ሁለት USB-C እና አንደኛ USB-A በ42 g አንደኛ. የቦታው ይወዳድሩ ወደ ወቅቱ ይሰጣል.</p>
+      <h3 class="card__title" data-slot="title" title="AI የወይዘር ማረጋገጫ">
+        <a href="/ecom-catalog-demo/am/p/svc-agt2/">AI የወይዘር ማረጋገጫ</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$35.20</span></div></div>
+      <div class="price__main"><span class="price__ask">በተግባር</span></div>
+      <span class="price__unit">ተዘጋጅቷል</span></div>
       
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>ቅድሚያ ይይዙ · ቡድን ክፈት</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">በግምት ይላክ <b>21 ቀናት</b> · 268 ከ 300 ተስፋ ይቀበላል</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">በቅድሚያ ይይዙ</button></div>
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ10 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT2</span><span><b>ፎርማት</b> ተዘጋጅቷል</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article><article class="card" data-id="POW-HUB" data-mode="retail">
+  </article><article class="card" data-id="SVC-CRM" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
       
-      <button class="fav" data-fav="POW-HUB" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <button class="fav" data-fav="SVC-CRM" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-HUB" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="SVC-CRM" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="7-አንደኛ የUSB ሃብ ከ60 W ዋንታ አዳፕተር, የተሰራ ካብል">
-        <a href="/ecom-catalog-demo/am/p/pow-hub7/">7-አንደኛ የUSB ሃብ ከ60 W ዋንታ አዳፕተር, የተሰራ ካብል</a></h3>
+      <h3 class="card__title" data-slot="title" title="CRM ዳሽቦርድ በPostgreSQL 16">
+        <a href="/ecom-catalog-demo/am/p/svc-crm1/">CRM ዳሽቦርድ በPostgreSQL 16</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$25.96</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="ቀለም 1 ከ 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 2"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">ዋጋ በጥያቄ ላይ</span></div>
+      <span class="price__unit">ተዘጋጅቷል</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 1,180</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
-    <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-HUB7</span><span><b>ከ</b> SPB-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="POW-HUB">ወደ ጥያቄ ያክል</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ14 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-CRM1</span><span><b>ፎርማት</b> ተዘጋጅቷል</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-CRM">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article><article class="card" data-id="SVC-N8N" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">ገበያ</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-N8N" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="SVC-N8N" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 እንቅስቃሴ ብሉቱ ድምፅ ማዕቀብ, 24 ሰዓት የመጫወቻ ጊዜ, IPX7 ውሃ የማይገባ">
-        <a href="/ecom-catalog-demo/am/p/aud-spk2/">SPK 2 እንቅስቃሴ ብሉቱ ድምፅ ማዕቀብ, 24 ሰዓት የመጫወቻ ጊዜ, IPX7 ውሃ የማይገባ</a></h3>
-      <p class="card__desc" data-slot="desc">12 W ስተሪዮ ከዳርቨር ባስ ራዲይተር ጋር. ሁለት አንደኛ ይወዳድሩ ወደ እውነተኛ ስተሪዮ.</p>
+      <h3 class="card__title" data-slot="title" title="n8n የሂደት ስኬቶች">
+        <a href="/ecom-catalog-demo/am/p/svc-n8n1/">n8n የሂደት ስኬቶች</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">ዋጋ በጥያቄ ላይ</span></div>
+      <span class="price__unit">ተዘጋጅቷል</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 62</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
-    <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>የተሸጠ በ</b> SoundLab</span><span><b>ከ</b> SPB-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">ወደ ጥያቄ ያክል</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ12 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-N8N1</span><span><b>ፎርማት</b> ተዘጋጅቷል</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-N8N">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article><article class="card" data-id="CMP-TNT" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3472,7 +3442,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 41</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ረቡዕ፣ ኖቬም 25</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CMP-TNT2</span><span><b>ከ</b> SPB-2</span><span><b>መነሻ</b> ቻይና</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-TNT">ወደ ጥያቄ ያክል</button></div>
@@ -3509,47 +3479,82 @@
       </div><div class="vars__row"><span class="vars__lb">መጠን</span><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 380</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-SCK3</span><span><b>የተሸጠ በ</b> Path &amp; Co</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ፖርቱጋል</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-SCK">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article><article class="card" data-id="SMH-PLG" data-mode="retail">
+  </article><article class="card" data-id="SVC-LND" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-21%</span></div>
-      <button class="fav" data-fav="SMH-PLG" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-LND" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-PLG" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="SVC-LND" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="ስልክ የተለዋዋጭ 2-ጥቅል, የእንደምን መለኪያ, Wi-Fi + Matter">
-        <a href="/ecom-catalog-demo/am/p/smh-plg2/">ስልክ የተለዋዋጭ 2-ጥቅል, የእንደምን መለኪያ, Wi-Fi + Matter</a></h3>
+      <h3 class="card__title" data-slot="title" title="መድረክ ገፅ, ተወዳዳሪ">
+        <a href="/ecom-catalog-demo/am/p/svc-lnd1/">መድረክ ገፅ, ተወዳዳሪ</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$20.79</span><span class="price__was">US$26.40</span><span class="price__off">US$5.61 ይቀይሩ</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="ቀለም 1 ከ 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 2"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">ዋጋ በጥያቄ ላይ</span></div>
+      <span class="price__unit">ተዘጋጅቷል</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 320</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
-    <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-PLG2</span><span><b>ከ</b> SPB-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-PLG">ወደ ጥያቄ ያክል</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ7 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-LND1</span><span><b>ፎርማት</b> ተዘጋጅቷል</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-LND">ወደ ጥያቄ ያክል</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-LNA" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-LNA" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-LNA" tabindex="-1">አጭር እይታ</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="መድረክ ገፅ: ይዘት እና ትራፊክ ትንበያ">
+        <a href="/ecom-catalog-demo/am/p/svc-lnd2/">መድረክ ገፅ: ይዘት እና ትራፊክ ትንበያ</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">በተግባር</span></div>
+      <span class="price__unit">ቀጣይ ድጋፍ</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>ፕሮጀክቶችን መቀበል</span></div>
+      <span class="avail__eta">ከአንድ ቀን በኋላ በ14 ቀን ውስጥ ይጀምራል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-LND2</span><span><b>ፎርማት</b> ቀጣይ ድጋፍ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-LNA">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">12 በተጨማሪ ጭነት ይጫኑ (20 ቀሪ)</button></div>
@@ -3577,42 +3582,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>ሜታ</b><span>SKU, ሻጭ, የእቃ ቤት, የመነሻ አገር። ለB2B እና የገበያ የታመን ደረጃ።</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>እንቅስቃሴዎች</b><span>የመጨረሻ ቦታ, ወደ ታች ተገንብቷል። አንድ ዋነኛ ቃል በዘዴ ውስጥ: ወደ ጥያቄ ይጨምሩ, ይዘው ይወዳድሩ, የጥያቄ ጥያቄ ይጠይቁ, እንደ እኔ ይገናኙ።</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ቤት እና ምግብ</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ">
-        <a href="/ecom-catalog-demo/am/p/aud-q20i/">Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ</a></h3>
+      <h3 class="card__title" data-slot="title" title="የአማርኛ የተለዋዋጭ የምርጥ የምርጥ የምርጥ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/hom-ktl30/">የአማርኛ የተለዋዋጭ የምርጥ የምርጥ የምርጥ ይወዳድሩ</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">US$33.00 ይቀይሩ</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
+    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">US$5.55 ይቀይሩ</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 184</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 86</span></div>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ቬትናም</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">ወደ ጥያቄ ያክል</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ቱርክ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article></div>
         </div>
@@ -3656,84 +3661,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 86</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ቱርክ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article></div><div><span class="state__cap">በሽያጭ ላይ</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">በሽያጭ ላይ</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">በጣም የተሸጠ</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ቤት እና ምግብ</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ">
-        <a href="/ecom-catalog-demo/am/p/aud-q20i/">Q20 ሃይብረድ አክቲቭ የድምፅ ማዕቀብ ሄይድፖን, ኦቨር-ኢይር, Bluetooth 5.3, 40 ሰዓት የመጫወቻ ጊዜ</a></h3>
+      <h3 class="card__title" data-slot="title" title="የአማርኛ የተለዋዋጭ የምርጥ የምርጥ የምርጥ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/hom-ktl30/">የአማርኛ የተለዋዋጭ የምርጥ የምርጥ የምርጥ ይወዳድሩ</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$108.90</span><span class="price__was">US$141.90</span><span class="price__off">US$33.00 ይቀይሩ</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
+    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">US$5.55 ይቀይሩ</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 184</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 86</span></div>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ቬትናም</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">ወደ ጥያቄ ያክል</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ቱርክ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article></div><div><span class="state__cap">ዝቅ የማዕከል</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">ዝቅ የማዕከል</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">ገበያ</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">አዲስ</span><span class="badge badge--hand">የተሰራ በእጅ</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>ቤት እና ምግብ</span>
+      <span class="card__maker">በ Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="ውስጥ የደህንነት ካሜራ 2K, የግል የማይገባ, የአንደኛ የSD">
-        <a href="/ecom-catalog-demo/am/p/smh-cam2/">ውስጥ የደህንነት ካሜራ 2K, የግል የማይገባ, የአንደኛ የSD</a></h3>
-      <p class="card__desc" data-slot="desc">የክላውድ የተወሰነ ይወዳድሩ. የአንደኛ የምርጥ የምርጥ የምርጥ ይወዳድሩ.</p>
+      <h3 class="card__title" data-slot="title" title="የአንደኛ የምርጥ የምርጥ የምርጥ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/hom-mix8/">የአንደኛ የምርጥ የምርጥ የምርጥ ይወዳድሩ</a></h3>
+      <p class="card__desc" data-slot="desc">የአንደኛ የምርጥ የምርጥ ይወዳድሩ እና የአንደኛ የምርጥ ይወዳድሩ.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$41.25</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="ቀለም 1 ከ 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 2"></button>
+    <div class="price__main"><span class="price__now">US$57.20</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>ብቻ 6 ቀሪ አለ</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>የተሸጠ በ</b> SafeNest</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">ወደ ጥያቄ ያክል</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>ብቻ 3 ቀሪ አለ</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">እሱን ይውሰዱ <b>ዓርብ፣ ኖቬም 27</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>የተሸጠ በ</b> Kuznetsova Studio</span><span><b>በትእዛዝ የተሠራ</b> 6 ቀናት</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article></div><div><span class="state__cap">ከማዕከል ውጭ</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3767,7 +3772,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>ከማዕከል ውጭ</span></div>
-      <span class="avail__ship">ወደ መያዝ ተመለሰ ሐሙስ፣ ዲሴም 3</span></div>
+      <span class="avail__ship">ወደ መያዝ ተመለሰ ቅዳሜ፣ ዲሴም 5</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ጀርመን</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>ከማዕከል ውጭ</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">እኔን አስታውቀኝ</button></div>
@@ -3805,119 +3810,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>ብቻ 3 ቀሪ አለ</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">እሱን ይውሰዱ <b>ረቡዕ፣ ኖቬም 25</b></span></div>
+      <span class="avail__eta">እሱን ይውሰዱ <b>ዓርብ፣ ኖቬም 27</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>የተሸጠ በ</b> Kuznetsova Studio</span><span><b>በትእዛዝ የተሠራ</b> 6 ቀናት</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article></div><div><span class="state__cap">ገበያ</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">ገበያ</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">ገበያ</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>እንደ ሥራ እና ምርት</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 እንቅስቃሴ ብሉቱ ድምፅ ማዕቀብ, 24 ሰዓት የመጫወቻ ጊዜ, IPX7 ውሃ የማይገባ">
-        <a href="/ecom-catalog-demo/am/p/aud-spk2/">SPK 2 እንቅስቃሴ ብሉቱ ድምፅ ማዕቀብ, 24 ሰዓት የመጫወቻ ጊዜ, IPX7 ውሃ የማይገባ</a></h3>
-      <p class="card__desc" data-slot="desc">12 W ስተሪዮ ከዳርቨር ባስ ራዲይተር ጋር. ሁለት አንደኛ ይወዳድሩ ወደ እውነተኛ ስተሪዮ.</p>
+      <h3 class="card__title" data-slot="title" title="የምርጥ የምርጥ የምርጥ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/crf-alpa/">የምርጥ የምርጥ የምርጥ ይወዳድሩ</a></h3>
+      <p class="card__desc" data-slot="desc">የምርጥ ወደ አንደኛ ይወዳድሩ ወደ ወቅቱ.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
+    <div class="price__main"><span class="price__now">US$26.95</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">ቀለም</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="ቀለም 1 ከ 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="ቀለም 2 ከ 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="ቀለም 3 ከ 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 62</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 148</span></div>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሐሙስ፣ ኖቬም 26</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>የተሸጠ በ</b> SoundLab</span><span><b>ከ</b> SPB-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">ወደ ጥያቄ ያክል</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>የተሸጠ በ</b> Fibra Andina</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ፔሩ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">ወደ ጥያቄ ያክል</button></div>
     </div>
-  </article></div><div><span class="state__cap">B2B ወርቅ</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">B2B ወርቅ</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">ዋርዳ</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>ቤት እና ምግብ</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="ኢንዱስትሪያል ማይክሮSDXC 64 GB, የተረጋገጠ ደረጃ, 10-ጥቅል">
-        <a href="/ecom-catalog-demo/am/p/sto-car64/">ኢንዱስትሪያል ማይክሮSDXC 64 GB, የተረጋገጠ ደረጃ, 10-ጥቅል</a></h3>
-      <p class="card__desc" data-slot="desc">ወደ ዳሽካም እና ወደ POS ተለዋዋጭ የተወሰነ የጻፍ ደረጃ. በ10 አንደኛ ይሰጣል.</p>
+      <h3 class="card__title" data-slot="title" title="የተቀደሰ የተቀደሰ የተቀደሰ የተቀደሰ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/hom-pan28/">የተቀደሰ የተቀደሰ የተቀደሰ የተቀደሰ ይወዳድሩ</a></h3>
+      <p class="card__desc" data-slot="desc">የተቀደሰ ወደ 260 °C ይወዳድሩ. በስዕል ውስጥ ይቀመጣል ወደ ወቅቱ.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$10.89</span></div><span class="price__unit">በአንድ የእቃ · ግብር እና ታክስ የተካተተ</span><div class="price__tiers"><span><b>10+</b> US$10.89</span><span><b>50+</b> US$10.01</span><span><b>200+</b> US$9.24</span></div></div>
+    <div class="price__main"><span class="price__now">US$45.10</span></div><span class="price__unit">በአንድ የእቃ · ግብር እና ታክስ የተካተተ</span><div class="price__tiers"><span><b>6+</b> US$45.10</span><span><b>24+</b> US$40.92</span><span><b>60+</b> US$37.29</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 980</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 240</span></div>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሐሙስ፣ ኖቬም 26</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 ቁጥር</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">የገንዘብ ጥያቄ ይደርሱ</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">10 ብዙ ይጨምሩ</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 ቁጥር</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ሩስያ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">የገንዘብ ጥያቄ ይደርሱ</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">6 ብዙ ይጨምሩ</button></div>
     </div>
-  </article></div><div><span class="state__cap">የቀድሞ ትዕዛዝ</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">የቀድሞ ትዕዛዝ</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">አዲስ</span><span class="badge badge--pre">የቀድሞ ትዕዛዝ</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="ወደ የፈለግ ዝርዝር ይቀርብ">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">አጭር እይታ</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">አጭር እይታ</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>ኤሌክትሮኒክስ</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>እንደ ሥራ እና ምርት</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN የግንባር አዳፕተር, 3 አንደኛ, የቀድሞ ቦታ 4">
-        <a href="/ecom-catalog-demo/am/p/pow-pd65/">65 W GaN የግንባር አዳፕተር, 3 አንደኛ, የቀድሞ ቦታ 4</a></h3>
-      <p class="card__desc" data-slot="desc">ሁለት USB-C እና አንደኛ USB-A በ42 g አንደኛ. የቦታው ይወዳድሩ ወደ ወቅቱ ይሰጣል.</p>
+      <h3 class="card__title" data-slot="title" title="የምርጥ የምርጥ የምርጥ ይወዳድሩ">
+        <a href="/ecom-catalog-demo/am/p/kit-qui2/">የምርጥ የምርጥ የምርጥ ይወዳድሩ</a></h3>
+      <p class="card__desc" data-slot="desc">የምርጥ ወደ አንደኛ ይወዳድሩ ወደ ወቅቱ.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$35.20</span></div></div>
+    <div class="price__main"><span class="price__now">US$30.25</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>ቅድሚያ ይይዙ · ቡድን ክፈት</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">በግምት ይላክ <b>21 ቀናት</b> · 268 ከ 300 ተስፋ ይቀበላል</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ቻይና</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">በቅድሚያ ይይዙ</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">በግምት ይላክ <b>18 ቀናት</b> · 121 ከ 300 ተስፋ ይቀበላል</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>ከ</b> MSK-2</span><span><b>መነሻ</b> ቻይና</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">በቅድሚያ ይይዙ</button></div>
     </div>
   </article></div><div><span class="state__cap">በማስገንዘብ ላይ (ስኬልተን)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3960,7 +3965,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 640</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">ወደ ጥያቄ ያክል</button></div>
@@ -4002,7 +4007,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 27</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ማክሰ፣ ኖቬም 24</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ጃፓን</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">ወደ ጥያቄ ያክል</button></div>
@@ -4041,13 +4046,13 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 27</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ማክሰ፣ ኖቬም 24</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ጃፓን</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">ወደ ጥያቄ ያክል</button></div>
     </div>
   </article></div>
-    <div class="sizebox"><h4>ባለቤት</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
+    <div class="sizebox"><h4>ባለቤት</h4><p>የወንጌል ቦታ፣ የዳፕታርት መድረክ፣ የንብረት ዕቅፍ የመጀመሪያ አደረጃጀት። <code>.card--feature</code></p>
       <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
@@ -4080,7 +4085,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 27</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>እሑድ፣ ኖቬም 22</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ማክሰ፣ ኖቬም 24</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>ከ</b> MSK-1</span><span><b>መነሻ</b> ጃፓን</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">ወደ ጥያቄ ያክል</button></div>
@@ -4134,8 +4139,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>ኤሌክትሮኒክስ</h5><ul>
-    <li><a href="/ecom-catalog-demo/am/c/electronics/audio/" data-dept="electronics" data-sub="audio">ድምፅ</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/storage/" data-dept="electronics" data-sub="storage">የእቃ መያዣ እና ዝርዝር</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/power/" data-dept="electronics" data-sub="power">ኃይል እና ካብል</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">የተሻሻለ ቤት</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/am/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">የመድረክ ገፅዎች</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">የCRM ዳሽቦርድ</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">የAI ወንበሮች</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">አውቶሜሽን</a></li>
     </ul></div><div><h5>ቤት እና ምግብ</h5><ul>
     <li><a href="/ecom-catalog-demo/am/c/home/cookware/" data-dept="home" data-sub="cookware">የምግብ መያዣ እና ዝርዝር</a></li><li><a href="/ecom-catalog-demo/am/c/home/appliances/" data-dept="home" data-sub="appliances">ትንሽ መሳሪያዎች</a></li><li><a href="/ecom-catalog-demo/am/c/home/lighting/" data-dept="home" data-sub="lighting">መብራት</a></li><li><a href="/ecom-catalog-demo/am/c/home/textiles/" data-dept="home" data-sub="textiles">የምርት</a></li>
     </ul></div><div><h5>እንደ ሥራ እና ምርት</h5><ul>
@@ -4153,7 +4158,7 @@
       <li><a href="/ecom-catalog-demo/am/#card-system">መጠኖች</a></li>
       <li><a href="/ecom-catalog-demo/CATALOG.md">ስፖስፊኬሽን</a></li></ul></div></div>
       <div class="foot__bar">
-        <span>Path Home — storefront of the Path ecosystem.</span>
+        <span>Path Home — የPath ኢኮስተም የመሸጫ ገፅ።</span>
         <span>ዋጋዎች፣ እቃ እና የማስተላለፊያ ቀኖች የሚያሳይ ናቸው።</span>
         <a href="/ecom-catalog-demo/am/">ወደ መድረክ ዲሞ ይመለሱ</a>
         <a href="/ecom-catalog-demo/CATALOG.md">የካርድ ስፖስፊኬሽን</a>

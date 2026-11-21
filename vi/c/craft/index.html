@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2898,7 +2907,7 @@
 
   <main id="main">
     <div class="wrap">
-      <nav class="crumbs" id="crumbs" aria-label="Dấu đường"><a href="/ecom-catalog-demo/vi/">Danh mục</a><span aria-hidden="true">/</span><a href="/ecom-catalog-demo/vi/c/craft/">Thủ công &amp; Sở thích</a><span aria-hidden="true">/</span><b>Tất cả craft &amp; hobby</b></nav>
+      <nav class="crumbs" id="crumbs" aria-label="Dấu đường"><a href="/ecom-catalog-demo/vi/">Danh mục</a><span aria-hidden="true">/</span><a href="/ecom-catalog-demo/vi/c/craft/">Thủ công &amp; Sở thích</a><span aria-hidden="true">/</span><b>Tất cả Craft &amp; Hobby</b></nav>
 
       <div class="ph">
         <h1 id="pageTitle">Danh mục</h1>
@@ -2911,12 +2920,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Các phòng"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/vi/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Điện tử</span>
-        <span class="dep__n">8 mục · Âm thanh, lưu trữ, nguồn, nhà thông minh</span></a>
-      <div class="dep__sub" aria-label="Các phân mục Điện tử"><a href="/ecom-catalog-demo/vi/c/electronics/audio/">Âm thanh</a><a href="/ecom-catalog-demo/vi/c/electronics/storage/">Lưu trữ &amp; Bộ nhớ</a><a href="/ecom-catalog-demo/vi/c/electronics/power/">Nguồn &amp; Cáp</a><a href="/ecom-catalog-demo/vi/c/electronics/smart-home/">Nhà thông minh</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Các phòng"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/vi/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 dịch vụ · Trang đích, bảng điều khiển CRM và đại lý AI</span></a>
+      <div class="dep__sub" aria-label="Các phân mục Vibecode Path"><a href="/ecom-catalog-demo/vi/c/vibecode/landings/">Trang Đích</a><a href="/ecom-catalog-demo/vi/c/vibecode/crm/">Bảng Điều Khiển CRM</a><a href="/ecom-catalog-demo/vi/c/vibecode/agents/">Đại Lý AI</a><a href="/ecom-catalog-demo/vi/c/vibecode/automation/">Tự động hóa</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/vi/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3027,7 +3036,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 2.400</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 7, 21 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Thêm vào yêu cầu</button></div>
@@ -3065,7 +3074,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 4</span></div>
       <div class="bar100"><i style="width:40%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>Thứ 6, 27 thg 11</b></span></div>
+      <span class="avail__eta">Nhận được vào <b>CN, 29 thg 11</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-BRS6</span><span><b>Bán bởi</b> Mosbrush Workshop</span><span><b>Đặt hàng theo yêu cầu</b> 8 ngày</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-BRS">Thêm vào yêu cầu</button></div>
     </div>
@@ -3100,7 +3109,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 760</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 7, 21 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-DEC1</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="KIT-DEC">Thêm vào yêu cầu</button></div>
@@ -3136,7 +3145,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 520</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 7, 21 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-GOU12</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Đức</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-GOU">Thêm vào yêu cầu</button></div>
@@ -3173,7 +3182,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 3.100</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 7, 21 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-BDS11</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Séc</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-BDS">Thêm vào yêu cầu</button></div>
@@ -3246,7 +3255,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 148</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 5, 26 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Bán bởi</b> Fibra Andina</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Thêm vào yêu cầu</button></div>
@@ -3282,7 +3291,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 410</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 4, 25 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-MUL24</span><span><b>MOQ</b> 5 cái</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="CRF-MUL">Yêu cầu báo giá</button>
@@ -3298,8 +3307,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Điện tử</h5><ul>
-    <li><a href="/ecom-catalog-demo/vi/c/electronics/audio/" data-dept="electronics" data-sub="audio">Âm thanh</a></li><li><a href="/ecom-catalog-demo/vi/c/electronics/storage/" data-dept="electronics" data-sub="storage">Lưu trữ &amp; Bộ nhớ</a></li><li><a href="/ecom-catalog-demo/vi/c/electronics/power/" data-dept="electronics" data-sub="power">Nguồn &amp; Cáp</a></li><li><a href="/ecom-catalog-demo/vi/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Nhà thông minh</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/vi/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Trang Đích</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Bảng Điều Khiển CRM</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Đại Lý AI</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Tự động hóa</a></li>
     </ul></div><div><h5>Nhà &amp; Bếp</h5><ul>
     <li><a href="/ecom-catalog-demo/vi/c/home/cookware/" data-dept="home" data-sub="cookware">Đồ dùng nấu ăn &amp; Chuẩn bị</a></li><li><a href="/ecom-catalog-demo/vi/c/home/appliances/" data-dept="home" data-sub="appliances">Thiết bị nhỏ</a></li><li><a href="/ecom-catalog-demo/vi/c/home/lighting/" data-dept="home" data-sub="lighting">Chiếu sáng</a></li><li><a href="/ecom-catalog-demo/vi/c/home/textiles/" data-dept="home" data-sub="textiles">Vải</a></li>
     </ul></div><div><h5>Thủ công &amp; Sở thích</h5><ul>

@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2917,12 +2926,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="แผนก"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/th/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">อิเล็กทรอนิกส์</span>
-        <span class="dep__n">8 รายการ · เสียง, การจัดเก็บ, พลังงาน, บ้านอัจฉริยะ</span></a>
-      <div class="dep__sub" aria-label="หมวดหมู่ย่อยอิเล็กทรอนิกส์"><a href="/ecom-catalog-demo/th/c/electronics/audio/">เสียง</a><a href="/ecom-catalog-demo/th/c/electronics/storage/">การจัดเก็บและหน่วยความจำ</a><a href="/ecom-catalog-demo/th/c/electronics/power/">พลังงานและสายเคเบิล</a><a href="/ecom-catalog-demo/th/c/electronics/smart-home/">บ้านอัจฉริยะ</a></div>
+      <div class="deps" id="deps" role="group" aria-label="แผนก"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/th/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 บริการ · หน้าลงจอด, แดชบอร์ด CRM และตัวแทน AI</span></a>
+      <div class="dep__sub" aria-label="หมวดหมู่ย่อย Vibecode Path"><a href="/ecom-catalog-demo/th/c/vibecode/landings/">หน้าลงจอด</a><a href="/ecom-catalog-demo/th/c/vibecode/crm/">แดชบอร์ด CRM</a><a href="/ecom-catalog-demo/th/c/vibecode/agents/">ตัวแทน AI</a><a href="/ecom-catalog-demo/th/c/vibecode/automation/">อัตโนมัติ</a></div>
     </div><div class="dep" data-on="true" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/th/c/home/" aria-current="page">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3033,7 +3042,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>สินค้าหมด</span></div>
-      <span class="avail__ship">กลับมาในสต็อก พฤหัส 3 ธ.ค.</span></div>
+      <span class="avail__ship">กลับมาในสต็อก เสาร์ 5 ธ.ค.</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>จาก</b> MSK-1</span><span><b>แหล่งกำเนิด</b> เยอรมนี</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>สินค้าหมด</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">แจ้งเตือนฉัน</button></div>
@@ -3070,7 +3079,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>มีสินค้า · 34</span></div>
-    <span class="avail__eta">รับภายใน <b>จันทร์ 23 พ.ย.</b></span>
+    <span class="avail__eta">รับภายใน <b>พุธ 25 พ.ย.</b></span>
     <span class="avail__ship">จัดส่งฟรีเมื่อสั่งซื้อเกิน US$80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-ARCL</span><span><b>จาก</b> SPB-1</span><span><b>แหล่งกำเนิด</b> โปแลนด์</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="LGT-ARC">เพิ่มในคำถาม</button></div>
@@ -3085,8 +3094,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>อิเล็กทรอนิกส์</h5><ul>
-    <li><a href="/ecom-catalog-demo/th/c/electronics/audio/" data-dept="electronics" data-sub="audio">เสียง</a></li><li><a href="/ecom-catalog-demo/th/c/electronics/storage/" data-dept="electronics" data-sub="storage">การจัดเก็บและหน่วยความจำ</a></li><li><a href="/ecom-catalog-demo/th/c/electronics/power/" data-dept="electronics" data-sub="power">พลังงานและสายเคเบิล</a></li><li><a href="/ecom-catalog-demo/th/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">บ้านอัจฉริยะ</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/th/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">หน้าลงจอด</a></li><li><a href="/ecom-catalog-demo/th/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">แดชบอร์ด CRM</a></li><li><a href="/ecom-catalog-demo/th/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">ตัวแทน AI</a></li><li><a href="/ecom-catalog-demo/th/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">อัตโนมัติ</a></li>
     </ul></div><div><h5>บ้านและครัว</h5><ul>
     <li><a href="/ecom-catalog-demo/th/c/home/cookware/" data-dept="home" data-sub="cookware">เครื่องครัวและการเตรียม</a></li><li><a href="/ecom-catalog-demo/th/c/home/appliances/" data-dept="home" data-sub="appliances">เครื่องใช้ไฟฟ้าขนาดเล็ก</a></li><li><a href="/ecom-catalog-demo/th/c/home/lighting/" data-dept="home" data-sub="lighting">แสงสว่าง</a></li><li><a href="/ecom-catalog-demo/th/c/home/textiles/" data-dept="home" data-sub="textiles">สิ่งทอ</a></li>
     </ul></div><div><h5>งานฝีมือและงานอดิเรก</h5><ul>
@@ -3104,7 +3113,7 @@
       <li><a href="/ecom-catalog-demo/th/#card-system">ขนาด</a></li>
       <li><a href="/ecom-catalog-demo/CATALOG.md">สเปค</a></li></ul></div></div>
       <div class="foot__bar">
-        <span>Path Home — storefront of the Path ecosystem.</span>
+        <span>Path Home — storefront ของระบบนิเวศ Path.</span>
         <span>ราคา, สต็อกและวันที่จัดส่งเป็นเพียงการแสดงตัวอย่าง.</span>
         <a href="/ecom-catalog-demo/th/">กลับไปที่สาธิตแพลตฟอร์ม</a>
         <a href="/ecom-catalog-demo/CATALOG.md">สเปคการ์ด</a>

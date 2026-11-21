@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/aud-q20i/"
+      "name": "Лендинг под ключ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Портативная колонка SPK 2, 24 ч работы, защита IPX7",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/aud-spk2/"
+      "name": "Лендинг: контент и аналитика трафика",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/sto-nv1t/"
+      "name": "CRM-дашборд на PostgreSQL 16",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/sto-car64/"
+      "name": "Мультипроектный кабинет",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "USB-хаб на 7 портов с блоком питания 60 Вт, плетёный кабель",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/pow-hub7/"
+      "name": "ИИ-агент продаж",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/pow-pd65/"
+      "name": "ИИ-квалификация лидов",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "Умная розетка, 2 шт., учёт энергии, Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/smh-plg2/"
+      "name": "n8n-сценарии под ваш процесс",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "Камера для дома 2K, шторка приватности, локальная SD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/smh-cam2/"
+      "name": "Автоматизация продаж под ключ",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ru/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Разделы"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ru/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Электроника</span>
-        <span class="dep__n">8 товаров · Аудио, накопители, питание, умный дом</span></a>
-      <div class="dep__sub" aria-label="Подразделы: Электроника"><a href="/ecom-catalog-demo/ru/c/electronics/audio/">Аудио</a><a href="/ecom-catalog-demo/ru/c/electronics/storage/">Накопители и память</a><a href="/ecom-catalog-demo/ru/c/electronics/power/">Питание и кабели</a><a href="/ecom-catalog-demo/ru/c/electronics/smart-home/">Умный дом</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Разделы"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ru/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 услуг · Лендинги, CRM-дашборды и ИИ-агенты</span></a>
+      <div class="dep__sub" aria-label="Подразделы: Vibecode Path"><a href="/ecom-catalog-demo/ru/c/vibecode/landings/">Лендинги</a><a href="/ecom-catalog-demo/ru/c/vibecode/crm/">CRM-дашборды</a><a href="/ecom-catalog-demo/ru/c/vibecode/agents/">ИИ-агенты</a><a href="/ecom-catalog-demo/ru/c/vibecode/automation/">Автоматизация</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ru/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3141,10 +3150,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 27</span></div>
-    <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>вт, 24 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> OPT-B1042</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Япония</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">В заявку</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-AGT" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">Хит продаж</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="В избранное">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">Быстрый просмотр</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="ИИ-агент продаж">
+        <a href="/ecom-catalog-demo/ru/p/svc-agt1/">ИИ-агент продаж</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Цена по запросу</span></div>
+      <span class="price__unit">Под ключ</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Принимаем проекты</span></div>
+      <span class="avail__eta">Старт примерно через 10 дней после брифа</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SVC-AGT1</span><span><b>Формат</b> Под ключ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">В заявку</button></div>
     </div>
   </article><article class="card" data-id="CRF-YRN" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3178,7 +3223,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 2 400</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> CRF-YRNM</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Перу</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">В заявку</button></div>
@@ -3215,47 +3260,10 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 640</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> TEX-TWL50</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Россия</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">В заявку</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Хит продаж</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="В избранное">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Быстрый просмотр</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч">
-        <a href="/ecom-catalog-demo/ru/p/aud-q20i/">Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 $</span><span class="price__was">141,90 $</span><span class="price__off">Экономия 33,00 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 184</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
-    <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> AUD-Q20I</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Вьетнам</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">В заявку</button></div>
     </div>
   </article><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3289,46 +3297,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 86</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-KTL30</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Турция</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">В заявку</button></div>
     </div>
-  </article><article class="card" data-id="STO-NV1" data-mode="retail">
+  </article><article class="card" data-id="SVC-AUT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Хит продаж</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="В избранное">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Новинка</span></div>
+      <button class="fav" data-fav="SVC-AUT" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="SVC-AUT" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором">
-        <a href="/ecom-catalog-demo/ru/p/sto-nv1t/">SSD NVMe 1 ТБ Gen4, 7 400 МБ/с, с радиатором</a></h3>
+      <h3 class="card__title" data-slot="title" title="Автоматизация продаж под ключ">
+        <a href="/ecom-catalog-demo/ru/p/svc-n8n2/">Автоматизация продаж под ключ</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">98,34 $</span><span class="price__was">114,40 $</span><span class="price__off">Экономия 16,06 $</span></div></div>
+      <div class="price__main"><span class="price__ask">Под задачу</span></div>
+      <span class="price__unit">Под ключ + поддержка</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 412</span></div>
-    <span class="avail__eta">Доставка <b>пт, 20 нояб.</b></span>
-    <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> STO-NV1T</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Республика Корея</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">В заявку</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Принимаем проекты</span></div>
+      <span class="avail__eta">Старт примерно через 21 день после брифа</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SVC-N8N2</span><span><b>Формат</b> Под ключ + поддержка</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AUT">В заявку</button></div>
     </div>
   </article><article class="card" data-id="HOM-WAF" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3362,7 +3370,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 118</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-WAF4</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Китай</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-WAF">В заявку</button></div>
@@ -3399,83 +3407,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 41</span></div>
-    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>ср, 25 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> CMP-TNT2</span><span><b>Склад</b> SPB-2</span><span><b>Страна</b> Китай</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-TNT">В заявку</button></div>
     </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Новинка</span><span class="badge badge--pre">Предзаказ</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="В избранное">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4">
-        <a href="/ecom-catalog-demo/ru/p/pow-pd65/">Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4</a></h3>
-      <p class="card__desc" data-slot="desc">Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.</p>
+      <h3 class="card__title" data-slot="title" title="ИИ-квалификация лидов">
+        <a href="/ecom-catalog-demo/ru/p/svc-agt2/">ИИ-квалификация лидов</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">35,20 $</span></div></div>
+      <div class="price__main"><span class="price__ask">Под задачу</span></div>
+      <span class="price__unit">Под ключ</span></div>
       
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Предзаказ · приём заявок</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Отправка примерно через <b>21 дн.</b> · 268 из 300 зарезервировано</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> POW-PD65</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Забронировать</button></div>
-    </div>
-  </article><article class="card" data-id="SMH-CAM" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Маркетплейс</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="В избранное">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Быстрый просмотр</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Электроника</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Камера для дома 2K, шторка приватности, локальная SD">
-        <a href="/ecom-catalog-demo/ru/p/smh-cam2/">Камера для дома 2K, шторка приватности, локальная SD</a></h3>
-      <p class="card__desc" data-slot="desc">Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">41,25 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Цвет 1 из 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Цвет 2 из 2"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Осталось 6 шт.</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SMH-CAM2</span><span><b>Продавец</b> SafeNest</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">В заявку</button></div>
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Принимаем проекты</span></div>
+      <span class="avail__eta">Старт примерно через 10 дней после брифа</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SVC-AGT2</span><span><b>Формат</b> Под ключ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">В заявку</button></div>
     </div>
   </article><article class="card" data-id="TLS-MLT" data-mode="handmade">
     <div class="card__media" data-slot="media">
@@ -3510,7 +3481,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Осталось 5 шт.</span></div>
       <div class="bar100"><i style="width:50%"></i></div>
-      <span class="avail__eta">Доставка <b>чт, 26 нояб.</b></span></div>
+      <span class="avail__eta">Доставка <b>сб, 28 нояб.</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> TLS-MLT3</span><span><b>Продавец</b> Vetka Forge</span><span><b>На заказ</b> 7 дн.</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Россия</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TLS-MLT">В заявку</button></div>
     </div>
@@ -3545,11 +3516,47 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 1 600</span></div>
-    <span class="avail__eta">Доставка <b>ср, 25 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пт, 27 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> OPT-SHP22</span><span><b>MOQ</b> 20 шт.</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">Запросить цену</button>
       <button class="btn btn--ghost" data-add="OPT-SHP">Добавить партию 20</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-LND" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-LND" aria-pressed="false" aria-label="В избранное">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-LND" tabindex="-1">Быстрый просмотр</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Лендинг под ключ">
+        <a href="/ecom-catalog-demo/ru/p/svc-lnd1/">Лендинг под ключ</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Цена по запросу</span></div>
+      <span class="price__unit">Под ключ</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Принимаем проекты</span></div>
+      <span class="avail__eta">Старт примерно через 7 дней после брифа</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SVC-LND1</span><span><b>Формат</b> Под ключ</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-LND">В заявку</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">Показать ещё 12 (осталось 20)</button></div>
@@ -3577,42 +3584,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Мета</b><span>Артикул, продавец, склад, страна происхождения. Слой доверия для B2B и маркетплейса.</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Действия</b><span>Последний слот, прижат к низу. Один главный глагол на режим: в заявку, забронировать, запросить цену, сообщить о поступлении.</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Хит продаж</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="В избранное">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Хит продаж</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Дом и кухня</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч">
-        <a href="/ecom-catalog-demo/ru/p/aud-q20i/">Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч</a></h3>
+      <h3 class="card__title" data-slot="title" title="Эмалированный чайник для специй 300 мл, кремовый, для индукции">
+        <a href="/ecom-catalog-demo/ru/p/hom-ktl30/">Эмалированный чайник для специй 300 мл, кремовый, для индукции</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 $</span><span class="price__was">141,90 $</span><span class="price__off">Экономия 33,00 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
+    <div class="price__main"><span class="price__now">19,20 $</span><span class="price__was">24,75 $</span><span class="price__off">Экономия 5,55 $</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 184</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 86</span></div>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> AUD-Q20I</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Вьетнам</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">В заявку</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-KTL30</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Турция</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">В заявку</button></div>
     </div>
   </article></div>
         </div>
@@ -3656,84 +3663,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 86</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-KTL30</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Турция</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">В заявку</button></div>
     </div>
-  </article></div><div><span class="state__cap">Со скидкой</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">Со скидкой</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Хит продаж</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="В избранное">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Хит продаж</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Дом и кухня</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч">
-        <a href="/ecom-catalog-demo/ru/p/aud-q20i/">Наушники Q20 с гибридным шумоподавлением, накладные, Bluetooth 5.3, 40 ч</a></h3>
+      <h3 class="card__title" data-slot="title" title="Эмалированный чайник для специй 300 мл, кремовый, для индукции">
+        <a href="/ecom-catalog-demo/ru/p/hom-ktl30/">Эмалированный чайник для специй 300 мл, кремовый, для индукции</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 $</span><span class="price__was">141,90 $</span><span class="price__off">Экономия 33,00 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
+    <div class="price__main"><span class="price__now">19,20 $</span><span class="price__was">24,75 $</span><span class="price__off">Экономия 5,55 $</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 184</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 86</span></div>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> AUD-Q20I</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Вьетнам</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">В заявку</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-KTL30</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Турция</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">В заявку</button></div>
     </div>
-  </article></div><div><span class="state__cap">Мало на складе</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Мало на складе</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Маркетплейс</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="В избранное">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Новинка</span><span class="badge badge--hand">Хендмейд</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Электроника</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Дом и кухня</span>
+      <span class="card__maker">мастер: Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="Камера для дома 2K, шторка приватности, локальная SD">
-        <a href="/ecom-catalog-demo/ru/p/smh-cam2/">Камера для дома 2K, шторка приватности, локальная SD</a></h3>
-      <p class="card__desc" data-slot="desc">Подписка на облако не нужна. Физическая шторка объектива и детекция людей на устройстве.</p>
+      <h3 class="card__title" data-slot="title" title="Набор керамических мисок ручной работы, 3 шт.">
+        <a href="/ecom-catalog-demo/ru/p/hom-mix8/">Набор керамических мисок ручной работы, 3 шт.</a></h3>
+      <p class="card__desc" data-slot="desc">Каменная керамика, вытянутая на круге, матовая глазурь для контакта с едой. Каждый набор обжигается малой партией.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">41,25 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Цвет 1 из 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Цвет 2 из 2"></button>
+    <div class="price__main"><span class="price__now">57,20 $</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Осталось 6 шт.</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> SMH-CAM2</span><span><b>Продавец</b> SafeNest</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">В заявку</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Осталось 3 шт.</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">Доставка <b>пт, 27 нояб.</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-MIX8</span><span><b>Продавец</b> Kuznetsova Studio</span><span><b>На заказ</b> 6 дн.</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Россия</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">В заявку</button></div>
     </div>
   </article></div><div><span class="state__cap">Нет в наличии</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3767,7 +3774,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Нет в наличии</span></div>
-      <span class="avail__ship">Снова в наличии чт, 3 дек.</span></div>
+      <span class="avail__ship">Снова в наличии сб, 5 дек.</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> LGT-PND36</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Германия</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Нет в наличии</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Сообщить о поступлении</button></div>
@@ -3805,119 +3812,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Осталось 3 шт.</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Доставка <b>ср, 25 нояб.</b></span></div>
+      <span class="avail__eta">Доставка <b>пт, 27 нояб.</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-MIX8</span><span><b>Продавец</b> Kuznetsova Studio</span><span><b>На заказ</b> 6 дн.</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Россия</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">В заявку</button></div>
     </div>
-  </article></div><div><span class="state__cap">Маркетплейс</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Маркетплейс</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">Маркетплейс</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="В избранное">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Рукоделие и хобби</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Портативная колонка SPK 2, 24 ч работы, защита IPX7">
-        <a href="/ecom-catalog-demo/ru/p/aud-spk2/">Портативная колонка SPK 2, 24 ч работы, защита IPX7</a></h3>
-      <p class="card__desc" data-slot="desc">Стерео 12 Вт с пассивными радиаторами баса. Две колонки объединяются в настоящую стереопару.</p>
+      <h3 class="card__title" data-slot="title" title="Смесь с бэби-альпакой DK, конус 200 г, облачно-серый">
+        <a href="/ecom-catalog-demo/ru/p/crf-alpa/">Смесь с бэби-альпакой DK, конус 200 г, облачно-серый</a></h3>
+      <p class="card__desc" data-slot="desc">22 % альпаки на акриловой основе: ореол без покалывания. Продаётся конусом для трикотажных студий.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">48,40 $</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
+    <div class="price__main"><span class="price__now">26,95 $</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Цвет</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Цвет 1 из 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Цвет 2 из 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Цвет 3 из 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 62</span></div>
-    <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 148</span></div>
+    <span class="avail__eta">Доставка <b>чт, 26 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> AUD-SPK2</span><span><b>Продавец</b> SoundLab</span><span><b>Склад</b> SPB-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">В заявку</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> CRF-ALPA</span><span><b>Продавец</b> Fibra Andina</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Перу</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">В заявку</button></div>
     </div>
-  </article></div><div><span class="state__cap">Опт B2B</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">Опт B2B</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Опт</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="В избранное">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Дом и кухня</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.">
-        <a href="/ecom-catalog-demo/ru/p/sto-car64/">Промышленная microSDXC 64 ГБ, класс Endurance, 10 шт.</a></h3>
-      <p class="card__desc" data-slot="desc">Ресурс записи рассчитан на видеорегистраторы и POS-терминалы. Поставляется в коробке по 10 штук.</p>
+      <h3 class="card__title" data-slot="title" title="Чугунная гриль-сковорода 28 см, с заводской закалкой, отельный класс">
+        <a href="/ecom-catalog-demo/ru/p/hom-pan28/">Чугунная гриль-сковорода 28 см, с заводской закалкой, отельный класс</a></h3>
+      <p class="card__desc" data-slot="desc">Литьё в песок, выдерживает до 260 °C в духовке. По 6 штук в коробке для HoReCa.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">10,89 $</span></div><span class="price__unit">за единицу · налоги и пошлины внутри</span><div class="price__tiers"><span><b>10+</b> 10,89 $</span><span><b>50+</b> 10,01 $</span><span><b>200+</b> 9,24 $</span></div></div>
+    <div class="price__main"><span class="price__now">45,10 $</span></div><span class="price__unit">за единицу · налоги и пошлины внутри</span><div class="price__tiers"><span><b>6+</b> 45,10 $</span><span><b>24+</b> 40,92 $</span><span><b>60+</b> 37,29 $</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 980</span></div>
-    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 240</span></div>
+    <span class="avail__eta">Доставка <b>чт, 26 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> STO-CAR64</span><span><b>MOQ</b> 10 шт.</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">Запросить цену</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">Добавить партию 10</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> HOM-PAN28</span><span><b>MOQ</b> 6 шт.</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Россия</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Запросить цену</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">Добавить партию 6</button></div>
     </div>
-  </article></div><div><span class="state__cap">Предзаказ</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">Предзаказ</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">Новинка</span><span class="badge badge--pre">Предзаказ</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="В избранное">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="В избранное">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Быстрый просмотр</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Быстрый просмотр</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Электроника</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Рукоделие и хобби</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4">
-        <a href="/ecom-catalog-demo/ru/p/pow-pd65/">Зарядка GaN 65 Вт, 3 порта, предзаказ партии 4</a></h3>
-      <p class="card__desc" data-slot="desc">Два USB-C и один USB-A в корпусе на 42 г. Отправка после закрытия партии.</p>
+      <h3 class="card__title" data-slot="title" title="Станок для квиллинга, усиленное натяжение, предзаказ">
+        <a href="/ecom-catalog-demo/ru/p/kit-qui2/">Станок для квиллинга, усиленное натяжение, предзаказ</a></h3>
+      <p class="card__desc" data-slot="desc">Второй тираж: первый разошёлся за девять дней. Партия закрывается на 300 заявках.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">35,20 $</span></div></div>
+    <div class="price__main"><span class="price__now">30,25 $</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Предзаказ · приём заявок</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Отправка примерно через <b>21 дн.</b> · 268 из 300 зарезервировано</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> POW-PD65</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Забронировать</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Отправка примерно через <b>18 дн.</b> · 121 из 300 зарезервировано</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>Артикул</b> KIT-QUI2</span><span><b>Склад</b> MSK-2</span><span><b>Страна</b> Китай</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Забронировать</button></div>
     </div>
   </article></div><div><span class="state__cap">Загрузка (скелетон)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3960,7 +3967,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 640</span></div>
-    <span class="avail__eta">Доставка <b>сб, 21 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>пн, 23 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> TEX-TWL50</span><span><b>Склад</b> SPB-1</span><span><b>Страна</b> Россия</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">В заявку</button></div>
@@ -4002,7 +4009,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 27</span></div>
-    <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>вт, 24 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> OPT-B1042</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Япония</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">В заявку</button></div>
@@ -4041,7 +4048,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 27</span></div>
-    <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>вт, 24 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> OPT-B1042</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Япония</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">В заявку</button></div>
@@ -4080,7 +4087,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>В наличии · 27</span></div>
-    <span class="avail__eta">Доставка <b>вс, 22 нояб.</b></span>
+    <span class="avail__eta">Доставка <b>вт, 24 нояб.</b></span>
     <span class="avail__ship">Бесплатная доставка от 80,00 $</span></div>
       <div class="card__meta" data-slot="meta"><span><b>Артикул</b> OPT-B1042</span><span><b>Склад</b> MSK-1</span><span><b>Страна</b> Япония</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">В заявку</button></div>
@@ -4134,8 +4141,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Электроника</h5><ul>
-    <li><a href="/ecom-catalog-demo/ru/c/electronics/audio/" data-dept="electronics" data-sub="audio">Аудио</a></li><li><a href="/ecom-catalog-demo/ru/c/electronics/storage/" data-dept="electronics" data-sub="storage">Накопители и память</a></li><li><a href="/ecom-catalog-demo/ru/c/electronics/power/" data-dept="electronics" data-sub="power">Питание и кабели</a></li><li><a href="/ecom-catalog-demo/ru/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Умный дом</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ru/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Лендинги</a></li><li><a href="/ecom-catalog-demo/ru/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM-дашборды</a></li><li><a href="/ecom-catalog-demo/ru/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">ИИ-агенты</a></li><li><a href="/ecom-catalog-demo/ru/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Автоматизация</a></li>
     </ul></div><div><h5>Дом и кухня</h5><ul>
     <li><a href="/ecom-catalog-demo/ru/c/home/cookware/" data-dept="home" data-sub="cookware">Посуда и подготовка</a></li><li><a href="/ecom-catalog-demo/ru/c/home/appliances/" data-dept="home" data-sub="appliances">Мелкая техника</a></li><li><a href="/ecom-catalog-demo/ru/c/home/lighting/" data-dept="home" data-sub="lighting">Освещение</a></li><li><a href="/ecom-catalog-demo/ru/c/home/textiles/" data-dept="home" data-sub="textiles">Текстиль</a></li>
     </ul></div><div><h5>Рукоделие и хобби</h5><ul>

@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2917,12 +2926,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="የክፍል"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/am/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">ኤሌክትሮኒክስ</span>
-        <span class="dep__n">8 እቃዎች · ድምፅ፣ የእቃ መያዣ፣ ኃይል፣ የተሻሻለ ቤት</span></a>
-      <div class="dep__sub" aria-label="ኤሌክትሮኒክስ ክፍሎች"><a href="/ecom-catalog-demo/am/c/electronics/audio/">ድምፅ</a><a href="/ecom-catalog-demo/am/c/electronics/storage/">የእቃ መያዣ እና ዝርዝር</a><a href="/ecom-catalog-demo/am/c/electronics/power/">ኃይል እና ካብል</a><a href="/ecom-catalog-demo/am/c/electronics/smart-home/">የተሻሻለ ቤት</a></div>
+      <div class="deps" id="deps" role="group" aria-label="የክፍል"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/am/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 አገልግሎቶች · የመድረክ ገፅዎች፣ የCRM ዳሽቦርድ እና የAI ወንበሮች</span></a>
+      <div class="dep__sub" aria-label="የVibecode Path ንብረት ንብረቶች"><a href="/ecom-catalog-demo/am/c/vibecode/landings/">የመድረክ ገፅዎች</a><a href="/ecom-catalog-demo/am/c/vibecode/crm/">የCRM ዳሽቦርድ</a><a href="/ecom-catalog-demo/am/c/vibecode/agents/">የAI ወንበሮች</a><a href="/ecom-catalog-demo/am/c/vibecode/automation/">አውቶሜሽን</a></div>
     </div><div class="dep" data-on="true" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/am/c/home/" aria-current="page">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3033,7 +3042,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>በመያዝ · 640</span></div>
-    <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 21</b></span>
+    <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 23</b></span>
     <span class="avail__ship">ነፃ ድርሻ ከ US$80.00 በላይ</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">ወደ ጥያቄ ያክል</button></div>
@@ -3071,7 +3080,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>ብቻ 2 ቀሪ አለ</span></div>
       <div class="bar100"><i style="width:20%"></i></div>
-      <span class="avail__eta">እሱን ይውሰዱ <b>ቅዳሜ፣ ኖቬም 28</b></span></div>
+      <span class="avail__eta">እሱን ይውሰዱ <b>ሰኞ፣ ኖቬም 30</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-RUG80</span><span><b>የተሸጠ በ</b> Anna P.</span><span><b>በትእዛዝ የተሠራ</b> 9 ቀናት</span><span><b>ከ</b> SPB-1</span><span><b>መነሻ</b> ሩስያ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-RUG">ወደ ጥያቄ ያክል</button></div>
     </div>
@@ -3085,8 +3094,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>ኤሌክትሮኒክስ</h5><ul>
-    <li><a href="/ecom-catalog-demo/am/c/electronics/audio/" data-dept="electronics" data-sub="audio">ድምፅ</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/storage/" data-dept="electronics" data-sub="storage">የእቃ መያዣ እና ዝርዝር</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/power/" data-dept="electronics" data-sub="power">ኃይል እና ካብል</a></li><li><a href="/ecom-catalog-demo/am/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">የተሻሻለ ቤት</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/am/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">የመድረክ ገፅዎች</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">የCRM ዳሽቦርድ</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">የAI ወንበሮች</a></li><li><a href="/ecom-catalog-demo/am/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">አውቶሜሽን</a></li>
     </ul></div><div><h5>ቤት እና ምግብ</h5><ul>
     <li><a href="/ecom-catalog-demo/am/c/home/cookware/" data-dept="home" data-sub="cookware">የምግብ መያዣ እና ዝርዝር</a></li><li><a href="/ecom-catalog-demo/am/c/home/appliances/" data-dept="home" data-sub="appliances">ትንሽ መሳሪያዎች</a></li><li><a href="/ecom-catalog-demo/am/c/home/lighting/" data-dept="home" data-sub="lighting">መብራት</a></li><li><a href="/ecom-catalog-demo/am/c/home/textiles/" data-dept="home" data-sub="textiles">የምርት</a></li>
     </ul></div><div><h5>እንደ ሥራ እና ምርት</h5><ul>
@@ -3104,7 +3113,7 @@
       <li><a href="/ecom-catalog-demo/am/#card-system">መጠኖች</a></li>
       <li><a href="/ecom-catalog-demo/CATALOG.md">ስፖስፊኬሽን</a></li></ul></div></div>
       <div class="foot__bar">
-        <span>Path Home — storefront of the Path ecosystem.</span>
+        <span>Path Home — የPath ኢኮስተም የመሸጫ ገፅ።</span>
         <span>ዋጋዎች፣ እቃ እና የማስተላለፊያ ቀኖች የሚያሳይ ናቸው።</span>
         <a href="/ecom-catalog-demo/am/">ወደ መድረክ ዲሞ ይመለሱ</a>
         <a href="/ecom-catalog-demo/CATALOG.md">የካርድ ስፖስፊኬሽን</a>

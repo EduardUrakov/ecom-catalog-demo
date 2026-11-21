@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2917,12 +2926,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Idara"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/sw/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Elektroniki</span>
-        <span class="dep__n">8 vitu · Sauti, uhifadhi, nguvu, nyumba yenye akili</span></a>
-      <div class="dep__sub" aria-label="Sehemu ndogo za Elektroniki"><a href="/ecom-catalog-demo/sw/c/electronics/audio/">Sauti</a><a href="/ecom-catalog-demo/sw/c/electronics/storage/">Uhifadhi &amp; Kumbukumbu</a><a href="/ecom-catalog-demo/sw/c/electronics/power/">Nguvu &amp; Nyaya</a><a href="/ecom-catalog-demo/sw/c/electronics/smart-home/">Nyumba yenye akili</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Idara"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/sw/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 huduma · Kurasa za kutua, dashibodi za CRM na wakala wa AI</span></a>
+      <div class="dep__sub" aria-label="Vigawanyiko vya Vibecode Path"><a href="/ecom-catalog-demo/sw/c/vibecode/landings/">Kurasa za kutua</a><a href="/ecom-catalog-demo/sw/c/vibecode/crm/">Dashibodi za CRM</a><a href="/ecom-catalog-demo/sw/c/vibecode/agents/">Wakala wa AI</a><a href="/ecom-catalog-demo/sw/c/vibecode/automation/">Automatiki</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/sw/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3032,7 +3041,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 760</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumamosi, 21 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-DEC1</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Urusi</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="KIT-DEC">Ongeza kwenye uchunguzi</button></div>
@@ -3083,8 +3092,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Elektroniki</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/electronics/audio/" data-dept="electronics" data-sub="audio">Sauti</a></li><li><a href="/ecom-catalog-demo/sw/c/electronics/storage/" data-dept="electronics" data-sub="storage">Uhifadhi &amp; Kumbukumbu</a></li><li><a href="/ecom-catalog-demo/sw/c/electronics/power/" data-dept="electronics" data-sub="power">Nguvu &amp; Nyaya</a></li><li><a href="/ecom-catalog-demo/sw/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Nyumba yenye akili</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/sw/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Kurasa za kutua</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashibodi za CRM</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakala wa AI</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automatiki</a></li>
     </ul></div><div><h5>Nyumbani &amp; Jiko</h5><ul>
     <li><a href="/ecom-catalog-demo/sw/c/home/cookware/" data-dept="home" data-sub="cookware">Vifaa vya kupikia &amp; Maandalizi</a></li><li><a href="/ecom-catalog-demo/sw/c/home/appliances/" data-dept="home" data-sub="appliances">Vifaa Vidogo</a></li><li><a href="/ecom-catalog-demo/sw/c/home/lighting/" data-dept="home" data-sub="lighting">Mwanga</a></li><li><a href="/ecom-catalog-demo/sw/c/home/textiles/" data-dept="home" data-sub="textiles">Vitambaa</a></li>
     </ul></div><div><h5>Sanaa &amp; Burudani</h5><ul>

@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2804,11 +2813,11 @@
   "image": "https://cdn.example.com/path-home/tls-mlt3-1.webp",
   "offers": {
     "@type": "Offer",
-    "price": "43.45",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/tls-mlt3/",
-    "itemCondition": "https://schema.org/NewCondition"
+    "itemCondition": "https://schema.org/NewCondition",
+    "price": "43.45"
   }
 }
   </script>
@@ -2940,12 +2949,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/es/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Electrónica</span>
-        <span class="dep__n">8 artículos · Audio, almacenamiento, energía, hogar inteligente</span></a>
-      <div class="dep__sub" aria-label="Subsecciones de Electrónica"><a href="/ecom-catalog-demo/es/c/electronics/audio/">Audio</a><a href="/ecom-catalog-demo/es/c/electronics/storage/">Almacenamiento y Memoria</a><a href="/ecom-catalog-demo/es/c/electronics/power/">Energía y Cables</a><a href="/ecom-catalog-demo/es/c/electronics/smart-home/">Hogar Inteligente</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/es/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 servicios · Páginas de aterrizaje, paneles de control de CRM y agentes de IA</span></a>
+      <div class="dep__sub" aria-label="Subsecciones de Vibecode Path"><a href="/ecom-catalog-demo/es/c/vibecode/landings/">Páginas de aterrizaje</a><a href="/ecom-catalog-demo/es/c/vibecode/crm/">Paneles de control de CRM</a><a href="/ecom-catalog-demo/es/c/vibecode/agents/">Agentes de IA</a><a href="/ecom-catalog-demo/es/c/vibecode/automation/">Automatización</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/es/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3057,7 +3066,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 5</span></div>
       <div class="bar100"><i style="width:50%"></i></div>
-      <span class="avail__eta">Recíbalo para <b>jue, 26 nov</b></span></div>
+      <span class="avail__eta">Recíbalo para <b>sáb, 28 nov</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TLS-MLT3</span><span><b>Vendido por</b> Vetka Forge</span><span><b>Hecho por encargo</b> 7 días</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TLS-MLT">Añadir a la consulta</button></div>
     </div>
@@ -3071,8 +3080,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Electrónica</h5><ul>
-    <li><a href="/ecom-catalog-demo/es/c/electronics/audio/" data-dept="electronics" data-sub="audio">Audio</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/storage/" data-dept="electronics" data-sub="storage">Almacenamiento y Memoria</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/power/" data-dept="electronics" data-sub="power">Energía y Cables</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Hogar Inteligente</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/es/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Páginas de aterrizaje</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Paneles de control de CRM</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Agentes de IA</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automatización</a></li>
     </ul></div><div><h5>Hogar y Cocina</h5><ul>
     <li><a href="/ecom-catalog-demo/es/c/home/cookware/" data-dept="home" data-sub="cookware">Utensilios de Cocina y Preparación</a></li><li><a href="/ecom-catalog-demo/es/c/home/appliances/" data-dept="home" data-sub="appliances">Pequeños Electrodomésticos</a></li><li><a href="/ecom-catalog-demo/es/c/home/lighting/" data-dept="home" data-sub="lighting">Iluminación</a></li><li><a href="/ecom-catalog-demo/es/c/home/textiles/" data-dept="home" data-sub="textiles">Textiles</a></li>
     </ul></div><div><h5>Manualidades y Pasatiempos</h5><ul>

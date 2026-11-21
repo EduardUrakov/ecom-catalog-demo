@@ -7,7 +7,7 @@
   <!-- Закрытый контур до публичного запуска: правила 03 («Демо до запуска —
        принято, вопрос 14») и 06; чек-лист 1.5. Снимается вместе с X-Robots-Tag
        на среде, когда заказчик утвердит сайт и ответит об юрлице (О-3). -->
-<title>Merino Worsted Yarn, 100 g Skein, 24 Colours — Path Home</title>
+<title>Merino Worsted Yarn, 100 g Skein, Launuka 24 — Path Home</title>
 <meta name="description" content="Merino daga tushe guda 19.5 µm, mai wanke a cikin injin wanki na zare. An launin a cikin ƙananan batches.">
 <link rel="canonical" href="https://eduardurakov.github.io/ecom-catalog-demo/ha/p/crf-yrnm/">
   <link rel="alternate" hreflang="en" href="https://eduardurakov.github.io/ecom-catalog-demo/en/p/crf-yrnm/">
@@ -33,7 +33,7 @@
   <link rel="sitemap" type="application/xml" href="https://eduardurakov.github.io/ecom-catalog-demo/sitemap.xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Path Home">
-  <meta property="og:title" content="Merino Worsted Yarn, 100 g Skein, 24 Colours — Path Home">
+  <meta property="og:title" content="Merino Worsted Yarn, 100 g Skein, Launuka 24 — Path Home">
   <meta property="og:description" content="Merino daga tushe guda 19.5 µm, mai wanke a cikin injin wanki na zare. An launin a cikin ƙananan batches.">
   <meta property="og:url" content="https://eduardurakov.github.io/ecom-catalog-demo/ha/p/crf-yrnm/">
   <meta property="og:locale" content="ha">
@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2793,7 +2802,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Merino Worsted Yarn, 100 g Skein, 24 Colours",
+  "name": "Merino Worsted Yarn, 100 g Skein, Launuka 24",
   "description": "Merino daga tushe guda 19.5 µm, mai wanke a cikin injin wanki na zare. An launin a cikin ƙananan batches.",
   "sku": "CRF-YRNM",
   "brand": {
@@ -2804,11 +2813,11 @@
   "image": "https://cdn.example.com/path-home/crf-yrnm-1.webp",
   "offers": {
     "@type": "Offer",
-    "price": "9.79",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/crf-yrnm/",
-    "itemCondition": "https://schema.org/NewCondition"
+    "itemCondition": "https://schema.org/NewCondition",
+    "price": "9.79"
   }
 }
   </script>
@@ -2940,12 +2949,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Sassan"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ha/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Kayan lantarki</span>
-        <span class="dep__n">8 abubuwa · Sauti, ajiya, wutar lantarki, gida mai wayo</span></a>
-      <div class="dep__sub" aria-label="Rarrabawa na Kayan Lantarki"><a href="/ecom-catalog-demo/ha/c/electronics/audio/">Sauti</a><a href="/ecom-catalog-demo/ha/c/electronics/storage/">Ajiya &amp; Tunawa</a><a href="/ecom-catalog-demo/ha/c/electronics/power/">Wuta &amp; Kebul</a><a href="/ecom-catalog-demo/ha/c/electronics/smart-home/">Gida Mai Wayo</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Sassan"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ha/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 ayyuka · Shafukan saukarwa, dashboard na CRM da wakilan AI</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path ƙaramin sashi"><a href="/ecom-catalog-demo/ha/c/vibecode/landings/">Shafukan Saukarwa</a><a href="/ecom-catalog-demo/ha/c/vibecode/crm/">Dashboard na CRM</a><a href="/ecom-catalog-demo/ha/c/vibecode/agents/">Wakilan AI</a><a href="/ecom-catalog-demo/ha/c/vibecode/automation/">Aiki ta atomatik</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ha/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3047,8 +3056,8 @@
       <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Merino Worsted Yarn, 100 g Skein, 24 Colours">
-        <a href="/ecom-catalog-demo/ha/p/crf-yrnm/">Merino Worsted Yarn, 100 g Skein, 24 Colours</a></h3>
+      <h3 class="card__title" data-slot="title" title="Merino Worsted Yarn, 100 g Skein, Launuka 24">
+        <a href="/ecom-catalog-demo/ha/p/crf-yrnm/">Merino Worsted Yarn, 100 g Skein, Launuka 24</a></h3>
       <p class="card__desc" data-slot="desc">Merino daga tushe guda 19.5 µm, mai wanke a cikin injin wanki na zare. An launin a cikin ƙananan batches.</p>
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 9.79</span></div></div>
@@ -3056,7 +3065,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 2,400</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Feru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Kara zuwa bincike</button></div>
@@ -3071,8 +3080,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Kayan lantarki</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/electronics/audio/" data-dept="electronics" data-sub="audio">Sauti</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/storage/" data-dept="electronics" data-sub="storage">Ajiya &amp; Tunawa</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/power/" data-dept="electronics" data-sub="power">Wuta &amp; Kebul</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Gida Mai Wayo</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ha/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Shafukan Saukarwa</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashboard na CRM</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakilan AI</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Aiki ta atomatik</a></li>
     </ul></div><div><h5>Gida &amp; Kicin</h5><ul>
     <li><a href="/ecom-catalog-demo/ha/c/home/cookware/" data-dept="home" data-sub="cookware">Kayan Girki &amp; Shirya</a></li><li><a href="/ecom-catalog-demo/ha/c/home/appliances/" data-dept="home" data-sub="appliances">Kananan Na'urori</a></li><li><a href="/ecom-catalog-demo/ha/c/home/lighting/" data-dept="home" data-sub="lighting">Haske</a></li><li><a href="/ecom-catalog-demo/ha/c/home/textiles/" data-dept="home" data-sub="textiles">Kayan Daki</a></li>
     </ul></div><div><h5>Hanya &amp; Sha'awa</h5><ul>

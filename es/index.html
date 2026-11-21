@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/aud-q20i/"
+      "name": "Página de Aterrizaje, Llave en Mano",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Altavoz portátil Bluetooth SPK 2, 24 h de tiempo de reproducción, impermeable IPX7",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/aud-spk2/"
+      "name": "Página de Aterrizaje: Contenido y Análisis de Tráfico",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Unidad SSD NVMe de 1 TB Gen4, 7 400 MB/s, con disipador de calor",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/sto-nv1t/"
+      "name": "Tablero CRM en PostgreSQL 16",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "microSDXC industrial de 64 GB, grado de resistencia, paquete de 10",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/sto-car64/"
+      "name": "Espacio de Trabajo Multi-Proyecto",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "Hub USB de 7 puertos con adaptador de corriente de 60 W, cable trenzado",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/pow-hub7/"
+      "name": "Agente de Ventas AI",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "Cargador de pared GaN de 65 W, 3 puertos, lote de preorden 4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/pow-pd65/"
+      "name": "Calificación de Leads AI",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "Enchufe inteligente 2-pack, medición de energía, Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/smh-plg2/"
+      "name": "Escenarios n8n para Su Proceso",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "Cámara de seguridad interior 2K, obturador de privacidad, SD local",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/smh-cam2/"
+      "name": "Automatización de Ventas, Llave en Mano",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/es/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/es/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Electrónica</span>
-        <span class="dep__n">8 artículos · Audio, almacenamiento, energía, hogar inteligente</span></a>
-      <div class="dep__sub" aria-label="Subsecciones de Electrónica"><a href="/ecom-catalog-demo/es/c/electronics/audio/">Audio</a><a href="/ecom-catalog-demo/es/c/electronics/storage/">Almacenamiento y Memoria</a><a href="/ecom-catalog-demo/es/c/electronics/power/">Energía y Cables</a><a href="/ecom-catalog-demo/es/c/electronics/smart-home/">Hogar Inteligente</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Departamentos"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/es/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 servicios · Páginas de aterrizaje, paneles de control de CRM y agentes de IA</span></a>
+      <div class="dep__sub" aria-label="Subsecciones de Vibecode Path"><a href="/ecom-catalog-demo/es/c/vibecode/landings/">Páginas de aterrizaje</a><a href="/ecom-catalog-demo/es/c/vibecode/crm/">Paneles de control de CRM</a><a href="/ecom-catalog-demo/es/c/vibecode/agents/">Agentes de IA</a><a href="/ecom-catalog-demo/es/c/vibecode/automation/">Automatización</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/es/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,42 +3118,41 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">Mostrando 12 de 32 artículos · precios en USD</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="AUD-Q20" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="SVC-AGT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Más vendido</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">Más vendido</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción">
-        <a href="/ecom-catalog-demo/es/p/aud-q20i/">Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción</a></h3>
+      <h3 class="card__title" data-slot="title" title="Agente de Ventas AI">
+        <a href="/ecom-catalog-demo/es/p/svc-agt1/">Agente de Ventas AI</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 US$</span><span class="price__was">141,90 US$</span><span class="price__off">Guardar 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Color 3 de 3"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">Precio a consultar</span></div>
+      <span class="price__unit">Llave en mano</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 184</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
-    <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Añadir a la consulta</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Aceptando proyectos</span></div>
+      <span class="avail__eta">Comienza en aproximadamente 10 días después del resumen</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>Formato</b> Llave en mano</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">Añadir a la consulta</button></div>
     </div>
   </article><article class="card" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3178,7 +3186,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 27</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>mar, 24 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Japón</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Añadir a la consulta</button></div>
@@ -3215,7 +3223,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 2400</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Perú</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Añadir a la consulta</button></div>
@@ -3252,7 +3260,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 640</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Añadir a la consulta</button></div>
@@ -3289,83 +3297,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 86</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Turquía</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Añadir a la consulta</button></div>
     </div>
-  </article><article class="card" data-id="STO-NV1" data-mode="retail">
+  </article><article class="card" data-id="SVC-AUT" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Más vendido</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="16" cy="20" r="5"/><circle cx="48" cy="20" r="5"/><circle cx="32" cy="44" r="5"/><path d="M20 24l9 16M44 24l-9 16"/><path d="M21 20h22"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Nuevo</span></div>
+      <button class="fav" data-fav="SVC-AUT" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="SVC-AUT" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Unidad SSD NVMe de 1 TB Gen4, 7 400 MB/s, con disipador de calor">
-        <a href="/ecom-catalog-demo/es/p/sto-nv1t/">Unidad SSD NVMe de 1 TB Gen4, 7 400 MB/s, con disipador de calor</a></h3>
+      <h3 class="card__title" data-slot="title" title="Automatización de Ventas, Llave en Mano">
+        <a href="/ecom-catalog-demo/es/p/svc-n8n2/">Automatización de Ventas, Llave en Mano</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">98,34 US$</span><span class="price__was">114,40 US$</span><span class="price__off">Guardar 16,06 US$</span></div></div>
+      <div class="price__main"><span class="price__ask">Por tarea</span></div>
+      <span class="price__unit">Llave en mano + soporte</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 412</span></div>
-    <span class="avail__eta">Recíbalo para <b>vie, 20 nov</b></span>
-    <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Corea del Sur</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">Añadir a la consulta</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-SPK" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Mercado</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="Guardar en la lista de deseos">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">Vista rápida</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Altavoz portátil Bluetooth SPK 2, 24 h de tiempo de reproducción, impermeable IPX7">
-        <a href="/ecom-catalog-demo/es/p/aud-spk2/">Altavoz portátil Bluetooth SPK 2, 24 h de tiempo de reproducción, impermeable IPX7</a></h3>
-      <p class="card__desc" data-slot="desc">Estéreo de 12 W con radiadores de graves pasivos. Empareja dos unidades para un verdadero estéreo.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">48,40 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="Color 3 de 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 62</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
-    <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>Vendido por</b> SoundLab</span><span><b>Desde</b> SPB-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">Añadir a la consulta</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Aceptando proyectos</span></div>
+      <span class="avail__eta">Comienza en aproximadamente 21 días después del resumen</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-N8N2</span><span><b>Formato</b> Llave en mano + soporte</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AUT">Añadir a la consulta</button></div>
     </div>
   </article><article class="card" data-id="APP-SCK" data-mode="marketplace">
     <div class="card__media" data-slot="media">
@@ -3399,47 +3370,46 @@
       </div><div class="vars__row"><span class="vars__lb">Tamaño</span><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 380</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-SCK3</span><span><b>Vendido por</b> Path &amp; Co</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Portugal</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-SCK">Añadir a la consulta</button></div>
     </div>
-  </article><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Mercado</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Cámara de seguridad interior 2K, obturador de privacidad, SD local">
-        <a href="/ecom-catalog-demo/es/p/smh-cam2/">Cámara de seguridad interior 2K, obturador de privacidad, SD local</a></h3>
-      <p class="card__desc" data-slot="desc">No se requiere suscripción en la nube. Obturador de lente físico y detección de personas en el dispositivo.</p>
+      <h3 class="card__title" data-slot="title" title="Calificación de Leads AI">
+        <a href="/ecom-catalog-demo/es/p/svc-agt2/">Calificación de Leads AI</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">41,25 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Color 1 de 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 2"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 6</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>Vendido por</b> SafeNest</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">Añadir a la consulta</button></div>
+      <div class="price__main"><span class="price__ask">Por tarea</span></div>
+      <span class="price__unit">Llave en mano</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Aceptando proyectos</span></div>
+      <span class="avail__eta">Comienza en aproximadamente 10 días después del resumen</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT2</span><span><b>Formato</b> Llave en mano</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">Añadir a la consulta</button></div>
     </div>
   </article><article class="card" data-id="TEX-RUG" data-mode="handmade">
     <div class="card__media" data-slot="media">
@@ -3474,45 +3444,9 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 2</span></div>
       <div class="bar100"><i style="width:20%"></i></div>
-      <span class="avail__eta">Recíbalo para <b>sáb, 28 nov</b></span></div>
+      <span class="avail__eta">Recíbalo para <b>lun, 30 nov</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-RUG80</span><span><b>Vendido por</b> Anna P.</span><span><b>Hecho por encargo</b> 9 días</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-RUG">Añadir a la consulta</button></div>
-    </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Nuevo</span><span class="badge badge--pre">Pre-pedido</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="Guardar en la lista de deseos">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Vista rápida</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Cargador de pared GaN de 65 W, 3 puertos, lote de preorden 4">
-        <a href="/ecom-catalog-demo/es/p/pow-pd65/">Cargador de pared GaN de 65 W, 3 puertos, lote de preorden 4</a></h3>
-      <p class="card__desc" data-slot="desc">Dos USB-C y un USB-A en un cuerpo de 42 g. Se envía cuando se cierra el lote.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">35,20 US$</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Prepedido · lote abierto</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Se envía en aproximadamente <b>21 días</b> · 268 de 300 comprometidos</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Reservar en prepedido</button></div>
     </div>
   </article><article class="card" data-id="APP-JKT" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3546,10 +3480,84 @@
       </div><div class="vars__row"><span class="vars__lb">Tamaño</span><button class="sz" aria-pressed="false" disabled title="Sold out">XS</button><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button><button class="sz" aria-pressed="false" disabled title="Sold out">XXL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 74</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>mar, 24 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-JKT-M</span><span><b>Desde</b> SPB-2</span><span><b>Origen</b> Vietnam</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-JKT">Añadir a la consulta</button></div>
+    </div>
+  </article><article class="card card--b2b" data-id="OPT-SHP" data-mode="b2b">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Mayorista</span></div>
+      <button class="fav" data-fav="OPT-SHP" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="OPT-SHP" tabindex="-1">Vista rápida</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Exterior y Óptica</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Cubierta de Visor Óptico de 22 mm, Anti-Reflectante, Lote a Granel">
+        <a href="/ecom-catalog-demo/es/p/opt-shp22/">Cubierta de Visor Óptico de 22 mm, Anti-Reflectante, Lote a Granel</a></h3>
+      <p class="card__desc" data-slot="desc">Cristal templado de especificación MIL con un recubrimiento AR. Suministrado en lotes de veinte unidades para proveedores.</p>
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">15,95 US$</span></div><span class="price__unit">por unidad · impuestos y tasas incluidos</span><div class="price__tiers"><span><b>20+</b> 15,95 US$</span><span><b>100+</b> 14,19 US$</span><span><b>500+</b> 12,32 US$</span></div></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 1600</span></div>
+    <span class="avail__eta">Recíbalo para <b>vie, 27 nov</b></span>
+    <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-SHP22</span><span><b>MOQ</b> 20 unidades</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">Solicitar presupuesto</button>
+      <button class="btn btn--ghost" data-add="OPT-SHP">Agregar lote de 20</button></div>
+    </div>
+  </article><article class="card" data-id="CRF-BDS" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="9"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="9"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span></div>
+      <button class="fav" data-fav="CRF-BDS" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="CRF-BDS" tabindex="-1">Vista rápida</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Manualidades y Pasatiempos</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Cuentas de vidrio tamaño 11/0, tubo de 8 000 pc, acabado mate">
+        <a href="/ecom-catalog-demo/es/p/crf-bds11/">Cuentas de vidrio tamaño 11/0, tubo de 8 000 pc, acabado mate</a></h3>
+      
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">7,04 US$</span><span class="price__was">9,02 US$</span><span class="price__off">Guardar 1,98 US$</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Color 1 de 4"></button><button class="sw" style="background:#E8A200" aria-pressed="false" aria-label="Color 2 de 4"></button><button class="sw" style="background:#2E5BFF" aria-pressed="false" aria-label="Color 3 de 4"></button><button class="sw" style="background:#F0E6D8" aria-pressed="false" aria-label="Color 4 de 4"></button>
+      </div></div>
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 3100</span></div>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
+    <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-BDS11</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Chequia</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-BDS">Añadir a la consulta</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">Cargar 12 más (20 restantes)</button></div>
@@ -3577,42 +3585,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Meta</b><span>SKU, vendedor, almacén, país de origen. La capa de confianza para B2B y mercado.</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Acciones</b><span>Último espacio, fijado en la parte inferior. Un verbo principal por modo: añadir a la consulta, reservar, solicitar presupuesto, notificarme.</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Más vendido</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Más vendido</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Hogar y Cocina</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción">
-        <a href="/ecom-catalog-demo/es/p/aud-q20i/">Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción</a></h3>
+      <h3 class="card__title" data-slot="title" title="Tetera de esmalte de 300 ml, crema, lista para inducción">
+        <a href="/ecom-catalog-demo/es/p/hom-ktl30/">Tetera de esmalte de 300 ml, crema, lista para inducción</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 US$</span><span class="price__was">141,90 US$</span><span class="price__off">Guardar 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Color 3 de 3"></button>
+    <div class="price__main"><span class="price__now">19,20 US$</span><span class="price__was">24,75 US$</span><span class="price__off">Guardar 5,55 US$</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Color 3 de 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 184</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 86</span></div>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Añadir a la consulta</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Turquía</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Añadir a la consulta</button></div>
     </div>
   </article></div>
         </div>
@@ -3656,84 +3664,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 86</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Turquía</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Añadir a la consulta</button></div>
     </div>
-  </article></div><div><span class="state__cap">En venta</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">En venta</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Más vendido</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Más vendido</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Hogar y Cocina</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción">
-        <a href="/ecom-catalog-demo/es/p/aud-q20i/">Auriculares Q20 híbridos con cancelación activa de ruido, sobre la oreja, Bluetooth 5.3, 40 h de tiempo de reproducción</a></h3>
+      <h3 class="card__title" data-slot="title" title="Tetera de esmalte de 300 ml, crema, lista para inducción">
+        <a href="/ecom-catalog-demo/es/p/hom-ktl30/">Tetera de esmalte de 300 ml, crema, lista para inducción</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">108,90 US$</span><span class="price__was">141,90 US$</span><span class="price__off">Guardar 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Color 3 de 3"></button>
+    <div class="price__main"><span class="price__now">19,20 US$</span><span class="price__was">24,75 US$</span><span class="price__off">Guardar 5,55 US$</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Color 3 de 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 184</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 86</span></div>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Añadir a la consulta</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Turquía</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Añadir a la consulta</button></div>
     </div>
-  </article></div><div><span class="state__cap">Bajo stock</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Bajo stock</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Mercado</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Nuevo</span><span class="badge badge--hand">Hecho a mano</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Electrónica</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Hogar y Cocina</span>
+      <span class="card__maker">por Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="Cámara de seguridad interior 2K, obturador de privacidad, SD local">
-        <a href="/ecom-catalog-demo/es/p/smh-cam2/">Cámara de seguridad interior 2K, obturador de privacidad, SD local</a></h3>
-      <p class="card__desc" data-slot="desc">No se requiere suscripción en la nube. Obturador de lente físico y detección de personas en el dispositivo.</p>
+      <h3 class="card__title" data-slot="title" title="Juego de cuencos de mezcla de cerámica hechos a mano, 3 piezas">
+        <a href="/ecom-catalog-demo/es/p/hom-mix8/">Juego de cuencos de mezcla de cerámica hechos a mano, 3 piezas</a></h3>
+      <p class="card__desc" data-slot="desc">Cerámica de piedra hecha en rueda con un esmalte mate seguro para alimentos. Cada juego se quema en un pequeño lote.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">41,25 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Color 1 de 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 2"></button>
+    <div class="price__main"><span class="price__now">57,20 US$</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Color 3 de 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 6</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>Vendido por</b> SafeNest</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">Añadir a la consulta</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 3</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">Recíbalo para <b>vie, 27 nov</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Vendido por</b> Kuznetsova Studio</span><span><b>Hecho por encargo</b> 6 días</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Añadir a la consulta</button></div>
     </div>
   </article></div><div><span class="state__cap">Agotado</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3767,7 +3775,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Agotado</span></div>
-      <span class="avail__ship">De vuelta en stock jue, 3 dic</span></div>
+      <span class="avail__ship">De vuelta en stock sáb, 5 dic</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Alemania</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Agotado</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Notificarme</button></div>
@@ -3805,119 +3813,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Solo queda 3</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Recíbalo para <b>mié, 25 nov</b></span></div>
+      <span class="avail__eta">Recíbalo para <b>vie, 27 nov</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Vendido por</b> Kuznetsova Studio</span><span><b>Hecho por encargo</b> 6 días</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Añadir a la consulta</button></div>
     </div>
-  </article></div><div><span class="state__cap">Mercado</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Mercado</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">Mercado</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Manualidades y Pasatiempos</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Altavoz portátil Bluetooth SPK 2, 24 h de tiempo de reproducción, impermeable IPX7">
-        <a href="/ecom-catalog-demo/es/p/aud-spk2/">Altavoz portátil Bluetooth SPK 2, 24 h de tiempo de reproducción, impermeable IPX7</a></h3>
-      <p class="card__desc" data-slot="desc">Estéreo de 12 W con radiadores de graves pasivos. Empareja dos unidades para un verdadero estéreo.</p>
+      <h3 class="card__title" data-slot="title" title="Mezcla de baby alpaca DK, cono de 200 g, gris nube">
+        <a href="/ecom-catalog-demo/es/p/crf-alpa/">Mezcla de baby alpaca DK, cono de 200 g, gris nube</a></h3>
+      <p class="card__desc" data-slot="desc">22 % alpaca sobre núcleo de acrílico — halo sin picazón. Vendido por cono para estudios de tejido.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">48,40 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="Color 3 de 3"></button>
+    <div class="price__main"><span class="price__now">26,95 US$</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Color</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Color 1 de 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Color 2 de 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Color 3 de 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 62</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 148</span></div>
+    <span class="avail__eta">Recíbalo para <b>jue, 26 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>Vendido por</b> SoundLab</span><span><b>Desde</b> SPB-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">Añadir a la consulta</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Vendido por</b> Fibra Andina</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> Perú</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Añadir a la consulta</button></div>
     </div>
-  </article></div><div><span class="state__cap">Mayorista B2B</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">Mayorista B2B</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Mayorista</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Hogar y Cocina</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="microSDXC industrial de 64 GB, grado de resistencia, paquete de 10">
-        <a href="/ecom-catalog-demo/es/p/sto-car64/">microSDXC industrial de 64 GB, grado de resistencia, paquete de 10</a></h3>
-      <p class="card__desc" data-slot="desc">Clasificación de resistencia a la escritura para cámaras de tablero y terminales POS. Suministrado en una caja minorista de diez unidades.</p>
+      <h3 class="card__title" data-slot="title" title="Sartén de hierro fundido de 28 cm, pre-sazonada, grado hotel">
+        <a href="/ecom-catalog-demo/es/p/hom-pan28/">Sartén de hierro fundido de 28 cm, pre-sazonada, grado hotel</a></h3>
+      <p class="card__desc" data-slot="desc">Fundida en arena, apta para horno hasta 260 °C. Empacada en seis unidades por cartón para compradores de servicios de alimentación.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">10,89 US$</span></div><span class="price__unit">por unidad · impuestos y tasas incluidos</span><div class="price__tiers"><span><b>10+</b> 10,89 US$</span><span><b>50+</b> 10,01 US$</span><span><b>200+</b> 9,24 US$</span></div></div>
+    <div class="price__main"><span class="price__now">45,10 US$</span></div><span class="price__unit">por unidad · impuestos y tasas incluidos</span><div class="price__tiers"><span><b>6+</b> 45,10 US$</span><span><b>24+</b> 40,92 US$</span><span><b>60+</b> 37,29 US$</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 980</span></div>
-    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 240</span></div>
+    <span class="avail__eta">Recíbalo para <b>jue, 26 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 unidades</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">Solicitar presupuesto</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">Agregar lote de 10</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 unidades</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> Rusia</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Solicitar presupuesto</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">Agregar lote de 6</button></div>
     </div>
-  </article></div><div><span class="state__cap">Pre-pedido</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">Pre-pedido</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">Nuevo</span><span class="badge badge--pre">Pre-pedido</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="Guardar en la lista de deseos">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="Guardar en la lista de deseos">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Vista rápida</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Vista rápida</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Electrónica</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Manualidades y Pasatiempos</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Cargador de pared GaN de 65 W, 3 puertos, lote de preorden 4">
-        <a href="/ecom-catalog-demo/es/p/pow-pd65/">Cargador de pared GaN de 65 W, 3 puertos, lote de preorden 4</a></h3>
-      <p class="card__desc" data-slot="desc">Dos USB-C y un USB-A en un cuerpo de 42 g. Se envía cuando se cierra el lote.</p>
+      <h3 class="card__title" data-slot="title" title="Telar de marco para quilling, tensión mejorada, preorden">
+        <a href="/ecom-catalog-demo/es/p/kit-qui2/">Telar de marco para quilling, tensión mejorada, preorden</a></h3>
+      <p class="card__desc" data-slot="desc">Segunda producción después de que la primera se agotó en nueve días. Se cierra cuando se comprometen 300 unidades.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">35,20 US$</span></div></div>
+    <div class="price__main"><span class="price__now">30,25 US$</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Prepedido · lote abierto</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Se envía en aproximadamente <b>21 días</b> · 268 de 300 comprometidos</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Reservar en prepedido</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Se envía en aproximadamente <b>18 días</b> · 121 de 300 comprometidos</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>Desde</b> MSK-2</span><span><b>Origen</b> China</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Reservar en prepedido</button></div>
     </div>
   </article></div><div><span class="state__cap">Cargando (esqueleto)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3960,7 +3968,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 640</span></div>
-    <span class="avail__eta">Recíbalo para <b>sáb, 21 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>lun, 23 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Desde</b> SPB-1</span><span><b>Origen</b> Rusia</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Añadir a la consulta</button></div>
@@ -4002,7 +4010,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 27</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>mar, 24 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Japón</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Añadir a la consulta</button></div>
@@ -4041,7 +4049,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 27</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>mar, 24 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Japón</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Añadir a la consulta</button></div>
@@ -4080,7 +4088,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>En stock · 27</span></div>
-    <span class="avail__eta">Recíbalo para <b>dom, 22 nov</b></span>
+    <span class="avail__eta">Recíbalo para <b>mar, 24 nov</b></span>
     <span class="avail__ship">Envío gratuito en pedidos superiores a 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Desde</b> MSK-1</span><span><b>Origen</b> Japón</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Añadir a la consulta</button></div>
@@ -4134,8 +4142,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Electrónica</h5><ul>
-    <li><a href="/ecom-catalog-demo/es/c/electronics/audio/" data-dept="electronics" data-sub="audio">Audio</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/storage/" data-dept="electronics" data-sub="storage">Almacenamiento y Memoria</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/power/" data-dept="electronics" data-sub="power">Energía y Cables</a></li><li><a href="/ecom-catalog-demo/es/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Hogar Inteligente</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/es/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Páginas de aterrizaje</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Paneles de control de CRM</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Agentes de IA</a></li><li><a href="/ecom-catalog-demo/es/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automatización</a></li>
     </ul></div><div><h5>Hogar y Cocina</h5><ul>
     <li><a href="/ecom-catalog-demo/es/c/home/cookware/" data-dept="home" data-sub="cookware">Utensilios de Cocina y Preparación</a></li><li><a href="/ecom-catalog-demo/es/c/home/appliances/" data-dept="home" data-sub="appliances">Pequeños Electrodomésticos</a></li><li><a href="/ecom-catalog-demo/es/c/home/lighting/" data-dept="home" data-sub="lighting">Iluminación</a></li><li><a href="/ecom-catalog-demo/es/c/home/textiles/" data-dept="home" data-sub="textiles">Textiles</a></li>
     </ul></div><div><h5>Manualidades y Pasatiempos</h5><ul>

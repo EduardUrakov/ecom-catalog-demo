@@ -5,67 +5,6 @@
     <link>https://path.example</link>
     <description>Product feed of catalog path-home</description>
     <item>
-      <g:id>STO-NV1T</g:id>
-      <g:title>NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, with Heatsink</g:title>
-      <g:description>DRAM-less TLC with HMB, steady 5.2 GB/s under load. Includes a low-profile aluminium heatsink.</g:description>
-      <g:link>https://path.example/en/p/sto-nv1t</g:link>
-      <g:image_link>https://cdn.example.com/path-home/sto-nv1t-1.webp</g:image_link>
-      <g:additional_image_link>https://cdn.example.com/path-home/sto-nv1t-2.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>98.34 USD</g:price>
-      <g:brand>Kedr</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:condition>new</g:condition>
-      <g:shipping_weight>45 g</g:shipping_weight>
-      <g:product_type>electronics</g:product_type>
-    </item>
-    <item>
-      <g:id>STO-CAR64</g:id>
-      <g:title>Industrial microSDXC 64 GB, Endurance Grade, 10-Pack</g:title>
-      <g:description>Write-endurance rated for dashcams and POS terminals. Supplied in a ten-unit retail box.</g:description>
-      <g:link>https://path.example/en/p/sto-car64</g:link>
-      <g:image_link>https://cdn.example.com/path-home/sto-car64-1.webp</g:image_link>
-      <g:additional_image_link>https://cdn.example.com/path-home/sto-car64-2.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>10.89 USD</g:price>
-      <g:brand>Kedr</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:condition>new</g:condition>
-      <g:shipping_weight>60 g</g:shipping_weight>
-      <g:product_type>electronics</g:product_type>
-    </item>
-    <item>
-      <g:id>POW-HUB7</g:id>
-      <g:title>7-Port USB Hub with 60 W Mains Adapter, Braided Cable</g:title>
-      <g:description>Individually switched ports, 2.4 A per port, over-current protection on the bus.</g:description>
-      <g:link>https://path.example/en/p/pow-hub7</g:link>
-      <g:image_link>https://cdn.example.com/path-home/pow-hub7-1.webp</g:image_link>
-      <g:additional_image_link>https://cdn.example.com/path-home/pow-hub7-2.webp</g:additional_image_link>
-      <g:availability>in_stock</g:availability>
-      <g:price>25.96 USD</g:price>
-      <g:brand>Volt Coil</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:condition>new</g:condition>
-      <g:shipping_weight>320 g</g:shipping_weight>
-      <g:product_type>electronics</g:product_type>
-    </item>
-    <item>
-      <g:id>POW-PD65</g:id>
-      <g:title>65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4</g:title>
-      <g:description>Two USB-C and one USB-A in a 42 g body. Ships when the batch closes.</g:description>
-      <g:link>https://path.example/en/p/pow-pd65</g:link>
-      <g:image_link>https://cdn.example.com/path-home/pow-pd65-1.webp</g:image_link>
-      <g:additional_image_link>https://cdn.example.com/path-home/pow-pd65-2.webp</g:additional_image_link>
-      <g:availability>preorder</g:availability>
-      <g:availability_date>2026-12-10T00:00+0000</g:availability_date>
-      <g:price>35.20 USD</g:price>
-      <g:brand>Volt Coil</g:brand>
-      <g:identifier_exists>no</g:identifier_exists>
-      <g:condition>new</g:condition>
-      <g:shipping_weight>82 g</g:shipping_weight>
-      <g:product_type>electronics</g:product_type>
-    </item>
-    <item>
       <g:id>HOM-KTL30</g:id>
       <g:title>Enamel Spice Kettle 300 ml, Cream, Induction Ready</g:title>
       <g:description>Two-layer enamel over carbon steel, whistling spout, dishwasher safe.</g:description>
@@ -298,7 +237,7 @@
       <g:image_link>https://cdn.example.com/path-home/kit-qui2-1.webp</g:image_link>
       <g:additional_image_link>https://cdn.example.com/path-home/kit-qui2-2.webp</g:additional_image_link>
       <g:availability>preorder</g:availability>
-      <g:availability_date>2026-12-07T00:00+0000</g:availability_date>
+      <g:availability_date>2026-12-09T00:00+0000</g:availability_date>
       <g:price>30.25 USD</g:price>
       <g:brand>Remesla</g:brand>
       <g:identifier_exists>no</g:identifier_exists>

@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2804,11 +2813,11 @@
   "image": "https://cdn.example.com/path-home/art-gou12-1.webp",
   "offers": {
     "@type": "Offer",
-    "price": "18.48",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://eduardurakov.github.io/ecom-catalog-demo/zh/p/art-gou12/",
-    "itemCondition": "https://schema.org/NewCondition"
+    "itemCondition": "https://schema.org/NewCondition",
+    "price": "18.48"
   }
 }
   </script>
@@ -2940,12 +2949,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="部门"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/zh/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">电子产品</span>
-        <span class="dep__n">8件商品 · 音频、存储、电源、智能家居</span></a>
-      <div class="dep__sub" aria-label="电子子部分"><a href="/ecom-catalog-demo/zh/c/electronics/audio/">音频</a><a href="/ecom-catalog-demo/zh/c/electronics/storage/">存储与内存</a><a href="/ecom-catalog-demo/zh/c/electronics/power/">电源与电缆</a><a href="/ecom-catalog-demo/zh/c/electronics/smart-home/">智能家居</a></div>
+      <div class="deps" id="deps" role="group" aria-label="部门"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/zh/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8项服务 · 着陆页、CRM仪表板和AI代理</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path子部分"><a href="/ecom-catalog-demo/zh/c/vibecode/landings/">着陆页</a><a href="/ecom-catalog-demo/zh/c/vibecode/crm/">CRM仪表板</a><a href="/ecom-catalog-demo/zh/c/vibecode/agents/">AI代理</a><a href="/ecom-catalog-demo/zh/c/vibecode/automation/">自动化</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/zh/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3055,7 +3064,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 520</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月21日周六</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-GOU12</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 德国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-GOU">添加到询价</button></div>
@@ -3070,8 +3079,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>电子产品</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/electronics/audio/" data-dept="electronics" data-sub="audio">音频</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/storage/" data-dept="electronics" data-sub="storage">存储与内存</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/power/" data-dept="electronics" data-sub="power">电源与电缆</a></li><li><a href="/ecom-catalog-demo/zh/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">智能家居</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/zh/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">着陆页</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM仪表板</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AI代理</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">自动化</a></li>
     </ul></div><div><h5>家居与厨房</h5><ul>
     <li><a href="/ecom-catalog-demo/zh/c/home/cookware/" data-dept="home" data-sub="cookware">炊具与准备</a></li><li><a href="/ecom-catalog-demo/zh/c/home/appliances/" data-dept="home" data-sub="appliances">小型电器</a></li><li><a href="/ecom-catalog-demo/zh/c/home/lighting/" data-dept="home" data-sub="lighting">照明</a></li><li><a href="/ecom-catalog-demo/zh/c/home/textiles/" data-dept="home" data-sub="textiles">纺织品</a></li>
     </ul></div><div><h5>手工艺与爱好</h5><ul>

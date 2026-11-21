@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,73 +2846,73 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/aud-q20i/"
+      "name": "Shafin Saukarwa, Turnkey",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/aud-spk2/"
+      "name": "Shafin Saukarwa: Abun ciki da Nazarin Zirga-zirga",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, tare da Heatsink",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/sto-nv1t/"
+      "name": "Dashboard na CRM akan PostgreSQL 16",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "Industrial microSDXC 64 GB, Endurance Grade, 10-Pack",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/sto-car64/"
+      "name": "Wurin Aiki na Multi-Project",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "7-Port USB Hub tare da 60 W Mains Adapter, Braided Cable",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/pow-hub7/"
+      "name": "Wakilin Tallace-tallace na AI",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/pow-pd65/"
+      "name": "Tantance Jagorancin AI",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "Smart Plug 2-Pack, Energy Metering, Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/smh-plg2/"
+      "name": "Yanayi na n8n don Tsarinka",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "Indoor Security Camera 2K, Privacy Shutter, Local SD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/smh-cam2/"
+      "name": "Tsarin Tallace-tallace, Turnkey",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
       "position": 9,
-      "name": "Enamel Spice Kettle 300 ml, Cream, Induction Ready",
+      "name": "Tukunyar Spices Enamel 300 ml, Cream, Induction Ready",
       "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/hom-ktl30/"
     },
     {
       "@type": "ListItem",
       "position": 10,
-      "name": "Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade",
+      "name": "Tukunyar Grill na Cast Iron 28 cm, Anyi Pre-Seasoned, Matsayin Hotel",
       "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/hom-pan28/"
     },
     {
       "@type": "ListItem",
       "position": 11,
-      "name": "Waffle Maker, 4 Plates, 180° Flat Press, Cast Grids",
+      "name": "Mai Yin Waffle, 4 Faranti, 180° Flat Press, Cast Grids",
       "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/hom-waf4/"
     },
     {
       "@type": "ListItem",
       "position": 12,
-      "name": "Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces",
+      "name": "Set na Bakin Taba na Ceramic da aka Jefa da Hannu, Kayan 3",
       "url": "https://eduardurakov.github.io/ecom-catalog-demo/ha/p/hom-mix8/"
     }
   ]
@@ -3016,7 +3025,7 @@
 
       <div class="ph">
         <h1 id="pageTitle">Kundin</h1>
-        <p id="pageLead">One commercial core, one product card for every storefront. Pick a department, then a subsection — the card below is the same component everywhere, only the tokens and the content mode change.</p>
+        <p id="pageLead">Guda ɗaya na kasuwanci, guda ɗaya katin samfur don kowanne shago. Zaɓi wani sashen, sannan wani ƙaramin sashi — katin da ke ƙasa shine wannan ɓangaren a ko'ina, kawai alamomin da yanayin abun ciki suna canzawa.</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs suna kan layi</span><span>Sassa 4</span>
     <span>Sassan 16</span>
     <span>Hanyoyin abun ciki 5</span><span>Kasuwanci · kasuwa · hannu · kasuwanci mai yawa · odar gaba</span></div>
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Sassan"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/ha/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Kayan lantarki</span>
-        <span class="dep__n">8 abubuwa · Sauti, ajiya, wutar lantarki, gida mai wayo</span></a>
-      <div class="dep__sub" aria-label="Rarrabawa na Kayan Lantarki"><a href="/ecom-catalog-demo/ha/c/electronics/audio/">Sauti</a><a href="/ecom-catalog-demo/ha/c/electronics/storage/">Ajiya &amp; Tunawa</a><a href="/ecom-catalog-demo/ha/c/electronics/power/">Wuta &amp; Kebul</a><a href="/ecom-catalog-demo/ha/c/electronics/smart-home/">Gida Mai Wayo</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Sassan"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/ha/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 ayyuka · Shafukan saukarwa, dashboard na CRM da wakilan AI</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path ƙaramin sashi"><a href="/ecom-catalog-demo/ha/c/vibecode/landings/">Shafukan Saukarwa</a><a href="/ecom-catalog-demo/ha/c/vibecode/crm/">Dashboard na CRM</a><a href="/ecom-catalog-demo/ha/c/vibecode/agents/">Wakilan AI</a><a href="/ecom-catalog-demo/ha/c/vibecode/automation/">Aiki ta atomatik</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/ha/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,44 +3118,7 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">Nuna 12 daga cikin 32 kayayyaki · farashi a USD</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Mafi sayarwa</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Duba gaggawa</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Enamel Spice Kettle 300 ml, Cream, Induction Ready">
-        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Enamel Spice Kettle 300 ml, Cream, Induction Ready</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 19.20</span><span class="price__was">$ 24.75</span><span class="price__off">Ajiye $ 5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 86</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
-    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Turkiyya</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Kara zuwa bincike</button></div>
-    </div>
-  </article><article class="card" data-id="CRF-YRN" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="CRF-YRN" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3169,8 +3141,8 @@
       <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Merino Worsted Yarn, 100 g Skein, 24 Colours">
-        <a href="/ecom-catalog-demo/ha/p/crf-yrnm/">Merino Worsted Yarn, 100 g Skein, 24 Colours</a></h3>
+      <h3 class="card__title" data-slot="title" title="Merino Worsted Yarn, 100 g Skein, Launuka 24">
+        <a href="/ecom-catalog-demo/ha/p/crf-yrnm/">Merino Worsted Yarn, 100 g Skein, Launuka 24</a></h3>
       
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 9.79</span></div></div>
@@ -3178,83 +3150,10 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 2,400</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Feru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Kara zuwa bincike</button></div>
-    </div>
-  </article><article class="card" data-id="STO-NV1" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Mafi sayarwa</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">Duba gaggawa</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, tare da Heatsink">
-        <a href="/ecom-catalog-demo/ha/p/sto-nv1t/">NVMe SSD Drive 1 TB Gen4, 7 400 MB/s, tare da Heatsink</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 98.34</span><span class="price__was">$ 114.40</span><span class="price__off">Ajiye $ 16.06</span></div></div>
-      
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 412</span></div>
-    <span class="avail__eta">Samu ta <b>Jum, Nuw 20</b></span>
-    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Koriya Ta Kudu</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">Kara zuwa bincike</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Mafi sayarwa</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Duba gaggawa</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime">
-        <a href="/ecom-catalog-demo/ha/p/aud-q20i/">Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 108.90</span><span class="price__was">$ 141.90</span><span class="price__off">Ajiye $ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 184</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
-    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Biyetinam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Kara zuwa bincike</button></div>
     </div>
   </article><article class="card" data-id="TEX-TWL" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3279,8 +3178,8 @@
       <span class="card__brand">Baltic Linen</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces">
-        <a href="/ecom-catalog-demo/ha/p/tex-twl50/">Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces</a></h3>
+      <h3 class="card__title" data-slot="title" title="Terry Towel Set 500 gsm, 70 x 140 cm, Pieces Biyu">
+        <a href="/ecom-catalog-demo/ha/p/tex-twl50/">Terry Towel Set 500 gsm, 70 x 140 cm, Pieces Biyu</a></h3>
       
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 23.98</span><span class="price__was">$ 30.58</span><span class="price__off">Ajiye $ 6.60</span></div></div>
@@ -3288,10 +3187,83 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 640</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Rasha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Kara zuwa bincike</button></div>
+    </div>
+  </article><article class="card" data-id="HOM-KTL" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Mafi sayarwa</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Duba gaggawa</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Tukunyar Spices Enamel 300 ml, Cream, Induction Ready">
+        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Tukunyar Spices Enamel 300 ml, Cream, Induction Ready</a></h3>
+      
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$ 19.20</span><span class="price__was">$ 24.75</span><span class="price__off">Ajiye $ 5.55</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
+      </div></div>
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 86</span></div>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
+    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Turkiyya</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Kara zuwa bincike</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-AGT" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">Mafi sayarwa</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">Duba gaggawa</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Wakilin Tallace-tallace na AI">
+        <a href="/ecom-catalog-demo/ha/p/svc-agt1/">Wakilin Tallace-tallace na AI</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Farashi bisa buƙata</span></div>
+      <span class="price__unit">Turnkey</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Karɓar ayyuka</span></div>
+      <span class="avail__eta">Zai fara cikin kusan kwana 10 bayan takaitaccen bayani</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>Tsarin</b> Turnkey</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">Kara zuwa bincike</button></div>
     </div>
   </article><article class="card" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3325,83 +3297,10 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 27</span></div>
-    <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span>
+    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Japan</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Kara zuwa bincike</button></div>
-    </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Sabon</span><span class="badge badge--pre">Odar gaba</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Duba gaggawa</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4">
-        <a href="/ecom-catalog-demo/ha/p/pow-pd65/">65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4</a></h3>
-      <p class="card__desc" data-slot="desc">USB-C guda biyu da USB-A guda ɗaya a cikin jiki mai nauyin 42 g. Ana jigilar lokacin da batch ya rufe.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 35.20</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Pre-order · batch bude</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Zai tafi a cikin kusan <b>21 kwanaki</b> · 268 daga cikin 300 an yi alkawari</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Ajiyewa a cikin oda</button></div>
-    </div>
-  </article><article class="card" data-id="POW-HUB" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      
-      <button class="fav" data-fav="POW-HUB" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="POW-HUB" tabindex="-1">Duba gaggawa</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="7-Port USB Hub tare da 60 W Mains Adapter, Braided Cable">
-        <a href="/ecom-catalog-demo/ha/p/pow-hub7/">7-Port USB Hub tare da 60 W Mains Adapter, Braided Cable</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 25.96</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Launin 1 daga cikin 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 2"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 1,180</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
-    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-HUB7</span><span><b>Daga</b> SPB-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="POW-HUB">Kara zuwa bincike</button></div>
     </div>
   </article><article class="card" data-id="LGT-ARC" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3435,7 +3334,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 34</span></div>
-    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
+    <span class="avail__eta">Samu ta <b>Lar, Nuw 25</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-ARCL</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Polan</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="LGT-ARC">Kara zuwa bincike</button></div>
@@ -3472,47 +3371,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 148</span></div>
-    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
+    <span class="avail__eta">Samu ta <b>Alh, Nuw 26</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>An sayar da</b> Fibra Andina</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Feru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Kara zuwa bincike</button></div>
     </div>
-  </article><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
+  </article><article class="card" data-id="SVC-CRM" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Kasuwanci</span></div>
-      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-CRM" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="SVC-CRM" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade">
-        <a href="/ecom-catalog-demo/ha/p/hom-pan28/">Cast Iron Grill Pan 28 cm, Pre-Seasoned, Hotel Grade</a></h3>
-      <p class="card__desc" data-slot="desc">Sand-cast, mai aminci a cikin tanda har zuwa 260 °C. An ɗora guda shida a kowanne katako don masu sayen abinci.</p>
+      <h3 class="card__title" data-slot="title" title="Dashboard na CRM akan PostgreSQL 16">
+        <a href="/ecom-catalog-demo/ha/p/svc-crm1/">Dashboard na CRM akan PostgreSQL 16</a></h3>
+      
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 45.10</span></div><span class="price__unit">kowane guda · haraji da kudade sun hada</span><div class="price__tiers"><span><b>6+</b> $ 45.10</span><span><b>24+</b> $ 40.92</span><span><b>60+</b> $ 37.29</span></div></div>
+      <div class="price__main"><span class="price__ask">Farashi bisa buƙata</span></div>
+      <span class="price__unit">Turnkey</span></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 240</span></div>
-    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
-    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 pcs</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Rasha</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Nemi farashi</button>
-      <button class="btn btn--ghost" data-add="HOM-PAN">Kara yawan 6</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Karɓar ayyuka</span></div>
+      <span class="avail__eta">Zai fara cikin kusan kwana 14 bayan takaitaccen bayani</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-CRM1</span><span><b>Tsarin</b> Turnkey</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-CRM">Kara zuwa bincike</button></div>
     </div>
   </article><article class="card" data-id="KIT-DEC" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3537,18 +3435,128 @@
       <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages">
-        <a href="/ecom-catalog-demo/ha/p/kit-dec1/">Decoupage Wood Box Kit, 3 Layers, Instructions in 4 Languages</a></h3>
+      <h3 class="card__title" data-slot="title" title="Decoupage Wood Box Kit, 3 Layers, Instructions a Harsuna 4">
+        <a href="/ecom-catalog-demo/ha/p/kit-dec1/">Decoupage Wood Box Kit, 3 Layers, Instructions a Harsuna 4</a></h3>
       
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 13.64</span><span class="price__was">$ 17.49</span><span class="price__off">Ajiye $ 3.85</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 760</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-DEC1</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Rasha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="KIT-DEC">Kara zuwa bincike</button></div>
+    </div>
+  </article><article class="card" data-id="CRF-BDS" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="9"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="9"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span></div>
+      <button class="fav" data-fav="CRF-BDS" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="CRF-BDS" tabindex="-1">Duba gaggawa</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish">
+        <a href="/ecom-catalog-demo/ha/p/crf-bds11/">Glass Seed Beads Size 11/0, 8 000 pc Tube, Matte Finish</a></h3>
+      
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$ 7.04</span><span class="price__was">$ 9.02</span><span class="price__off">Ajiye $ 1.98</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Launin 1 daga cikin 4"></button><button class="sw" style="background:#E8A200" aria-pressed="false" aria-label="Launin 2 daga cikin 4"></button><button class="sw" style="background:#2E5BFF" aria-pressed="false" aria-label="Launin 3 daga cikin 4"></button><button class="sw" style="background:#F0E6D8" aria-pressed="false" aria-label="Launin 4 daga cikin 4"></button>
+      </div></div>
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 3,100</span></div>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
+    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-BDS11</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Czechia</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-BDS">Kara zuwa bincike</button></div>
+    </div>
+  </article><article class="card" data-id="ART-GOU" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="10"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="10"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      
+      <button class="fav" data-fav="ART-GOU" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="ART-GOU" tabindex="-1">Duba gaggawa</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment">
+        <a href="/ecom-catalog-demo/ha/p/art-gou12/">Gouache Artist Set, 12 x 20 ml, Extra-Fine Pigment</a></h3>
+      
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$ 18.48</span></div></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 520</span></div>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
+    <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-GOU12</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Jamus</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-GOU">Kara zuwa bincike</button></div>
+    </div>
+  </article><article class="card" data-id="ART-BRS" data-mode="handmade">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="10"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="10"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--hand">Hannu</span></div>
+      <button class="fav" data-fav="ART-BRS" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="ART-BRS" tabindex="-1">Duba gaggawa</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
+      <span class="card__maker">ta Mosbrush Workshop</span>
+    </div>
+      <h3 class="card__title" data-slot="title" title="Hand-Tied Sable Brush Set na 6, Birch Handles">
+        <a href="/ecom-catalog-demo/ha/p/art-brs6/">Hand-Tied Sable Brush Set na 6, Birch Handles</a></h3>
+      <p class="card__desc" data-slot="desc">Kowane burushi an ɗaure shi da hannu daga sable na Kolinsky; babu nau'ikan guda biyu da suka yi kama.</p>
+      <div class="price" data-slot="price">
+    <div class="price__main"><span class="price__now">$ 47.30</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#8A5A2B" aria-pressed="true" aria-label="Launin 1 daga cikin 2"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Launin 2 daga cikin 2"></button>
+      </div></div>
+      <div class="avail avail--warn" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Kawai 4 ya rage</span></div>
+      <div class="bar100"><i style="width:40%"></i></div>
+      <span class="avail__eta">Samu ta <b>Lah, Nuw 29</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-BRS6</span><span><b>An sayar da</b> Mosbrush Workshop</span><span><b>An yi bisa oda</b> 8 kwanaki</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Rasha</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-BRS">Kara zuwa bincike</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">Loda 12 karin (20 ya rage)</button></div>
@@ -3576,42 +3584,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Meta</b><span>SKU, mai sayarwa, gidan ajiyar kaya, ƙasar asali. Layer na amincewa don B2B da kasuwa.</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Ayyuka</b><span>Wurin ƙarshe, an ɗaure shi a ƙasa. Aiki guda ɗaya a kowanne yanayi: ƙara zuwa bincike, ajiyar, neman farashi, sanar da ni.</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Mafi sayarwa</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Mafi sayarwa</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime">
-        <a href="/ecom-catalog-demo/ha/p/aud-q20i/">Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime</a></h3>
+      <h3 class="card__title" data-slot="title" title="Tukunyar Spices Enamel 300 ml, Cream, Induction Ready">
+        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Tukunyar Spices Enamel 300 ml, Cream, Induction Ready</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 108.90</span><span class="price__was">$ 141.90</span><span class="price__off">Ajiye $ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
+    <div class="price__main"><span class="price__now">$ 19.20</span><span class="price__was">$ 24.75</span><span class="price__off">Ajiye $ 5.55</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 184</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 86</span></div>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Biyetinam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Kara zuwa bincike</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Turkiyya</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Kara zuwa bincike</button></div>
     </div>
   </article></div>
         </div>
@@ -3646,8 +3654,8 @@
       <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Enamel Spice Kettle 300 ml, Cream, Induction Ready">
-        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Enamel Spice Kettle 300 ml, Cream, Induction Ready</a></h3>
+      <h3 class="card__title" data-slot="title" title="Tukunyar Spices Enamel 300 ml, Cream, Induction Ready">
+        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Tukunyar Spices Enamel 300 ml, Cream, Induction Ready</a></h3>
       
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 19.20</span><span class="price__was">$ 24.75</span><span class="price__off">Ajiye $ 5.55</span></div></div>
@@ -3655,84 +3663,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 86</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Turkiyya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Kara zuwa bincike</button></div>
     </div>
-  </article></div><div><span class="state__cap">A sayarwa</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">A sayarwa</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">Mafi sayarwa</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Mafi sayarwa</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime">
-        <a href="/ecom-catalog-demo/ha/p/aud-q20i/">Q20 Hybrid Active Noise Cancelling Headphones, Over-Ear, Bluetooth 5.3, 40 h Playtime</a></h3>
+      <h3 class="card__title" data-slot="title" title="Tukunyar Spices Enamel 300 ml, Cream, Induction Ready">
+        <a href="/ecom-catalog-demo/ha/p/hom-ktl30/">Tukunyar Spices Enamel 300 ml, Cream, Induction Ready</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 108.90</span><span class="price__was">$ 141.90</span><span class="price__off">Ajiye $ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
+    <div class="price__main"><span class="price__now">$ 19.20</span><span class="price__was">$ 24.75</span><span class="price__off">Ajiye $ 5.55</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 184</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 86</span></div>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Biyetinam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Kara zuwa bincike</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Turkiyya</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Kara zuwa bincike</button></div>
     </div>
-  </article></div><div><span class="state__cap">Kaya kadan</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Kaya kadan</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Kasuwa</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Sabon</span><span class="badge badge--hand">Hannu</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
+      <span class="card__maker">ta Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="Indoor Security Camera 2K, Privacy Shutter, Local SD">
-        <a href="/ecom-catalog-demo/ha/p/smh-cam2/">Indoor Security Camera 2K, Privacy Shutter, Local SD</a></h3>
-      <p class="card__desc" data-slot="desc">Babu buƙatar rajistar gajimare. Shutter na lens na jiki da gano mutum akan na'ura.</p>
+      <h3 class="card__title" data-slot="title" title="Set na Bakin Taba na Ceramic da aka Jefa da Hannu, Kayan 3">
+        <a href="/ecom-catalog-demo/ha/p/hom-mix8/">Set na Bakin Taba na Ceramic da aka Jefa da Hannu, Kayan 3</a></h3>
+      <p class="card__desc" data-slot="desc">Wheel-thrown stoneware tare da glaze mai lafiya ga abinci. Kowanne saitin yana ƙone a cikin ƙaramin batch.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 41.25</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Launin 1 daga cikin 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 2"></button>
+    <div class="price__main"><span class="price__now">$ 57.20</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Kawai 6 ya rage</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>An sayar da</b> SafeNest</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">Kara zuwa bincike</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Kawai 3 ya rage</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">Samu ta <b>Jum, Nuw 27</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>An sayar da</b> Kuznetsova Studio</span><span><b>An yi bisa oda</b> 6 kwanaki</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Rasha</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Kara zuwa bincike</button></div>
     </div>
   </article></div><div><span class="state__cap">Babu kaya</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3766,7 +3774,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Babu kaya</span></div>
-      <span class="avail__ship">An dawo da kaya Alh, Dis 3</span></div>
+      <span class="avail__ship">An dawo da kaya Asa, Dis 5</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Jamus</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Babu kaya</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Sanar da ni</button></div>
@@ -3794,8 +3802,8 @@
       <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       <span class="card__maker">ta Kuznetsova Studio</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces">
-        <a href="/ecom-catalog-demo/ha/p/hom-mix8/">Hand-Thrown Ceramic Mixing Bowl Set, 3 Pieces</a></h3>
+      <h3 class="card__title" data-slot="title" title="Set na Bakin Taba na Ceramic da aka Jefa da Hannu, Kayan 3">
+        <a href="/ecom-catalog-demo/ha/p/hom-mix8/">Set na Bakin Taba na Ceramic da aka Jefa da Hannu, Kayan 3</a></h3>
       <p class="card__desc" data-slot="desc">Wheel-thrown stoneware tare da glaze mai lafiya ga abinci. Kowanne saitin yana ƙone a cikin ƙaramin batch.</p>
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 57.20</span></div></div>
@@ -3804,119 +3812,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Kawai 3 ya rage</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Samu ta <b>Lar, Nuw 25</b></span></div>
+      <span class="avail__eta">Samu ta <b>Jum, Nuw 27</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>An sayar da</b> Kuznetsova Studio</span><span><b>An yi bisa oda</b> 6 kwanaki</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Rasha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Kara zuwa bincike</button></div>
     </div>
-  </article></div><div><span class="state__cap">Kasuwa</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Kasuwa</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">Kasuwa</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof">
-        <a href="/ecom-catalog-demo/ha/p/aud-spk2/">SPK 2 Portable Bluetooth Speaker, 24 h Playtime, IPX7 Waterproof</a></h3>
-      <p class="card__desc" data-slot="desc">12 W stereo tare da passive bass radiators. Yana haɗa guda biyu don gaske stereo.</p>
+      <h3 class="card__title" data-slot="title" title="Baby Alpaca Blend DK, 200 g Cone, Cloud Grey">
+        <a href="/ecom-catalog-demo/ha/p/crf-alpa/">Baby Alpaca Blend DK, 200 g Cone, Cloud Grey</a></h3>
+      <p class="card__desc" data-slot="desc">22 % alpaca akan ƙarfin acrylic — halo ba tare da gajiya ba. Ana sayar da shi ta cone don studios na knitting.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 48.40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
+    <div class="price__main"><span class="price__now">$ 26.95</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Launi</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Launin 1 daga cikin 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Launin 2 daga cikin 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Launin 3 daga cikin 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 62</span></div>
-    <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 148</span></div>
+    <span class="avail__eta">Samu ta <b>Alh, Nuw 26</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>An sayar da</b> SoundLab</span><span><b>Daga</b> SPB-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">Kara zuwa bincike</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>An sayar da</b> Fibra Andina</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Feru</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Kara zuwa bincike</button></div>
     </div>
-  </article></div><div><span class="state__cap">Kasuwanci mai yawa B2B</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">Kasuwanci mai yawa B2B</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Kasuwanci</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Industrial microSDXC 64 GB, Endurance Grade, 10-Pack">
-        <a href="/ecom-catalog-demo/ha/p/sto-car64/">Industrial microSDXC 64 GB, Endurance Grade, 10-Pack</a></h3>
-      <p class="card__desc" data-slot="desc">An ƙayyade rubutun juriya don dashcams da POS terminals. An bayar a cikin akwati na guda goma.</p>
+      <h3 class="card__title" data-slot="title" title="Tukunyar Grill na Cast Iron 28 cm, Anyi Pre-Seasoned, Matsayin Hotel">
+        <a href="/ecom-catalog-demo/ha/p/hom-pan28/">Tukunyar Grill na Cast Iron 28 cm, Anyi Pre-Seasoned, Matsayin Hotel</a></h3>
+      <p class="card__desc" data-slot="desc">Sand-cast, mai aminci a cikin tanda har zuwa 260 °C. An ɗora guda shida a kowanne katako don masu sayen abinci.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 10.89</span></div><span class="price__unit">kowane guda · haraji da kudade sun hada</span><div class="price__tiers"><span><b>10+</b> $ 10.89</span><span><b>50+</b> $ 10.01</span><span><b>200+</b> $ 9.24</span></div></div>
+    <div class="price__main"><span class="price__now">$ 45.10</span></div><span class="price__unit">kowane guda · haraji da kudade sun hada</span><div class="price__tiers"><span><b>6+</b> $ 45.10</span><span><b>24+</b> $ 40.92</span><span><b>60+</b> $ 37.29</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 980</span></div>
-    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 240</span></div>
+    <span class="avail__eta">Samu ta <b>Alh, Nuw 26</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 pcs</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">Nemi farashi</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">Kara yawan 10</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 pcs</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Rasha</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Nemi farashi</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">Kara yawan 6</button></div>
     </div>
-  </article></div><div><span class="state__cap">Odar gaba</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">Odar gaba</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">Sabon</span><span class="badge badge--pre">Odar gaba</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="Ajiye zuwa jerin bukatu">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Duba gaggawa</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Duba gaggawa</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Kayan lantarki</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4">
-        <a href="/ecom-catalog-demo/ha/p/pow-pd65/">65 W GaN Wall Charger, 3 Ports, Pre-Order Batch 4</a></h3>
-      <p class="card__desc" data-slot="desc">USB-C guda biyu da USB-A guda ɗaya a cikin jiki mai nauyin 42 g. Ana jigilar lokacin da batch ya rufe.</p>
+      <h3 class="card__title" data-slot="title" title="Quilling Frame Loom, Ingantaccen Tension, Pre-Order">
+        <a href="/ecom-catalog-demo/ha/p/kit-qui2/">Quilling Frame Loom, Ingantaccen Tension, Pre-Order</a></h3>
+      <p class="card__desc" data-slot="desc">Gudun samar na biyu bayan na farko ya sayar a cikin kwanaki tara. Ya rufe lokacin da aka yi alkawarin guda 300.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$ 35.20</span></div></div>
+    <div class="price__main"><span class="price__now">$ 30.25</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Pre-order · batch bude</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Zai tafi a cikin kusan <b>21 kwanaki</b> · 268 daga cikin 300 an yi alkawari</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Sin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Ajiyewa a cikin oda</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Zai tafi a cikin kusan <b>18 kwanaki</b> · 121 daga cikin 300 an yi alkawari</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Sin</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Ajiyewa a cikin oda</button></div>
     </div>
   </article></div><div><span class="state__cap">Ana ɗora (skeleton)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3950,8 +3958,8 @@
       <span class="card__brand">Baltic Linen</span><span aria-hidden="true">·</span><span>Gida &amp; Kicin</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces">
-        <a href="/ecom-catalog-demo/ha/p/tex-twl50/">Terry Towel Set 500 gsm, 70 x 140 cm, Two Pieces</a></h3>
+      <h3 class="card__title" data-slot="title" title="Terry Towel Set 500 gsm, 70 x 140 cm, Pieces Biyu">
+        <a href="/ecom-catalog-demo/ha/p/tex-twl50/">Terry Towel Set 500 gsm, 70 x 140 cm, Pieces Biyu</a></h3>
       
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 23.98</span><span class="price__was">$ 30.58</span><span class="price__off">Ajiye $ 6.60</span></div></div>
@@ -3959,7 +3967,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 640</span></div>
-    <span class="avail__eta">Samu ta <b>Asa, Nuw 21</b></span>
+    <span class="avail__eta">Samu ta <b>Lit, Nuw 23</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Daga</b> SPB-1</span><span><b>Asali</b> Rasha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Kara zuwa bincike</button></div>
@@ -4001,7 +4009,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 27</span></div>
-    <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span>
+    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Japan</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Kara zuwa bincike</button></div>
@@ -4040,13 +4048,13 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 27</span></div>
-    <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span>
+    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Japan</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Kara zuwa bincike</button></div>
     </div>
   </article></div>
-    <div class="sizebox"><h4>Siffofi</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
+    <div class="sizebox"><h4>Siffofi</h4><p>Wurin jarumi, saukar sashen, layin farko na ƙaramin sashi. <code>.card--feature</code></p>
       <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
@@ -4079,7 +4087,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 27</span></div>
-    <span class="avail__eta">Samu ta <b>Lah, Nuw 22</b></span>
+    <span class="avail__eta">Samu ta <b>Tal, Nuw 24</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Daga</b> MSK-1</span><span><b>Asali</b> Japan</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Kara zuwa bincike</button></div>
@@ -4133,8 +4141,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Kayan lantarki</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/electronics/audio/" data-dept="electronics" data-sub="audio">Sauti</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/storage/" data-dept="electronics" data-sub="storage">Ajiya &amp; Tunawa</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/power/" data-dept="electronics" data-sub="power">Wuta &amp; Kebul</a></li><li><a href="/ecom-catalog-demo/ha/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Gida Mai Wayo</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/ha/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Shafukan Saukarwa</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashboard na CRM</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakilan AI</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Aiki ta atomatik</a></li>
     </ul></div><div><h5>Gida &amp; Kicin</h5><ul>
     <li><a href="/ecom-catalog-demo/ha/c/home/cookware/" data-dept="home" data-sub="cookware">Kayan Girki &amp; Shirya</a></li><li><a href="/ecom-catalog-demo/ha/c/home/appliances/" data-dept="home" data-sub="appliances">Kananan Na'urori</a></li><li><a href="/ecom-catalog-demo/ha/c/home/lighting/" data-dept="home" data-sub="lighting">Haske</a></li><li><a href="/ecom-catalog-demo/ha/c/home/textiles/" data-dept="home" data-sub="textiles">Kayan Daki</a></li>
     </ul></div><div><h5>Hanya &amp; Sha'awa</h5><ul>

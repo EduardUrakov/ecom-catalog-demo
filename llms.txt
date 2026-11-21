@@ -9,37 +9,37 @@
 > Card content in this build is placeholder filler for layout acceptance; live records arrive from member storefront catalogues.
 
 ## Catalogue
-- [Electronics](/en/c/electronics/): Audio, storage, power, smart home
-- [Home & Kitchen](/en/c/home/): Cookware, appliances, lighting, textiles
-- [Craft & Hobby](/en/c/craft/): Yarn, beading, art supplies, DIY kits
-- [Outdoor & Optics](/en/c/outdoor/): Optics, camping, tools, apparel
+- [Vibecode Path](https://eduardurakov.github.io/ecom-catalog-demo/en/c/vibecode/): Landing pages, CRM dashboards and AI agents
+- [Home & Kitchen](https://eduardurakov.github.io/ecom-catalog-demo/en/c/home/): Cookware, appliances, lighting, textiles
+- [Craft & Hobby](https://eduardurakov.github.io/ecom-catalog-demo/en/c/craft/): Yarn, beading, art supplies, DIY kits
+- [Outdoor & Optics](https://eduardurakov.github.io/ecom-catalog-demo/en/c/outdoor/): Optics, camping, tools, apparel
 
 ## Languages
-- en: English (en-US) — /en/
-- de: Deutsch (de-DE) — /de/
-- fr: Français (fr-FR) — /fr/
-- es: Español (es-ES) — /es/
-- pt: Português (pt-BR) — /pt/
-- it: Italiano (it-IT) — /it/
-- tr: Türkçe (tr-TR) — /tr/
-- ru: Русский (ru-RU) — /ru/
-- zh: 中文 (zh-CN) — /zh/
-- ja: 日本語 (ja-JP) — /ja/
-- ko: 한국어 (ko-KR) — /ko/
-- ar: العربية (ar, right-to-left) — /ar/
-- id: Bahasa Indonesia (id-ID) — /id/
-- hi: हिन्दी (hi-IN) — /hi/
-- vi: Tiếng Việt (vi-VN) — /vi/
-- th: ไทย (th-TH) — /th/
-- sw: Kiswahili (sw) — /sw/
-- ha: Hausa (ha) — /ha/
-- am: አማርኛ (am) — /am/
+- en: English (en-US) — https://eduardurakov.github.io/ecom-catalog-demo/en/
+- de: Deutsch (de-DE) — https://eduardurakov.github.io/ecom-catalog-demo/de/
+- fr: Français (fr-FR) — https://eduardurakov.github.io/ecom-catalog-demo/fr/
+- es: Español (es-ES) — https://eduardurakov.github.io/ecom-catalog-demo/es/
+- pt: Português (pt-BR) — https://eduardurakov.github.io/ecom-catalog-demo/pt/
+- it: Italiano (it-IT) — https://eduardurakov.github.io/ecom-catalog-demo/it/
+- tr: Türkçe (tr-TR) — https://eduardurakov.github.io/ecom-catalog-demo/tr/
+- ru: Русский (ru-RU) — https://eduardurakov.github.io/ecom-catalog-demo/ru/
+- zh: 中文 (zh-CN) — https://eduardurakov.github.io/ecom-catalog-demo/zh/
+- ja: 日本語 (ja-JP) — https://eduardurakov.github.io/ecom-catalog-demo/ja/
+- ko: 한국어 (ko-KR) — https://eduardurakov.github.io/ecom-catalog-demo/ko/
+- ar: العربية (ar, right-to-left) — https://eduardurakov.github.io/ecom-catalog-demo/ar/
+- id: Bahasa Indonesia (id-ID) — https://eduardurakov.github.io/ecom-catalog-demo/id/
+- hi: हिन्दी (hi-IN) — https://eduardurakov.github.io/ecom-catalog-demo/hi/
+- vi: Tiếng Việt (vi-VN) — https://eduardurakov.github.io/ecom-catalog-demo/vi/
+- th: ไทย (th-TH) — https://eduardurakov.github.io/ecom-catalog-demo/th/
+- sw: Kiswahili (sw) — https://eduardurakov.github.io/ecom-catalog-demo/sw/
+- ha: Hausa (ha) — https://eduardurakov.github.io/ecom-catalog-demo/ha/
+- am: አማርኛ (am) — https://eduardurakov.github.io/ecom-catalog-demo/am/
 Translations beyond English are machine-made from the English source and not yet reviewed by native speakers (rules 04, questions 16-17).
 
 ## Machine-readable
-- Каталог по стандарту path-catalog/1.0: /catalog.json
-- Фид товаров (Google Merchant Center): /feed.xml
-- Карта сайта: /sitemap.xml
+- Каталог по стандарту path-catalog/1.0: https://eduardurakov.github.io/ecom-catalog-demo/catalog.json
+- Фид товаров (Google Merchant Center): https://eduardurakov.github.io/ecom-catalog-demo/feed.xml
+- Карта сайта: https://eduardurakov.github.io/ecom-catalog-demo/sitemap.xml
 
 ## Storefronts
 No member storefront has published a catalogue yet — the registry is issued by the platform owner.

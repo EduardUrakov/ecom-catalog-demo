@@ -1482,6 +1482,15 @@
       color: var(--dim)
     }
 
+    /* Услуга без цены: слот цены занимает подпись («по запросу»), а не
+       «0,00 $», которое money(null) выдал бы на месте настоящего нуля. */
+    .price__ask {
+      font-size: 15px;
+      line-height: 26px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
     .price__tiers {
       display: flex;
       flex-wrap: wrap;
@@ -2837,50 +2846,50 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/aud-q20i/"
+      "name": "Açılış Sayfası, Anahtar Teslim",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-lnd1/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "SPK 2 Taşınabilir Bluetooth Hoparlör, 24 saat Oynatma Süresi, IPX7 Su Geçirmez",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/aud-spk2/"
+      "name": "Açılış Sayfası: İçerik ve Trafik Analitiği",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-lnd2/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "NVMe SSD Sürücü 1 TB Gen4, 7 400 MB/s, Soğutucu ile",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/sto-nv1t/"
+      "name": "PostgreSQL 16 Üzerinde CRM Gösterge Tablosu",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-crm1/"
     },
     {
       "@type": "ListItem",
       "position": 4,
-      "name": "Endüstriyel microSDXC 64 GB, Dayanıklılık Sınıfı, 10'lu Paket",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/sto-car64/"
+      "name": "Çoklu Proje Çalışma Alanı",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-crm2/"
     },
     {
       "@type": "ListItem",
       "position": 5,
-      "name": "60 W Anahtarlı 7-Port USB Hub, Örgülü Kablo",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/pow-hub7/"
+      "name": "AI Satış Temsilcisi",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-agt1/"
     },
     {
       "@type": "ListItem",
       "position": 6,
-      "name": "65 W GaN Duvar Şarj Aleti, 3 Port, Ön Sipariş Parti 4",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/pow-pd65/"
+      "name": "AI Lead Nitelendirme",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-agt2/"
     },
     {
       "@type": "ListItem",
       "position": 7,
-      "name": "Akıllı Priz 2'li Paket, Enerji Ölçümü, Wi-Fi + Matter",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/smh-plg2/"
+      "name": "Süreciniz için n8n Senaryoları",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-n8n1/"
     },
     {
       "@type": "ListItem",
       "position": 8,
-      "name": "İç Mekan Güvenlik Kamerası 2K, Gizlilik Kapağı, Yerel SD",
-      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/smh-cam2/"
+      "name": "Satış Otomasyonu, Anahtar Teslim",
+      "url": "https://eduardurakov.github.io/ecom-catalog-demo/tr/p/svc-n8n2/"
     },
     {
       "@type": "ListItem",
@@ -3025,12 +3034,12 @@
 
     <!-- DEPARTMENTS: the 3–4 choices users expect -->
     <div class="wrap">
-      <div class="deps" id="deps" role="group" aria-label="Bölümler"><div class="dep" data-on="false" data-dept="electronics" style="">
-      <a class="dep__main" href="/ecom-catalog-demo/tr/c/electronics/">
-        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-        <span class="dep__nm">Elektronik</span>
-        <span class="dep__n">8 ürün · Ses, depolama, güç, akıllı ev</span></a>
-      <div class="dep__sub" aria-label="Elektronik alt bölümleri"><a href="/ecom-catalog-demo/tr/c/electronics/audio/">Ses</a><a href="/ecom-catalog-demo/tr/c/electronics/storage/">Depolama &amp; Bellek</a><a href="/ecom-catalog-demo/tr/c/electronics/power/">Güç &amp; Kablolar</a><a href="/ecom-catalog-demo/tr/c/electronics/smart-home/">Akıllı Ev</a></div>
+      <div class="deps" id="deps" role="group" aria-label="Bölümler"><div class="dep" data-on="false" data-dept="vibecode" style="">
+      <a class="dep__main" href="/ecom-catalog-demo/tr/c/vibecode/">
+        <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.4 6h9.2M6 8.2l5 7.6M18 8.2l-5 7.6"/></svg></span>
+        <span class="dep__nm">Vibecode Path</span>
+        <span class="dep__n">8 hizmet · Açılış sayfaları, CRM panelleri ve AI ajanları</span></a>
+      <div class="dep__sub" aria-label="Vibecode Path alt bölümleri"><a href="/ecom-catalog-demo/tr/c/vibecode/landings/">Açılış Sayfaları</a><a href="/ecom-catalog-demo/tr/c/vibecode/crm/">CRM Panelleri</a><a href="/ecom-catalog-demo/tr/c/vibecode/agents/">AI Ajanları</a><a href="/ecom-catalog-demo/tr/c/vibecode/automation/">Otomasyon</a></div>
     </div><div class="dep" data-on="false" data-dept="home" style="">
       <a class="dep__main" href="/ecom-catalog-demo/tr/c/home/">
         <span class="dep__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg></span>
@@ -3109,7 +3118,43 @@
 
       <div class="wrap">
         <p class="count" id="resCount" role="status" aria-live="polite" style="padding-top:var(--s-300)">12 ürünün 32 fiyatını gösteriyor · USD fiyatları</p>
-        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="HOM-KTL" data-mode="retail">
+        <div class="grid" id="grid" data-view="grid"><article class="card" data-id="SVC-AGT" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
+      <div class="card__badges" data-slot="badges"><span class="badge badge--top">En çok satan</span></div>
+      <button class="fav" data-fav="SVC-AGT" aria-pressed="false" aria-label="İstek listesine kaydet">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-AGT" tabindex="-1">Hızlı görüntü</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="AI Satış Temsilcisi">
+        <a href="/ecom-catalog-demo/tr/p/svc-agt1/">AI Satış Temsilcisi</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Talep üzerine fiyat</span></div>
+      <span class="price__unit">Anahtar teslimi</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Projeleri alma</span></div>
+      <span class="avail__eta">Kısa bilgilendirmeden yaklaşık 10 gün sonra başlar</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT1</span><span><b>Format</b> Anahtar teslimi</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-AGT">Sorguya ekle</button></div>
+    </div>
+  </article><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3141,7 +3186,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 86</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Türkiye</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Sorguya ekle</button></div>
@@ -3178,7 +3223,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 640</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Rusya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Sorguya ekle</button></div>
@@ -3215,83 +3260,10 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 2.400</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Sorguya ekle</button></div>
-    </div>
-  </article><article class="card" data-id="STO-NV1" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">En çok satan</span></div>
-      <button class="fav" data-fav="STO-NV1" aria-pressed="false" aria-label="İstek listesine kaydet">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="STO-NV1" tabindex="-1">Hızlı görüntü</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Elektronik</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="NVMe SSD Sürücü 1 TB Gen4, 7 400 MB/s, Soğutucu ile">
-        <a href="/ecom-catalog-demo/tr/p/sto-nv1t/">NVMe SSD Sürücü 1 TB Gen4, 7 400 MB/s, Soğutucu ile</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$98,34</span><span class="price__was">$114,40</span><span class="price__off">$16,06 kaydet</span></div></div>
-      
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 412</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>20 Kas Cum</b></span>
-    <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-NV1T</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Güney Kore</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="STO-NV1">Sorguya ekle</button></div>
-    </div>
-  </article><article class="card" data-id="AUD-Q20" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">En çok satan</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="İstek listesine kaydet">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Hızlı görüntü</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi">
-        <a href="/ecom-catalog-demo/tr/p/aud-q20i/">Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108,90</span><span class="price__was">$141,90</span><span class="price__off">$33,00 kaydet</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Renk 3 / 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 184</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
-    <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Sorguya ekle</button></div>
     </div>
   </article><article class="card" data-id="OPT-BIN" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3325,120 +3297,118 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 27</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>24 Kas Sal</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Japonya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Sorguya ekle</button></div>
     </div>
-  </article><article class="card" data-id="POW-HUB" data-mode="retail">
+  </article><article class="card" data-id="SVC-LND" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-LND" aria-pressed="false" aria-label="İstek listesine kaydet">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-LND" tabindex="-1">Hızlı görüntü</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Açılış Sayfası, Anahtar Teslim">
+        <a href="/ecom-catalog-demo/tr/p/svc-lnd1/">Açılış Sayfası, Anahtar Teslim</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Talep üzerine fiyat</span></div>
+      <span class="price__unit">Anahtar teslimi</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Projeleri alma</span></div>
+      <span class="avail__eta">Kısa bilgilendirmeden yaklaşık 7 gün sonra başlar</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-LND1</span><span><b>Format</b> Anahtar teslimi</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-LND">Sorguya ekle</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-LNA" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="12" width="44" height="34" rx="3"/><path d="M10 20h44"/><circle cx="15" cy="16" r="1.4"/><path d="M18 28h16M18 34h22"/><path d="M40 46h10l-5-8z"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-LNA" aria-pressed="false" aria-label="İstek listesine kaydet">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-LNA" tabindex="-1">Hızlı görüntü</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Açılış Sayfası: İçerik ve Trafik Analitiği">
+        <a href="/ecom-catalog-demo/tr/p/svc-lnd2/">Açılış Sayfası: İçerik ve Trafik Analitiği</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Görev başına</span></div>
+      <span class="price__unit">Sürekli destek</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Projeleri alma</span></div>
+      <span class="avail__eta">Kısa bilgilendirmeden yaklaşık 14 gün sonra başlar</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-LND2</span><span><b>Format</b> Sürekli destek</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-LNA">Sorguya ekle</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-QLF" data-mode="retail">
     <div class="card__media" data-slot="media">
       <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
+      <g ><g ><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="16" y="20" width="32" height="24" rx="6"/><path d="M26 32h2M36 32h2"/><path d="M32 20v-8"/><circle cx="32" cy="10" r="2"/><path d="M10 30h6M48 30h6"/></g></g></svg></span>
       
-      <button class="fav" data-fav="POW-HUB" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <button class="fav" data-fav="SVC-QLF" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-HUB" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="SVC-QLF" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="60 W Anahtarlı 7-Port USB Hub, Örgülü Kablo">
-        <a href="/ecom-catalog-demo/tr/p/pow-hub7/">60 W Anahtarlı 7-Port USB Hub, Örgülü Kablo</a></h3>
+      <h3 class="card__title" data-slot="title" title="AI Lead Nitelendirme">
+        <a href="/ecom-catalog-demo/tr/p/svc-agt2/">AI Lead Nitelendirme</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$25,96</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Renk 1 / 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 2"></button>
-      </div></div>
+      <div class="price__main"><span class="price__ask">Görev başına</span></div>
+      <span class="price__unit">Anahtar teslimi</span></div>
+      
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 1.180</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
-    <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-HUB7</span><span><b>Den</b> SPB-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="POW-HUB">Sorguya ekle</button></div>
-    </div>
-  </article><article class="card card--pre" data-id="POW-PD" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Yeni</span><span class="badge badge--pre">Ön sipariş</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="İstek listesine kaydet">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Hızlı görüntü</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN Duvar Şarj Aleti, 3 Port, Ön Sipariş Parti 4">
-        <a href="/ecom-catalog-demo/tr/p/pow-pd65/">65 W GaN Duvar Şarj Aleti, 3 Port, Ön Sipariş Parti 4</a></h3>
-      <p class="card__desc" data-slot="desc">42 g ağırlığında iki USB-C ve bir USB-A. Parti kapandığında gönderilir.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$35,20</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Ön sipariş · parti açık</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Yaklaşık olarak gönderilir <b>21 gün</b> · 268 / 300 taahhüt edildi</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Ön siparişle rezerve et</button></div>
-    </div>
-  </article><article class="card" data-id="SMH-PLG" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-21%</span></div>
-      <button class="fav" data-fav="SMH-PLG" aria-pressed="false" aria-label="İstek listesine kaydet">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="SMH-PLG" tabindex="-1">Hızlı görüntü</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Elektronik</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Akıllı Priz 2'li Paket, Enerji Ölçümü, Wi-Fi + Matter">
-        <a href="/ecom-catalog-demo/tr/p/smh-plg2/">Akıllı Priz 2'li Paket, Enerji Ölçümü, Wi-Fi + Matter</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$20,79</span><span class="price__was">$26,40</span><span class="price__off">$5,61 kaydet</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Renk 1 / 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 2"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 320</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
-    <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-PLG2</span><span><b>Den</b> SPB-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-PLG">Sorguya ekle</button></div>
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Projeleri alma</span></div>
+      <span class="avail__eta">Kısa bilgilendirmeden yaklaşık 10 gün sonra başlar</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-AGT2</span><span><b>Format</b> Anahtar teslimi</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-QLF">Sorguya ekle</button></div>
     </div>
   </article><article class="card" data-id="LGT-ARC" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3472,7 +3442,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 34</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>25 Kas Çar</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-ARCL</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Polonya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="LGT-ARC">Sorguya ekle</button></div>
@@ -3509,7 +3479,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 148</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>24 Kas Sal</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>26 Kas Per</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Satıcı</b> Fibra Andina</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Sorguya ekle</button></div>
@@ -3546,10 +3516,46 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 3.100</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-BDS11</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Çekya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-BDS">Sorguya ekle</button></div>
+    </div>
+  </article><article class="card" data-id="SVC-MUL" data-mode="retail">
+    <div class="card__media" data-slot="media">
+      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="none" stroke="none"/>
+      <g ><g ><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><rect x="10" y="14" width="44" height="36" rx="3"/><path d="M18 40v-8M28 40v-14M38 40v-6M48 40v-11"/><path d="M10 22h44"/></g></g></svg></span>
+      
+      <button class="fav" data-fav="SVC-MUL" aria-pressed="false" aria-label="İstek listesine kaydet">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="quick" data-quick="SVC-MUL" tabindex="-1">Hızlı görüntü</button>
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow" data-slot="eyebrow">
+      <span class="card__brand">Vibecode Path</span><span aria-hidden="true">·</span><span>Vibecode Path</span>
+      
+    </div>
+      <h3 class="card__title" data-slot="title" title="Çoklu Proje Çalışma Alanı">
+        <a href="/ecom-catalog-demo/tr/p/svc-crm2/">Çoklu Proje Çalışma Alanı</a></h3>
+      
+      <div class="price" data-slot="price">
+      <div class="price__main"><span class="price__ask">Görev başına</span></div>
+      <span class="price__unit">Sürekli destek</span></div>
+      
+      <div class="avail avail--ok" data-slot="avail">
+      <div class="avail__row"><i class="dot dot--ok"></i><span>Projeleri alma</span></div>
+      <span class="avail__eta">Kısa bilgilendirmeden yaklaşık 21 gün sonra başlar</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SVC-CRM2</span><span><b>Format</b> Sürekli destek</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SVC-MUL">Sorguya ekle</button></div>
     </div>
   </article></div>
         <div class="end" id="endMark"><button class="btn btn--ghost" style="max-width:280px;margin-inline:auto" id="more">12 daha yükle (20 kaldı)</button></div>
@@ -3577,42 +3583,42 @@
       <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Meta</b><span>SKU, satıcı, depo, menşei ülke. B2B ve pazar için güven katmanı.</span>
       <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Eylemler</b><span>Son slot, alt kısma sabitlenmiş. Her mod için bir ana fiil: sorguya ekle, rezerve et, fiyat teklifi iste, beni bilgilendir.</span>
       <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="AUD-Q20" data-mode="retail">
+          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">En çok satan</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">En çok satan</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Ev &amp; Mutfak</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi">
-        <a href="/ecom-catalog-demo/tr/p/aud-q20i/">Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi</a></h3>
+      <h3 class="card__title" data-slot="title" title="Emaye Baharat Cezvesi 300 ml, Krem, Indüksiyon Uyumlu">
+        <a href="/ecom-catalog-demo/tr/p/hom-ktl30/">Emaye Baharat Cezvesi 300 ml, Krem, Indüksiyon Uyumlu</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108,90</span><span class="price__was">$141,90</span><span class="price__off">$33,00 kaydet</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Renk 3 / 3"></button>
+    <div class="price__main"><span class="price__now">$19,20</span><span class="price__was">$24,75</span><span class="price__off">$5,55 kaydet</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Renk 3 / 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 184</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 86</span></div>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Sorguya ekle</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Türkiye</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Sorguya ekle</button></div>
     </div>
   </article></div>
         </div>
@@ -3656,84 +3662,84 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 86</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Türkiye</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Sorguya ekle</button></div>
     </div>
-  </article></div><div><span class="state__cap">İndirimde</span><article class="card" data-id="AUD-Q20" data-mode="retail">
+  </article></div><div><span class="state__cap">İndirimde</span><article class="card" data-id="HOM-KTL" data-mode="retail">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-23%</span><span class="badge badge--top">En çok satan</span></div>
-      <button class="fav" data-fav="AUD-Q20" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">En çok satan</span></div>
+      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-Q20" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Ev &amp; Mutfak</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi">
-        <a href="/ecom-catalog-demo/tr/p/aud-q20i/">Q20 Hibrit Aktif Gürültü Engelleyici Kulaklık, Kulak Üstü, Bluetooth 5.3, 40 saat Oynatma Süresi</a></h3>
+      <h3 class="card__title" data-slot="title" title="Emaye Baharat Cezvesi 300 ml, Krem, Indüksiyon Uyumlu">
+        <a href="/ecom-catalog-demo/tr/p/hom-ktl30/">Emaye Baharat Cezvesi 300 ml, Krem, Indüksiyon Uyumlu</a></h3>
       
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$108,90</span><span class="price__was">$141,90</span><span class="price__off">$33,00 kaydet</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#C7CBD4" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#8A5A2B" aria-pressed="false" aria-label="Renk 3 / 3"></button>
+    <div class="price__main"><span class="price__now">$19,20</span><span class="price__was">$24,75</span><span class="price__off">$5,55 kaydet</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Renk 3 / 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 184</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 86</span></div>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-Q20I</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Vietnam</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-Q20">Sorguya ekle</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Türkiye</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Sorguya ekle</button></div>
     </div>
-  </article></div><div><span class="state__cap">Düşük stok</span><article class="card" data-id="SMH-CAM" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Düşük stok</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="3"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Pazar yeri</span></div>
-      <button class="fav" data-fav="SMH-CAM" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Yeni</span><span class="badge badge--hand">El yapımı</span></div>
+      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="SMH-CAM" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Elektronik</span>
-      
+      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Ev &amp; Mutfak</span>
+      <span class="card__maker">Kuznetsova Studio tarafından</span>
     </div>
-      <h3 class="card__title" data-slot="title" title="İç Mekan Güvenlik Kamerası 2K, Gizlilik Kapağı, Yerel SD">
-        <a href="/ecom-catalog-demo/tr/p/smh-cam2/">İç Mekan Güvenlik Kamerası 2K, Gizlilik Kapağı, Yerel SD</a></h3>
-      <p class="card__desc" data-slot="desc">Bulut aboneliği gerektirmez. Fiziksel lens kapağı ve cihazda kişi tespiti.</p>
+      <h3 class="card__title" data-slot="title" title="El Yapımı Seramik Karıştırma Kasesi Seti, 3 Parça">
+        <a href="/ecom-catalog-demo/tr/p/hom-mix8/">El Yapımı Seramik Karıştırma Kasesi Seti, 3 Parça</a></h3>
+      <p class="card__desc" data-slot="desc">Gıda güvenli mat cilalı taşware ile tekerlekle şekillendirilmiştir. Her set küçük bir partide pişirilir.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$41,25</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Renk 1 / 2"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 2"></button>
+    <div class="price__main"><span class="price__now">$57,20</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Renk 3 / 3"></button>
       </div></div>
       <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Sadece 6 kaldı</span></div>
-      <div class="bar100"><i style="width:60%"></i></div>
-      <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> SMH-CAM2</span><span><b>Satıcı</b> SafeNest</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="SMH-CAM">Sorguya ekle</button></div>
+      <div class="avail__row"><i class="dot dot--warn"></i><span>Sadece 3 kaldı</span></div>
+      <div class="bar100"><i style="width:30%"></i></div>
+      <span class="avail__eta">Şu tarihe kadar al <b>27 Kas Cum</b></span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Satıcı</b> Kuznetsova Studio</span><span><b>Sipariş üzerine yapılır</b> 6 gün</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Rusya</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Sorguya ekle</button></div>
     </div>
   </article></div><div><span class="state__cap">Stokta yok</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
     <div class="card__media" data-slot="media">
@@ -3767,7 +3773,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Stokta yok</span></div>
-      <span class="avail__ship">Tekrar stokta 3 Ara Per</span></div>
+      <span class="avail__ship">Tekrar stokta 5 Ara Cmt</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Almanya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Stokta yok</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Beni bilgilendir</button></div>
@@ -3805,119 +3811,119 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Sadece 3 kaldı</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Şu tarihe kadar al <b>25 Kas Çar</b></span></div>
+      <span class="avail__eta">Şu tarihe kadar al <b>27 Kas Cum</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Satıcı</b> Kuznetsova Studio</span><span><b>Sipariş üzerine yapılır</b> 6 gün</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Rusya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Sorguya ekle</button></div>
     </div>
-  </article></div><div><span class="state__cap">Pazar yeri</span><article class="card" data-id="AUD-SPK" data-mode="marketplace">
+  </article></div><div><span class="state__cap">Pazar yeri</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="0"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
+      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge">Pazar yeri</span></div>
-      <button class="fav" data-fav="AUD-SPK" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="AUD-SPK" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>El Sanatları &amp; Hobiler</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="SPK 2 Taşınabilir Bluetooth Hoparlör, 24 saat Oynatma Süresi, IPX7 Su Geçirmez">
-        <a href="/ecom-catalog-demo/tr/p/aud-spk2/">SPK 2 Taşınabilir Bluetooth Hoparlör, 24 saat Oynatma Süresi, IPX7 Su Geçirmez</a></h3>
-      <p class="card__desc" data-slot="desc">Pasif bas radyatörleri ile 12 W stereo. Gerçek stereo için iki birim eşleştirir.</p>
+      <h3 class="card__title" data-slot="title" title="Bebek Alpaka Karışımı DK, 200 g Konik, Bulut Gri">
+        <a href="/ecom-catalog-demo/tr/p/crf-alpa/">Bebek Alpaka Karışımı DK, 200 g Konik, Bulut Gri</a></h3>
+      <p class="card__desc" data-slot="desc">Akrilik çekirdek üzerinde %22 alpaka — kaşındırmadan halo. Örgü stüdyoları için koni olarak satılır.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$48,40</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#2E5BFF" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#B02418" aria-pressed="false" aria-label="Renk 3 / 3"></button>
+    <div class="price__main"><span class="price__now">$26,95</span></div></div>
+      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Renk</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Renk 1 / 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Renk 2 / 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Renk 3 / 3"></button>
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 62</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 148</span></div>
+    <span class="avail__eta">Şu tarihe kadar al <b>26 Kas Per</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> AUD-SPK2</span><span><b>Satıcı</b> SoundLab</span><span><b>Den</b> SPB-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="AUD-SPK">Sorguya ekle</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Satıcı</b> Fibra Andina</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Peru</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Sorguya ekle</button></div>
     </div>
-  </article></div><div><span class="state__cap">B2B toptan</span><article class="card card--b2b" data-id="STO-CAR" data-mode="b2b">
+  </article></div><div><span class="state__cap">B2B toptan</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EAF3EC" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EAF3EC 70%, var(--sunken))" data-art="1"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Toptan</span></div>
-      <button class="fav" data-fav="STO-CAR" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="STO-CAR" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Ev &amp; Mutfak</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Endüstriyel microSDXC 64 GB, Dayanıklılık Sınıfı, 10'lu Paket">
-        <a href="/ecom-catalog-demo/tr/p/sto-car64/">Endüstriyel microSDXC 64 GB, Dayanıklılık Sınıfı, 10'lu Paket</a></h3>
-      <p class="card__desc" data-slot="desc">Dashcam'ler ve POS terminalleri için yazma dayanıklılığı derecelendirilmiştir. On birimlik perakende kutusunda sağlanır.</p>
+      <h3 class="card__title" data-slot="title" title="Dökme Demir Izgara Tavası 28 cm, Önceden Baharatlanmış, Otel Kalitesi">
+        <a href="/ecom-catalog-demo/tr/p/hom-pan28/">Dökme Demir Izgara Tavası 28 cm, Önceden Baharatlanmış, Otel Kalitesi</a></h3>
+      <p class="card__desc" data-slot="desc">Kum dökme, 260 °C'ye kadar fırın güvenli. Gıda hizmeti alıcıları için altı birimlik karton paketlenmiştir.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$10,89</span></div><span class="price__unit">adet başına · vergiler ve harçlar dahil</span><div class="price__tiers"><span><b>10+</b> $10,89</span><span><b>50+</b> $10,01</span><span><b>200+</b> $9,24</span></div></div>
+    <div class="price__main"><span class="price__now">$45,10</span></div><span class="price__unit">adet başına · vergiler ve harçlar dahil</span><div class="price__tiers"><span><b>6+</b> $45,10</span><span><b>24+</b> $40,92</span><span><b>60+</b> $37,29</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 980</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
+    <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 240</span></div>
+    <span class="avail__eta">Şu tarihe kadar al <b>26 Kas Per</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> STO-CAR64</span><span><b>MOQ</b> 10 adet</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="STO-CAR">Teklif iste</button>
-      <button class="btn btn--ghost" data-add="STO-CAR">10 çok ekle</button></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 adet</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Rusya</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Teklif iste</button>
+      <button class="btn btn--ghost" data-add="HOM-PAN">6 çok ekle</button></div>
     </div>
-  </article></div><div><span class="state__cap">Ön sipariş</span><article class="card card--pre" data-id="POW-PD" data-mode="pre">
+  </article></div><div><span class="state__cap">Ön sipariş</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
     <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6EEE4" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="none" stroke="none"/>
       <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6EEE4 70%, var(--sunken))" data-art="2"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
       <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
       <div class="card__badges" data-slot="badges"><span class="badge badge--new">Yeni</span><span class="badge badge--pre">Ön sipariş</span></div>
-      <button class="fav" data-fav="POW-PD" aria-pressed="false" aria-label="İstek listesine kaydet">
+      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="İstek listesine kaydet">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button class="quick" data-quick="POW-PD" tabindex="-1">Hızlı görüntü</button>
+      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Hızlı görüntü</button>
     </div>
     <div class="card__body">
       <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Volt Coil</span><span aria-hidden="true">·</span><span>Elektronik</span>
+      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>El Sanatları &amp; Hobiler</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="65 W GaN Duvar Şarj Aleti, 3 Port, Ön Sipariş Parti 4">
-        <a href="/ecom-catalog-demo/tr/p/pow-pd65/">65 W GaN Duvar Şarj Aleti, 3 Port, Ön Sipariş Parti 4</a></h3>
-      <p class="card__desc" data-slot="desc">42 g ağırlığında iki USB-C ve bir USB-A. Parti kapandığında gönderilir.</p>
+      <h3 class="card__title" data-slot="title" title="Quilling Çerçeve Dokuma, Geliştirilmiş Gerilim, Ön Sipariş">
+        <a href="/ecom-catalog-demo/tr/p/kit-qui2/">Quilling Çerçeve Dokuma, Geliştirilmiş Gerilim, Ön Sipariş</a></h3>
+      <p class="card__desc" data-slot="desc">İlk satıştan sonra ikinci üretim çalışması. 300 birim taahhüt edildiğinde kapanır.</p>
       <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">$35,20</span></div></div>
+    <div class="price__main"><span class="price__now">$30,25</span></div></div>
       
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Ön sipariş · parti açık</span></div>
-      <div class="bar100"><i style="width:89%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Yaklaşık olarak gönderilir <b>21 gün</b> · 268 / 300 taahhüt edildi</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> POW-PD65</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Çin</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="POW-PD">Ön siparişle rezerve et</button></div>
+      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
+      <span class="avail__eta">Yaklaşık olarak gönderilir <b>18 gün</b> · 121 / 300 taahhüt edildi</span></div>
+      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>Den</b> MSK-2</span><span><b>Menşei</b> Çin</span></div>
+      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Ön siparişle rezerve et</button></div>
     </div>
   </article></div><div><span class="state__cap">Yükleniyor (iskelet)</span><div class="sk" aria-hidden="true">
     <div class="sk__l sk__media"></div>
@@ -3960,7 +3966,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 640</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>21 Kas Cmt</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>23 Kas Pzt</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Den</b> SPB-1</span><span><b>Menşei</b> Rusya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Sorguya ekle</button></div>
@@ -4002,7 +4008,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 27</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>24 Kas Sal</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Japonya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Sorguya ekle</button></div>
@@ -4041,7 +4047,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 27</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>24 Kas Sal</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Japonya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Sorguya ekle</button></div>
@@ -4080,7 +4086,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Stokta · 27</span></div>
-    <span class="avail__eta">Şu tarihe kadar al <b>22 Kas Paz</b></span>
+    <span class="avail__eta">Şu tarihe kadar al <b>24 Kas Sal</b></span>
     <span class="avail__ship">$80,00 üzeri ücretsiz teslimat</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Den</b> MSK-1</span><span><b>Menşei</b> Japonya</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Sorguya ekle</button></div>
@@ -4134,8 +4140,8 @@
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Elektronik</h5><ul>
-    <li><a href="/ecom-catalog-demo/tr/c/electronics/audio/" data-dept="electronics" data-sub="audio">Ses</a></li><li><a href="/ecom-catalog-demo/tr/c/electronics/storage/" data-dept="electronics" data-sub="storage">Depolama &amp; Bellek</a></li><li><a href="/ecom-catalog-demo/tr/c/electronics/power/" data-dept="electronics" data-sub="power">Güç &amp; Kablolar</a></li><li><a href="/ecom-catalog-demo/tr/c/electronics/smart-home/" data-dept="electronics" data-sub="smart-home">Akıllı Ev</a></li>
+      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
+    <li><a href="/ecom-catalog-demo/tr/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Açılış Sayfaları</a></li><li><a href="/ecom-catalog-demo/tr/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM Panelleri</a></li><li><a href="/ecom-catalog-demo/tr/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AI Ajanları</a></li><li><a href="/ecom-catalog-demo/tr/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Otomasyon</a></li>
     </ul></div><div><h5>Ev &amp; Mutfak</h5><ul>
     <li><a href="/ecom-catalog-demo/tr/c/home/cookware/" data-dept="home" data-sub="cookware">Mutfak Eşyaları &amp; Hazırlık</a></li><li><a href="/ecom-catalog-demo/tr/c/home/appliances/" data-dept="home" data-sub="appliances">Küçük Aletler</a></li><li><a href="/ecom-catalog-demo/tr/c/home/lighting/" data-dept="home" data-sub="lighting">Aydınlatma</a></li><li><a href="/ecom-catalog-demo/tr/c/home/textiles/" data-dept="home" data-sub="textiles">Tekstil</a></li>
     </ul></div><div><h5>El Sanatları &amp; Hobiler</h5><ul>
