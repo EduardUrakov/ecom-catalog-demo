@@ -1300,8 +1300,12 @@ function card(p, opts = {}) {
   if (p.mode === 'pre') cls.push('card--pre');
   if (p.stock === 0 && p.mode !== 'pre') cls.push('card--oos');
 
+  // В eyebrow бренд и раздел не должны повторять друг друга: в разделе
+  // услуг марка и есть название раздела, и пара «Vibecode Path · Vibecode
+  // Path» читается как ошибка данных. Тогда показываем подраздел.
+  const eyebrowSecond = p.brand === n.dept ? n.sub : n.dept;
   const eyebrow = opts.hideEyebrow ? '' : `<div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">${esc(p.brand)}</span><span aria-hidden="true">·</span><span>${n.dept}</span>
+      <span class="card__brand">${esc(p.brand)}</span><span aria-hidden="true">·</span><span>${eyebrowSecond}</span>
       ${p.maker ? `<span class="card__maker">by ${esc(p.maker)}</span>` : ''}
     </div>`;
 
