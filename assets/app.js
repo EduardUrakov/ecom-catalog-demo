@@ -1173,9 +1173,10 @@ function priceBlock(p) {
   // «бесплатно». Если в данных цены нет и есть priceNote, слот говорит
   // «по запросу» (правила 01, вопрос 02: цена в USD либо её нет вовсе).
   if (p.type === 'service' && p.price == null) {
+    // Формат (Turnkey / Ongoing support) показывает мета-слот — дублировать
+    // его строкой под ценой не нужно.
     return `<div class="price" data-slot="price">
-      <div class="price__main"><span class="price__ask">${esc(p.priceNote || 'Price on request')}</span></div>
-      ${p.format ? `<span class="price__unit">${esc(p.format)}</span>` : ''}</div>`;
+      <div class="price__main"><span class="price__ask">${esc(p.priceNote || 'Price on request')}</span></div></div>`;
   }
   const main = `<span class="price__now">${money(p.price)}</span>`;
   const was = p.was ? `<span class="price__was">${money(p.was)}</span><span class="price__off">Save ${money(p.was - p.price)}</span>` : '';
