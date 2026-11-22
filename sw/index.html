@@ -1765,278 +1765,6 @@
       color: var(--muted)
     }
 
-    /* — skeleton — */
-    .sk {
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--card-radius);
-      overflow: hidden
-    }
-
-    .sk__l {
-      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
-      background-size: 300% 100%;
-      animation: sh 1.3s linear infinite;
-      border-radius: var(--r-sm)
-    }
-
-    @keyframes sh {
-      to {
-        background-position: -300% 0
-      }
-    }
-
-    .sk .sk__media {
-      aspect-ratio: var(--media-ratio)
-    }
-
-    .sk__pad {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-75);
-      padding: var(--card-pad)
-    }
-
-    /* ============================================================
-       CARD SYSTEM SECTION (spec / states / sizes)
-       ============================================================ */
-    .sect {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-700) var(--s-800)
-    }
-
-    .sect__h {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--s-300);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-100)
-    }
-
-    .sect h2 {
-      font-size: clamp(22px, 1rem + 1.5vw, 34px)
-    }
-
-    .sect__lede {
-      color: var(--muted);
-      max-width: 76ch;
-      margin-bottom: var(--s-500)
-    }
-
-    .anatomy {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:900px) {
-      .anatomy {
-        grid-template-columns: minmax(280px, 360px) 1fr
-      }
-    }
-
-    .slots {
-      display: grid;
-      gap: var(--s-50)
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: var(--s-100);
-      align-items: start;
-      padding: var(--s-100);
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      text-align: left;
-      width: 100%;
-      transition: border-color 150ms var(--curve), background 150ms var(--curve)
-    }
-
-    .slot:hover,
-    .slot[data-on="true"] {
-      border-color: var(--accent);
-      background: var(--accent-soft)
-    }
-
-    .slot i {
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 11px;
-      font-weight: 700;
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--r-sm);
-      background: var(--sunken);
-      color: var(--muted)
-    }
-
-    .slot[data-on="true"] i,
-    .slot:hover i {
-      background: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .slot b {
-      display: block;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .slot span {
-      display: block;
-      font-size: 12px;
-      line-height: 17px;
-      color: var(--muted)
-    }
-
-    .slot em {
-      display: block;
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px
-    }
-
-    .anatomy__stage {
-      display: grid;
-      place-items: center;
-      padding: var(--s-300);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      position: sticky;
-      top: var(--s-300)
-    }
-
-    .anatomy__stage .card {
-      max-width: 330px;
-      width: 100%
-    }
-
-    .hl {
-      outline: 2px solid var(--accent) !important;
-      outline-offset: 2px;
-      border-radius: var(--r-sm);
-      background: var(--accent-soft)
-    }
-
-    .states {
-      display: grid;
-      gap: var(--card-gap);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:520px) {
-      .states {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1000px) {
-      .states {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1500px) {
-      .states {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
-    }
-
-    .states .card {
-      max-width: none
-    }
-
-    .state__cap {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: var(--s-100)
-    }
-
-    .sizes {
-      display: grid;
-      gap: var(--s-300);
-      align-items: start;
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:1000px) {
-      .sizes {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    .sizebox {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-300)
-    }
-
-    .sizebox h4 {
-      font-size: 14px;
-      margin-bottom: 4px
-    }
-
-    .sizebox p {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: var(--s-200)
-    }
-
-    .sizebox code {
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--sunken);
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--muted)
-    }
-
-    /* compact card modifier */
-    .card--compact {
-      --avail-h: 20px
-    }
-
-    .card--compact .card__body {
-      gap: 4px;
-      padding: var(--s-100)
-    }
-
-    .card--compact .card__title {
-      font-size: 12px;
-      line-height: 16px
-    }
-
-    .card--compact .price__now {
-      font-size: 15px;
-      line-height: 20px
-    }
-
-    .card--compact .avail__eta,
-    .card--compact .card__meta,
-    .card--compact .vars {
-      display: none
-    }
-
-    .card--compact .btn {
-      min-height: 36px;
-      font-size: 12px
-    }
-
     /* feature card modifier */
     .card--feature {
       --title-lines: 3
@@ -2081,53 +1809,6 @@
         flex: none;
         aspect-ratio: 4 / 3
       }
-    }
-
-    /* rules table */
-    .rules {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden
-    }
-
-    .rules th,
-    .rules td {
-      text-align: left;
-      padding: var(--s-100) var(--s-200);
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    .rules th {
-      background: var(--surface);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--dim)
-    }
-
-    .rules tr:last-child td {
-      border-bottom: 0
-    }
-
-    .rules td:first-child {
-      font-weight: 700;
-      white-space: nowrap
-    }
-
-    .tablescroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch
-    }
-
-    h3.grp {
-      font-size: 15px;
-      letter-spacing: -.01em;
-      margin: var(--s-600) 0 var(--s-200)
     }
 
     /* toast */
@@ -3025,10 +2706,9 @@
 
       <div class="ph">
         <h1 id="pageTitle">Katalogi</h1>
-        <p id="pageLead">Msingi mmoja wa kibiashara, kadi moja ya bidhaa kwa kila duka mtandaoni. Chagua idara, kisha sehemu ndogo — kadi iliyo hapa chini ni kipengele kilekile kila mahali, ni alama na hali ya maudhui pekee zinabadilika.</p>
+        <p id="pageLead">Kituo kimoja cha kibiashara kwa kila duka la mtandao la Path. Chagua idara, kisha sehemu ndogo.</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs ziko hewani</span><span>Idara 4</span>
-    <span>Sehemu ndogo 16</span>
-    <span>Hali 5 za maudhui</span><span>Rejareja · soko · mikono · jumla · kuagiza kabla</span></div>
+    <span>Sehemu ndogo 16</span></div>
       </div>
     </div>
 
@@ -3150,7 +2830,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 27</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumatano, 25 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Japani</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Ongeza kwenye uchunguzi</button></div>
@@ -3187,7 +2867,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 86</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Uturuki</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Ongeza kwenye uchunguzi</button></div>
@@ -3224,7 +2904,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 2,400</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Ongeza kwenye uchunguzi</button></div>
@@ -3261,7 +2941,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 640</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Urusi</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Ongeza kwenye uchunguzi</button></div>
@@ -3333,7 +3013,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 148</span></div>
-    <span class="avail__eta">Pata ifikie <b>Alhamisi, 26 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Ijumaa, 27 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Inauzwa na</b> Fibra Andina</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Ongeza kwenye uchunguzi</button></div>
@@ -3405,7 +3085,7 @@
       </div><div class="vars__row"><span class="vars__lb">Ukubwa</span><button class="sz" aria-pressed="false" disabled title="Sold out">XS</button><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button><button class="sz" aria-pressed="false" disabled title="Sold out">XXL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 74</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumatano, 25 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-JKT-M</span><span><b>Kutoka</b> SPB-2</span><span><b>Asili</b> Vietnamu</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-JKT">Ongeza kwenye uchunguzi</button></div>
@@ -3443,7 +3123,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Baki 9 tu</span></div>
       <div class="bar100"><i style="width:90%"></i></div>
-      <span class="avail__eta">Pata ifikie <b>Alhamisi, 26 Nov</b></span></div>
+      <span class="avail__eta">Pata ifikie <b>Ijumaa, 27 Nov</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CMP-KTL9</span><span><b>Inauzwa na</b> Summit Supply</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Uchina</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-KTL">Ongeza kwenye uchunguzi</button></div>
     </div>
@@ -3478,7 +3158,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 1,600</span></div>
-    <span class="avail__eta">Pata ifikie <b>Ijumaa, 27 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumamosi, 28 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-SHP22</span><span><b>MOQ</b> 20 pcs</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Uchina</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">Omba nukuu</button>
@@ -3517,7 +3197,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Baki 2 tu</span></div>
       <div class="bar100"><i style="width:20%"></i></div>
-      <span class="avail__eta">Pata ifikie <b>Jumatatu, 30 Nov</b></span></div>
+      <span class="avail__eta">Pata ifikie <b>Jumanne, 1 Des</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-RUG80</span><span><b>Inauzwa na</b> Anna P.</span><span><b>Imetengenezwa kwa oda</b> 9 siku</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Urusi</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-RUG">Ongeza kwenye uchunguzi</button></div>
     </div>
@@ -3552,7 +3232,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 760</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
+    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
     <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-DEC1</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Urusi</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="KIT-DEC">Ongeza kwenye uchunguzi</button></div>
@@ -3562,607 +3242,18 @@
       </div>
     </section>
 
-    <!-- CARD SYSTEM -->
-    <section class="sect" id="card-system">
-      <div class="wrap">
-        <div class="sect__h">
-          <h2>Mfumo wa kadi</h2>
-          <p class="count">Sehemu moja · nafasi 11 · mitindo 5 ya maudhui · majimbo 10 · saizi 3</p>
-        </div>
-        <p class="sect__lede">Kila kitu kilichopo chini ni HTML ile ile. Kadi inajaza nafasi au nafasi haionekani — hakuna kiolezo kingine cha kadi. Piga juu ya nafasi upande wa kushoto kuona inakaa wapi.</p>
-
-        <div class="anatomy">
-          <div class="slots" id="slots"><button class="slot" data-hl="media"><i>1</i><span><b>Vyombo vya habari</b><span>1:1 kwenye gridi, 4:3 safu kwenye orodha. Piga juu inabadilisha picha ya pili. Kamwe haijapanuliwa, kamwe haijafichwa.</span>
-      <em>.card__media / [data-slot="media"]</em></span></button><button class="slot" data-hl="badges"><i>2</i><span><b>Alama</b><span>Punguzo, muuzaji bora, mpya, iliyotengenezwa kwa mikono, jumla, agizo la awali. Max tatu kwa wakati mmoja.</span>
-      <em>.card__badges / [data-slot="badges"]</em></span></button><button class="slot" data-hl="eyebrow"><i>3</i><span><b>Brand / mtengenezaji</b><span>Brand kwa rejareja, jina la mtengenezaji kwa iliyotengenezwa kwa mikono. Zote ni viungo katika uzalishaji.</span>
-      <em>.card__eyebrow / [data-slot="eyebrow"]</em></span></button><button class="slot" data-hl="title"><i>4</i><span><b>Kichwa</b><span>Mistari miwili, imefungwa. Mstari mzima unabaki katika jina linaloweza kufikiwa.</span>
-      <em>.card__title / [data-slot="title"]</em></span></button><button class="slot" data-hl="desc"><i>5</i><span><b>Maelezo mafupi</b><span>Daima katika mtazamo wa orodha; kwenye gridi tu kwa mitindo isiyo ya rejareja na saizi ya kipengele. Mistari miwili, kamwe si katika gridi ya safu 5.</span>
-      <em>.card__desc / [data-slot="desc"]</em></span></button><button class="slot" data-hl="price"><i>6</i><span><b>Bei</b><span>Sasa, ya awali, akiba, bei ya kitengo, jedwali la ngazi. Takwimu za jedwali, sarafu moja: USD.</span>
-      <em>.price / [data-slot="price"]</em></span></button><button class="slot" data-hl="variants"><i>7</i><span><b>Tofauti</b><span>Alama za rangi kisha saizi. Max alama tano, zingine zinahesabiwa kama +N. Mchanganyiko uliouzwa umepigwa msasa, haujafichwa.</span>
-      <em>.vars / [data-slot="variants"]</em></span></button><button class="slot" data-hl="avail"><i>8</i><span><b>Upatikanaji</b><span>Ipo kwenye hisa / N pekee iliyobaki / haipo kwenye hisa / maendeleo ya agizo la awali, ikiwa na tarehe ya usafirishaji. Kimo kisichobadilika.</span>
-      <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Meta</b><span>SKU, muuzaji, ghala, nchi ya asili. Safu ya kuaminika kwa B2B na soko.</span>
-      <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Hatua</b><span>Nafasi ya mwisho, imefungwa chini. Kitenzi kimoja cha msingi kwa kila hali: ongeza kwenye uchunguzi, hifadhi, omba nukuu, nijulishe.</span>
-      <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction">
-        <a href="/ecom-catalog-demo/sw/p/hom-ktl30/">Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 19.20</span><span class="price__was">US$ 24.75</span><span class="price__off">Hifadhi US$ 5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 86</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Uturuki</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div>
-        </div>
-
-        <h3 class="grp">Mitindo ya maudhui</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="Jedwali la njia za maudhui, linaweza kusogezwa"
-          style="margin-bottom:var(--s-600)">
-          <table class="rules" id="modesTable"></table>
-        </div>
-
-        <h3 class="grp">Majimbo</h3>
-        <div class="states" id="states"><div><span class="state__cap">Chaguo-msingi</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction">
-        <a href="/ecom-catalog-demo/sw/p/hom-ktl30/">Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 19.20</span><span class="price__was">US$ 24.75</span><span class="price__off">Hifadhi US$ 5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 86</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Uturuki</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Katika mauzo</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction">
-        <a href="/ecom-catalog-demo/sw/p/hom-ktl30/">Kettle ya Viungo ya Enamel 300 ml, Krimu, Tayari kwa Induction</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 19.20</span><span class="price__was">US$ 24.75</span><span class="price__off">Hifadhi US$ 5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 86</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Uturuki</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Hisa chache</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mpya</span><span class="badge badge--hand">Mikono</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      <span class="card__maker">na Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="Seti ya Bakuli ya Mchanganyiko ya Keramiki ya Kutupwa kwa Mkono, Vipande 3">
-        <a href="/ecom-catalog-demo/sw/p/hom-mix8/">Seti ya Bakuli ya Mchanganyiko ya Keramiki ya Kutupwa kwa Mkono, Vipande 3</a></h3>
-      <p class="card__desc" data-slot="desc">Imetupwa kwa mfinyanzi wa mawe na glaze ya matte salama kwa chakula. Kila seti inapikwa katika kundi dogo.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 57.20</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Baki 3 tu</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Pata ifikie <b>Ijumaa, 27 Nov</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Inauzwa na</b> Kuznetsova Studio</span><span><b>Imetengenezwa kwa oda</b> 6 siku</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Urusi</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Imekosekana</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F0F1E9" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F0F1E9 70%, var(--sunken))" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      
-      <button class="fav" data-fav="LGT-PND" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="LGT-PND" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Mwanga wa Pendant 36 W, Diffuser ya Opal, Inayoweza Kurekebishwa 2 700–4 000 K">
-        <a href="/ecom-catalog-demo/sw/p/lgt-pnd36/">Mwanga wa Pendant 36 W, Diffuser ya Opal, Inayoweza Kurekebishwa 2 700–4 000 K</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 61.82</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#E8A200" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--bad" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--bad"></i><span>Imekosekana</span></div>
-      <span class="avail__ship">Imerudi kwenye hisa Jumamosi, 5 Des</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Ujerumani</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Imekosekana</button>
-      <button class="btn btn--ghost" data-notify="LGT-PND">Nijulishe</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Mikono</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mpya</span><span class="badge badge--hand">Mikono</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      <span class="card__maker">na Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="Seti ya Bakuli ya Mchanganyiko ya Keramiki ya Kutupwa kwa Mkono, Vipande 3">
-        <a href="/ecom-catalog-demo/sw/p/hom-mix8/">Seti ya Bakuli ya Mchanganyiko ya Keramiki ya Kutupwa kwa Mkono, Vipande 3</a></h3>
-      <p class="card__desc" data-slot="desc">Imetupwa kwa mfinyanzi wa mawe na glaze ya matte salama kwa chakula. Kila seti inapikwa katika kundi dogo.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 57.20</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Baki 3 tu</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Pata ifikie <b>Ijumaa, 27 Nov</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Inauzwa na</b> Kuznetsova Studio</span><span><b>Imetengenezwa kwa oda</b> 6 siku</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Urusi</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Soko</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Soko</span></div>
-      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Sanaa &amp; Burudani</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Baby Alpaca Blend DK, 200 g Cone, Rangi ya Wingu">
-        <a href="/ecom-catalog-demo/sw/p/crf-alpa/">Baby Alpaca Blend DK, 200 g Cone, Rangi ya Wingu</a></h3>
-      <p class="card__desc" data-slot="desc">22 % alpaca juu ya msingi wa akriliki — halo bila kuwasha. Inauzwa kwa cone kwa studio za kushona.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 26.95</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 148</span></div>
-    <span class="avail__eta">Pata ifikie <b>Alhamisi, 26 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Inauzwa na</b> Fibra Andina</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Peru</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">B2B jumla</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Kuuza kwa jumla</span></div>
-      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Pan ya Grill ya Chuma cha Kutupwa 28 cm, Iliyotangulia Kuandaliwa, Daraja la Hoteli">
-        <a href="/ecom-catalog-demo/sw/p/hom-pan28/">Pan ya Grill ya Chuma cha Kutupwa 28 cm, Iliyotangulia Kuandaliwa, Daraja la Hoteli</a></h3>
-      <p class="card__desc" data-slot="desc">Imetengenezwa kwa mchanga, salama kwa oveni hadi 260 °C. Imejaa vitengo sita kwa carton kwa wanunuzi wa huduma ya chakula.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 45.10</span></div><span class="price__unit">kwa kila kitengo · ushuru na ada zimejumuishwa</span><div class="price__tiers"><span><b>6+</b> US$ 45.10</span><span><b>24+</b> US$ 40.92</span><span><b>60+</b> US$ 37.29</span></div></div>
-      
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 240</span></div>
-    <span class="avail__eta">Pata ifikie <b>Alhamisi, 26 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 pcs</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Urusi</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Omba nukuu</button>
-      <button class="btn btn--ghost" data-add="HOM-PAN">Ongeza mengi ya 6</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Kuagiza kabla</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mpya</span><span class="badge badge--pre">Kuagiza kabla</span></div>
-      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Sanaa &amp; Burudani</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Quilling Frame Loom, Mvutano Ulioimarishwa, Pre-Order">
-        <a href="/ecom-catalog-demo/sw/p/kit-qui2/">Quilling Frame Loom, Mvutano Ulioimarishwa, Pre-Order</a></h3>
-      <p class="card__desc" data-slot="desc">Uzinduzi wa pili baada ya wa kwanza kuuzwa ndani ya siku tisa. Unafungwa wakati vitengo 300 vinapowekwa.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 30.25</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Oda ya awali · kundi wazi</span></div>
-      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Inasafirishwa ndani ya takriban <b>18 siku</b> · 121 ya 300 iliyoahidiwa</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>Kutoka</b> MSK-2</span><span><b>Asili</b> Uchina</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Hifadhi kwa oda ya awali</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Inapakia (skeleton)</span><div class="sk" aria-hidden="true">
-    <div class="sk__l sk__media"></div>
-    <div class="sk__pad">
-      <div class="sk__l" style="height:11px;width:44%"></div>
-      <div class="sk__l" style="height:16px"></div>
-      <div class="sk__l" style="height:16px;width:72%"></div>
-      <div class="sk__l" style="height:12px;width:38%"></div>
-      <div class="sk__l" style="height:22px;width:52%"></div>
-      <div class="sk__l" style="height:38px;border-radius:999px"></div>
-    </div></div></div><div><span class="state__cap">Imepokewa kwenye orodha ya matakwa</span><article class="card" data-id="TEX-TWL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E9EEF3" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E9EEF3 70%, var(--sunken))" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="TEX-TWL" aria-pressed="true" aria-label="Toa kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="TEX-TWL" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Baltic Linen</span><span aria-hidden="true">·</span><span>Nyumbani &amp; Jiko</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Seti ya Taulo za Terry 500 gsm, 70 x 140 cm, Vipande Viwili">
-        <a href="/ecom-catalog-demo/sw/p/tex-twl50/">Seti ya Taulo za Terry 500 gsm, 70 x 140 cm, Vipande Viwili</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 23.98</span><span class="price__was">US$ 30.58</span><span class="price__off">Hifadhi US$ 6.60</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Rangi 1 ya 4"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Rangi 2 ya 4"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Rangi 3 ya 4"></button><button class="sw" style="background:#C4162D" aria-pressed="false" aria-label="Rangi 4 ya 4"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 640</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumatatu, 23 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Kutoka</b> SPB-1</span><span><b>Asili</b> Urusi</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">Saizi</h3>
-        <div class="sizes" id="sizes">
-    <div class="sizebox"><h4>Kompakt</h4><p>Gridi za safu 5–6, reli za kuuza msalaba, orodha ya uchunguzi. <code>.card--compact</code></p>
-      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px"><article class="card card--compact" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Nje &amp; Optics</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni">
-        <a href="/ecom-catalog-demo/sw/p/opt-b1042/">Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 207.90</span><span class="price__was">US$ 240.90</span><span class="price__off">Hifadhi US$ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 27</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Japani</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div></div>
-    <div class="sizebox"><h4>Kawaida</h4><p>Chaguo-msingi kila mahali: gridi ya jamii, matokeo ya utafutaji, kurasa za brand. Hakuna mabadiliko.</p>
-      <article class="card" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Nje &amp; Optics</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni">
-        <a href="/ecom-catalog-demo/sw/p/opt-b1042/">Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 207.90</span><span class="price__was">US$ 240.90</span><span class="price__off">Hifadhi US$ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 27</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Japani</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div>
-    <div class="sizebox"><h4>Kipengele</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
-      <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Muuza bora</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Hifadhi kwenye orodha ya matakwa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Muonekano wa haraka</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Nje &amp; Optics</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni">
-        <a href="/ecom-catalog-demo/sw/p/opt-b1042/">Binocular Isiyo na Maji 10x42, Prisms za BaK-4, Imejaa Nitrojeni</a></h3>
-      <p class="card__desc" data-slot="desc">Prisms za paa zilizorekebishwa kwa awamu, uwanja wa 6.5°, mwili wa IPX7 ukiwa na uondoaji wa macho wa 22 mm.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$ 207.90</span><span class="price__was">US$ 240.90</span><span class="price__off">Hifadhi US$ 33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Rangi</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Rangi 1 ya 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Rangi 2 ya 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Rangi 3 ya 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Ipo kwenye hisa · 27</span></div>
-    <span class="avail__eta">Pata ifikie <b>Jumanne, 24 Nov</b></span>
-    <span class="avail__ship">Uwasilishaji bure juu ya US$ 80.00</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Japani</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Ongeza kwenye uchunguzi</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">Sheria ngumu</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="Jedwali la sheria ngumu, linaweza kusogezwa">
-          <table class="rules">
-            <tbody>
-              <tr>
-                <td>Vyombo vya habari</td>
-                <td>Daima 1:1 katika gridi, 4:3 katika orodha. Picha ya pili inabadilishwa kwa kuhamasisha tu mahali ambapo kidole kiko (<code>@media (hover:hover)</code>) — kamwe kwa kugusa. Maandishi kamwe hayapiti kwenye safu ya alama.</td>
-              </tr>
-              <tr>
-                <td>Kichwa</td>
-                <td>Imefungwa kwa mistari 2 katika kiwango cha kawaida, 3 katika kipengele. Kichwa kamili kiko katika <code>title</code> attribute na katika jina linalopatikana, hivyo hakuna kitu kinachopotea kwa ellipsis.</td>
-              </tr>
-              <tr>
-                <td>Bei</td>
-                <td>Takwimu za jedwali, daima sarafu ya duka ya wakati. Bei iliyo na mstari wa kupita inapatikana tu wakati ni bei halisi ya awali, kamwe si kiunganishi kilichoundwa.</td>
-              </tr>
-              <tr>
-                <td>Upatikanaji</td>
-                <td>Viwango vitatu tu: katika hisa, hisa ya chini yenye idadi sahihi na bar, nje ya hisa yenye fomu ya arifa. Rangi kamwe si ishara pekee — maneno yanabeba hiyo.</td>
-              </tr>
-              <tr>
-                <td>Tofauti</td>
-                <td>Max 5 swatches then <code>+N</code>. Vipimo vinajitokeza kama safu ya chips; mchanganyiko usiopatikana umeandikwa, sio kufichwa, hivyo mnunuzi anajua kuwa anuwai kamili inapatikana.</td>
-              </tr>
-              <tr>
-                <td>Malengo ya kugusa</td>
-                <td>Kitufe cha msingi 44px, cha pili 38px, kipenzi 36px. Mwili wa kadi unaweza kubofya, lakini kitufe kinabaki kuwa kitufe halisi kwa watumiaji wa kibodi na wasomaji wa skrini.</td>
-              </tr>
-              <tr>
-                <td>Kimo sawa</td>
-                <td>Kadi katika safu moja zinashiriki kimo. CTA ni nafasi ya mwisho na imefungwa na
-                  <code>margin-top:auto</code>, hivyo hakuna kitu kinachokaa chini yake — kitufe kinatua kwenye mstari mmoja katika kila safu bila kujali urefu wa kichwa, hali ya hisa au upana wa metadata. Nafasi ya upatikanaji inahifadhi kimo kilichohifadhiwa (<code>--avail-h</code>) hivyo bendi ya taarifa inabaki kuwa sawa pia.
-                </td>
-              </tr>
-              <tr>
-                <td>Uhuishaji</td>
-                <td>Hakuna sheria ya kadi inayotumia rangi halisi. Kila duka linapeleka block ya alama na sifuri CSS forks. Jaribu kubadilisha chapa katika toolbar iliyo juu.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Kurasa za kutua</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashibodi za CRM</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakala wa AI</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automatiki</a></li>
-    </ul></div><div><h5>Nyumbani &amp; Jiko</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/home/cookware/" data-dept="home" data-sub="cookware">Vifaa vya kupikia &amp; Maandalizi</a></li><li><a href="/ecom-catalog-demo/sw/c/home/appliances/" data-dept="home" data-sub="appliances">Vifaa Vidogo</a></li><li><a href="/ecom-catalog-demo/sw/c/home/lighting/" data-dept="home" data-sub="lighting">Mwanga</a></li><li><a href="/ecom-catalog-demo/sw/c/home/textiles/" data-dept="home" data-sub="textiles">Vitambaa</a></li>
-    </ul></div><div><h5>Sanaa &amp; Burudani</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/craft/yarn/" data-dept="craft" data-sub="yarn">Nyuzinyuzi &amp; Nyuzi</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/beading/" data-dept="craft" data-sub="beading">Mapambo &amp; Ushonaji</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/art-supplies/" data-dept="craft" data-sub="art-supplies">Vifaa vya Sanaa</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/diy-kits/" data-dept="craft" data-sub="diy-kits">Vifaa vya DIY</a></li>
-    </ul></div><div><h5>Nje &amp; Optics</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/outdoor/optics/" data-dept="outdoor" data-sub="optics">Optics &amp; Maono</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/camping/" data-dept="outdoor" data-sub="camping">Kambi &amp; Kutembea</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/tools/" data-dept="outdoor" data-sub="tools">Zana</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/apparel/" data-dept="outdoor" data-sub="apparel">Mavazi ya Nje</a></li>
-    </ul></div><div><h5>Mikondo</h5><ul>
-      <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
-         <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
-         <span>Telegram</span></li>
-      </ul></div><div><h5>Mfumo wa kadi</h5><ul>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Anatomia</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Mitindo ya maudhui</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Majimbo</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Saizi</a></li>
-      <li><a href="/ecom-catalog-demo/CATALOG.md">Specifikesheni</a></li></ul></div></div>
+      <div class="foot__grid" id="footGrid"><div><h5>Mikondo</h5><ul>
+    <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
+       <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
+       <span>Telegram</span></li>
+    </ul></div></div>
       <div class="foot__bar">
         <span>Path Home — duka la mfumo wa Path.</span>
         <span>Bei, hisa na tarehe za usafirishaji ni mfano.</span>
-        <a href="/ecom-catalog-demo/sw/">Rudi kwenye onyesho la jukwaa</a>
-        <a href="/ecom-catalog-demo/CATALOG.md">Specifikesheni ya kadi</a>
       </div>
     </div>
   </footer>

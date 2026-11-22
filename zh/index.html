@@ -1765,278 +1765,6 @@
       color: var(--muted)
     }
 
-    /* — skeleton — */
-    .sk {
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--card-radius);
-      overflow: hidden
-    }
-
-    .sk__l {
-      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
-      background-size: 300% 100%;
-      animation: sh 1.3s linear infinite;
-      border-radius: var(--r-sm)
-    }
-
-    @keyframes sh {
-      to {
-        background-position: -300% 0
-      }
-    }
-
-    .sk .sk__media {
-      aspect-ratio: var(--media-ratio)
-    }
-
-    .sk__pad {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-75);
-      padding: var(--card-pad)
-    }
-
-    /* ============================================================
-       CARD SYSTEM SECTION (spec / states / sizes)
-       ============================================================ */
-    .sect {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-700) var(--s-800)
-    }
-
-    .sect__h {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--s-300);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-100)
-    }
-
-    .sect h2 {
-      font-size: clamp(22px, 1rem + 1.5vw, 34px)
-    }
-
-    .sect__lede {
-      color: var(--muted);
-      max-width: 76ch;
-      margin-bottom: var(--s-500)
-    }
-
-    .anatomy {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:900px) {
-      .anatomy {
-        grid-template-columns: minmax(280px, 360px) 1fr
-      }
-    }
-
-    .slots {
-      display: grid;
-      gap: var(--s-50)
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: var(--s-100);
-      align-items: start;
-      padding: var(--s-100);
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      text-align: left;
-      width: 100%;
-      transition: border-color 150ms var(--curve), background 150ms var(--curve)
-    }
-
-    .slot:hover,
-    .slot[data-on="true"] {
-      border-color: var(--accent);
-      background: var(--accent-soft)
-    }
-
-    .slot i {
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 11px;
-      font-weight: 700;
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--r-sm);
-      background: var(--sunken);
-      color: var(--muted)
-    }
-
-    .slot[data-on="true"] i,
-    .slot:hover i {
-      background: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .slot b {
-      display: block;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .slot span {
-      display: block;
-      font-size: 12px;
-      line-height: 17px;
-      color: var(--muted)
-    }
-
-    .slot em {
-      display: block;
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px
-    }
-
-    .anatomy__stage {
-      display: grid;
-      place-items: center;
-      padding: var(--s-300);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      position: sticky;
-      top: var(--s-300)
-    }
-
-    .anatomy__stage .card {
-      max-width: 330px;
-      width: 100%
-    }
-
-    .hl {
-      outline: 2px solid var(--accent) !important;
-      outline-offset: 2px;
-      border-radius: var(--r-sm);
-      background: var(--accent-soft)
-    }
-
-    .states {
-      display: grid;
-      gap: var(--card-gap);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:520px) {
-      .states {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1000px) {
-      .states {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1500px) {
-      .states {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
-    }
-
-    .states .card {
-      max-width: none
-    }
-
-    .state__cap {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: var(--s-100)
-    }
-
-    .sizes {
-      display: grid;
-      gap: var(--s-300);
-      align-items: start;
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:1000px) {
-      .sizes {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    .sizebox {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-300)
-    }
-
-    .sizebox h4 {
-      font-size: 14px;
-      margin-bottom: 4px
-    }
-
-    .sizebox p {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: var(--s-200)
-    }
-
-    .sizebox code {
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--sunken);
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--muted)
-    }
-
-    /* compact card modifier */
-    .card--compact {
-      --avail-h: 20px
-    }
-
-    .card--compact .card__body {
-      gap: 4px;
-      padding: var(--s-100)
-    }
-
-    .card--compact .card__title {
-      font-size: 12px;
-      line-height: 16px
-    }
-
-    .card--compact .price__now {
-      font-size: 15px;
-      line-height: 20px
-    }
-
-    .card--compact .avail__eta,
-    .card--compact .card__meta,
-    .card--compact .vars {
-      display: none
-    }
-
-    .card--compact .btn {
-      min-height: 36px;
-      font-size: 12px
-    }
-
     /* feature card modifier */
     .card--feature {
       --title-lines: 3
@@ -2081,53 +1809,6 @@
         flex: none;
         aspect-ratio: 4 / 3
       }
-    }
-
-    /* rules table */
-    .rules {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden
-    }
-
-    .rules th,
-    .rules td {
-      text-align: left;
-      padding: var(--s-100) var(--s-200);
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    .rules th {
-      background: var(--surface);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--dim)
-    }
-
-    .rules tr:last-child td {
-      border-bottom: 0
-    }
-
-    .rules td:first-child {
-      font-weight: 700;
-      white-space: nowrap
-    }
-
-    .tablescroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch
-    }
-
-    h3.grp {
-      font-size: 15px;
-      letter-spacing: -.01em;
-      margin: var(--s-600) 0 var(--s-200)
     }
 
     /* toast */
@@ -3025,10 +2706,9 @@
 
       <div class="ph">
         <h1 id="pageTitle">目录</h1>
-        <p id="pageLead">一个商业核心，每个店面一个产品卡。选择一个部门，然后一个子部门——下面的卡片在各处都是相同的组件，只有标记和内容模式不同。</p>
+        <p id="pageLead">为Path生态系统的每个在线商店提供一个商业核心。选择一个部门，然后选择一个子部门。</p>
         <div class="ph__meta" id="pageMeta"><span>32 个 SKU 上线</span><span>4 个部门</span>
-    <span>16 个子部门</span>
-    <span>5 种内容模式</span><span>零售 · 市场 · 手工制作 · 批发 · 预购</span></div>
+    <span>16 个子部门</span></div>
       </div>
     </div>
 
@@ -3185,7 +2865,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
@@ -3222,7 +2902,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 640</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">添加到询价</button></div>
@@ -3259,7 +2939,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 2,400</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 秘鲁</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">添加到询价</button></div>
@@ -3296,7 +2976,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
@@ -3367,7 +3047,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 410</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月26日周四</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-MUL24</span><span><b>MOQ</b> 5 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 俄罗斯</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="CRF-MUL">请求报价</button>
@@ -3440,7 +3120,7 @@
       </div><div class="vars__row"><span class="vars__lb">尺寸</span><button class="sz" aria-pressed="false" disabled title="Sold out">XS</button><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button><button class="sz" aria-pressed="false" disabled title="Sold out">XXL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 74</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月25日周三</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-JKT-M</span><span><b>来自</b> SPB-2</span><span><b>来源</b> 越南</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-JKT">添加到询价</button></div>
@@ -3476,7 +3156,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 1,600</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月28日周六</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-SHP22</span><span><b>MOQ</b> 20 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="OPT-SHP">请求报价</button>
@@ -3514,7 +3194,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 118</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
+    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
     <span class="avail__ship">满 US$80.00 免运费</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-WAF4</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 中国</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-WAF">添加到询价</button></div>
@@ -3560,607 +3240,18 @@
       </div>
     </section>
 
-    <!-- CARD SYSTEM -->
-    <section class="sect" id="card-system">
-      <div class="wrap">
-        <div class="sect__h">
-          <h2>卡片系统</h2>
-          <p class="count">一个组件 · 11 个插槽 · 5 种内容模式 · 10 种状态 · 3 种尺寸</p>
-        </div>
-        <p class="sect__lede">以下所有内容都是相同的 HTML。卡片要么填充插槽，要么插槽不被渲染 — 没有第二个卡片模板。将鼠标悬停在左侧的插槽上以查看其位置。</p>
-
-        <div class="anatomy">
-          <div class="slots" id="slots"><button class="slot" data-hl="media"><i>1</i><span><b>媒体</b><span>网格中的 1:1，列表中的 4:3 列。悬停切换到第二张照片。永不拉伸，永不加黑边。</span>
-      <em>.card__media / [data-slot="media"]</em></span></button><button class="slot" data-hl="badges"><i>2</i><span><b>徽章</b><span>折扣，畅销，新品，手工制作，批发，预订。最多同时显示三个。</span>
-      <em>.card__badges / [data-slot="badges"]</em></span></button><button class="slot" data-hl="eyebrow"><i>3</i><span><b>品牌 / 制造商</b><span>零售品牌，手工制作的制造商名称。两者在生产中都是链接。</span>
-      <em>.card__eyebrow / [data-slot="eyebrow"]</em></span></button><button class="slot" data-hl="title"><i>4</i><span><b>标题</b><span>两行，限制。完整字符串保留在可访问名称中。</span>
-      <em>.card__title / [data-slot="title"]</em></span></button><button class="slot" data-hl="desc"><i>5</i><span><b>简短描述</b><span>始终以列表视图显示；仅在非零售模式和功能尺寸下以网格显示。两行，永不出现在 5 列网格中。</span>
-      <em>.card__desc / [data-slot="desc"]</em></span></button><button class="slot" data-hl="price"><i>6</i><span><b>价格</b><span>现在，之前，节省，单价，分层表。表格数据，一种货币：USD。</span>
-      <em>.price / [data-slot="price"]</em></span></button><button class="slot" data-hl="variants"><i>7</i><span><b>变体</b><span>颜色点然后是尺寸。最多五个点，其余计为 +N。售罄组合划线显示，而不是隐藏。</span>
-      <em>.vars / [data-slot="variants"]</em></span></button><button class="slot" data-hl="avail"><i>8</i><span><b>可用性</b><span>有库存 / 仅剩 N 件 / 缺货 / 预订进度，带有交货日期。固定高度。</span>
-      <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>元数据</b><span>SKU，卖家，仓库，原产国。B2B 和市场的信任层。</span>
-      <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>操作</b><span>最后一个插槽，固定在底部。每种模式一个主要动词：添加到询价，预留，请求报价，通知我。</span>
-      <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="搪瓷调料壶300毫升，奶油色，适用于感应炉">
-        <a href="/ecom-catalog-demo/zh/p/hom-ktl30/">搪瓷调料壶300毫升，奶油色，适用于感应炉</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">保存 US$5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
-    </div>
-  </article></div>
-        </div>
-
-        <h3 class="grp">内容模式</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="内容模式表，可滚动"
-          style="margin-bottom:var(--s-600)">
-          <table class="rules" id="modesTable"></table>
-        </div>
-
-        <h3 class="grp">状态</h3>
-        <div class="states" id="states"><div><span class="state__cap">默认</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="搪瓷调料壶300毫升，奶油色，适用于感应炉">
-        <a href="/ecom-catalog-demo/zh/p/hom-ktl30/">搪瓷调料壶300毫升，奶油色，适用于感应炉</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">保存 US$5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
-    </div>
-  </article></div><div><span class="state__cap">特价</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="搪瓷调料壶300毫升，奶油色，适用于感应炉">
-        <a href="/ecom-catalog-demo/zh/p/hom-ktl30/">搪瓷调料壶300毫升，奶油色，适用于感应炉</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$19.20</span><span class="price__was">US$24.75</span><span class="price__off">保存 US$5.55</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 86</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 土耳其</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">添加到询价</button></div>
-    </div>
-  </article></div><div><span class="state__cap">库存低</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--hand">手工制作</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      <span class="card__maker">由 Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="手工陶瓷混合碗套装，3件">
-        <a href="/ecom-catalog-demo/zh/p/hom-mix8/">手工陶瓷混合碗套装，3件</a></h3>
-      <p class="card__desc" data-slot="desc">轮制石器，食品安全哑光釉。每套在小批量中烧制。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$57.20</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>仅剩 3</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>销售商</b> Kuznetsova Studio</span><span><b>定制</b> 6 天</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">添加到询价</button></div>
-    </div>
-  </article></div><div><span class="state__cap">缺货</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F0F1E9" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F0F1E9 70%, var(--sunken))" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      
-      <button class="fav" data-fav="LGT-PND" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="LGT-PND" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="吊灯36W，乳白色扩散器，可调2700–4000K">
-        <a href="/ecom-catalog-demo/zh/p/lgt-pnd36/">吊灯36W，乳白色扩散器，可调2700–4000K</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$61.82</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#E8A200" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--bad" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--bad"></i><span>缺货</span></div>
-      <span class="avail__ship">重新上架 12月5日周六</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 德国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>缺货</button>
-      <button class="btn btn--ghost" data-notify="LGT-PND">通知我</button></div>
-    </div>
-  </article></div><div><span class="state__cap">手工制作</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--hand">手工制作</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      <span class="card__maker">由 Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="手工陶瓷混合碗套装，3件">
-        <a href="/ecom-catalog-demo/zh/p/hom-mix8/">手工陶瓷混合碗套装，3件</a></h3>
-      <p class="card__desc" data-slot="desc">轮制石器，食品安全哑光釉。每套在小批量中烧制。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$57.20</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>仅剩 3</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">在...之前收到 <b>11月27日周五</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>销售商</b> Kuznetsova Studio</span><span><b>定制</b> 6 天</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">添加到询价</button></div>
-    </div>
-  </article></div><div><span class="state__cap">市场</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">市场</span></div>
-      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="CRF-ALP" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>手工艺与爱好</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="婴儿羊驼混合DK，200克锥，云灰色">
-        <a href="/ecom-catalog-demo/zh/p/crf-alpa/">婴儿羊驼混合DK，200克锥，云灰色</a></h3>
-      <p class="card__desc" data-slot="desc">22%羊驼在丙烯酸核心上——无痒感的光环。按锥出售，适合针织工作室。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$26.95</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 148</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月26日周四</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>销售商</b> Fibra Andina</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 秘鲁</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">添加到询价</button></div>
-    </div>
-  </article></div><div><span class="state__cap">B2B 批发</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">批发</span></div>
-      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-PAN" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="铸铁烤盘28厘米，预调味，酒店级">
-        <a href="/ecom-catalog-demo/zh/p/hom-pan28/">铸铁烤盘28厘米，预调味，酒店级</a></h3>
-      <p class="card__desc" data-slot="desc">沙铸，耐260°C烤箱。每箱包装六个单位，适合餐饮买家。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$45.10</span></div><span class="price__unit">每单位 · 包含税费</span><div class="price__tiers"><span><b>6+</b> US$45.10</span><span><b>24+</b> US$40.92</span><span><b>60+</b> US$37.29</span></div></div>
-      
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 240</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月26日周四</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 件</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 俄罗斯</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">请求报价</button>
-      <button class="btn btn--ghost" data-add="HOM-PAN">添加大量 6</button></div>
-    </div>
-  </article></div><div><span class="state__cap">预购</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">新品</span><span class="badge badge--pre">预购</span></div>
-      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="KIT-QUI" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>手工艺与爱好</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="卷纸框织机，改进张力，预购">
-        <a href="/ecom-catalog-demo/zh/p/kit-qui2/">卷纸框织机，改进张力，预购</a></h3>
-      <p class="card__desc" data-slot="desc">在第一次售罄后进行第二次生产。300个单位承诺时关闭。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$30.25</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>预订 · 批次开放</span></div>
-      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
-      <span class="avail__eta">大约发货 <b>18 天</b> · 121 的 300 已承诺</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>来自</b> MSK-2</span><span><b>来源</b> 中国</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">预订</button></div>
-    </div>
-  </article></div><div><span class="state__cap">加载中（骨架）</span><div class="sk" aria-hidden="true">
-    <div class="sk__l sk__media"></div>
-    <div class="sk__pad">
-      <div class="sk__l" style="height:11px;width:44%"></div>
-      <div class="sk__l" style="height:16px"></div>
-      <div class="sk__l" style="height:16px;width:72%"></div>
-      <div class="sk__l" style="height:12px;width:38%"></div>
-      <div class="sk__l" style="height:22px;width:52%"></div>
-      <div class="sk__l" style="height:38px;border-radius:999px"></div>
-    </div></div></div><div><span class="state__cap">已保存到愿望清单</span><article class="card" data-id="TEX-TWL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E9EEF3" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E9EEF3 70%, var(--sunken))" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="TEX-TWL" aria-pressed="true" aria-label="从愿望清单中移除">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="TEX-TWL" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Baltic Linen</span><span aria-hidden="true">·</span><span>家居与厨房</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="毛巾套装500克/平方米，70 x 140厘米，两件">
-        <a href="/ecom-catalog-demo/zh/p/tex-twl50/">毛巾套装500克/平方米，70 x 140厘米，两件</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$23.98</span><span class="price__was">US$30.58</span><span class="price__off">保存 US$6.60</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="颜色 1 的 4"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="颜色 2 的 4"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="颜色 3 的 4"></button><button class="sw" style="background:#C4162D" aria-pressed="false" aria-label="颜色 4 的 4"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 640</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月23日周一</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>来自</b> SPB-1</span><span><b>来源</b> 俄罗斯</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">添加到询价</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">尺寸</h3>
-        <div class="sizes" id="sizes">
-    <div class="sizebox"><h4>紧凑</h4><p>5–6 列网格，交叉销售区域，询价列表。 <code>.card--compact</code></p>
-      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px"><article class="card card--compact" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>户外与光学</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="防水双筒望远镜10x42，BaK-4棱镜，充氮">
-        <a href="/ecom-catalog-demo/zh/p/opt-b1042/">防水双筒望远镜10x42，BaK-4棱镜，充氮</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$207.90</span><span class="price__was">US$240.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
-    </div>
-  </article></div></div>
-    <div class="sizebox"><h4>标准</h4><p>到处都是默认值：类别网格，搜索结果，品牌页面。没有修饰符。</p>
-      <article class="card" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>户外与光学</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="防水双筒望远镜10x42，BaK-4棱镜，充氮">
-        <a href="/ecom-catalog-demo/zh/p/opt-b1042/">防水双筒望远镜10x42，BaK-4棱镜，充氮</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$207.90</span><span class="price__was">US$240.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
-    </div>
-  </article></div>
-    <div class="sizebox"><h4>功能</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
-      <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">畅销</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="保存到愿望清单">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">快速查看</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>户外与光学</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="防水双筒望远镜10x42，BaK-4棱镜，充氮">
-        <a href="/ecom-catalog-demo/zh/p/opt-b1042/">防水双筒望远镜10x42，BaK-4棱镜，充氮</a></h3>
-      <p class="card__desc" data-slot="desc">相位校正屋顶棱镜，6.5°视场，IPX7机身，22毫米眼距。</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">US$207.90</span><span class="price__was">US$240.90</span><span class="price__off">保存 US$33.00</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">颜色</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="颜色 1 的 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="颜色 2 的 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="颜色 3 的 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>现货 · 27</span></div>
-    <span class="avail__eta">在...之前收到 <b>11月24日周二</b></span>
-    <span class="avail__ship">满 US$80.00 免运费</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>来自</b> MSK-1</span><span><b>来源</b> 日本</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">添加到询价</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">硬性规则</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="硬规则表，可滚动">
-          <table class="rules">
-            <tbody>
-              <tr>
-                <td>媒体</td>
-                <td>始终在网格中为1:1，在列表中为4:3。第二张图片仅在存在指针的地方悬停时交换（<code>@media (hover:hover)</code>) — 从不在触摸时。文本永远不会与徽章列重叠。</td>
-              </tr>
-              <tr>
-                <td>标题</td>
-                <td>在标准中限制为2行，在功能中限制为3行。完整标题在 <code>title</code> 属性和可访问名称中，因此没有任何内容因省略号而丢失。</td>
-              </tr>
-              <tr>
-                <td>价格</td>
-                <td>表格数字，始终是当前的商店货币。只有在真实的先前价格时，划线价格才会显示，绝不会是虚构的锚点。</td>
-              </tr>
-              <tr>
-                <td>可用性</td>
-                <td>仅有三个级别：有货，低库存（带确切数量和条形），缺货（带通知表单）。颜色从来不是唯一的信号——文字传达了它。</td>
-              </tr>
-              <tr>
-                <td>变体</td>
-                <td>最多5个样本，然后 <code>+N</code>. 尺寸以芯片行呈现；不可用的组合被划掉，而不是隐藏，因此购物者知道完整范围存在。</td>
-              </tr>
-              <tr>
-                <td>点击目标</td>
-                <td>主按钮44px，次按钮38px，收藏按钮36px。卡片主体可点击，但按钮对键盘和屏幕阅读器用户仍然是一个真实的按钮。</td>
-              </tr>
-              <tr>
-                <td>等高</td>
-                <td>同一行中的卡片共享高度。CTA是最后一个插槽，并固定在
-                  <code>margin-top:auto</code>，因此没有任何东西位于其下——按钮在每一行中落在一行上，无论标题长度、库存状态或元数据宽度如何。可用性插槽保持保留高度（<code>--avail-h</code>) 这样信息带也保持一致。
-                </td>
-              </tr>
-              <tr>
-                <td>主题</td>
-                <td>没有卡片规则使用字面颜色。每个商店都提供一组令牌和零CSS分支。尝试上方工具栏中的品牌切换器。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">着陆页</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">CRM仪表板</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">AI代理</a></li><li><a href="/ecom-catalog-demo/zh/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">自动化</a></li>
-    </ul></div><div><h5>家居与厨房</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/home/cookware/" data-dept="home" data-sub="cookware">炊具与准备</a></li><li><a href="/ecom-catalog-demo/zh/c/home/appliances/" data-dept="home" data-sub="appliances">小型电器</a></li><li><a href="/ecom-catalog-demo/zh/c/home/lighting/" data-dept="home" data-sub="lighting">照明</a></li><li><a href="/ecom-catalog-demo/zh/c/home/textiles/" data-dept="home" data-sub="textiles">纺织品</a></li>
-    </ul></div><div><h5>手工艺与爱好</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/craft/yarn/" data-dept="craft" data-sub="yarn">纱线与纤维</a></li><li><a href="/ecom-catalog-demo/zh/c/craft/beading/" data-dept="craft" data-sub="beading">串珠与刺绣</a></li><li><a href="/ecom-catalog-demo/zh/c/craft/art-supplies/" data-dept="craft" data-sub="art-supplies">艺术用品</a></li><li><a href="/ecom-catalog-demo/zh/c/craft/diy-kits/" data-dept="craft" data-sub="diy-kits">DIY套件</a></li>
-    </ul></div><div><h5>户外与光学</h5><ul>
-    <li><a href="/ecom-catalog-demo/zh/c/outdoor/optics/" data-dept="outdoor" data-sub="optics">光学与视觉</a></li><li><a href="/ecom-catalog-demo/zh/c/outdoor/camping/" data-dept="outdoor" data-sub="camping">露营与徒步</a></li><li><a href="/ecom-catalog-demo/zh/c/outdoor/tools/" data-dept="outdoor" data-sub="tools">工具</a></li><li><a href="/ecom-catalog-demo/zh/c/outdoor/apparel/" data-dept="outdoor" data-sub="apparel">户外服装</a></li>
-    </ul></div><div><h5>渠道</h5><ul>
-      <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
-         <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
-         <span>Telegram</span></li>
-      </ul></div><div><h5>卡片系统</h5><ul>
-      <li><a href="/ecom-catalog-demo/zh/#card-system">结构</a></li>
-      <li><a href="/ecom-catalog-demo/zh/#card-system">内容模式</a></li>
-      <li><a href="/ecom-catalog-demo/zh/#card-system">状态</a></li>
-      <li><a href="/ecom-catalog-demo/zh/#card-system">尺寸</a></li>
-      <li><a href="/ecom-catalog-demo/CATALOG.md">规格</a></li></ul></div></div>
+      <div class="foot__grid" id="footGrid"><div><h5>渠道</h5><ul>
+    <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
+       <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
+       <span>Telegram</span></li>
+    </ul></div></div>
       <div class="foot__bar">
         <span>Path Home — Path生态系统的在线商店。</span>
         <span>价格、库存和交货日期仅供参考。</span>
-        <a href="/ecom-catalog-demo/zh/">返回平台演示</a>
-        <a href="/ecom-catalog-demo/CATALOG.md">卡片规格</a>
       </div>
     </div>
   </footer>

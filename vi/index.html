@@ -1765,278 +1765,6 @@
       color: var(--muted)
     }
 
-    /* — skeleton — */
-    .sk {
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--card-radius);
-      overflow: hidden
-    }
-
-    .sk__l {
-      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
-      background-size: 300% 100%;
-      animation: sh 1.3s linear infinite;
-      border-radius: var(--r-sm)
-    }
-
-    @keyframes sh {
-      to {
-        background-position: -300% 0
-      }
-    }
-
-    .sk .sk__media {
-      aspect-ratio: var(--media-ratio)
-    }
-
-    .sk__pad {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-75);
-      padding: var(--card-pad)
-    }
-
-    /* ============================================================
-       CARD SYSTEM SECTION (spec / states / sizes)
-       ============================================================ */
-    .sect {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-700) var(--s-800)
-    }
-
-    .sect__h {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--s-300);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-100)
-    }
-
-    .sect h2 {
-      font-size: clamp(22px, 1rem + 1.5vw, 34px)
-    }
-
-    .sect__lede {
-      color: var(--muted);
-      max-width: 76ch;
-      margin-bottom: var(--s-500)
-    }
-
-    .anatomy {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:900px) {
-      .anatomy {
-        grid-template-columns: minmax(280px, 360px) 1fr
-      }
-    }
-
-    .slots {
-      display: grid;
-      gap: var(--s-50)
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: var(--s-100);
-      align-items: start;
-      padding: var(--s-100);
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      text-align: left;
-      width: 100%;
-      transition: border-color 150ms var(--curve), background 150ms var(--curve)
-    }
-
-    .slot:hover,
-    .slot[data-on="true"] {
-      border-color: var(--accent);
-      background: var(--accent-soft)
-    }
-
-    .slot i {
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 11px;
-      font-weight: 700;
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--r-sm);
-      background: var(--sunken);
-      color: var(--muted)
-    }
-
-    .slot[data-on="true"] i,
-    .slot:hover i {
-      background: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .slot b {
-      display: block;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .slot span {
-      display: block;
-      font-size: 12px;
-      line-height: 17px;
-      color: var(--muted)
-    }
-
-    .slot em {
-      display: block;
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px
-    }
-
-    .anatomy__stage {
-      display: grid;
-      place-items: center;
-      padding: var(--s-300);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      position: sticky;
-      top: var(--s-300)
-    }
-
-    .anatomy__stage .card {
-      max-width: 330px;
-      width: 100%
-    }
-
-    .hl {
-      outline: 2px solid var(--accent) !important;
-      outline-offset: 2px;
-      border-radius: var(--r-sm);
-      background: var(--accent-soft)
-    }
-
-    .states {
-      display: grid;
-      gap: var(--card-gap);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:520px) {
-      .states {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1000px) {
-      .states {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1500px) {
-      .states {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
-    }
-
-    .states .card {
-      max-width: none
-    }
-
-    .state__cap {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: var(--s-100)
-    }
-
-    .sizes {
-      display: grid;
-      gap: var(--s-300);
-      align-items: start;
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:1000px) {
-      .sizes {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    .sizebox {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-300)
-    }
-
-    .sizebox h4 {
-      font-size: 14px;
-      margin-bottom: 4px
-    }
-
-    .sizebox p {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: var(--s-200)
-    }
-
-    .sizebox code {
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--sunken);
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--muted)
-    }
-
-    /* compact card modifier */
-    .card--compact {
-      --avail-h: 20px
-    }
-
-    .card--compact .card__body {
-      gap: 4px;
-      padding: var(--s-100)
-    }
-
-    .card--compact .card__title {
-      font-size: 12px;
-      line-height: 16px
-    }
-
-    .card--compact .price__now {
-      font-size: 15px;
-      line-height: 20px
-    }
-
-    .card--compact .avail__eta,
-    .card--compact .card__meta,
-    .card--compact .vars {
-      display: none
-    }
-
-    .card--compact .btn {
-      min-height: 36px;
-      font-size: 12px
-    }
-
     /* feature card modifier */
     .card--feature {
       --title-lines: 3
@@ -2081,53 +1809,6 @@
         flex: none;
         aspect-ratio: 4 / 3
       }
-    }
-
-    /* rules table */
-    .rules {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden
-    }
-
-    .rules th,
-    .rules td {
-      text-align: left;
-      padding: var(--s-100) var(--s-200);
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    .rules th {
-      background: var(--surface);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--dim)
-    }
-
-    .rules tr:last-child td {
-      border-bottom: 0
-    }
-
-    .rules td:first-child {
-      font-weight: 700;
-      white-space: nowrap
-    }
-
-    .tablescroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch
-    }
-
-    h3.grp {
-      font-size: 15px;
-      letter-spacing: -.01em;
-      margin: var(--s-600) 0 var(--s-200)
     }
 
     /* toast */
@@ -3025,10 +2706,9 @@
 
       <div class="ph">
         <h1 id="pageTitle">Danh mục</h1>
-        <p id="pageLead">Một lõi thương mại, một thẻ sản phẩm cho mỗi cửa hàng. Chọn một phòng ban, sau đó một tiểu mục — thẻ bên dưới là cùng một thành phần ở mọi nơi, chỉ có các mã và chế độ nội dung thay đổi.</p>
+        <p id="pageLead">Một lõi thương mại cho mỗi cửa hàng trong hệ sinh thái Path. Chọn một phòng ban, sau đó là một phân mục.</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs đang hoạt động</span><span>4 phòng ban</span>
-    <span>16 tiểu mục</span>
-    <span>5 chế độ nội dung</span><span>Bán lẻ · thị trường · thủ công · bán buôn · đặt trước</span></div>
+    <span>16 tiểu mục</span></div>
       </div>
     </div>
 
@@ -3150,7 +2830,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 86</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Thổ Nhĩ Kỳ</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Thêm vào yêu cầu</button></div>
@@ -3187,7 +2867,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 640</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Thêm vào yêu cầu</button></div>
@@ -3259,7 +2939,7 @@
       </div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 27</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 4, 25 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nhật Bản</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Thêm vào yêu cầu</button></div>
@@ -3296,7 +2976,7 @@
       <span class="more">+19</span></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 2.400</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-YRNM</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Peru</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-YRN">Thêm vào yêu cầu</button></div>
@@ -3334,7 +3014,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 9</span></div>
       <div class="bar100"><i style="width:90%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>Thứ 5, 26 thg 11</b></span></div>
+      <span class="avail__eta">Nhận được vào <b>Thứ 6, 27 thg 11</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CMP-KTL9</span><span><b>Bán bởi</b> Summit Supply</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Trung Quốc</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CMP-KTL">Thêm vào yêu cầu</button></div>
     </div>
@@ -3370,7 +3050,7 @@
       </div><div class="vars__row"><span class="vars__lb">Kích thước</span><button class="sz" aria-pressed="false" disabled title="Sold out">XS</button><button class="sz" aria-pressed="false" >S</button><button class="sz" aria-pressed="true" >M</button><button class="sz" aria-pressed="false" >L</button><button class="sz" aria-pressed="false" >XL</button><button class="sz" aria-pressed="false" disabled title="Sold out">XXL</button></div></div>
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 74</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 4, 25 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> APP-JKT-M</span><span><b>Từ</b> SPB-2</span><span><b>Nguồn gốc</b> Việt Nam</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="APP-JKT">Thêm vào yêu cầu</button></div>
@@ -3443,7 +3123,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 3</span></div>
       <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>Thứ 6, 27 thg 11</b></span></div>
+      <span class="avail__eta">Nhận được vào <b>Thứ 7, 28 thg 11</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Bán bởi</b> Kuznetsova Studio</span><span><b>Đặt hàng theo yêu cầu</b> 6 ngày</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Thêm vào yêu cầu</button></div>
     </div>
@@ -3480,7 +3160,7 @@
       <div class="avail avail--warn" data-slot="avail">
       <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 4</span></div>
       <div class="bar100"><i style="width:40%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>CN, 29 thg 11</b></span></div>
+      <span class="avail__eta">Nhận được vào <b>Thứ 2, 30 thg 11</b></span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-BRS6</span><span><b>Bán bởi</b> Mosbrush Workshop</span><span><b>Đặt hàng theo yêu cầu</b> 8 ngày</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-BRS">Thêm vào yêu cầu</button></div>
     </div>
@@ -3515,7 +3195,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 760</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-DEC1</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nga</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="KIT-DEC">Thêm vào yêu cầu</button></div>
@@ -3551,7 +3231,7 @@
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 520</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
+    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
     <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> ART-GOU12</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Đức</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="ART-GOU">Thêm vào yêu cầu</button></div>
@@ -3561,607 +3241,18 @@
       </div>
     </section>
 
-    <!-- CARD SYSTEM -->
-    <section class="sect" id="card-system">
-      <div class="wrap">
-        <div class="sect__h">
-          <h2>Hệ thống thẻ</h2>
-          <p class="count">Một thành phần · 11 khe · 5 chế độ nội dung · 10 trạng thái · 3 kích thước</p>
-        </div>
-        <p class="sect__lede">Mọi thứ bên dưới đều là HTML giống nhau. Một thẻ có thể lấp đầy một khe hoặc khe không được hiển thị — không có mẫu thẻ thứ hai. Di chuột qua một khe bên trái để xem nó ở đâu.</p>
-
-        <div class="anatomy">
-          <div class="slots" id="slots"><button class="slot" data-hl="media"><i>1</i><span><b>Phương tiện</b><span>1:1 trong lưới, 4:3 cột trong danh sách. Di chuột sẽ chuyển sang bức ảnh thứ hai. Không bao giờ bị kéo dài, không bao giờ bị cắt viền.</span>
-      <em>.card__media / [data-slot="media"]</em></span></button><button class="slot" data-hl="badges"><i>2</i><span><b>Huy hiệu</b><span>Giảm giá, bán chạy nhất, mới, thủ công, bán buôn, đặt hàng trước. Tối đa ba cái cùng một lúc.</span>
-      <em>.card__badges / [data-slot="badges"]</em></span></button><button class="slot" data-hl="eyebrow"><i>3</i><span><b>Thương hiệu / nhà sản xuất</b><span>Thương hiệu cho bán lẻ, tên nhà sản xuất cho hàng thủ công. Cả hai đều là liên kết trong sản xuất.</span>
-      <em>.card__eyebrow / [data-slot="eyebrow"]</em></span></button><button class="slot" data-hl="title"><i>4</i><span><b>Tiêu đề</b><span>Hai dòng, bị kẹp. Chuỗi đầy đủ giữ lại trong tên có thể truy cập.</span>
-      <em>.card__title / [data-slot="title"]</em></span></button><button class="slot" data-hl="desc"><i>5</i><span><b>Mô tả ngắn</b><span>Luôn ở chế độ xem danh sách; trong lưới chỉ cho các chế độ không bán lẻ và kích thước tính năng. Hai dòng, không bao giờ trong lưới 5 cột.</span>
-      <em>.card__desc / [data-slot="desc"]</em></span></button><button class="slot" data-hl="price"><i>6</i><span><b>Giá</b><span>Hiện tại, trước đó, tiết kiệm, giá đơn vị, bảng cấp bậc. Các số liệu dạng bảng, một loại tiền tệ: USD.</span>
-      <em>.price / [data-slot="price"]</em></span></button><button class="slot" data-hl="variants"><i>7</i><span><b>Biến thể</b><span>Chấm màu rồi đến kích thước. Tối đa năm chấm, phần còn lại được tính là +N. Các tổ hợp đã bán hết bị gạch chéo, không bị ẩn.</span>
-      <em>.vars / [data-slot="variants"]</em></span></button><button class="slot" data-hl="avail"><i>8</i><span><b>Tình trạng</b><span>Còn hàng / chỉ còn N / hết hàng / tiến trình đặt hàng trước, với ngày giao hàng. Chiều cao cố định.</span>
-      <em>.avail / [data-slot="avail"]</em></span></button><button class="slot" data-hl="meta"><i>9</i><span><b>Meta</b><span>SKU, người bán, kho, quốc gia xuất xứ. Lớp tin cậy cho B2B và thị trường.</span>
-      <em>.card__meta / [data-slot="meta"]</em></span></button><button class="slot" data-hl="actions"><i>10</i><span><b>Hành động</b><span>Khe cuối cùng, ghim ở dưới cùng. Một động từ chính cho mỗi chế độ: thêm vào yêu cầu, đặt chỗ, yêu cầu báo giá, thông báo cho tôi.</span>
-      <em>.card__actions / [data-slot="actions"]</em></span></button></div>
-          <div class="anatomy__stage" id="anatomyStage"><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính">
-        <a href="/ecom-catalog-demo/vi/p/hom-ktl30/">Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">19,20 US$</span><span class="price__was">24,75 US$</span><span class="price__off">Lưu 5,55 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 86</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Thổ Nhĩ Kỳ</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div>
-        </div>
-
-        <h3 class="grp">Chế độ nội dung</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="Bảng chế độ nội dung, cuộn được"
-          style="margin-bottom:var(--s-600)">
-          <table class="rules" id="modesTable"></table>
-        </div>
-
-        <h3 class="grp">Trạng thái</h3>
-        <div class="states" id="states"><div><span class="state__cap">Mặc định</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính">
-        <a href="/ecom-catalog-demo/vi/p/hom-ktl30/">Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">19,20 US$</span><span class="price__was">24,75 US$</span><span class="price__off">Lưu 5,55 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 86</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Thổ Nhĩ Kỳ</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Đang giảm giá</span><article class="card" data-id="HOM-KTL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="HOM-KTL" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-KTL" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính">
-        <a href="/ecom-catalog-demo/vi/p/hom-ktl30/">Ấm Đun Gia Vị Men 300 ml, Màu Kem, Sẵn Sàng Đun Từ Tính</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">19,20 US$</span><span class="price__was">24,75 US$</span><span class="price__off">Lưu 5,55 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 86</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-KTL30</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Thổ Nhĩ Kỳ</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-KTL">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Hàng tồn kho thấp</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mới</span><span class="badge badge--hand">Thủ công</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      <span class="card__maker">bởi Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="Bộ Bát Trộn Gốm Ném Tay, 3 Mảnh">
-        <a href="/ecom-catalog-demo/vi/p/hom-mix8/">Bộ Bát Trộn Gốm Ném Tay, 3 Mảnh</a></h3>
-      <p class="card__desc" data-slot="desc">Gốm đá được ném trên bánh xe với lớp men an toàn thực phẩm. Mỗi bộ được nung trong một mẻ nhỏ.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">57,20 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 3</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>Thứ 6, 27 thg 11</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Bán bởi</b> Kuznetsova Studio</span><span><b>Đặt hàng theo yêu cầu</b> 6 ngày</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Hết hàng</span><article class="card card--oos" data-id="LGT-PND" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F0F1E9" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F0F1E9 70%, var(--sunken))" data-art="6"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      
-      <button class="fav" data-fav="LGT-PND" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="LGT-PND" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Đèn Treo 36 W, Kính Phân Tán Opal, Có Thể Điều Chỉnh 2 700–4 000 K">
-        <a href="/ecom-catalog-demo/vi/p/lgt-pnd36/">Đèn Treo 36 W, Kính Phân Tán Opal, Có Thể Điều Chỉnh 2 700–4 000 K</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">61,82 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#EFEFF1" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#1B1B1F" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#E8A200" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--bad" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--bad"></i><span>Hết hàng</span></div>
-      <span class="avail__ship">Có hàng trở lại Thứ 7, 5 thg 12</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Đức</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Hết hàng</button>
-      <button class="btn btn--ghost" data-notify="LGT-PND">Thông báo cho tôi</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Thủ công</span><article class="card" data-id="HOM-MIX" data-mode="handmade">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#F6E9E9" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #F6E9E9 70%, var(--sunken))" data-art="5"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mới</span><span class="badge badge--hand">Thủ công</span></div>
-      <button class="fav" data-fav="HOM-MIX" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-MIX" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Aeromat</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      <span class="card__maker">bởi Kuznetsova Studio</span>
-    </div>
-      <h3 class="card__title" data-slot="title" title="Bộ Bát Trộn Gốm Ném Tay, 3 Mảnh">
-        <a href="/ecom-catalog-demo/vi/p/hom-mix8/">Bộ Bát Trộn Gốm Ném Tay, 3 Mảnh</a></h3>
-      <p class="card__desc" data-slot="desc">Gốm đá được ném trên bánh xe với lớp men an toàn thực phẩm. Mỗi bộ được nung trong một mẻ nhỏ.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">57,20 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#D9C7B0" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Chỉ còn 3</span></div>
-      <div class="bar100"><i style="width:30%"></i></div>
-      <span class="avail__eta">Nhận được vào <b>Thứ 6, 27 thg 11</b></span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-MIX8</span><span><b>Bán bởi</b> Kuznetsova Studio</span><span><b>Đặt hàng theo yêu cầu</b> 6 ngày</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="HOM-MIX">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Thị trường</span><article class="card" data-id="CRF-ALP" data-mode="marketplace">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E8EDF8" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E8EDF8 70%, var(--sunken))" data-art="8"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"><circle cx="32" cy="32" r="18"/><path d="M18 24c10 6 20 10 28 8M16 36c12 2 22-2 30-10M24 48c8-6 14-14 16-24"/></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge">Thị trường</span></div>
-      <button class="fav" data-fav="CRF-ALP" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="CRF-ALP" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Thủ công &amp; Sở thích</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Sợi Baby Alpaca Blend DK, 200 g Cuộn, Xám Mây">
-        <a href="/ecom-catalog-demo/vi/p/crf-alpa/">Sợi Baby Alpaca Blend DK, 200 g Cuộn, Xám Mây</a></h3>
-      <p class="card__desc" data-slot="desc">22 % alpaca trên lõi acrylic — halo không ngứa. Bán theo cuộn cho các studio dệt kim.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">26,95 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#C7CBD4" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#D9C7B0" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 148</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 5, 26 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-ALPA</span><span><b>Bán bởi</b> Fibra Andina</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Peru</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="CRF-ALP">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Bán buôn B2B</span><article class="card card--b2b" data-id="HOM-PAN" data-mode="b2b">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="4"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--b2b">Bán buôn</span></div>
-      <button class="fav" data-fav="HOM-PAN" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="HOM-PAN" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Nordika</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Chảo Nướng Gang 28 cm, Được Ướp Trước, Cấp Khách Sạn">
-        <a href="/ecom-catalog-demo/vi/p/hom-pan28/">Chảo Nướng Gang 28 cm, Được Ướp Trước, Cấp Khách Sạn</a></h3>
-      <p class="card__desc" data-slot="desc">Đúc cát, an toàn với lò nướng đến 260 °C. Đóng gói sáu đơn vị mỗi thùng cho người mua dịch vụ thực phẩm.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">45,10 US$</span></div><span class="price__unit">mỗi đơn vị · đã bao gồm thuế và phí</span><div class="price__tiers"><span><b>6+</b> 45,10 US$</span><span><b>24+</b> 40,92 US$</span><span><b>60+</b> 37,29 US$</span></div></div>
-      
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 240</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 5, 26 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> HOM-PAN28</span><span><b>MOQ</b> 6 cái</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Nga</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="HOM-PAN">Yêu cầu báo giá</button>
-      <button class="btn btn--ghost" data-add="HOM-PAN">Thêm nhiều 6</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Đặt trước</span><article class="card card--pre" data-id="KIT-QUI" data-mode="pre">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#EFEAF6" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #EFEAF6 70%, var(--sunken))" data-art="11"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--new">Mới</span><span class="badge badge--pre">Đặt trước</span></div>
-      <button class="fav" data-fav="KIT-QUI" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="KIT-QUI" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Thủ công &amp; Sở thích</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Khung Dệt Quilling, Tăng Cường Độ Tension, Đặt Hàng Trước">
-        <a href="/ecom-catalog-demo/vi/p/kit-qui2/">Khung Dệt Quilling, Tăng Cường Độ Tension, Đặt Hàng Trước</a></h3>
-      <p class="card__desc" data-slot="desc">Chạy sản xuất thứ hai sau khi đợt đầu tiên bán hết trong chín ngày. Đóng lại khi 300 đơn vị được cam kết.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">30,25 US$</span></div></div>
-      
-      <div class="avail avail--warn" data-slot="avail">
-      <div class="avail__row"><i class="dot dot--warn"></i><span>Đặt trước · lô mở</span></div>
-      <div class="bar100"><i style="width:40%;background:var(--accent)"></i></div>
-      <span class="avail__eta">Giao hàng trong khoảng <b>18 ngày</b> · 121 trong số 300 đã cam kết</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> KIT-QUI2</span><span><b>Từ</b> MSK-2</span><span><b>Nguồn gốc</b> Trung Quốc</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-add="KIT-QUI">Đặt trước</button></div>
-    </div>
-  </article></div><div><span class="state__cap">Đang tải (skeleton)</span><div class="sk" aria-hidden="true">
-    <div class="sk__l sk__media"></div>
-    <div class="sk__pad">
-      <div class="sk__l" style="height:11px;width:44%"></div>
-      <div class="sk__l" style="height:16px"></div>
-      <div class="sk__l" style="height:16px;width:72%"></div>
-      <div class="sk__l" style="height:12px;width:38%"></div>
-      <div class="sk__l" style="height:22px;width:52%"></div>
-      <div class="sk__l" style="height:38px;border-radius:999px"></div>
-    </div></div></div><div><span class="state__cap">Đã lưu vào danh sách yêu thích</span><article class="card" data-id="TEX-TWL" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E9EEF3" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E9EEF3 70%, var(--sunken))" data-art="7"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-22%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="TEX-TWL" aria-pressed="true" aria-label="Xóa khỏi danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="TEX-TWL" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Baltic Linen</span><span aria-hidden="true">·</span><span>Nhà &amp; Bếp</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Bộ Khăn Tắm Terry 500 gsm, 70 x 140 cm, Hai Mảnh">
-        <a href="/ecom-catalog-demo/vi/p/tex-twl50/">Bộ Khăn Tắm Terry 500 gsm, 70 x 140 cm, Hai Mảnh</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">23,98 US$</span><span class="price__was">30,58 US$</span><span class="price__off">Lưu 6,60 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#F0E6D8" aria-pressed="true" aria-label="Màu 1 trong số 4"></button><button class="sw" style="background:#8FA5A0" aria-pressed="false" aria-label="Màu 2 trong số 4"></button><button class="sw" style="background:#3C4A56" aria-pressed="false" aria-label="Màu 3 trong số 4"></button><button class="sw" style="background:#C4162D" aria-pressed="false" aria-label="Màu 4 trong số 4"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 640</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 2, 23 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> TEX-TWL50</span><span><b>Từ</b> SPB-1</span><span><b>Nguồn gốc</b> Nga</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="TEX-TWL">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">Kích thước</h3>
-        <div class="sizes" id="sizes">
-    <div class="sizebox"><h4>Gọn</h4><p>Lưới 5–6 cột, thanh bán chéo, danh sách yêu cầu. <code>.card--compact</code></p>
-      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px"><article class="card card--compact" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Ngoài trời &amp; Quang học</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ">
-        <a href="/ecom-catalog-demo/vi/p/opt-b1042/">Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">207,90 US$</span><span class="price__was">240,90 US$</span><span class="price__off">Lưu 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 27</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nhật Bản</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div></div>
-    <div class="sizebox"><h4>Tiêu chuẩn</h4><p>Mặc định ở mọi nơi: lưới danh mục, kết quả tìm kiếm, trang thương hiệu. Không có bộ điều chỉnh.</p>
-      <article class="card" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Ngoài trời &amp; Quang học</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ">
-        <a href="/ecom-catalog-demo/vi/p/opt-b1042/">Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ</a></h3>
-      
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">207,90 US$</span><span class="price__was">240,90 US$</span><span class="price__off">Lưu 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 27</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nhật Bản</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div>
-    <div class="sizebox"><h4>Tính năng</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
-      <article class="card card--feature" data-id="OPT-BIN" data-mode="retail">
-    <div class="card__media" data-slot="media">
-      <span class="card__art card__art--a" style="background:#E7F1F4" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="none" stroke="none"/>
-      <g ><g ></g></g></svg></span>
-      <span class="card__art card__art--b" style="background:color-mix(in srgb, #E7F1F4 70%, var(--sunken))" data-art="12"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
-      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect width="64" height="64" fill="rgba(0,0,0,.04)" stroke="none"/>
-      <g transform="translate(64 0) scale(-1 1)"><g transform="scale(1.24)" transform-origin="32 32"></g></g></svg></span>
-      <div class="card__badges" data-slot="badges"><span class="badge badge--sale">-14%</span><span class="badge badge--top">Bán chạy nhất</span></div>
-      <button class="fav" data-fav="OPT-BIN" aria-pressed="false" aria-label="Lưu vào danh sách yêu thích">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 20s-7-4.4-7-9.4A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.6c0 5-7 9.4-7 9.4Z" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="quick" data-quick="OPT-BIN" tabindex="-1">Xem nhanh</button>
-    </div>
-    <div class="card__body">
-      <div class="card__eyebrow" data-slot="eyebrow">
-      <span class="card__brand">Kedr Optics</span><span aria-hidden="true">·</span><span>Ngoài trời &amp; Quang học</span>
-      
-    </div>
-      <h3 class="card__title" data-slot="title" title="Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ">
-        <a href="/ecom-catalog-demo/vi/p/opt-b1042/">Kính Viễn Vọng Chống Nước 10x42, Lăng Kính BaK-4, Đầy Nitơ</a></h3>
-      <p class="card__desc" data-slot="desc">Lăng kính mái được hiệu chỉnh pha, trường nhìn 6.5°, thân IPX7 với khoảng cách mắt 22 mm.</p>
-      <div class="price" data-slot="price">
-    <div class="price__main"><span class="price__now">207,90 US$</span><span class="price__was">240,90 US$</span><span class="price__off">Lưu 33,00 US$</span></div></div>
-      <div class="vars" data-slot="variants"><div class="vars__row"><span class="vars__lb">Màu sắc</span><button class="sw" style="background:#1B1B1F" aria-pressed="true" aria-label="Màu 1 trong số 3"></button><button class="sw" style="background:#55555E" aria-pressed="false" aria-label="Màu 2 trong số 3"></button><button class="sw" style="background:#0E6E5C" aria-pressed="false" aria-label="Màu 3 trong số 3"></button>
-      </div></div>
-      <div class="avail avail--ok" data-slot="avail">
-    <div class="avail__row"><i class="dot dot--ok"></i><span>Còn hàng · 27</span></div>
-    <span class="avail__eta">Nhận được vào <b>Thứ 3, 24 thg 11</b></span>
-    <span class="avail__ship">Giao hàng miễn phí trên 80,00 US$</span></div>
-      <div class="card__meta" data-slot="meta"><span><b>SKU</b> OPT-B1042</span><span><b>Từ</b> MSK-1</span><span><b>Nguồn gốc</b> Nhật Bản</span></div>
-      <div class="card__actions" data-slot="actions"><button class="btn btn--primary" data-add="OPT-BIN">Thêm vào yêu cầu</button></div>
-    </div>
-  </article></div></div>
-
-        <h3 class="grp">Quy tắc cứng</h3>
-        <div class="tablescroll" tabindex="0" role="region" aria-label="Bảng quy tắc cứng, cuộn được">
-          <table class="rules">
-            <tbody>
-              <tr>
-                <td>Phương tiện</td>
-                <td>Luôn 1:1 trong lưới, 4:3 trong danh sách. Hình ảnh thứ hai chỉ thay đổi khi di chuột vào nơi có con trỏ (<code>@media (hover:hover)</code>) — không bao giờ trên cảm ứng. Văn bản không bao giờ chồng lên cột huy hiệu.</td>
-              </tr>
-              <tr>
-                <td>Tiêu đề</td>
-                <td>Giới hạn 2 dòng trong tiêu chuẩn, 3 trong tính năng. Tiêu đề đầy đủ nằm trong <code>title</code> thuộc tính và trong tên có thể truy cập, vì vậy không có gì bị mất đi do dấu ba chấm.</td>
-              </tr>
-              <tr>
-                <td>Giá</td>
-                <td>Các số liệu dạng bảng, luôn là loại tiền tệ của cửa hàng tại thời điểm đó. Giá bị gạch chéo chỉ hiển thị khi đó là giá thực tế trước đó, không bao giờ là một giá neo giả.</td>
-              </tr>
-              <tr>
-                <td>Tình trạng</td>
-                <td>Chỉ có ba mức: có hàng, hàng tồn kho thấp với số lượng chính xác và một thanh, hết hàng với một mẫu thông báo. Màu sắc không bao giờ là tín hiệu duy nhất — từ ngữ mang nó.</td>
-              </tr>
-              <tr>
-                <td>Biến thể</td>
-                <td>Tối đa 5 mẫu thì <code>+N</code>. Kích thước hiển thị dưới dạng hàng chip; các kết hợp không khả dụng bị gạch chéo, không bị ẩn, để người mua biết rằng toàn bộ phạm vi tồn tại.</td>
-              </tr>
-              <tr>
-                <td>Mục tiêu chạm</td>
-                <td>Nút chính 44px, nút phụ 38px, yêu thích 36px. Thân thẻ có thể nhấp, nhưng nút vẫn là một nút thực sự cho người dùng bàn phím và trình đọc màn hình.</td>
-              </tr>
-              <tr>
-                <td>Chiều cao bằng nhau</td>
-                <td>Các thẻ trong một hàng chia sẻ chiều cao. CTA là vị trí cuối cùng và được gắn với
-                  <code>margin-top:auto</code>, vì vậy không có gì nằm dưới nó — nút nằm trên một dòng trong mỗi hàng bất kể chiều dài tiêu đề, trạng thái tồn kho hoặc chiều rộng siêu dữ liệu là gì. Vị trí khả dụng giữ chiều cao dự trữ (<code>--avail-h</code>) vì vậy dải thông tin cũng giữ được sự đồng nhất.
-                </td>
-              </tr>
-              <tr>
-                <td>Chủ đề</td>
-                <td>Không có quy tắc thẻ nào sử dụng màu sắc cụ thể. Mỗi cửa hàng gửi một khối token và không có nhánh CSS nào. Hãy thử công cụ chuyển đổi thương hiệu trong thanh công cụ phía trên.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
-    <li><a href="/ecom-catalog-demo/vi/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Trang Đích</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Bảng Điều Khiển CRM</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Đại Lý AI</a></li><li><a href="/ecom-catalog-demo/vi/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Tự động hóa</a></li>
-    </ul></div><div><h5>Nhà &amp; Bếp</h5><ul>
-    <li><a href="/ecom-catalog-demo/vi/c/home/cookware/" data-dept="home" data-sub="cookware">Đồ dùng nấu ăn &amp; Chuẩn bị</a></li><li><a href="/ecom-catalog-demo/vi/c/home/appliances/" data-dept="home" data-sub="appliances">Thiết bị nhỏ</a></li><li><a href="/ecom-catalog-demo/vi/c/home/lighting/" data-dept="home" data-sub="lighting">Chiếu sáng</a></li><li><a href="/ecom-catalog-demo/vi/c/home/textiles/" data-dept="home" data-sub="textiles">Vải</a></li>
-    </ul></div><div><h5>Thủ công &amp; Sở thích</h5><ul>
-    <li><a href="/ecom-catalog-demo/vi/c/craft/yarn/" data-dept="craft" data-sub="yarn">Sợi &amp; Sợi</a></li><li><a href="/ecom-catalog-demo/vi/c/craft/beading/" data-dept="craft" data-sub="beading">Hạt &amp; Thêu</a></li><li><a href="/ecom-catalog-demo/vi/c/craft/art-supplies/" data-dept="craft" data-sub="art-supplies">Vật liệu nghệ thuật</a></li><li><a href="/ecom-catalog-demo/vi/c/craft/diy-kits/" data-dept="craft" data-sub="diy-kits">Bộ DIY</a></li>
-    </ul></div><div><h5>Ngoài trời &amp; Quang học</h5><ul>
-    <li><a href="/ecom-catalog-demo/vi/c/outdoor/optics/" data-dept="outdoor" data-sub="optics">Quang học &amp; Tầm nhìn</a></li><li><a href="/ecom-catalog-demo/vi/c/outdoor/camping/" data-dept="outdoor" data-sub="camping">Cắm trại &amp; Leo núi</a></li><li><a href="/ecom-catalog-demo/vi/c/outdoor/tools/" data-dept="outdoor" data-sub="tools">Công cụ</a></li><li><a href="/ecom-catalog-demo/vi/c/outdoor/apparel/" data-dept="outdoor" data-sub="apparel">Trang phục ngoài trời</a></li>
-    </ul></div><div><h5>Kênh</h5><ul>
-      <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
-         <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
-         <span>Telegram</span></li>
-      </ul></div><div><h5>Hệ thống thẻ</h5><ul>
-      <li><a href="/ecom-catalog-demo/vi/#card-system">Cấu trúc</a></li>
-      <li><a href="/ecom-catalog-demo/vi/#card-system">Chế độ nội dung</a></li>
-      <li><a href="/ecom-catalog-demo/vi/#card-system">Trạng thái</a></li>
-      <li><a href="/ecom-catalog-demo/vi/#card-system">Kích thước</a></li>
-      <li><a href="/ecom-catalog-demo/CATALOG.md">Thông số kỹ thuật</a></li></ul></div></div>
+      <div class="foot__grid" id="footGrid"><div><h5>Kênh</h5><ul>
+    <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
+       <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
+       <span>Telegram</span></li>
+    </ul></div></div>
       <div class="foot__bar">
         <span>Path Home — cửa hàng của hệ sinh thái Path.</span>
         <span>Giá cả, hàng tồn kho và ngày giao hàng chỉ mang tính minh họa.</span>
-        <a href="/ecom-catalog-demo/vi/">Quay lại demo nền tảng</a>
-        <a href="/ecom-catalog-demo/CATALOG.md">Thông số thẻ</a>
       </div>
     </div>
   </footer>

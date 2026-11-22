@@ -7,7 +7,7 @@
   <!-- Закрытый контур до публичного запуска: правила 03 («Демо до запуска —
        принято, вопрос 14») и 06; чек-лист 1.5. Снимается вместе с X-Robots-Tag
        на среде, когда заказчик утвердит сайт и ответит об юрлице (О-3). -->
-<title>Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box — Path Home</title>
+<title>Zaren Cotton na Moulin 6-Strand, 24-Skein Assortment, Akwati na Studio — Path Home</title>
 <meta name="description" content="390 m a kowanne skein, launin mai ɗorewa, an ɗora don workshops na embroidery da masu bayar da kayan makaranta.">
 <link rel="canonical" href="https://eduardurakov.github.io/ecom-catalog-demo/ha/p/crf-mul24/">
   <link rel="alternate" hreflang="en" href="https://eduardurakov.github.io/ecom-catalog-demo/en/p/crf-mul24/">
@@ -33,7 +33,7 @@
   <link rel="sitemap" type="application/xml" href="https://eduardurakov.github.io/ecom-catalog-demo/sitemap.xml">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Path Home">
-  <meta property="og:title" content="Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box — Path Home">
+  <meta property="og:title" content="Zaren Cotton na Moulin 6-Strand, 24-Skein Assortment, Akwati na Studio — Path Home">
   <meta property="og:description" content="390 m a kowanne skein, launin mai ɗorewa, an ɗora don workshops na embroidery da masu bayar da kayan makaranta.">
   <meta property="og:url" content="https://eduardurakov.github.io/ecom-catalog-demo/ha/p/crf-mul24/">
   <meta property="og:locale" content="ha">
@@ -1765,278 +1765,6 @@
       color: var(--muted)
     }
 
-    /* — skeleton — */
-    .sk {
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--card-radius);
-      overflow: hidden
-    }
-
-    .sk__l {
-      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
-      background-size: 300% 100%;
-      animation: sh 1.3s linear infinite;
-      border-radius: var(--r-sm)
-    }
-
-    @keyframes sh {
-      to {
-        background-position: -300% 0
-      }
-    }
-
-    .sk .sk__media {
-      aspect-ratio: var(--media-ratio)
-    }
-
-    .sk__pad {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-75);
-      padding: var(--card-pad)
-    }
-
-    /* ============================================================
-       CARD SYSTEM SECTION (spec / states / sizes)
-       ============================================================ */
-    .sect {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-700) var(--s-800)
-    }
-
-    .sect__h {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--s-300);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-100)
-    }
-
-    .sect h2 {
-      font-size: clamp(22px, 1rem + 1.5vw, 34px)
-    }
-
-    .sect__lede {
-      color: var(--muted);
-      max-width: 76ch;
-      margin-bottom: var(--s-500)
-    }
-
-    .anatomy {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:900px) {
-      .anatomy {
-        grid-template-columns: minmax(280px, 360px) 1fr
-      }
-    }
-
-    .slots {
-      display: grid;
-      gap: var(--s-50)
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: var(--s-100);
-      align-items: start;
-      padding: var(--s-100);
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      text-align: left;
-      width: 100%;
-      transition: border-color 150ms var(--curve), background 150ms var(--curve)
-    }
-
-    .slot:hover,
-    .slot[data-on="true"] {
-      border-color: var(--accent);
-      background: var(--accent-soft)
-    }
-
-    .slot i {
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 11px;
-      font-weight: 700;
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--r-sm);
-      background: var(--sunken);
-      color: var(--muted)
-    }
-
-    .slot[data-on="true"] i,
-    .slot:hover i {
-      background: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .slot b {
-      display: block;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .slot span {
-      display: block;
-      font-size: 12px;
-      line-height: 17px;
-      color: var(--muted)
-    }
-
-    .slot em {
-      display: block;
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px
-    }
-
-    .anatomy__stage {
-      display: grid;
-      place-items: center;
-      padding: var(--s-300);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      position: sticky;
-      top: var(--s-300)
-    }
-
-    .anatomy__stage .card {
-      max-width: 330px;
-      width: 100%
-    }
-
-    .hl {
-      outline: 2px solid var(--accent) !important;
-      outline-offset: 2px;
-      border-radius: var(--r-sm);
-      background: var(--accent-soft)
-    }
-
-    .states {
-      display: grid;
-      gap: var(--card-gap);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:520px) {
-      .states {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1000px) {
-      .states {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1500px) {
-      .states {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
-    }
-
-    .states .card {
-      max-width: none
-    }
-
-    .state__cap {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: var(--s-100)
-    }
-
-    .sizes {
-      display: grid;
-      gap: var(--s-300);
-      align-items: start;
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:1000px) {
-      .sizes {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    .sizebox {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-300)
-    }
-
-    .sizebox h4 {
-      font-size: 14px;
-      margin-bottom: 4px
-    }
-
-    .sizebox p {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: var(--s-200)
-    }
-
-    .sizebox code {
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--sunken);
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--muted)
-    }
-
-    /* compact card modifier */
-    .card--compact {
-      --avail-h: 20px
-    }
-
-    .card--compact .card__body {
-      gap: 4px;
-      padding: var(--s-100)
-    }
-
-    .card--compact .card__title {
-      font-size: 12px;
-      line-height: 16px
-    }
-
-    .card--compact .price__now {
-      font-size: 15px;
-      line-height: 20px
-    }
-
-    .card--compact .avail__eta,
-    .card--compact .card__meta,
-    .card--compact .vars {
-      display: none
-    }
-
-    .card--compact .btn {
-      min-height: 36px;
-      font-size: 12px
-    }
-
     /* feature card modifier */
     .card--feature {
       --title-lines: 3
@@ -2081,53 +1809,6 @@
         flex: none;
         aspect-ratio: 4 / 3
       }
-    }
-
-    /* rules table */
-    .rules {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden
-    }
-
-    .rules th,
-    .rules td {
-      text-align: left;
-      padding: var(--s-100) var(--s-200);
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    .rules th {
-      background: var(--surface);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--dim)
-    }
-
-    .rules tr:last-child td {
-      border-bottom: 0
-    }
-
-    .rules td:first-child {
-      font-weight: 700;
-      white-space: nowrap
-    }
-
-    .tablescroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch
-    }
-
-    h3.grp {
-      font-size: 15px;
-      letter-spacing: -.01em;
-      margin: var(--s-600) 0 var(--s-200)
     }
 
     /* toast */
@@ -2802,7 +2483,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box",
+  "name": "Zaren Cotton na Moulin 6-Strand, 24-Skein Assortment, Akwati na Studio",
   "description": "390 m a kowanne skein, launin mai ɗorewa, an ɗora don workshops na embroidery da masu bayar da kayan makaranta.",
   "sku": "CRF-MUL24",
   "brand": {
@@ -2942,8 +2623,7 @@
         <h1 id="pageTitle">Kundin</h1>
         <p id="pageLead">390 m a kowanne skein, launin mai ɗorewa, an ɗora don workshops na embroidery da masu bayar da kayan makaranta.</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs suna kan layi</span><span>Sassa 4</span>
-    <span>Sassan 16</span>
-    <span>Hanyoyin abun ciki 5</span><span>Zare, bead, kayan zane, kayan DIY</span></div>
+    <span>Sassan 16</span><span>Zare, bead, kayan zane, kayan DIY</span></div>
       </div>
     </div>
 
@@ -3056,15 +2736,15 @@
       <span class="card__brand">Remesla</span><span aria-hidden="true">·</span><span>Hanya &amp; Sha'awa</span>
       
     </div>
-      <h3 class="card__title" data-slot="title" title="Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box">
-        <a href="/ecom-catalog-demo/ha/p/crf-mul24/">Moulin Cotton Thread 6-Strand, 24-Skein Assortment, Studio Box</a></h3>
+      <h3 class="card__title" data-slot="title" title="Zaren Cotton na Moulin 6-Strand, 24-Skein Assortment, Akwati na Studio">
+        <a href="/ecom-catalog-demo/ha/p/crf-mul24/">Zaren Cotton na Moulin 6-Strand, 24-Skein Assortment, Akwati na Studio</a></h3>
       <p class="card__desc" data-slot="desc">390 m a kowanne skein, launin mai ɗorewa, an ɗora don workshops na embroidery da masu bayar da kayan makaranta.</p>
       <div class="price" data-slot="price">
     <div class="price__main"><span class="price__now">$ 42.90</span></div><span class="price__unit">kowane guda · haraji da kudade sun hada</span><div class="price__tiers"><span><b>5+</b> $ 42.90</span><span><b>20+</b> $ 38.94</span><span><b>100+</b> $ 34.98</span></div></div>
       
       <div class="avail avail--ok" data-slot="avail">
     <div class="avail__row"><i class="dot dot--ok"></i><span>A cikin kaya · 410</span></div>
-    <span class="avail__eta">Samu ta <b>Lar, Nuw 25</b></span>
+    <span class="avail__eta">Samu ta <b>Alh, Nuw 26</b></span>
     <span class="avail__ship">Jirgin kyauta sama da $ 80.00</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> CRF-MUL24</span><span><b>MOQ</b> 5 pcs</span><span><b>Daga</b> MSK-2</span><span><b>Asali</b> Rasha</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--accent" data-quote="CRF-MUL">Nemi farashi</button>
@@ -3075,34 +2755,18 @@
       </div>
     </section>
 
-    <!-- CARD SYSTEM -->
-    </main>
+  </main>
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Shafukan Saukarwa</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashboard na CRM</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakilan AI</a></li><li><a href="/ecom-catalog-demo/ha/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Aiki ta atomatik</a></li>
-    </ul></div><div><h5>Gida &amp; Kicin</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/home/cookware/" data-dept="home" data-sub="cookware">Kayan Girki &amp; Shirya</a></li><li><a href="/ecom-catalog-demo/ha/c/home/appliances/" data-dept="home" data-sub="appliances">Kananan Na'urori</a></li><li><a href="/ecom-catalog-demo/ha/c/home/lighting/" data-dept="home" data-sub="lighting">Haske</a></li><li><a href="/ecom-catalog-demo/ha/c/home/textiles/" data-dept="home" data-sub="textiles">Kayan Daki</a></li>
-    </ul></div><div><h5>Hanya &amp; Sha'awa</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/craft/yarn/" data-dept="craft" data-sub="yarn">Zare &amp; Fiba</a></li><li><a href="/ecom-catalog-demo/ha/c/craft/beading/" data-dept="craft" data-sub="beading">Bead &amp; Zanen Jiki</a></li><li><a href="/ecom-catalog-demo/ha/c/craft/art-supplies/" data-dept="craft" data-sub="art-supplies">Kayan Zane</a></li><li><a href="/ecom-catalog-demo/ha/c/craft/diy-kits/" data-dept="craft" data-sub="diy-kits">Kayan DIY</a></li>
-    </ul></div><div><h5>Waje &amp; Hangen Nesa</h5><ul>
-    <li><a href="/ecom-catalog-demo/ha/c/outdoor/optics/" data-dept="outdoor" data-sub="optics">Hangen Nesa &amp; Hangen</a></li><li><a href="/ecom-catalog-demo/ha/c/outdoor/camping/" data-dept="outdoor" data-sub="camping">Sansani &amp; Tafiya</a></li><li><a href="/ecom-catalog-demo/ha/c/outdoor/tools/" data-dept="outdoor" data-sub="tools">Kayan Aiki</a></li><li><a href="/ecom-catalog-demo/ha/c/outdoor/apparel/" data-dept="outdoor" data-sub="apparel">Tufafin Waje</a></li>
-    </ul></div><div><h5>Hanyoyi</h5><ul>
-      <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
-         <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
-         <span>Telegram</span></li>
-      </ul></div><div><h5>Tsarin kati</h5><ul>
-      <li><a href="/ecom-catalog-demo/ha/#card-system">Tsarin jiki</a></li>
-      <li><a href="/ecom-catalog-demo/ha/#card-system">Hanyoyin abun ciki</a></li>
-      <li><a href="/ecom-catalog-demo/ha/#card-system">Jihohi</a></li>
-      <li><a href="/ecom-catalog-demo/ha/#card-system">Girma</a></li>
-      <li><a href="/ecom-catalog-demo/CATALOG.md">Bayanan fasaha</a></li></ul></div></div>
+      <div class="foot__grid" id="footGrid"><div><h5>Hanyoyi</h5><ul>
+    <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
+       <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
+       <span>Telegram</span></li>
+    </ul></div></div>
       <div class="foot__bar">
         <span>Path Home — kasuwa ta tsarin Path.</span>
         <span>Farashi, kaya da kwanakin isarwa suna bayyana.</span>
-        <a href="/ecom-catalog-demo/ha/">Komawa ga nunin dandamali</a>
-        <a href="/ecom-catalog-demo/CATALOG.md">Bayanan kati</a>
       </div>
     </div>
   </footer>

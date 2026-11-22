@@ -1765,278 +1765,6 @@
       color: var(--muted)
     }
 
-    /* — skeleton — */
-    .sk {
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--card-radius);
-      overflow: hidden
-    }
-
-    .sk__l {
-      background: linear-gradient(90deg, var(--sunken) 25%, var(--surface) 50%, var(--sunken) 75%);
-      background-size: 300% 100%;
-      animation: sh 1.3s linear infinite;
-      border-radius: var(--r-sm)
-    }
-
-    @keyframes sh {
-      to {
-        background-position: -300% 0
-      }
-    }
-
-    .sk .sk__media {
-      aspect-ratio: var(--media-ratio)
-    }
-
-    .sk__pad {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s-75);
-      padding: var(--card-pad)
-    }
-
-    /* ============================================================
-       CARD SYSTEM SECTION (spec / states / sizes)
-       ============================================================ */
-    .sect {
-      background: var(--surface);
-      border-top: 1px solid var(--line);
-      padding-block: var(--s-700) var(--s-800)
-    }
-
-    .sect__h {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--s-300);
-      flex-wrap: wrap;
-      margin-bottom: var(--s-100)
-    }
-
-    .sect h2 {
-      font-size: clamp(22px, 1rem + 1.5vw, 34px)
-    }
-
-    .sect__lede {
-      color: var(--muted);
-      max-width: 76ch;
-      margin-bottom: var(--s-500)
-    }
-
-    .anatomy {
-      display: grid;
-      gap: var(--s-400);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:900px) {
-      .anatomy {
-        grid-template-columns: minmax(280px, 360px) 1fr
-      }
-    }
-
-    .slots {
-      display: grid;
-      gap: var(--s-50)
-    }
-
-    .slot {
-      display: grid;
-      grid-template-columns: 26px 1fr;
-      gap: var(--s-100);
-      align-items: start;
-      padding: var(--s-100);
-      background: var(--raised);
-      border: 1px solid var(--line);
-      border-radius: var(--r-md);
-      text-align: left;
-      width: 100%;
-      transition: border-color 150ms var(--curve), background 150ms var(--curve)
-    }
-
-    .slot:hover,
-    .slot[data-on="true"] {
-      border-color: var(--accent);
-      background: var(--accent-soft)
-    }
-
-    .slot i {
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 11px;
-      font-weight: 700;
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--r-sm);
-      background: var(--sunken);
-      color: var(--muted)
-    }
-
-    .slot[data-on="true"] i,
-    .slot:hover i {
-      background: var(--accent);
-      color: var(--accent-ink)
-    }
-
-    .slot b {
-      display: block;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .slot span {
-      display: block;
-      font-size: 12px;
-      line-height: 17px;
-      color: var(--muted)
-    }
-
-    .slot em {
-      display: block;
-      font-family: var(--mono);
-      font-style: normal;
-      font-size: 10px;
-      color: var(--dim);
-      margin-top: 2px
-    }
-
-    .anatomy__stage {
-      display: grid;
-      place-items: center;
-      padding: var(--s-300);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      position: sticky;
-      top: var(--s-300)
-    }
-
-    .anatomy__stage .card {
-      max-width: 330px;
-      width: 100%
-    }
-
-    .hl {
-      outline: 2px solid var(--accent) !important;
-      outline-offset: 2px;
-      border-radius: var(--r-sm);
-      background: var(--accent-soft)
-    }
-
-    .states {
-      display: grid;
-      gap: var(--card-gap);
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:520px) {
-      .states {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1000px) {
-      .states {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    @media (min-width:1500px) {
-      .states {
-        grid-template-columns: repeat(4, minmax(0, 1fr))
-      }
-    }
-
-    .states .card {
-      max-width: none
-    }
-
-    .state__cap {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dim);
-      margin-bottom: var(--s-100)
-    }
-
-    .sizes {
-      display: grid;
-      gap: var(--s-300);
-      align-items: start;
-      grid-template-columns: 1fr;
-      margin-bottom: var(--s-700)
-    }
-
-    @media (min-width:1000px) {
-      .sizes {
-        grid-template-columns: repeat(3, minmax(0, 1fr))
-      }
-    }
-
-    .sizebox {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-xl);
-      padding: var(--s-300)
-    }
-
-    .sizebox h4 {
-      font-size: 14px;
-      margin-bottom: 4px
-    }
-
-    .sizebox p {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: var(--s-200)
-    }
-
-    .sizebox code {
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--sunken);
-      padding: 1px 5px;
-      border-radius: 4px;
-      color: var(--muted)
-    }
-
-    /* compact card modifier */
-    .card--compact {
-      --avail-h: 20px
-    }
-
-    .card--compact .card__body {
-      gap: 4px;
-      padding: var(--s-100)
-    }
-
-    .card--compact .card__title {
-      font-size: 12px;
-      line-height: 16px
-    }
-
-    .card--compact .price__now {
-      font-size: 15px;
-      line-height: 20px
-    }
-
-    .card--compact .avail__eta,
-    .card--compact .card__meta,
-    .card--compact .vars {
-      display: none
-    }
-
-    .card--compact .btn {
-      min-height: 36px;
-      font-size: 12px
-    }
-
     /* feature card modifier */
     .card--feature {
       --title-lines: 3
@@ -2081,53 +1809,6 @@
         flex: none;
         aspect-ratio: 4 / 3
       }
-    }
-
-    /* rules table */
-    .rules {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--r-lg);
-      overflow: hidden
-    }
-
-    .rules th,
-    .rules td {
-      text-align: left;
-      padding: var(--s-100) var(--s-200);
-      border-bottom: 1px solid var(--line);
-      vertical-align: top
-    }
-
-    .rules th {
-      background: var(--surface);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--dim)
-    }
-
-    .rules tr:last-child td {
-      border-bottom: 0
-    }
-
-    .rules td:first-child {
-      font-weight: 700;
-      white-space: nowrap
-    }
-
-    .tablescroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch
-    }
-
-    h3.grp {
-      font-size: 15px;
-      letter-spacing: -.01em;
-      margin: var(--s-600) 0 var(--s-200)
     }
 
     /* toast */
@@ -2942,8 +2623,7 @@
         <h1 id="pageTitle">Katalogi</h1>
         <p id="pageLead">Dereva wa uso, kupunguza kebo bila zana, kinga ya mwangaza chini ya 30°.</p>
         <div class="ph__meta" id="pageMeta"><span>32 SKUs ziko hewani</span><span>Idara 4</span>
-    <span>Sehemu ndogo 16</span>
-    <span>Hali 5 za maudhui</span><span>Vifaa vya kupikia, vifaa, mwanga, vitambaa</span></div>
+    <span>Sehemu ndogo 16</span><span>Vifaa vya kupikia, vifaa, mwanga, vitambaa</span></div>
       </div>
     </div>
 
@@ -3065,7 +2745,7 @@
       </div></div>
       <div class="avail avail--bad" data-slot="avail">
       <div class="avail__row"><i class="dot dot--bad"></i><span>Imekosekana</span></div>
-      <span class="avail__ship">Imerudi kwenye hisa Jumamosi, 5 Des</span></div>
+      <span class="avail__ship">Imerudi kwenye hisa Jumapili, 6 Des</span></div>
       <div class="card__meta" data-slot="meta"><span><b>SKU</b> LGT-PND36</span><span><b>Kutoka</b> MSK-1</span><span><b>Asili</b> Ujerumani</span></div>
       <div class="card__actions" data-slot="actions"><button class="btn btn--primary" disabled>Imekosekana</button>
       <button class="btn btn--ghost" data-notify="LGT-PND">Nijulishe</button></div>
@@ -3075,34 +2755,18 @@
       </div>
     </section>
 
-    <!-- CARD SYSTEM -->
-    </main>
+  </main>
 
   <footer class="foot">
     <div class="wrap">
-      <div class="foot__grid" id="footGrid"><div><h5>Vibecode Path</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/vibecode/landings/" data-dept="vibecode" data-sub="landings">Kurasa za kutua</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/crm/" data-dept="vibecode" data-sub="crm">Dashibodi za CRM</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/agents/" data-dept="vibecode" data-sub="agents">Wakala wa AI</a></li><li><a href="/ecom-catalog-demo/sw/c/vibecode/automation/" data-dept="vibecode" data-sub="automation">Automatiki</a></li>
-    </ul></div><div><h5>Nyumbani &amp; Jiko</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/home/cookware/" data-dept="home" data-sub="cookware">Vifaa vya kupikia &amp; Maandalizi</a></li><li><a href="/ecom-catalog-demo/sw/c/home/appliances/" data-dept="home" data-sub="appliances">Vifaa Vidogo</a></li><li><a href="/ecom-catalog-demo/sw/c/home/lighting/" data-dept="home" data-sub="lighting">Mwanga</a></li><li><a href="/ecom-catalog-demo/sw/c/home/textiles/" data-dept="home" data-sub="textiles">Vitambaa</a></li>
-    </ul></div><div><h5>Sanaa &amp; Burudani</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/craft/yarn/" data-dept="craft" data-sub="yarn">Nyuzinyuzi &amp; Nyuzi</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/beading/" data-dept="craft" data-sub="beading">Mapambo &amp; Ushonaji</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/art-supplies/" data-dept="craft" data-sub="art-supplies">Vifaa vya Sanaa</a></li><li><a href="/ecom-catalog-demo/sw/c/craft/diy-kits/" data-dept="craft" data-sub="diy-kits">Vifaa vya DIY</a></li>
-    </ul></div><div><h5>Nje &amp; Optics</h5><ul>
-    <li><a href="/ecom-catalog-demo/sw/c/outdoor/optics/" data-dept="outdoor" data-sub="optics">Optics &amp; Maono</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/camping/" data-dept="outdoor" data-sub="camping">Kambi &amp; Kutembea</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/tools/" data-dept="outdoor" data-sub="tools">Zana</a></li><li><a href="/ecom-catalog-demo/sw/c/outdoor/apparel/" data-dept="outdoor" data-sub="apparel">Mavazi ya Nje</a></li>
-    </ul></div><div><h5>Mikondo</h5><ul>
-      <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
-         <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
-         <span>Telegram</span></li>
-      </ul></div><div><h5>Mfumo wa kadi</h5><ul>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Anatomia</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Mitindo ya maudhui</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Majimbo</a></li>
-      <li><a href="/ecom-catalog-demo/sw/#card-system">Saizi</a></li>
-      <li><a href="/ecom-catalog-demo/CATALOG.md">Specifikesheni</a></li></ul></div></div>
+      <div class="foot__grid" id="footGrid"><div><h5>Mikondo</h5><ul>
+    <li><a href="https://vibe.vcpath.us/" lang="ru">Vibecode Path</a>
+       <span>Автоматизация бизнеса на ИИ-агентах</span></li><li><a href="https://t.me/vibecode_path" lang="ru">t.me/vibecode_path</a>
+       <span>Telegram</span></li>
+    </ul></div></div>
       <div class="foot__bar">
         <span>Path Home — duka la mfumo wa Path.</span>
         <span>Bei, hisa na tarehe za usafirishaji ni mfano.</span>
-        <a href="/ecom-catalog-demo/sw/">Rudi kwenye onyesho la jukwaa</a>
-        <a href="/ecom-catalog-demo/CATALOG.md">Specifikesheni ya kadi</a>
       </div>
     </div>
   </footer>

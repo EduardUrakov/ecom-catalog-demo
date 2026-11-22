@@ -192,7 +192,9 @@ const NAV = {
     return NAV.static ? NAV.base + '/' + NAV.lang + '/c/' + deptId + '/' + subId + '/' : '#catalog';
   },
   product(sku) {
-    return NAV.static ? NAV.base + '/' + NAV.lang + '/p/' + String(sku).toLowerCase() + '/' : '#card-system';
+    // В однофайловом демо страниц товара нет: ссылка ведёт в сетку, а не в
+    // несуществующий якорь. Адрес товара появляется только в сборке (dist/).
+    return NAV.static ? NAV.base + '/' + NAV.lang + '/p/' + String(sku).toLowerCase() + '/' : '#catalog';
   },
   absolute(path) {
     return path.startsWith('http') ? path : HUB.baseUrl + path;
@@ -308,30 +310,22 @@ const RU_DICT = {
   'Light': 'Светлая',
   'Enquiry': 'Заявка',
   'Catalogue': 'Каталог',
-  'Other storefronts': 'Другие витрины',
-  // Метка марки по умолчанию в переключателе брендовых токенов.
+    // Метка марки по умолчанию в переключателе брендовых токенов.
   'House': 'Собственная марка',
   'Channels': 'Каналы',
-  'Card system': 'Система карточки',
-  // Строки, которые принадлежат сборке страниц, а не разметке демо: они
+    // Строки, которые принадлежат сборке страниц, а не разметке демо: они
   // попадают в <title>, в meta description и в JSON-LD организации. Держим их
   // в этом же словаре, чтобы исходник перевода был один на все языки.
   'Home & living storefront of the Path ecosystem':
     'Дом и быт — витрина экосистемы Path',
   'Path Home: four departments, sixteen subsections and one unified product card covering retail, marketplace, handmade, B2B wholesale and pre-order.':
     'Path Home: четыре раздела, шестнадцать подразделов и одна единая карточка товара — ритейл, маркетплейс, хендмейд, опт и предзаказ.',
-  'One commercial core, one product card for every storefront. Pick a department, then a subsection — the card below is the same component everywhere, only the tokens and the content mode change.':
-    'Одно торговое ядро, одна карточка товара на все витрины. Выберите раздел, затем подраздел — карточка ниже везде один и тот же компонент, меняются только токены и режим контента.',
-  'Anatomy': 'Анатомия',
-  'Specification': 'Спецификация',
-  'Card specification': 'Спецификация карточки',
-  'Back to the platform demo': 'Вернуться в демо платформы',
-  '32 SKUs live': '32 SKU в каталоге',
+  'One commercial core for every storefront of the Path ecosystem. Pick a department, then a subsection.':
+    'Одно торговое ядро на все витрины экосистемы Path. Выберите раздел, затем подраздел.',
+          '32 SKUs live': '32 SKU в каталоге',
   '4 departments': '4 раздела',
   '16 subsections': '16 подразделов',
-  '5 content modes': '5 режимов карточки',
-  'Retail · marketplace · handmade · wholesale · pre-order': 'Ритейл · маркетплейс · хендмейд · опт · предзаказ',
-
+    
   // --- тулбар ---
   'Filters': 'Фильтры',
   'Sort by': 'Сортировка',
@@ -388,7 +382,6 @@ const RU_DICT = {
   'Back in stock': 'Снова в наличии',
   'Free delivery over': 'Бесплатная доставка от',
   'Close quick view': 'Закрыть быстрый просмотр',
-  'Loading (skeleton)': 'Загрузка (скелетон)',
   'Saved to wishlist': 'Сохранено в избранное',
   'Removed from wishlist': 'Убрано из избранного',
   'Save to wishlist': 'В избранное',
@@ -437,109 +430,6 @@ const RU_DICT = {
 // END A
 
 Object.assign(RU_DICT, {
-  // --- система карточки: заголовки и анатомия ---
-  'One component · 11 slots · 5 content modes · 10 states · 3 sizes':
-    'Один компонент · 11 слотов · 5 режимов · 10 состояний · 3 размера',
-  'Everything below is the same HTML. A card either fills a slot or the slot is not rendered — there is no second card template. Hover a slot on the left to see where it lives.':
-    'Ниже — один и тот же HTML. Карточка либо заполняет слот, либо слот не выводится вовсе: второго шаблона нет. Наведите на слот слева, чтобы увидеть, где он живёт.',
-  'Media': 'Медиа',
-  '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.':
-    '1:1 в сетке, 4:3 в списке. При наведении подменяется вторым кадром. Никогда не растягивается и не получает полей.',
-  'Badges': 'Бейджи',
-  'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.':
-    'Скидка, хит продаж, новинка, хендмейд, опт, предзаказ. Не больше трёх одновременно.',
-  'Brand / maker': 'Бренд / мастер',
-  'Brand for retail, maker name for handmade. Both are links in production.':
-    'Бренд для ритейла, имя мастера для хендмейда. В продакшене оба — ссылки.',
-  'Title': 'Заголовок',
-  'Two lines, clamped. Full string stays in the accessible name.':
-    'Две строки с обрезкой. Полная строка остаётся в доступном имени.',
-  'Short description': 'Короткое описание',
-  'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.':
-    'Всегда в списке; в сетке — только для неритейловых режимов и акцентного размера. Две строки, никогда в пятиколоночной сетке.',
-  'Price': 'Цена',
-  'Now, previous, saving, unit price, tier table. Tabular figures, one currency: USD.':
-    'Текущая, прежняя, экономия, цена за единицу, таблица тиров. Табличные цифры, валюта одна — доллары.',
-  'Variants': 'Варианты',
-  'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.':
-    'Сначала точки цветов, затем размеры. Не больше пяти точек, остальные счётчиком +N. Распроданные комбинации зачёркнуты, а не скрыты.',
-  'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.':
-    'В наличии / осталось N / нет в наличии / прогресс предзаказа — с датой доставки. Фиксированная высота.',
-  'Meta': 'Мета',
-  'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.':
-    'Артикул, продавец, склад, страна происхождения. Слой доверия для B2B и маркетплейса.',
-  'Actions': 'Действия',
-  'Last slot, pinned to the bottom. One primary verb per mode: add to enquiry, reserve, request quote, notify me.':
-    'Последний слот, прижат к низу. Один главный глагол на режим: в заявку, забронировать, запросить цену, сообщить о поступлении.',
-
-  // --- режимы контента ---
-  'Content modes': 'Режимы карточки',
-  'Mode': 'Режим',
-  'Who sells': 'Кто продаёт',
-  'What changes in the card': 'Что меняется в карточке',
-  'Example SKU': 'Пример SKU',
-  'Own stock, own brand': 'Свой склад, свой бренд',
-  'Add to enquiry · free-delivery threshold · tier table on bulk':
-    'В заявку · порог бесплатной доставки · таблица тиров на объём',
-  'Third-party seller': 'Сторонний продавец',
-  'Sold by + warehouse in meta, platform never promises credit':
-    'Продавец и склад в мете; условия оплаты — на стороне продавца',
-  'Maker, small batch': 'Мастер, малая партия',
-  'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock':
-    'Имя мастера в надзаголовке, бейдж «Хендмейд», срок изготовления, маленький остаток',
-  'Tender / supplier buyer': 'Тендер / закупщик',
-  'Unit price with taxes and duties inside, tier table, MOQ, Request quote replaces Add to enquiry':
-    'Цена за единицу с налогом и пошлиной внутри, таблица тиров, MOQ, «Запросить цену» вместо «В заявку»',
-  'Batch not produced yet': 'Партия ещё не произведена',
-  'Progress bar, pledged %, ships-in date, Reserve replaces Add to enquiry':
-    'Прогресс-бар, процент заявок, дата отправки, «Забронировать» вместо «В заявку»',
-
-  // --- состояния и размеры ---
-  'States': 'Состояния',
-  'Default': 'Обычное',
-  'On sale': 'Со скидкой',
-  'Sizes': 'Размеры',
-  'Compact': 'Компактная',
-  '5–6 column grids, cross-sell rails, the enquiry list.':
-    'Сетки на 5–6 колонок, блоки кросс-продаж, список заявки.',
-  'Standard': 'Стандартная',
-  'The default everywhere: category grid, search results, brand pages. No modifier.':
-    'Базовая везде: сетка категории, результаты поиска, страницы бренда. Без модификатора.',
-  'Feature': 'Акцентная',
-  'Hero slot, department landing, first row of a subsection.':
-    'Hero-слот, посадка раздела, первый ряд подраздела.',
-
-  // --- жёсткие правила ---
-  'Hard rules': 'Жёсткие правила',
-  'Always 1:1 in grid, 4:3 in list. Second image swaps on hover only where a pointer exists (':
-    'В сетке всегда 1:1, в списке 4:3. Второй кадр подменяется по наведению только там, где есть указатель (',
-  ') — never on touch. Text never overlaps the badge column.':
-    ') — на тач-экранах никогда. Текст не заходит на колонку бейджей.',
-  'Clamped to 2 lines in standard, 3 in feature. Full title is in the ':
-    'Обрезка до 2 строк в стандартной, до 3 в акцентной. Полный заголовок лежит в атрибуте ',
-  'attribute and in the accessible name, so nothing is lost to the ellipsis.':
-    ' и в доступном имени, так что многоточие ничего не теряет.',
-  'Tabular figures, always the storefront currency of the moment. A strikethrough price renders only when it is a real previous price, never an invented anchor.':
-    'Табличные цифры, всегда текущая валюта витрины. Зачёркнутая цена выводится, только если это настоящая прежняя цена, а не выдуманный якорь.',
-  'Three levels only: in stock, low stock with the exact count and a bar, out of stock with a notify form. Colour is never the only signal — the words carry it.':
-    'Только три уровня: в наличии, мало с точным остатком и полосой, нет в наличии с формой оповещения. Цвет никогда не единственный сигнал — смысл несут слова.',
-  'Max 5 swatches then ': 'Не больше 5 чипов, дальше ',
-  '. Sizes render as a chip row; unavailable combinations are struck through, not hidden, so the shopper knows the full range exists.':
-    '. Размеры — ряд чипов; недоступные комбинации зачёркнуты, а не скрыты, чтобы покупатель видел весь диапазон.',
-  'Tap targets': 'Зоны нажатия',
-  'Primary button 44px, secondary 38px, favourite 36px. Card body is clickable, but the button stays a real button for keyboard and screen-reader users.':
-    'Главная кнопка 44px, вторичная 38px, избранное 36px. Тело карточки кликабельно, но кнопка остаётся настоящей кнопкой для клавиатуры и скринридеров.',
-  'Equal height': 'Одинаковая высота',
-  'Cards in one row share height. The CTA is the last slot and is pinned with':
-    'Карточки в одном ряду одной высоты. CTA — последний слот, он прижат через',
-  ', so nothing sits below it — the button lands on one line in every row whatever the title length, stock state or metadata width happens to be. The availability slot keeps a reserved height (':
-    ', поэтому ниже ничего нет: кнопка встаёт на одну линию в любом ряду, какими бы ни были длина заголовка, остаток или ширина метаданных. Слот наличия держит резервную высоту (',
-  ') so the info band stays uniform too.':
-    '), поэтому информационная полоса тоже ровная.',
-  'Theming': 'Темизация',
-  'No card rule uses a literal colour. Every storefront ships a block of tokens and zero CSS forks. Try the brand switcher in the toolbar above.':
-    'Ни одно правило карточки не использует цвет литералом. У каждой витрины — свой блок токенов и ноль форков CSS. Попробуйте переключатель бренда в тулбаре выше.',
-
   // --- футер ---
   'Path Home — storefront of the Path ecosystem.':
     'Path Home — витрина экосистемы Path.',
@@ -594,8 +484,6 @@ Object.assign(RU_DICT, {
     'Цена по запросу вместо цифры, срок старта вместо склада, формат вместо склада и страны',
   'Breadcrumb': 'Хлебные крошки',
   'Search': 'Поиск',
-  'Content modes table, scrollable': 'Таблица режимов, прокручивается',
-  'Hard rules table, scrollable': 'Таблица правил, прокручивается',
   'Switch storefront tokens': 'Переключить токены витрины',
   'Switch theme': 'Переключить тему',
   'Switch grid / list': 'Переключить сетку или список',
@@ -1288,13 +1176,12 @@ function metaBlock(p) {
 }
 
 /**
- * The card. opts: {compact, feature, state}
+ * The card. opts: {feature, state}
  * state overrides used by the Card system gallery.
  */
 function card(p, opts = {}) {
   const n = subName(p);
   const cls = ['card'];
-  if (opts.compact) cls.push('card--compact');
   if (opts.feature) cls.push('card--feature');
   if (opts.state) cls.push(`card--${opts.state}`);
   if (p.mode === 'b2b') cls.push('card--b2b');
@@ -1340,19 +1227,6 @@ function card(p, opts = {}) {
       ${actionBlock(p)}
     </div>
   </article>`;
-}
-
-function skeleton() {
-  return `<div class="sk" aria-hidden="true">
-    <div class="sk__l sk__media"></div>
-    <div class="sk__pad">
-      <div class="sk__l" style="height:11px;width:44%"></div>
-      <div class="sk__l" style="height:16px"></div>
-      <div class="sk__l" style="height:16px;width:72%"></div>
-      <div class="sk__l" style="height:12px;width:38%"></div>
-      <div class="sk__l" style="height:22px;width:52%"></div>
-      <div class="sk__l" style="height:38px;border-radius:999px"></div>
-    </div></div>`;
 }
 
 // ============================================================
@@ -1566,123 +1440,30 @@ function renderGrid() {
       : d ? d.name : 'Catalogue';
   const visTotal = visFiltered().length;
   el('pageMeta').innerHTML = `<span>${visTotal} SKUs live</span><span>${DEPTS.filter(d => S.vis.depts[d.id]).length} departments</span>
-    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>
-    <span>${Object.keys(MODE_LABEL).length} content modes</span><span>${d ? d.blurb : 'Retail · marketplace · handmade · wholesale · pre-order'}</span>`;
-}
-
-// ============================================================
-// CARD SYSTEM — anatomy, modes, states, sizes
-// ============================================================
-const SLOTS = [
-  ['media', 'Media', '1:1 in grid, 4:3 column in list. Hover swaps to the second shot. Never stretched, never letterboxed.', '.card__media'],
-  ['badges', 'Badges', 'Discount, best seller, new, handmade, wholesale, pre-order. Max three at once.', '.card__badges'],
-  ['eyebrow', 'Brand / maker', 'Brand for retail, maker name for handmade. Both are links in production.', '.card__eyebrow'],
-  ['title', 'Title', 'Two lines, clamped. Full string stays in the accessible name.', '.card__title'],
-  ['desc', 'Short description', 'Always in list view; in grid only for non-retail modes and the feature size. Two lines, never in the 5-column grid.', '.card__desc'],
-  ['price', 'Price', 'Now, previous, saving, unit price, tier table. Tabular figures, one currency: USD.', '.price'],
-  ['variants', 'Variants', 'Colour dots then sizes. Max five dots, the rest counted as +N. Sold-out combinations struck through, not hidden.', '.vars'],
-  ['avail', 'Availability', 'In stock / only N left / out of stock / pre-order progress, with a delivery date. Fixed height.', '.avail'],
-  ['meta', 'Meta', 'SKU, seller, warehouse, country of origin. The trust layer for B2B and marketplace.', '.card__meta'],
-  ['actions', 'Actions', 'Last slot, pinned to the bottom. One primary verb per mode: add to enquiry, reserve, request quote, notify me.', '.card__actions'],
-];
-
-function renderAnatomy() {
-  el('slots').innerHTML = SLOTS.map(([k, n, d, sel], i) =>
-    `<button class="slot" data-hl="${k}"><i>${i + 1}</i><span><b>${n}</b><span>${d}</span>
-      <em>${sel} / [data-slot="${k}"]</em></span></button>`).join('');
-  const demo = P.find((p) => p.was && p.colors && p.mode === 'retail') || P[0];
-  el('anatomyStage').innerHTML = card(demo, { feature: false });
-}
-
-function renderModes() {
-  const rows = [
-    ['Retail', 'Own stock, own brand', 'Add to enquiry · free-delivery threshold · tier table on bulk', P.find(p => p.mode === 'retail' && p.type !== 'service')],
-    ['Marketplace', 'Third-party seller', 'Sold by + warehouse in meta, platform never promises credit', P.find(p => p.mode === 'marketplace')],
-    ['Handmade', 'Maker, small batch', 'Maker name in the eyebrow, Handmade badge, made-to-order lead time, tiny stock', P.find(p => p.mode === 'handmade')],
-    ['B2B wholesale', 'Tender / supplier buyer', 'Unit price with taxes and duties inside, tier table, MOQ, Request quote replaces Add to enquiry', P.find(p => p.mode === 'b2b')],
-    ['Pre-order', 'Batch not produced yet', 'Progress bar, pledged %, ships-in date, Reserve replaces Add to enquiry', P.find(p => p.mode === 'pre')],
-    // Услуга — не шестой режим, а type: режим описывает, КТО продаёт и как
-    // считается цена, а type — что продаётся. Меняются три слота сразу:
-    // цена («по запросу» вместо цифры), наличие (срок старта вместо склада)
-    // и мета (формат вместо склада и страны происхождения).
-    ['Service (type)', 'The storefront sells the work, not a unit', 'Price on request instead of a number, start date instead of stock, format instead of warehouse and origin', P.find(p => p.type === 'service')],
-  ];
-  el('modesTable').innerHTML = `<thead><tr><th>Mode</th><th>Who sells</th><th>What changes in the card</th><th>Example SKU</th></tr></thead>
-    <tbody>${rows.map(([n, w, c, p]) => `<tr><td>${n}</td><td>${w}</td><td>${c}</td>
-    <td><span class="mono">${p.sku}</span> — ${esc(p.title.split(',').slice(0, 1))}</td></tr>`).join('')}</tbody>`;
-}
-
-function renderStates() {
-  const g = [
-    ['Default', P.find(p => p.id === 'HOM-KTL'), {}],
-    ['On sale', P.find(p => p.mode === 'retail' && p.was), {}],
-    ['Low stock', P.find((p) => p.stock != null && p.stock > 0 && p.stock <= 10 && p.mode !== 'pre'), {}],
-    ['Out of stock', P.find(p => p.id === 'LGT-PND'), {}],
-    ['Handmade', P.find(p => p.mode === 'handmade'), {}],
-    ['Marketplace', P.find(p => p.mode === 'marketplace'), {}],
-    ['B2B wholesale', P.find(p => p.mode === 'b2b'), {}],
-    ['Pre-order', P.find(p => p.mode === 'pre'), {}],
-  ];
-  el('states').innerHTML = g.map(([cap, p]) =>
-    `<div><span class="state__cap">${cap}</span>${card(p)}</div>`).join('') +
-    `<div><span class="state__cap">Loading (skeleton)</span>${skeleton()}</div>` +
-    `<div><span class="state__cap">Saved to wishlist</span>${card(Object.assign({}, P.find(p => p.id === 'TEX-TWL')))}</div>`;
-}
-
-function renderSizes() {
-  const p = P.find(x => x.id === 'OPT-BIN');
-  el('sizes').innerHTML = `
-    <div class="sizebox"><h4>Compact</h4><p>5–6 column grids, cross-sell rails, the enquiry list. <code>.card--compact</code></p>
-      <div class="grid" style="grid-template-columns:1fr;padding:0;max-width:260px">${card(p, { compact: true })}</div></div>
-    <div class="sizebox"><h4>Standard</h4><p>The default everywhere: category grid, search results, brand pages. No modifier.</p>
-      ${card(p)}</div>
-    <div class="sizebox"><h4>Feature</h4><p>Hero slot, department landing, first row of a subsection. <code>.card--feature</code></p>
-      ${card(p, { feature: true })}</div>`;
+    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>${d ? `<span>${d.blurb}</span>` : ''}`;
 }
 
 function renderFoot() {
   const el$ = el('footGrid');
   if (!el$) return;
-  const cols = DEPTS.filter(d => S.vis.depts[d.id]).map(d => `<div><h5>${d.name}</h5><ul>
-    ${d.subs.filter(s => S.vis.subs[s.id]).map(s =>
-      `<li><a href="${NAV.section(d.id, s.id)}" data-dept="${d.id}" data-sub="${s.id}">${s.name}</a></li>`).join('')}
-    </ul></div>`);
-
-  // Блок переходов по экосистеме. Два списка, как ответил заказчик
-  // 19.11.2026 14:38: «каталоги и витрины на каждый сайт» + «динамические
-  // витрины» — и отдельно «другие каналы медиа, новостей, группы, тг и
-  // каналы продаж». Пустой список = пустой блок: «пункт без страницы не
-  // показывается» (05-templates/shared-sections-task.md, критерий 2),
-  // выдумывать сайты нельзя (rules/03). kind:'internal' (cms, crm, sb,
-  // factory, paymesh) не попадает ни в один блок — внутренняя архитектура
-  // публично не показывается (схема v0.2 §7, Least Privilege).
-  const shops = HUB.sites.filter(s => (s.kind === 'storefront' || s.kind === 'dynamic') && s.status === 'live');
-  if (shops.length) {
-    cols.push(`<div><h5>Other storefronts</h5><ul>
-      ${shops.map(s =>
-        `<li><a href="${esc(s.url)}" lang="${s.langs?.[0] || HUB.langs.source}">${esc(s.name)}</a>
-         <span>${esc(s.niche)}</span></li>`).join('')}
-      </ul></div>`);
-  }
-
+  // Единственная колонка в подвале — внешние каналы: «другие каналы медиа,
+  // новостей, группы, тг и каналы продаж» (ответ заказчика 19.11.2026 14:38).
+  // Пустой список = пустой блок: «пункт без страницы не показывается»
+  // (05-templates/shared-sections-task.md, критерий 2), выдумывать сайты
+  // нельзя (rules/03). kind:'internal' (cms, crm, sb, factory, paymesh) не
+  // показывается — внутренняя архитектура публично не раскрывается (схема
+  // v0.2 §7, Least Privilege). Витрины соседних сайтов убраны вместе с
+  // облаком разделов: переходы по экосистеме — задача хаба, не карточки.
+  // Дерево разделов в подвале дублировало боковую панель, а ссылки на
+  // спецификацию карточки — поверхность разработчика, она живёт в CATALOG.md.
   const CHANNEL_KINDS = ['service', 'sales', 'media', 'news', 'community', 'telegram'];
   const channels = HUB.sites.filter(s => CHANNEL_KINDS.includes(s.kind) && s.status === 'live');
-  if (channels.length) {
-    cols.push(`<div><h5>Channels</h5><ul>
-      ${channels.map(s =>
-        `<li><a href="${esc(s.url)}" lang="${s.langs?.[0] || HUB.langs.source}">${esc(s.name)}</a>
-         <span>${esc(s.niche)}</span></li>`).join('')}
-      </ul></div>`);
-  }
-
-  cols.push(`<div><h5>Card system</h5><ul>
-      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Anatomy</a></li>
-      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Content modes</a></li>
-      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">States</a></li>
-      <li><a href="${NAV.static ? NAV.home() + '#card-system' : '#card-system'}">Sizes</a></li>
-      <li><a href="CATALOG.md">Specification</a></li></ul></div>`);
-
-  el$.innerHTML = cols.join('');
+  if (!channels.length) { el$.innerHTML = ''; return; }
+  el$.innerHTML = `<div><h5>Channels</h5><ul>
+    ${channels.map(s =>
+      `<li><a href="${esc(s.url)}" lang="${s.langs?.[0] || HUB.langs.source}">${esc(s.name)}</a>
+       <span>${esc(s.niche)}</span></li>`).join('')}
+    </ul></div>`;
 }
 
 // ============================================================
@@ -2206,7 +1987,7 @@ document.addEventListener('click', (e) => {
     // на кнопке — язык, на который переключимся
     el('langLbl').textContent = S.lang === 'ru' ? 'EN' : 'RU';
     // локаль дат и чисел меняется вместе с языком — перерисовываем то, что её печатает
-    renderGrid(); renderAnatomy(); renderStates(); renderSizes();
+    renderGrid();
     applyLang();
     return;
   }
@@ -2218,7 +1999,6 @@ document.addEventListener('click', (e) => {
     el('theme').setAttribute('aria-pressed', String(dark));
     el('themeLbl').textContent = dark ? 'Light' : 'Dark';
     document.querySelector('meta[name=theme-color]').setAttribute('content', dark ? '#141417' : '#FFFFFF');
-    renderAnatomy(); renderStates(); renderSizes();
     return;
   }
 
@@ -2317,25 +2097,8 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  // anatomy slot hover/click
-  const hl = t.closest('[data-hl]');
-  if (hl) { highlight(hl.dataset.hl, hl); return; }
-
   if (t.closest('#inqBtn')) { openEnquiry(); return; }
 });
-
-// hover the slot list → highlight inside the demo card
-document.addEventListener('mouseover', (e) => {
-  const hl = e.target.closest('[data-hl]');
-  if (hl) highlight(hl.dataset.hl, hl);
-});
-
-function highlight(key, btn) {
-  document.querySelectorAll('.slot').forEach(s => s.dataset.on = String(s === btn));
-  document.querySelectorAll('#anatomyStage [data-slot]').forEach(n => {
-    n.classList.toggle('hl', n.dataset.slot === key);
-  });
-}
 
 // card keyboard access: Enter on the card body opens quick view
 document.addEventListener('keydown', (e) => {
@@ -2447,8 +2210,8 @@ document.addEventListener('pointermove', trackHeadGlass, { passive: true });
 // ============================================================
 // INIT
 // ============================================================
-// one SKU starts saved, so the "Saved to wishlist" state in the
-// card-system gallery shows a real pressed state rather than a mock-up
+// Одна позиция старает сохранённой: избранное должно быть живым
+// состоянием, а не пустой кнопкой в демо.
 S.favs.add('TEX-TWL');
 
 // Серверная страница (dist/) уже переведена в ответе. Когда браузер догружает
@@ -2488,13 +2251,6 @@ if (ROUTE) {
 renderDeps();
 renderFoot();
 
-const hasCardSystem = !!el('anatomyStage');
-if (hasCardSystem) {
-  renderAnatomy();
-  renderModes();
-  renderStates();
-  renderSizes();
-}
 if (ROUTE && ROUTE.kind === 'product') {
   // Сетку на странице товара не перерисовываем: там одна feature-карточка,
   // её нарисовал сервер. Пользовательский фильтр всё равно сработает —
