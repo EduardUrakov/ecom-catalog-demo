@@ -1439,8 +1439,10 @@ function renderGrid() {
     : S.sub !== 'all' ? d.subs.find(s => s.id === S.sub).name
       : d ? d.name : 'Catalogue';
   const visTotal = visFiltered().length;
+  // Только счётчики: описание раздела уже напечатано лид-строкой под
+  // заголовком, повторять его в метрике — два одинаковых текста на экране.
   el('pageMeta').innerHTML = `<span>${visTotal} SKUs live</span><span>${DEPTS.filter(d => S.vis.depts[d.id]).length} departments</span>
-    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>${d ? `<span>${d.blurb}</span>` : ''}`;
+    <span>${DEPTS.reduce((a, x) => a + x.subs.filter(s => S.vis.subs[s.id]).length, 0)} subsections</span>`;
 }
 
 function renderFoot() {
